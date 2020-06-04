@@ -1,7 +1,4 @@
-  /* Removes header drop shadow */
-  ion-header {
-    z-index: 0;
-  }
+
   /* Styles checkbox*/
   ion-checkbox {
     --background: transparent !important;
@@ -64,5 +61,10 @@ ion-list {
 ion-fab-button {
 --color: var(--ion-color-step-850,#fff);
 --background: radial-gradient(#00cd67 20%, #01ff80 100%) !important;
+}
+
+ion-label {
+  border: none !important;
+  outline: none !important;
 }
 

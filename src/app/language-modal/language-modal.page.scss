@@ -1,0 +1,16 @@
+
+/* Removes header drop shadow */
+  ion-header {
+    z-index: 0;
+}
+
+ion-content{
+    --ion-background-color: linear-gradient(180deg, #3064ab 0%, #0c499c 50%, #03216e 100%) !important;
+    }
+
+/* Styles 2 dropdowns*/
+ion-item {
+    --background: transparent !important;
+    --color: #fff !important;
+    --border-color: var(--ion-item-border-color,var(--ion-border-color,var(--ion-color-step-150,rgba(255,255,255,0.13))));
+    }
