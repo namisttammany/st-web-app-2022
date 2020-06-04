@@ -1,0 +1,27 @@
+<ion-header no-border>
+  <ion-toolbar text-center>
+    <ion-title>{{title | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+  <ion-content padding>
+
+  <ion-list>
+
+    <ion-item *ngFor="let number of phoneNumbers">
+      <ion-label (click)="select(number)">
+        {{number.type}}:  {{number.value}}
+      </ion-label>
+    </ion-item>
+
+  </ion-list>
+  <ion-row>
+    <ion-col col-4><ion-button class="close" (click)="closeModal()"><ion-icon large name="close"></ion-icon></ion-button>
+    </ion-col>
+      <ion-col col-4>
+      </ion-col>
+      <ion-col col-4>
+      </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,36 @@
+ /* Removes header drop shadow */
+ ion-header {
+    z-index: 0;
+  }
+/* Styles top toolbar */
+ion-toolbar {
+    color: white;
+    --background: #3064ab;
+    box-shadow: none;
+}
+/* Styles background color of every item on page content*/
+ion-content{
+--ion-background-color: linear-gradient(180deg, #3064ab 0%, #0c499c 50%, #03216e 100%) !important;
+}
+   
+/* Styles each resources font colors*/
+p {
+text-align: left;
+color: #fff;
+width:100%;
+}
+b {
+color: #fff;
+font-size: 12pt;
+}
+    
+/* Styles each favorites background color and border color*/
+
+ion-item {
+    --background: transparent !important;
+    --border-color: rgba(255,255,255,0.13);
+}
+.list-md {
+    background: transparent !important;
+}
+ 

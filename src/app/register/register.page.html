@@ -1,0 +1,48 @@
+<ion-content no-padding>
+  <div class="main">
+    <ion-card no-margin>
+      <ion-card-content>
+        <ion-row class="row">
+          <div class="fire-logo">
+            <img src="assets/img/0000000776_white.gif" class="img-logo">
+            <ion-text>
+              <h2 no-margin margin-vertical text-center></h2>
+            </ion-text>
+          </div>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-input clearInput type="email"  [placeholder]="formEmail | translate" [(ngModel)]="email" class="input" padding-horizontal
+              clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input clearInput type="password" [placeholder]="formPassword | translate" [(ngModel)]="password" class="input"
+              padding-horizontal clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row>
+
+        <ion-row>
+          <ion-col>
+            <ion-button expand="block" (click)="signup()" color="undefined" class="transition">
+              <strong class="white">
+                {{title | translate}}</strong></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text class="error" text-center>{{error}}</ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text text-center class="block">{{text1 | translate}}
+              <span class="bold" routerLink="/login">{{login | translate}}</span></ion-text>
+          </ion-col>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>

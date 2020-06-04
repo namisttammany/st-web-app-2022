@@ -1,0 +1,40 @@
+<ion-header no-border>
+    <ion-toolbar text-center>
+      <ion-title>{{title | translate}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  
+  <ion-content padding>
+  
+    <ion-list>
+      <ion-item style="height: 25% !important;">
+  
+          <ion-label>{{phone | translate}}</ion-label>
+          <ion-input type="tel" [(ngModel)]="phonenumberEntered" (keyup.enter)="sendShare()"></ion-input>
+  
+        </ion-item>
+        <ion-item style="height: 25% !important;">
+          <ion-label>{{email | translate}}</ion-label>
+          <ion-input type="text" [(ngModel)]="emailEntered" (keyup.enter)="sendShare()"></ion-input>
+        </ion-item>
+  
+        <ion-item style="height: 25% !important;">
+          <ion-label>{{personalMsg | translate}}</ion-label>
+          <ion-input type="text" [(ngModel)]="personalMessage" (keyup.enter)="sendShare()"></ion-input>
+        </ion-item>
+  
+      </ion-list>
+
+  <ion-row>
+    <ion-button class="close" (click)="closeModal()"><ion-icon large name="close"></ion-icon>{{closeButton | translate}}</ion-button>
+    
+     
+        <ion-button (click)="selectContact()" full round><ion-icon large name="person-circle-outline"></ion-icon>{{ contactsButton | translate}}</ion-button>
+      
+      
+        <ion-button (click)="sendShare()" full round><ion-icon large name="send"></ion-icon>{{ sendButton | translate}}</ion-button>
+      
+  </ion-row>
+
+
+</ion-content>

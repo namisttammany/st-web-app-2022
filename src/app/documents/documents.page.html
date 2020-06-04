@@ -1,0 +1,79 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <img alt="logo" slot="end" height="40px" src="assets/img/Logo_WhiteStacked_1024x1024.png">
+      <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      {{title | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar [(ngModel)]="searchTerm" (search)="searchCategory($event)"></ion-searchbar>
+  <div class="dropdowns">
+  <ion-list class="bshadow">
+    <ion-item>
+      <ion-label class="box-categories">Categories</ion-label>
+      <ion-select class="selector" [(ngModel)]="categories" multiple="true" cancelText="Cancel" okText="Select" (ionChange)="searchCategory()">
+        <ion-select-option value="De-escalation">De-escalation</ion-select-option>
+        <ion-select-option value="Legal">Legal</ion-select-option>
+        <ion-select-option value="Mental Illness">Mental Illness</ion-select-option>
+        <ion-select-option value="Support">Support</ion-select-option>
+        <ion-select-option value="Other">Other</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  </div>
+
+  <ion-list class="ion-padding">
+  
+  <!-- <ion-list *ngFor="let file of documents | async">
+      <ion-row>
+        <ion-col col-11 >
+          <ion-card style="height:auto;" style="display:flex" color="light" (click)="viewFile(file.url)">
+                <p style="width:100%; text-align:left" class="ion-text-wrap" ><b style="color:#0c499c; font-size: 12pt;">{{file.title}} </b> <br>
+                   {{file.description}}</p>
+          </ion-card>
+        </ion-col>
+  
+        <ion-col col-1>
+            <ion-button clear slot="end" style="vertical-align: 50%" (click)="shareFile(file.urlshort, file.title)">
+                  <ion-icon name="share-alt"></ion-icon>
+            </ion-button>
+          </ion-col>
+      </ion-row>
+  </ion-list> -->
+
+  <ion-list *ngFor="let file of documents | async">
+      <!-- <ion-row>
+        <ion-col col-11 > -->
+      <ion-item>
+          <ion-label style="height:auto;" style="display:flex" color="light" (click)="viewFile(file)">
+                <p class="ion-text-wrap" ><b>{{file.title}} </b> <br>
+                   {{file.description}}</p>
+             
+          </ion-label>
+        <!-- </ion-col> -->
+        <ion-icon style="color: #01ff80;" name="share" clear slot="end"  (click)="shareFile(file.urlshort, file.title)"></ion-icon>
+        <!-- <ion-col col-1> -->
+                 
+          <!-- </ion-col>
+      </ion-row> -->
+    </ion-item>
+  </ion-list>
+
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed" >
+    <ion-fab-button (click)="scrollToTop()" >
+      <ion-icon name="chevron-up"></ion-icon>
+      <!-- <ion-label>Scroll to Top</ion-label> -->
+    </ion-fab-button>
+</ion-fab>
+
+</ion-content>

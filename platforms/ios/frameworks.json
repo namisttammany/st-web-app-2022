@@ -1,0 +1,18 @@
+{
+    "Security.framework": 3,
+    "SystemConfiguration.framework": 4,
+    "AddressBook.framework": 3,
+    "AddressBookUI.framework": 1,
+    "AudioToolbox.framework": 1,
+    "libc++.tbd": 1,
+    "libz.tbd": 3,
+    "libsqlite3.0.tbd": 1,
+    "CoreLocation.framework": 2,
+    "CoreText.framework": 1,
+    "SafariServices.framework": 1,
+    "libz.dylib": 1,
+    "WebKit.framework": 1,
+    "CoreTelephony.framework": 1,
+    "AuthenticationServices.framework": 1,
+    "MapKit.framework": 1
+}

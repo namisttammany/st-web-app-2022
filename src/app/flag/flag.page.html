@@ -1,0 +1,30 @@
+<ion-header no-border>
+  <ion-toolbar text-center>
+    <ion-title>{{title | translate}}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+
+  <ion-list>
+    <ion-label>{{text1 | translate}}</ion-label>
+      <h4>{{sendmessage}}</h4><br>
+        <ion-label>{{message | translate}}</ion-label><br>
+      <ion-item>
+        <ion-input type="text" [(ngModel)]="personalMessage" (keyup.enter)="sendFlagResource()"></ion-input>
+      </ion-item>
+    </ion-list>
+
+
+  <ion-row>
+    <ion-col col-4><ion-button class="close" (click)="closeModal()"><ion-icon large name="close"></ion-icon></ion-button>
+    </ion-col>
+    <ion-col col-4>
+    </ion-col>
+    <ion-col col-4>
+      <ion-button color="danger" (click)="sendFlagResource()" full round><ion-icon large name="send">{{send | translate}}</ion-icon></ion-button>
+    </ion-col>
+  </ion-row>
+
+
+</ion-content>

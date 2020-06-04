@@ -1,0 +1,132 @@
+ /* Removes header drop shadow */
+ ion-header {
+  z-index: 0;
+}
+/* Styles top toolbar */
+ion-toolbar {
+    color: white;
+    --background: #3064ab;
+    box-shadow: none;
+}
+/* Styles background color of every item on page content*/
+ion-content{
+--ion-background-color: linear-gradient(180deg,#3064ab 15%, #0c499c 50%, #03216e 100%) !important;
+}
+   
+/* Styles each resources font colors*/
+p {
+text-align: left;
+color: #fff;
+width:100%;
+}
+b {
+color: #fff;
+font-size: 12pt;
+}
+
+
+   .lfront {
+     width: 100%;
+     height: auto;
+    }
+    .logo {
+      width: 100%;
+      background-repeat: no-repeat;
+      background-position: top left;
+      padding-top:0px;
+      padding-right: 35px;
+      padding-left: 35px;
+      margin-bottom:20px;
+      display: block;
+      margin-right: auto;
+      margin-left: auto;
+    }
+    
+    .prog-div {
+    background: transparent;
+    color: #0c499c;
+    padding: 10px 10px 10px 10px;
+    margin:5px;
+    width: 90%;
+    margin-right: auto;
+    margin-left: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    }
+    .prog-div>ul {
+      color: #fff;
+    }
+    .prog-div>p {
+      color: #fff;
+      padding: 0px 10px 0px 10px;
+    }
+    .prog-header {
+        text-align: center;
+        color: white;
+        background: radial-gradient(#00cd67 20%, #01ff80 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        border-style: solid;
+        border-width: 1px 1px 1px 1px;
+        border-color: #01ff80;
+        padding: 25px 25px 25px 25px;
+        margin-bottom: -20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    
+    .clear {
+      clear: both;
+    }
+    
+    .container {
+      width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 50px;
+      margin-bottom: 50px;
+    }
+    .container2 {
+      width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      margin-top: 20px;
+      margin-bottom: 50px;
+      background: transparent;
+      //border-radius: 20px;
+      padding: 5px 25px 5px 25px;
+      //box-shadow: 1px 1px 8px grey;
+      color: #0c499c;
+      font-size: 1.4em;
+      font-weight: normal;
+    }
+    .container2>p {
+      padding-top: 18px;
+    }
+    .lfloat {
+      text-align: center;
+        color: white;
+        background: radial-gradient(#00cd67 20%, #01ff80 100%) !important; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        border-style: solid;
+        border-width: 1px 1px 1px 1px;
+        border-color: #01ff80;
+        padding: 25px 25px 25px 25px;
+        margin-bottom: -20px;
+        margin-left: auto;
+        margin-right: auto;
+        width: 100%;
+    }
+    .rfloat {
+      float: right;
+      text-align: center;
+      background: 	transparent; /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      //border-style: solid;
+      //border-width: 1px 1px 1px 1px;
+      //border-color: #5580ba;
+      padding: 25px;
+      color: white;
+      margin-left: 90px;
+      font-weight: 30px;
+      width: 100%;
+    }
+    
+   

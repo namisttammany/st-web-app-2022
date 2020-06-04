@@ -1,0 +1,88 @@
+<ion-header>
+  <ion-toolbar>
+    <img alt="logo" slot="end" height="40px" src="assets/img/Logo_WhiteStacked_1024x1024.png">
+      <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      {{pagetitle | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" id="home" (ionScrollEnd)="scrollStop($event)" (ionScroll)="scrollHandler($event)">
+
+  <ion-searchbar style="box-shadow: none !important;" [(ngModel)]="searchTerm" (search)="search($event)"></ion-searchbar>
+  
+  <div class="dropdowns">
+  <ion-list class="bshadow">
+  <ion-item >
+    <ion-label class="box-categories">Categories</ion-label>
+    <ion-select  [(ngModel)]="categories" multiple="true" cancelText="Cancel" okText="Select" (ionChange)="search();">
+      <ion-select-option *ngFor="let category of categoryList | async" value={{category.category}}>{{category.category}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  </ion-list>
+  <ion-list class="bshadow">
+  <ion-item>
+    <ion-label class="box-cities">Cities</ion-label>
+    <ion-select  [(ngModel)]="cities" multiple="true" cancelText="Cancel" okText="Select" (ionChange)="search();">
+      <ion-select-option *ngFor="let city of cityList | async" value={{city.city}}>{{city.city}}</ion-select-option>
+    </ion-select>
+  </ion-item>
+  </ion-list>
+  </div>
+  <ion-list class="ion-padding">
+  <ion-list *ngFor="let resource of searchResults | async" >
+      <ion-grid>
+<ion-row>
+
+  <ion-col size="2">
+    <div class="center"><ion-checkbox style="width: 100%; height: auto;" checked="false" [(ngModel)]="resource.checked" (ionChange)="updateSelected($event, resource)">
+    </ion-checkbox></div>
+  </ion-col>
+  <ion-col size="1">
+
+  </ion-col>
+  <ion-col size="9">
+    <ion-label style="height:auto; display:flex; vertical-align: 50%;" class="ion-text-wrap" [routerLink]="['/details', resource.key]">
+        <p class="ion-text-wrap"><b>{{resource.ProgramName}}</b><br><br> 
+          {{resource.Address}}<br>
+          {{resource.LocationCity}}, {{resource.LocationState}} {{resource.Zip}}
+        </p>
+    </ion-label>
+  </ion-col>
+  
+      <!-- <ion-item lines="none">
+          <ion-checkbox checked="false" [(ngModel)]="resource.checked" (ionChange)="updateSelected($event, resource)">
+          </ion-checkbox>
+        <ion-label style="height:auto; display:flex; vertical-align: 50%;" class="ion-text-wrap" [routerLink]="['/details', resource.key]">
+            <p class="ion-text-wrap"><b>{{resource.ProgramName}}</b><br><br> 
+              {{resource.Address}}<br>
+              {{resource.LocationCity}}, {{resource.LocationState}} {{resource.Zip}}
+            </p>
+        </ion-label>
+    </ion-item> -->
+    
+    </ion-row>
+  </ion-grid>
+  </ion-list>
+  </ion-list>
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="presentActionSheet()" [translate] >
+      <ion-icon name="share"></ion-icon>
+      <ion-label>{{selectItems}}</ion-label>
+    </ion-fab-button>
+  </ion-fab>
+  
+    <ion-fab vertical="bottom" horizontal="center" slot="fixed" >
+      <ion-fab-button (click)="scrollToTop()" >
+        <ion-icon name="chevron-up"></ion-icon>
+        <!-- <ion-label>Scroll to Top</ion-label> -->
+      </ion-fab-button>
+  </ion-fab>
+  
+  </ion-content>
+
+
+

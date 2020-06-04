@@ -1,0 +1,68 @@
+  /* Removes header drop shadow */
+  ion-header {
+    z-index: 0;
+  }
+  /* Styles checkbox*/
+  ion-checkbox {
+    --background: transparent !important;
+    --background-checked: transparent !important;
+    --border-color: rgba(255,255,255,0.5) !important;
+    --border-color-checked: #01ff80 !important;	
+    --checkmark-color: #01ff80 !important;
+    --border-radius: 150px;
+    width: calc(30px + 4vw);
+    height: auto;
+    margin-right: 50px;
+}
+ion-item {
+  --border: transparent !important;
+}
+/* Styles top toolbar */
+ion-toolbar {
+color: white;
+--background: #3064ab;
+box-shadow: none;
+}
+
+/* Styles background color of every item on page content*/
+ion-content{
+--ion-background-color: linear-gradient(180deg, #3064ab 0%, #0c499c 50%, #03216e 100%) !important;
+}
+/* Styles searcbar*/
+.sc-ion-searchbar-md-h {
+  --clear-button-color: initial;
+  --cancel-button-color: var(--ion-color-step-900,#fff);
+  --color: var(--ion-color-step-850,#fff);
+  --icon-color: var(--ion-color-step-600,#fff);
+  --background: transparent !important;
+}
+/* Styles 2 dropdowns*/
+ion-item {
+--background: transparent !important;
+--color: #fff !important;
+--border-color: var(--ion-item-border-color,var(--ion-border-color,var(--ion-color-step-150,rgba(255,255,255,0.13))));
+}
+/* Styles 2 dropdowns bacground color*/
+.list-md {
+background: transparent !important;
+}
+/* Styles each resources font colors*/
+p {
+text-align: left;
+color: #fff;
+}
+b {
+color: #fff;
+font-size: 12pt;
+}
+/* Styles each resources background color*/
+ion-list {
+--color: var(--ion-color-step-850,#fff);
+--background: transparent !important;
+}
+/* Styles share button*/
+ion-fab-button {
+--color: var(--ion-color-step-850,#fff);
+--background: radial-gradient(#00cd67 20%, #01ff80 100%) !important;
+}
+

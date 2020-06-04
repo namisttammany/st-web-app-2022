@@ -1,0 +1,128 @@
+<ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <img alt="logo" slot="end" height="40px" src="assets/img/Logo_WhiteStacked_1024x1024.png">
+      <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      {{title | translate}}
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">       
+
+  <ion-card style="align-content: flex-start">
+    <ion-card-content>
+    <ion-card-header>
+      <ion-card-title class="ion-text-wrap">{{resource.ProgramName}}</ion-card-title>
+    </ion-card-header>
+    <ion-row>
+    <ion-label class="ion-text-wrap">{{resource.Description}}</ion-label>
+  </ion-row>
+  </ion-card-content>
+  </ion-card>
+
+  <ion-card style="align-content: flex-start">
+      <ion-card-content (click)="navigate()">
+        <ion-card-header><h2><b>Address</b></h2></ion-card-header>
+        <ion-row>
+                <!-- <ion-col col-10> -->
+                    <ion-label class="text-wrap">{{resource.Address}} {{resource.LocationCity}}, {{resource.LocationState}} {{resource.Zip}}</ion-label>
+                <!-- </ion-col> -->
+                <!-- <ion-col col-2> -->
+                     <!-- <ion-button shape="round" (click)="navigate()"><ion-icon name="locate"></ion-icon></ion-button> -->
+                <!-- </ion-col> -->
+      </ion-row>
+    </ion-card-content>
+    </ion-card>
+
+    <ion-card style="align-content: flex-start">
+      <ion-card-content (click)="phone()">
+          <ion-card-header><h2><b>Phone #</b></h2></ion-card-header>
+        <ion-row>
+                <!-- <ion-col col-10> -->
+                    <ion-label class="ion-text-wrap">{{resource.TelephoneNumber1}}</ion-label>
+                <!-- </ion-col> -->
+                <!-- <ion-col col-2> -->
+                    <!-- <ion-button shape="round" (click)="phone()"><ion-icon name="call"></ion-icon></ion-button>  -->
+                    <!-- <a href="tel:+" + {{resource.TelephoneNumber1}}><ion-icon name="call"></ion-icon></a> -->
+                <!-- </ion-col> -->
+      </ion-row>
+    </ion-card-content>
+    </ion-card>
+
+    <ion-card style="align-content: flex-start">
+      <ion-card-content>
+          <ion-card-header><h2><b>Hours</b></h2></ion-card-header>
+          <ion-row>
+        <ion-label class="ion-text-wrap">{{resource.Hours}}</ion-label>
+      </ion-row>
+      </ion-card-content>
+    </ion-card>
+
+    <ion-card style="background-color: blue;" *ngIf="resource.Website !== '';" style="align-content: flex-start" (click)="openWebpage()">
+      <ion-card-content>
+          <ion-card-header><h2><b>Website</b></h2></ion-card-header>
+          <ion-row>
+          <ion-label class="ion-text-wrap">{{resource.Website}}</ion-label>
+        </ion-row>
+        <!-- <ion-button (click)="openWebpage()">{{resource.Website}}</ion-button> -->
+      </ion-card-content>
+    </ion-card>
+
+      <ion-card style="align-content: flex-start">
+        <ion-card-content>
+            <ion-card-header><h2><b>Categories</b></h2></ion-card-header>
+            <ion-row>
+          <ion-label class="ion-text-wrap">{{resource.Category}}</ion-label>
+        </ion-row>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card style="align-content: flex-start">
+        <ion-card-content>
+            <ion-card-header><h2><b>Eligibility</b></h2></ion-card-header>
+            <ion-row>
+          <ion-label class="ion-text-wrap">{{resource.Eligibility}}</ion-label>
+        </ion-row>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card style="align-content: flex-start">
+        <ion-card-content>
+            <ion-card-header><h2><b>Ages Served</b></h2></ion-card-header>
+            <ion-row>
+          <ion-label class="ion-text-wrap">{{resource.AgeServed}}</ion-label>
+        </ion-row>
+        </ion-card-content>
+      </ion-card>
+
+      <ion-card style="align-content: flex-start">
+        <ion-card-content>
+            <ion-card-header><h2><b>Fees</b></h2></ion-card-header>
+            <ion-row>
+          <ion-label class="ion-text-wrap">{{resource.Fees}}</ion-label>
+        </ion-row>
+        </ion-card-content>
+      </ion-card>
+
+
+      <ion-fab vertical="top" horizontal="end" slot="fixed">
+        <ion-fab-button class="unfavorite" (click)="unfavoriteResource()" *ngIf="isFavorite">
+          <ion-icon  large name="heart"></ion-icon>
+        </ion-fab-button>
+        <ion-fab-button class="favorite" (click)="favoriteResource()" *ngIf="!isFavorite">
+          <ion-icon large name="heart"></ion-icon>
+        </ion-fab-button>
+      </ion-fab>
+
+      <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+        <ion-fab-button (click)="presentActionSheet()" [translate]>
+          <ion-icon name="share"></ion-icon>
+        </ion-fab-button>
+      </ion-fab> 
+</ion-content>

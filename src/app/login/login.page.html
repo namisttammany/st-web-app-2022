@@ -1,0 +1,90 @@
+<ion-content class="ion-no-padding">
+  <div class="main">
+    <ion-card class="ion-no-margin">
+      <ion-card-content>
+        <ion-row class="row">
+          <div class="fire-logo">
+            <img src="assets/img/0000000776_white.gif" class="img-logo">
+          </div>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input class="ion-padding-horizontal" clearInput type="email" [placeholder]="formEmail | translate" [(ngModel)]="email" class="input"
+              clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-input class="ion-padding-horizontal" clearInput type="password" [placeholder]="formPassword | translate" [(ngModel)]="password" class="input"
+             clear-input="true"></ion-input>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-button id="loginbutton" expand="block" (click)="login()" color="undefined">
+              <strong [translate]>{{title | translate}}</strong></ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text class="error" class="ion-text-center">{{error}}</ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            
+            <ion-text class="ion-text-center" class="block"> {{text1 | translate}}
+              <span class="bold" routerLink="/register"[translate]>{{signup | translate}}</span></ion-text>
+<!-- 
+              <ion-text class="ion-text-center" class="block">{{'login.text1' | translate}}
+                <span class="bold" routerLink="/register">Sign up here</span></ion-text> -->
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col>
+            <ion-text class="ion-text-center" class="block bold" routerLink="/resetpassword" [translate]>{{reset | translate}}</ion-text>
+          </ion-col>
+        </ion-row>
+        <ion-row id="registering">
+        <ion-text class="ion-text-center" class="block bold">
+          <div>
+          <p>{{text4 | translate}}</p>
+          <p>{{datatext1 | translate}}</p>
+          <p>{{datatext2 | translate}} <a href="http://namisttammany.org/privacy-policy" [translate]> {{privacypolicy | translate}} </a>{{datatext4 | translate}}</p>
+        </div>
+        </ion-text>
+    </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </div>
+</ion-content>
+<ion-footer lines="none">
+  <ion-toolbar>
+    
+      <ion-grid>
+        <ion-row >
+          <ion-col col-12>
+            <ion-button id="login-apple" (click)="nativeAppleAuth()">
+              <ion-icon name="logo-apple"></ion-icon><strong>{{apple | translate}}</strong>
+            </ion-button>
+          </ion-col>
+        </ion-row>
+        <ion-row>  
+          <ion-col col-12>
+            <ion-button id="login-google" (click)="tryGoogleLogin()">
+              <!-- <ion-img name="logo-google"></ion-img><strong>Sign In With Google</strong> -->
+              <ion-img style="width: 30px" slot="start" src="assets/img/glogo3.png"></ion-img><strong>{{google | translate}}</strong>
+            </ion-button> 
+          </ion-col> 
+        </ion-row>
+        <ion-row>  
+          <ion-col col-12>
+            <ion-button id="login-guest" (click)="createAnonymousUser()" class="btn-gplus">
+              <ion-icon name="briefcase"></ion-icon><strong>{{anon | translate}}</strong>
+              </ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+      <!-- <ion-text class="ion-text-center" class="block">Sign In to save favorites and flag resources. Anonymous (guest) login also available.</ion-text> -->
+  </ion-toolbar>
+</ion-footer>

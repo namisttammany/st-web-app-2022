@@ -1,0 +1,53 @@
+/* Removes header drop shadow */
+ion-header {
+  z-index: 0;
+}
+/* Styles top toolbar */
+ion-toolbar {
+    color: white;
+    --background: #3064ab;
+    box-shadow: none;
+    }
+    /* Styles background color of every item on page content*/
+    ion-content{
+    --ion-background-color: linear-gradient(180deg, #3064ab 0%, #0c499c 50%, #03216e 100%) !important;
+    }
+    /* Styles each resources font colors*/
+    p {
+    text-align: left;
+    color: #fff;
+    }
+    b {
+    color: #fff;
+    font-size: 12pt;
+    }
+    ion-card-title {
+        color: #fff;
+    }
+    ion-label {
+        color: #fff;
+    }
+    /* Styles each resources background color*/
+    ion-list {
+    --color: var(--ion-color-step-850,#fff);
+    --background: transparent !important;
+    }
+    /* Styles resource information padding-left*/
+    ion-row {
+        padding-left: 25px !important;
+    }
+    /* Styles both button background color*/
+ion-fab-button {
+    --background: radial-gradient(#00cd67 20%, #01ff80 100%) !important;
+  }
+  /* Styles favorite button heart icon*/
+  .favorite {
+    --color: #fff !important;
+  }
+  .unfavorite {
+    --color: #c13832 !important;
+  }
+  /* Makes Ion Card Transparent*/
+ ion-card {
+   --background: transparent !important;
+ }
