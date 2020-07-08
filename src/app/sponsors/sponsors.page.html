@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <img alt="logo" slot="end" height="40px" src="assets/img/Logo_WhiteStacked_1024x1024.png">
+      <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      Sponsors
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list *ngFor="let sponsor of sponsorsList | async">
+    <!-- <ion-row>
+      <ion-col col-11 > -->
+
+        <!-- <ion-label style="height:auto;" style="display:flex" color="light" (click)="viewFile(file)">
+              <p class="ion-text-wrap" ><b>{{sponsor.title}} </b> <br>
+                 {{sponsor.order}} {{sponsor.image}}</p>
+           
+        </ion-label> -->
+
+        <ion-item (click)="viewSponsor(sponsor)">
+          <ion-avatar slot="start">
+            <img src="{{sponsor.image}}">
+          </ion-avatar>
+          <ion-label>{{sponsor.title}}</ion-label>
+        </ion-item>
+
+
+        
+      <!-- </ion-col> -->
+      <!-- <ion-icon style="color: #01ff80;" name="share" clear slot="end"  (click)="shareFile(file.urlshort, file.title)"></ion-icon> -->
+      <!-- <ion-col col-1> -->
+               
+        <!-- </ion-col>
+    </ion-row> -->
+
+</ion-list>
+
+
+</ion-content>

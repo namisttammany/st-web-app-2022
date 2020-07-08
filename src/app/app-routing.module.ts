@@ -56,6 +56,10 @@ const routes: Routes = [
     path: 'language-modal',
     loadChildren: () => import('./language-modal/language-modal.module').then( m => m.LanguageModalPageModule)
   },
+  {
+    path: 'sponsors',
+    loadChildren: () => import('./sponsors/sponsors.module').then( m => m.SponsorsPageModule)
+  },
 ];
 
 @NgModule({

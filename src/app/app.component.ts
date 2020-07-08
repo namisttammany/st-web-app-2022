@@ -141,6 +141,12 @@ sideMenu()
         icon  : "language-outline",
 
       },
+      {
+        title : 'sponsors',
+        url   : "/sponsors",
+        icon  : "language-outline",
+
+      },
     ]
   }
 
