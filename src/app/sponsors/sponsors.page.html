@@ -15,30 +15,42 @@
 
 <ion-content>
   <ion-list *ngFor="let sponsor of sponsorsList | async">
-    <!-- <ion-row>
-      <ion-col col-11 > -->
-
-        <!-- <ion-label style="height:auto;" style="display:flex" color="light" (click)="viewFile(file)">
-              <p class="ion-text-wrap" ><b>{{sponsor.title}} </b> <br>
-                 {{sponsor.order}} {{sponsor.image}}</p>
-           
-        </ion-label> -->
-
         <ion-item (click)="viewSponsor(sponsor)">
+          
+              <ion-avatar slot="start"><img src="{{sponsor.image}}" style="height: 100% !important;"></ion-avatar>
+              
+              <ion-label> 
+                {{sponsor.title}}
+              </ion-label> 
+     </ion-item>
+
+
+      <!-- <ion-card>
+        <ion-item (click)="viewSponsor(sponsor)" *ngIf="sponsor.tier === 1">
           <ion-avatar slot="start">
             <img src="{{sponsor.image}}">
           </ion-avatar>
           <ion-label>{{sponsor.title}}</ion-label>
         </ion-item>
+      </ion-card>
 
+      <ion-card>
+        <ion-item (click)="viewSponsor(sponsor)" *ngIf="sponsor.tier === 2" style="width: 75% !important">
+          <ion-avatar slot="start">
+            <img src="{{sponsor.image}}">
+          </ion-avatar>
+          <ion-label>{{sponsor.title}}</ion-label>
+        </ion-item>
+      </ion-card>
 
-        
-      <!-- </ion-col> -->
-      <!-- <ion-icon style="color: #01ff80;" name="share" clear slot="end"  (click)="shareFile(file.urlshort, file.title)"></ion-icon> -->
-      <!-- <ion-col col-1> -->
-               
-        <!-- </ion-col>
-    </ion-row> -->
+      <ion-card>        
+        <ion-item (click)="viewSponsor(sponsor)" *ngIf="sponsor.tier === 3" style="width: 50% !important">
+          <ion-avatar slot="start">
+            <img src="{{sponsor.image}}">
+          </ion-avatar>
+          <ion-label>{{sponsor.title}}</ion-label>
+        </ion-item>
+      </ion-card> -->
 
 </ion-list>
 
