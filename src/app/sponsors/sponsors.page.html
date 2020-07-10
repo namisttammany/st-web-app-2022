@@ -13,16 +13,19 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list *ngFor="let sponsor of sponsorsList | async">
-        <ion-item (click)="viewSponsor(sponsor)">
-          
-              <ion-avatar slot="start"><img src="{{sponsor.image}}" style="height: 100% !important;"></ion-avatar>
-              
-              <ion-label> 
-                {{sponsor.title}}
-              </ion-label> 
-     </ion-item>
+<ion-content class="justify-content-center">
+
+  <ion-list *ngFor="let sponsor of sponsorsList | async" >
+
+          <ion-row>
+            <ion-col col-1></ion-col>
+            <ion-col col-10>
+              <img src="{{sponsor.image}}" (click)="viewSponsor(sponsor)" style="object-fit: contain !important; height: 200px;">
+            </ion-col>
+            <ion-col col-1></ion-col>
+          </ion-row>
+
+     <!-- </ion-item> -->
 
 
       <!-- <ion-card>

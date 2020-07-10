@@ -46,7 +46,9 @@ export class SponsorsPage implements OnInit {
     private firebaseAnalytics: FirebaseAnalytics,
     private _translate: TranslateService
   ) {   
+
     this.sponsorsList = this.sponsorsProvider.getSponsors();
+
   }
 
   ngOnInit() {
@@ -60,6 +62,7 @@ export class SponsorsPage implements OnInit {
     }
     const browser = this.inAppBrowser.create(fixedUrl, '_system', options);
     // this.firebaseAnalytics.logEvent('document_viewed', { document_viewed: file.title })
+
   }
 
 }
