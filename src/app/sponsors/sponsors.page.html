@@ -13,47 +13,17 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="justify-content-center">
+<ion-content>
 
-  <ion-list *ngFor="let sponsor of sponsorsList | async" >
+  <ion-list *ngFor="let sponsor of sponsorsList | async" class="ion-justify-content-center" >
 
-          <ion-row>
-            <ion-col col-1></ion-col>
-            <ion-col col-10>
+          <ion-row >
+            <ion-col size="1"></ion-col>
+            <ion-col size="10" class="ion-justify-content-center">
               <img src="{{sponsor.image}}" (click)="viewSponsor(sponsor)" style="object-fit: contain !important; height: 200px;">
             </ion-col>
-            <ion-col col-1></ion-col>
+            <ion-col size="1"></ion-col>
           </ion-row>
-
-     <!-- </ion-item> -->
-
-
-      <!-- <ion-card>
-        <ion-item (click)="viewSponsor(sponsor)" *ngIf="sponsor.tier === 1">
-          <ion-avatar slot="start">
-            <img src="{{sponsor.image}}">
-          </ion-avatar>
-          <ion-label>{{sponsor.title}}</ion-label>
-        </ion-item>
-      </ion-card>
-
-      <ion-card>
-        <ion-item (click)="viewSponsor(sponsor)" *ngIf="sponsor.tier === 2" style="width: 75% !important">
-          <ion-avatar slot="start">
-            <img src="{{sponsor.image}}">
-          </ion-avatar>
-          <ion-label>{{sponsor.title}}</ion-label>
-        </ion-item>
-      </ion-card>
-
-      <ion-card>        
-        <ion-item (click)="viewSponsor(sponsor)" *ngIf="sponsor.tier === 3" style="width: 50% !important">
-          <ion-avatar slot="start">
-            <img src="{{sponsor.image}}">
-          </ion-avatar>
-          <ion-label>{{sponsor.title}}</ion-label>
-        </ion-item>
-      </ion-card> -->
 
 </ion-list>
 

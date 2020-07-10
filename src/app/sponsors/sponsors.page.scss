@@ -1,10 +1,15 @@
-.vertical-center{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-  }
+// .vertical-center{
+//     display: flex;
+//     align-items: center;
+//     justify-content: center;
+//     height: 100%;
+//   }
 
-  .img {
+ion-col {
+  justify-content: center;
+}
+
+img {
+    justify-content: center;
     object-fit: contain;
   }
