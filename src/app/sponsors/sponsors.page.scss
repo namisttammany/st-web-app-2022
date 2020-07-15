@@ -5,11 +5,39 @@
 //     height: 100%;
 //   }
 
+/* Styles background color of every item on page content*/
+// ion-content{
+//   --ion-background-color: linear-gradient(180deg, #3064ab 0%, #0c499c 50%, #03216e 100%) !important;
+//   }
+
+/* Styles top toolbar */
+ion-toolbar {
+  color: white;
+  --background: #3064ab;
+  box-shadow: none;
+  }
+
+/* Styles each resources background color*/
+ion-list {
+  --color: var(--ion-color-step-850,#fff);
+  // --background: transparent !important;
+  }
+
 ion-col {
   justify-content: center;
 }
 
 img {
     justify-content: center;
+    object-fit: contain;
+  }
+
+  img .logo {
+        display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    max-width: 100%; 
+    max-height: 200px; 
     object-fit: contain;
   }
