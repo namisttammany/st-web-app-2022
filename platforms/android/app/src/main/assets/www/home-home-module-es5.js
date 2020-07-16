@@ -21,7 +21,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <img alt=\"logo\" slot=\"end\" height=\"40px\" src=\"assets/img/Logo_WhiteStacked_1024x1024.png\">\n      <ion-buttons slot=\"end\">\n      <ion-menu-button></ion-menu-button>\n      </ion-buttons>\n    <ion-title>\n      Resources\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\" id=\"home\" (ionScrollEnd)=\"scrollStop($event)\" (ionScroll)=\"scrollHandler($event)\">\n\n  <ion-searchbar style=\"box-shadow: none !important;\" [(ngModel)]=\"searchTerm\" (search)=\"search($event)\"></ion-searchbar>\n  \n  <div class=\"dropdowns\">\n  <ion-list class=\"bshadow\">\n  <ion-item >\n    <ion-label class=\"box-categories\">Categories</ion-label>\n    <ion-select  [(ngModel)]=\"categories\" multiple=\"true\" cancelText=\"Cancel\" okText=\"Select\" (ionChange)=\"search();\">\n      <ion-select-option *ngFor=\"let category of categoryList | async\" value={{category.category}}>{{category.category}}</ion-select-option>\n    </ion-select>\n  </ion-item>\n  </ion-list>\n  <ion-list class=\"bshadow\">\n  <ion-item>\n    <ion-label class=\"box-cities\">Cities</ion-label>\n    <ion-select  [(ngModel)]=\"cities\" multiple=\"true\" cancelText=\"Cancel\" okText=\"Select\" (ionChange)=\"search();\">\n      <ion-select-option *ngFor=\"let city of cityList | async\" value={{city.city}}>{{city.city}}</ion-select-option>\n    </ion-select>\n  </ion-item>\n  </ion-list>\n  </div>\n  <ion-list class=\"ion-padding\">\n  <ion-list *ngFor=\"let resource of searchResults | async\" >\n      <ion-grid>\n<ion-row>\n\n  <ion-col size=\"2\">\n    <div class=\"center\"><ion-checkbox style=\"width: 100%; height: auto;\" checked=\"false\" [(ngModel)]=\"resource.checked\" (ionChange)=\"updateSelected($event, resource)\">\n    </ion-checkbox></div>\n  </ion-col>\n  <ion-col size=\"1\">\n\n  </ion-col>\n  <ion-col size=\"9\">\n    <ion-label style=\"height:auto; display:flex; vertical-align: 50%;\" class=\"ion-text-wrap\" [routerLink]=\"['/details', resource.key]\">\n        <p class=\"ion-text-wrap\"><b>{{resource.ProgramName}}</b><br><br> \n          {{resource.Address}}<br>\n          {{resource.LocationCity}}, {{resource.LocationState}} {{resource.Zip}}\n        </p>\n    </ion-label>\n  </ion-col>\n  \n      <!-- <ion-item lines=\"none\">\n          <ion-checkbox checked=\"false\" [(ngModel)]=\"resource.checked\" (ionChange)=\"updateSelected($event, resource)\">\n          </ion-checkbox>\n        <ion-label style=\"height:auto; display:flex; vertical-align: 50%;\" class=\"ion-text-wrap\" [routerLink]=\"['/details', resource.key]\">\n            <p class=\"ion-text-wrap\"><b>{{resource.ProgramName}}</b><br><br> \n              {{resource.Address}}<br>\n              {{resource.LocationCity}}, {{resource.LocationState}} {{resource.Zip}}\n            </p>\n        </ion-label>\n    </ion-item> -->\n    \n    </ion-row>\n  </ion-grid>\n  </ion-list>\n  </ion-list>\n  <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n    <ion-fab-button (click)=\"presentActionSheet()\">\n      <ion-icon name=\"share\"></ion-icon>\n      <ion-label>{{selectItems}}</ion-label>\n    </ion-fab-button>\n  </ion-fab>\n  \n    <ion-fab vertical=\"bottom\" horizontal=\"center\" slot=\"fixed\" >\n      <ion-fab-button (click)=\"scrollToTop()\" >\n        <ion-icon name=\"chevron-up\"></ion-icon>\n        <!-- <ion-label>Scroll to Top</ion-label> -->\n      </ion-fab-button>\n  </ion-fab>\n  \n  </ion-content>\n\n\n\n";
+    __webpack_exports__["default"] = "<ion-header>\n  <ion-toolbar>\n    <img alt=\"logo\" slot=\"end\" height=\"40px\" src=\"assets/img/Logo_WhiteStacked_1024x1024.png\">\n      <ion-buttons slot=\"end\">\n      <ion-menu-button></ion-menu-button>\n      </ion-buttons>\n    <ion-title>\n      {{pagetitle | translate}}\n    </ion-title>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content class=\"ion-padding\" id=\"home\" (ionScrollEnd)=\"scrollStop($event)\" (ionScroll)=\"scrollHandler($event)\">\n\n  <ion-searchbar style=\"box-shadow: none !important;\" [(ngModel)]=\"searchTerm\" (search)=\"search($event)\"></ion-searchbar>\n  \n  <div class=\"dropdowns\">\n  <ion-list class=\"bshadow\">\n  <ion-item >\n    <ion-label class=\"box-categories\">Categories</ion-label>\n    <ion-select  [(ngModel)]=\"categories\" multiple=\"true\" cancelText=\"Cancel\" okText=\"Select\" (ionChange)=\"search();\">\n      <ion-select-option *ngFor=\"let category of categoryList | async\" value={{category.category}}>{{category.category}}</ion-select-option>\n    </ion-select>\n  </ion-item>\n  </ion-list>\n  <ion-list class=\"bshadow\">\n  <ion-item>\n    <ion-label class=\"box-cities\">Cities</ion-label>\n    <ion-select  [(ngModel)]=\"cities\" multiple=\"true\" cancelText=\"Cancel\" okText=\"Select\" (ionChange)=\"search();\">\n      <ion-select-option *ngFor=\"let city of cityList | async\" value={{city.city}}>{{city.city}}</ion-select-option>\n    </ion-select>\n  </ion-item>\n  </ion-list>\n  </div>\n  <ion-list class=\"ion-padding\">\n  <ion-list *ngFor=\"let resource of searchResults | async\" >\n      <ion-grid>\n<ion-row>\n\n  <ion-col size=\"2\">\n    <div class=\"center\"><ion-checkbox style=\"width: 100%; height: auto;\" checked=\"false\" [(ngModel)]=\"resource.checked\" (ionChange)=\"updateSelected($event, resource)\">\n    </ion-checkbox></div>\n  </ion-col>\n  <ion-col size=\"1\">\n\n  </ion-col>\n  <ion-col size=\"9\">\n    <ion-label style=\"height:auto; display:flex; vertical-align: 50%;\" class=\"ion-text-wrap\" [routerLink]=\"['/details', resource.key]\">\n        <p class=\"ion-text-wrap\"><b>{{resource.ProgramName}}</b><br><br> \n          {{resource.Address}}<br>\n          {{resource.LocationCity}}, {{resource.LocationState}} {{resource.Zip}}\n        </p>\n    </ion-label>\n  </ion-col>\n  \n      <!-- <ion-item lines=\"none\">\n          <ion-checkbox checked=\"false\" [(ngModel)]=\"resource.checked\" (ionChange)=\"updateSelected($event, resource)\">\n          </ion-checkbox>\n        <ion-label style=\"height:auto; display:flex; vertical-align: 50%;\" class=\"ion-text-wrap\" [routerLink]=\"['/details', resource.key]\">\n            <p class=\"ion-text-wrap\"><b>{{resource.ProgramName}}</b><br><br> \n              {{resource.Address}}<br>\n              {{resource.LocationCity}}, {{resource.LocationState}} {{resource.Zip}}\n            </p>\n        </ion-label>\n    </ion-item> -->\n    \n    </ion-row>\n  </ion-grid>\n  </ion-list>\n  </ion-list>\n  <ion-fab vertical=\"bottom\" horizontal=\"end\" slot=\"fixed\">\n    <ion-fab-button (click)=\"presentActionSheet()\" [translate] >\n      <ion-icon name=\"share\"></ion-icon>\n      <ion-label>{{selectItems}}</ion-label>\n    </ion-fab-button>\n  </ion-fab>\n  \n    <ion-fab vertical=\"bottom\" horizontal=\"center\" slot=\"fixed\" >\n      <ion-fab-button (click)=\"scrollToTop()\" >\n        <ion-icon name=\"chevron-up\"></ion-icon>\n        <!-- <ion-label>Scroll to Top</ion-label> -->\n      </ion-fab-button>\n  </ion-fab>\n  \n  </ion-content>\n\n\n\n";
     /***/
   },
 
@@ -151,13 +151,19 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _home_page__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
     /*! ./home.page */
     "./src/app/home/home.page.ts");
+    /* harmony import */
+
+
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! @ngx-translate/core */
+    "./node_modules/@ngx-translate/core/fesm2015/ngx-translate-core.js");
 
     var HomePageModule = function HomePageModule() {
       _classCallCheck(this, HomePageModule);
     };
 
     HomePageModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
-      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonicModule"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forChild([{
+      imports: [_angular_common__WEBPACK_IMPORTED_MODULE_2__["CommonModule"], _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonicModule"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateModule"], _angular_router__WEBPACK_IMPORTED_MODULE_5__["RouterModule"].forChild([{
         path: '',
         component: _home_page__WEBPACK_IMPORTED_MODULE_6__["HomePage"]
       }])],
@@ -182,7 +188,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony default export */
 
 
-    __webpack_exports__["default"] = "/* Removes header drop shadow */\nion-header {\n  z-index: 0;\n}\n/* Styles checkbox*/\nion-checkbox {\n  --background: transparent !important;\n  --background-checked: transparent !important;\n  --border-color: rgba(255,255,255,0.5) !important;\n  --border-color-checked: #01ff80 !important;\n  --checkmark-color: #01ff80 !important;\n  --border-radius: 150px;\n  width: calc(30px + 4vw);\n  height: auto;\n  margin-right: 50px;\n}\nion-item {\n  --border: transparent !important;\n}\n/* Styles top toolbar */\nion-toolbar {\n  color: white;\n  --background: #3064ab;\n  box-shadow: none;\n}\n/* Styles background color of every item on page content*/\nion-content {\n  --ion-background-color: linear-gradient(180deg, #3064ab 0%, #0c499c 50%, #03216e 100%) !important;\n}\n/* Styles searcbar*/\n.sc-ion-searchbar-md-h {\n  --clear-button-color: initial;\n  --cancel-button-color: var(--ion-color-step-900,#fff);\n  --color: var(--ion-color-step-850,#fff);\n  --icon-color: var(--ion-color-step-600,#fff);\n  --background: transparent !important;\n}\n/* Styles 2 dropdowns*/\nion-item {\n  --background: transparent !important;\n  --color: #fff !important;\n  --border-color: var(--ion-item-border-color,var(--ion-border-color,var(--ion-color-step-150,rgba(255,255,255,0.13))));\n}\n/* Styles 2 dropdowns bacground color*/\n.list-md {\n  background: transparent !important;\n}\n/* Styles each resources font colors*/\np {\n  text-align: left;\n  color: #fff;\n}\nb {\n  color: #fff;\n  font-size: 12pt;\n}\n/* Styles each resources background color*/\nion-list {\n  --color: var(--ion-color-step-850,#fff);\n  --background: transparent !important;\n}\n/* Styles share button*/\nion-fab-button {\n  --color: var(--ion-color-step-850,#fff);\n  --background: radial-gradient(#00cd67 20%, #01ff80 100%) !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9uaWNrcmljaGFyZC9OQU1JL21vYmlsZS9iYXNlR0lUL2Jhc2Uvc3JjL2FwcC9ob21lL2hvbWUucGFnZS5zY3NzIiwic3JjL2FwcC9ob21lL2hvbWUucGFnZS5zY3NzIl0sIm5hbWVzIjpbXSwibWFwcGluZ3MiOiJBQUFFLCtCQUFBO0FBQ0E7RUFDRSxVQUFBO0FDQ0o7QURDRSxtQkFBQTtBQUNBO0VBQ0Usb0NBQUE7RUFDQSw0Q0FBQTtFQUNBLGdEQUFBO0VBQ0EsMENBQUE7RUFDQSxxQ0FBQTtFQUNBLHNCQUFBO0VBQ0EsdUJBQUE7RUFDQSxZQUFBO0VBQ0Esa0JBQUE7QUNFSjtBREFBO0VBQ0UsZ0NBQUE7QUNHRjtBRERBLHVCQUFBO0FBQ0E7RUFDQSxZQUFBO0VBQ0EscUJBQUE7RUFDQSxnQkFBQTtBQ0lBO0FEREEseURBQUE7QUFDQTtFQUNBLGlHQUFBO0FDSUE7QURGQSxtQkFBQTtBQUNBO0VBQ0UsNkJBQUE7RUFDQSxxREFBQTtFQUNBLHVDQUFBO0VBQ0EsNENBQUE7RUFDQSxvQ0FBQTtBQ0tGO0FESEEsc0JBQUE7QUFDQTtFQUNBLG9DQUFBO0VBQ0Esd0JBQUE7RUFDQSxxSEFBQTtBQ01BO0FESkEsc0NBQUE7QUFDQTtFQUNBLGtDQUFBO0FDT0E7QURMQSxxQ0FBQTtBQUNBO0VBQ0EsZ0JBQUE7RUFDQSxXQUFBO0FDUUE7QUROQTtFQUNBLFdBQUE7RUFDQSxlQUFBO0FDU0E7QURQQSwwQ0FBQTtBQUNBO0VBQ0EsdUNBQUE7RUFDQSxvQ0FBQTtBQ1VBO0FEUkEsdUJBQUE7QUFDQTtFQUNBLHVDQUFBO0VBQ0EsbUVBQUE7QUNXQSIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyIgIC8qIFJlbW92ZXMgaGVhZGVyIGRyb3Agc2hhZG93ICovXG4gIGlvbi1oZWFkZXIge1xuICAgIHotaW5kZXg6IDA7XG4gIH1cbiAgLyogU3R5bGVzIGNoZWNrYm94Ki9cbiAgaW9uLWNoZWNrYm94IHtcbiAgICAtLWJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG4gICAgLS1iYWNrZ3JvdW5kLWNoZWNrZWQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG4gICAgLS1ib3JkZXItY29sb3I6IHJnYmEoMjU1LDI1NSwyNTUsMC41KSAhaW1wb3J0YW50O1xuICAgIC0tYm9yZGVyLWNvbG9yLWNoZWNrZWQ6ICMwMWZmODAgIWltcG9ydGFudDtcdFxuICAgIC0tY2hlY2ttYXJrLWNvbG9yOiAjMDFmZjgwICFpbXBvcnRhbnQ7XG4gICAgLS1ib3JkZXItcmFkaXVzOiAxNTBweDtcbiAgICB3aWR0aDogY2FsYygzMHB4ICsgNHZ3KTtcbiAgICBoZWlnaHQ6IGF1dG87XG4gICAgbWFyZ2luLXJpZ2h0OiA1MHB4O1xufVxuaW9uLWl0ZW0ge1xuICAtLWJvcmRlcjogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbn1cbi8qIFN0eWxlcyB0b3AgdG9vbGJhciAqL1xuaW9uLXRvb2xiYXIge1xuY29sb3I6IHdoaXRlO1xuLS1iYWNrZ3JvdW5kOiAjMzA2NGFiO1xuYm94LXNoYWRvdzogbm9uZTtcbn1cblxuLyogU3R5bGVzIGJhY2tncm91bmQgY29sb3Igb2YgZXZlcnkgaXRlbSBvbiBwYWdlIGNvbnRlbnQqL1xuaW9uLWNvbnRlbnR7XG4tLWlvbi1iYWNrZ3JvdW5kLWNvbG9yOiBsaW5lYXItZ3JhZGllbnQoMTgwZGVnLCAjMzA2NGFiIDAlLCAjMGM0OTljIDUwJSwgIzAzMjE2ZSAxMDAlKSAhaW1wb3J0YW50O1xufVxuLyogU3R5bGVzIHNlYXJjYmFyKi9cbi5zYy1pb24tc2VhcmNoYmFyLW1kLWgge1xuICAtLWNsZWFyLWJ1dHRvbi1jb2xvcjogaW5pdGlhbDtcbiAgLS1jYW5jZWwtYnV0dG9uLWNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3RlcC05MDAsI2ZmZik7XG4gIC0tY29sb3I6IHZhcigtLWlvbi1jb2xvci1zdGVwLTg1MCwjZmZmKTtcbiAgLS1pY29uLWNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3RlcC02MDAsI2ZmZik7XG4gIC0tYmFja2dyb3VuZDogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbn1cbi8qIFN0eWxlcyAyIGRyb3Bkb3ducyovXG5pb24taXRlbSB7XG4tLWJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG4tLWNvbG9yOiAjZmZmICFpbXBvcnRhbnQ7XG4tLWJvcmRlci1jb2xvcjogdmFyKC0taW9uLWl0ZW0tYm9yZGVyLWNvbG9yLHZhcigtLWlvbi1ib3JkZXItY29sb3IsdmFyKC0taW9uLWNvbG9yLXN0ZXAtMTUwLHJnYmEoMjU1LDI1NSwyNTUsMC4xMykpKSk7XG59XG4vKiBTdHlsZXMgMiBkcm9wZG93bnMgYmFjZ3JvdW5kIGNvbG9yKi9cbi5saXN0LW1kIHtcbmJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG59XG4vKiBTdHlsZXMgZWFjaCByZXNvdXJjZXMgZm9udCBjb2xvcnMqL1xucCB7XG50ZXh0LWFsaWduOiBsZWZ0O1xuY29sb3I6ICNmZmY7XG59XG5iIHtcbmNvbG9yOiAjZmZmO1xuZm9udC1zaXplOiAxMnB0O1xufVxuLyogU3R5bGVzIGVhY2ggcmVzb3VyY2VzIGJhY2tncm91bmQgY29sb3IqL1xuaW9uLWxpc3Qge1xuLS1jb2xvcjogdmFyKC0taW9uLWNvbG9yLXN0ZXAtODUwLCNmZmYpO1xuLS1iYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xufVxuLyogU3R5bGVzIHNoYXJlIGJ1dHRvbiovXG5pb24tZmFiLWJ1dHRvbiB7XG4tLWNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3RlcC04NTAsI2ZmZik7XG4tLWJhY2tncm91bmQ6IHJhZGlhbC1ncmFkaWVudCgjMDBjZDY3IDIwJSwgIzAxZmY4MCAxMDAlKSAhaW1wb3J0YW50O1xufVxuXG4iLCIvKiBSZW1vdmVzIGhlYWRlciBkcm9wIHNoYWRvdyAqL1xuaW9uLWhlYWRlciB7XG4gIHotaW5kZXg6IDA7XG59XG5cbi8qIFN0eWxlcyBjaGVja2JveCovXG5pb24tY2hlY2tib3gge1xuICAtLWJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG4gIC0tYmFja2dyb3VuZC1jaGVja2VkOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xuICAtLWJvcmRlci1jb2xvcjogcmdiYSgyNTUsMjU1LDI1NSwwLjUpICFpbXBvcnRhbnQ7XG4gIC0tYm9yZGVyLWNvbG9yLWNoZWNrZWQ6ICMwMWZmODAgIWltcG9ydGFudDtcbiAgLS1jaGVja21hcmstY29sb3I6ICMwMWZmODAgIWltcG9ydGFudDtcbiAgLS1ib3JkZXItcmFkaXVzOiAxNTBweDtcbiAgd2lkdGg6IGNhbGMoMzBweCArIDR2dyk7XG4gIGhlaWdodDogYXV0bztcbiAgbWFyZ2luLXJpZ2h0OiA1MHB4O1xufVxuXG5pb24taXRlbSB7XG4gIC0tYm9yZGVyOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xufVxuXG4vKiBTdHlsZXMgdG9wIHRvb2xiYXIgKi9cbmlvbi10b29sYmFyIHtcbiAgY29sb3I6IHdoaXRlO1xuICAtLWJhY2tncm91bmQ6ICMzMDY0YWI7XG4gIGJveC1zaGFkb3c6IG5vbmU7XG59XG5cbi8qIFN0eWxlcyBiYWNrZ3JvdW5kIGNvbG9yIG9mIGV2ZXJ5IGl0ZW0gb24gcGFnZSBjb250ZW50Ki9cbmlvbi1jb250ZW50IHtcbiAgLS1pb24tYmFja2dyb3VuZC1jb2xvcjogbGluZWFyLWdyYWRpZW50KDE4MGRlZywgIzMwNjRhYiAwJSwgIzBjNDk5YyA1MCUsICMwMzIxNmUgMTAwJSkgIWltcG9ydGFudDtcbn1cblxuLyogU3R5bGVzIHNlYXJjYmFyKi9cbi5zYy1pb24tc2VhcmNoYmFyLW1kLWgge1xuICAtLWNsZWFyLWJ1dHRvbi1jb2xvcjogaW5pdGlhbDtcbiAgLS1jYW5jZWwtYnV0dG9uLWNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3RlcC05MDAsI2ZmZik7XG4gIC0tY29sb3I6IHZhcigtLWlvbi1jb2xvci1zdGVwLTg1MCwjZmZmKTtcbiAgLS1pY29uLWNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3RlcC02MDAsI2ZmZik7XG4gIC0tYmFja2dyb3VuZDogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbn1cblxuLyogU3R5bGVzIDIgZHJvcGRvd25zKi9cbmlvbi1pdGVtIHtcbiAgLS1iYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xuICAtLWNvbG9yOiAjZmZmICFpbXBvcnRhbnQ7XG4gIC0tYm9yZGVyLWNvbG9yOiB2YXIoLS1pb24taXRlbS1ib3JkZXItY29sb3IsdmFyKC0taW9uLWJvcmRlci1jb2xvcix2YXIoLS1pb24tY29sb3Itc3RlcC0xNTAscmdiYSgyNTUsMjU1LDI1NSwwLjEzKSkpKTtcbn1cblxuLyogU3R5bGVzIDIgZHJvcGRvd25zIGJhY2dyb3VuZCBjb2xvciovXG4ubGlzdC1tZCB7XG4gIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG59XG5cbi8qIFN0eWxlcyBlYWNoIHJlc291cmNlcyBmb250IGNvbG9ycyovXG5wIHtcbiAgdGV4dC1hbGlnbjogbGVmdDtcbiAgY29sb3I6ICNmZmY7XG59XG5cbmIge1xuICBjb2xvcjogI2ZmZjtcbiAgZm9udC1zaXplOiAxMnB0O1xufVxuXG4vKiBTdHlsZXMgZWFjaCByZXNvdXJjZXMgYmFja2dyb3VuZCBjb2xvciovXG5pb24tbGlzdCB7XG4gIC0tY29sb3I6IHZhcigtLWlvbi1jb2xvci1zdGVwLTg1MCwjZmZmKTtcbiAgLS1iYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xufVxuXG4vKiBTdHlsZXMgc2hhcmUgYnV0dG9uKi9cbmlvbi1mYWItYnV0dG9uIHtcbiAgLS1jb2xvcjogdmFyKC0taW9uLWNvbG9yLXN0ZXAtODUwLCNmZmYpO1xuICAtLWJhY2tncm91bmQ6IHJhZGlhbC1ncmFkaWVudCgjMDBjZDY3IDIwJSwgIzAxZmY4MCAxMDAlKSAhaW1wb3J0YW50O1xufSJdfQ== */";
+    __webpack_exports__["default"] = "/* Styles checkbox*/\nion-checkbox {\n  --background: transparent !important;\n  --background-checked: transparent !important;\n  --border-color: rgba(255,255,255,0.5) !important;\n  --border-color-checked: #01ff80 !important;\n  --checkmark-color: #01ff80 !important;\n  --border-radius: 150px;\n  width: calc(30px + 4vw);\n  height: auto;\n  margin-right: 50px;\n}\nion-item {\n  --border: transparent !important;\n}\n/* Styles top toolbar */\nion-toolbar {\n  color: white;\n  --background: #3064ab;\n  box-shadow: none;\n}\n/* Styles background color of every item on page content*/\nion-content {\n  --ion-background-color: linear-gradient(180deg, #3064ab 0%, #0c499c 50%, #03216e 100%) !important;\n}\n/* Styles searcbar*/\n.sc-ion-searchbar-md-h {\n  --clear-button-color: initial;\n  --cancel-button-color: var(--ion-color-step-900,#fff);\n  --color: var(--ion-color-step-850,#fff);\n  --icon-color: var(--ion-color-step-600,#fff);\n  --background: transparent !important;\n}\n/* Styles 2 dropdowns*/\nion-item {\n  --background: transparent !important;\n  --color: #fff !important;\n  --border-color: var(--ion-item-border-color,var(--ion-border-color,var(--ion-color-step-150,rgba(255,255,255,0.13))));\n}\n/* Styles 2 dropdowns bacground color*/\n.list-md {\n  background: transparent !important;\n}\n/* Styles each resources font colors*/\np {\n  text-align: left;\n  color: #fff;\n}\nb {\n  color: #fff;\n  font-size: 12pt;\n}\n/* Styles each resources background color*/\nion-list {\n  --color: var(--ion-color-step-850,#fff);\n  --background: transparent !important;\n}\n/* Styles share button*/\nion-fab-button {\n  --color: var(--ion-color-step-850,#fff);\n  --background: radial-gradient(#00cd67 20%, #01ff80 100%) !important;\n}\nion-label {\n  border: none !important;\n  outline: none !important;\n}\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbIi9Vc2Vycy9uaWNrcmljaGFyZC9OQU1JL2Jhc2UtZ2xvYmFsL2FwcC1iYXNlLWdsb2JhbC9zcmMvYXBwL2hvbWUvaG9tZS5wYWdlLnNjc3MiLCJzcmMvYXBwL2hvbWUvaG9tZS5wYWdlLnNjc3MiXSwibmFtZXMiOltdLCJtYXBwaW5ncyI6IkFBQ0UsbUJBQUE7QUFDQTtFQUNFLG9DQUFBO0VBQ0EsNENBQUE7RUFDQSxnREFBQTtFQUNBLDBDQUFBO0VBQ0EscUNBQUE7RUFDQSxzQkFBQTtFQUNBLHVCQUFBO0VBQ0EsWUFBQTtFQUNBLGtCQUFBO0FDQUo7QURFQTtFQUNFLGdDQUFBO0FDQ0Y7QURDQSx1QkFBQTtBQUNBO0VBQ0EsWUFBQTtFQUNBLHFCQUFBO0VBQ0EsZ0JBQUE7QUNFQTtBRENBLHlEQUFBO0FBQ0E7RUFDQSxpR0FBQTtBQ0VBO0FEQUEsbUJBQUE7QUFDQTtFQUNFLDZCQUFBO0VBQ0EscURBQUE7RUFDQSx1Q0FBQTtFQUNBLDRDQUFBO0VBQ0Esb0NBQUE7QUNHRjtBRERBLHNCQUFBO0FBQ0E7RUFDQSxvQ0FBQTtFQUNBLHdCQUFBO0VBQ0EscUhBQUE7QUNJQTtBREZBLHNDQUFBO0FBQ0E7RUFDQSxrQ0FBQTtBQ0tBO0FESEEscUNBQUE7QUFDQTtFQUNBLGdCQUFBO0VBQ0EsV0FBQTtBQ01BO0FESkE7RUFDQSxXQUFBO0VBQ0EsZUFBQTtBQ09BO0FETEEsMENBQUE7QUFDQTtFQUNBLHVDQUFBO0VBQ0Esb0NBQUE7QUNRQTtBRE5BLHVCQUFBO0FBQ0E7RUFDQSx1Q0FBQTtFQUNBLG1FQUFBO0FDU0E7QUROQTtFQUNFLHVCQUFBO0VBQ0Esd0JBQUE7QUNTRiIsImZpbGUiOiJzcmMvYXBwL2hvbWUvaG9tZS5wYWdlLnNjc3MiLCJzb3VyY2VzQ29udGVudCI6WyJcbiAgLyogU3R5bGVzIGNoZWNrYm94Ki9cbiAgaW9uLWNoZWNrYm94IHtcbiAgICAtLWJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG4gICAgLS1iYWNrZ3JvdW5kLWNoZWNrZWQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG4gICAgLS1ib3JkZXItY29sb3I6IHJnYmEoMjU1LDI1NSwyNTUsMC41KSAhaW1wb3J0YW50O1xuICAgIC0tYm9yZGVyLWNvbG9yLWNoZWNrZWQ6ICMwMWZmODAgIWltcG9ydGFudDtcdFxuICAgIC0tY2hlY2ttYXJrLWNvbG9yOiAjMDFmZjgwICFpbXBvcnRhbnQ7XG4gICAgLS1ib3JkZXItcmFkaXVzOiAxNTBweDtcbiAgICB3aWR0aDogY2FsYygzMHB4ICsgNHZ3KTtcbiAgICBoZWlnaHQ6IGF1dG87XG4gICAgbWFyZ2luLXJpZ2h0OiA1MHB4O1xufVxuaW9uLWl0ZW0ge1xuICAtLWJvcmRlcjogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbn1cbi8qIFN0eWxlcyB0b3AgdG9vbGJhciAqL1xuaW9uLXRvb2xiYXIge1xuY29sb3I6IHdoaXRlO1xuLS1iYWNrZ3JvdW5kOiAjMzA2NGFiO1xuYm94LXNoYWRvdzogbm9uZTtcbn1cblxuLyogU3R5bGVzIGJhY2tncm91bmQgY29sb3Igb2YgZXZlcnkgaXRlbSBvbiBwYWdlIGNvbnRlbnQqL1xuaW9uLWNvbnRlbnR7XG4tLWlvbi1iYWNrZ3JvdW5kLWNvbG9yOiBsaW5lYXItZ3JhZGllbnQoMTgwZGVnLCAjMzA2NGFiIDAlLCAjMGM0OTljIDUwJSwgIzAzMjE2ZSAxMDAlKSAhaW1wb3J0YW50O1xufVxuLyogU3R5bGVzIHNlYXJjYmFyKi9cbi5zYy1pb24tc2VhcmNoYmFyLW1kLWgge1xuICAtLWNsZWFyLWJ1dHRvbi1jb2xvcjogaW5pdGlhbDtcbiAgLS1jYW5jZWwtYnV0dG9uLWNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3RlcC05MDAsI2ZmZik7XG4gIC0tY29sb3I6IHZhcigtLWlvbi1jb2xvci1zdGVwLTg1MCwjZmZmKTtcbiAgLS1pY29uLWNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3RlcC02MDAsI2ZmZik7XG4gIC0tYmFja2dyb3VuZDogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbn1cbi8qIFN0eWxlcyAyIGRyb3Bkb3ducyovXG5pb24taXRlbSB7XG4tLWJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG4tLWNvbG9yOiAjZmZmICFpbXBvcnRhbnQ7XG4tLWJvcmRlci1jb2xvcjogdmFyKC0taW9uLWl0ZW0tYm9yZGVyLWNvbG9yLHZhcigtLWlvbi1ib3JkZXItY29sb3IsdmFyKC0taW9uLWNvbG9yLXN0ZXAtMTUwLHJnYmEoMjU1LDI1NSwyNTUsMC4xMykpKSk7XG59XG4vKiBTdHlsZXMgMiBkcm9wZG93bnMgYmFjZ3JvdW5kIGNvbG9yKi9cbi5saXN0LW1kIHtcbmJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG59XG4vKiBTdHlsZXMgZWFjaCByZXNvdXJjZXMgZm9udCBjb2xvcnMqL1xucCB7XG50ZXh0LWFsaWduOiBsZWZ0O1xuY29sb3I6ICNmZmY7XG59XG5iIHtcbmNvbG9yOiAjZmZmO1xuZm9udC1zaXplOiAxMnB0O1xufVxuLyogU3R5bGVzIGVhY2ggcmVzb3VyY2VzIGJhY2tncm91bmQgY29sb3IqL1xuaW9uLWxpc3Qge1xuLS1jb2xvcjogdmFyKC0taW9uLWNvbG9yLXN0ZXAtODUwLCNmZmYpO1xuLS1iYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xufVxuLyogU3R5bGVzIHNoYXJlIGJ1dHRvbiovXG5pb24tZmFiLWJ1dHRvbiB7XG4tLWNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3RlcC04NTAsI2ZmZik7XG4tLWJhY2tncm91bmQ6IHJhZGlhbC1ncmFkaWVudCgjMDBjZDY3IDIwJSwgIzAxZmY4MCAxMDAlKSAhaW1wb3J0YW50O1xufVxuXG5pb24tbGFiZWwge1xuICBib3JkZXI6IG5vbmUgIWltcG9ydGFudDtcbiAgb3V0bGluZTogbm9uZSAhaW1wb3J0YW50O1xufVxuXG4iLCIvKiBTdHlsZXMgY2hlY2tib3gqL1xuaW9uLWNoZWNrYm94IHtcbiAgLS1iYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xuICAtLWJhY2tncm91bmQtY2hlY2tlZDogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbiAgLS1ib3JkZXItY29sb3I6IHJnYmEoMjU1LDI1NSwyNTUsMC41KSAhaW1wb3J0YW50O1xuICAtLWJvcmRlci1jb2xvci1jaGVja2VkOiAjMDFmZjgwICFpbXBvcnRhbnQ7XG4gIC0tY2hlY2ttYXJrLWNvbG9yOiAjMDFmZjgwICFpbXBvcnRhbnQ7XG4gIC0tYm9yZGVyLXJhZGl1czogMTUwcHg7XG4gIHdpZHRoOiBjYWxjKDMwcHggKyA0dncpO1xuICBoZWlnaHQ6IGF1dG87XG4gIG1hcmdpbi1yaWdodDogNTBweDtcbn1cblxuaW9uLWl0ZW0ge1xuICAtLWJvcmRlcjogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbn1cblxuLyogU3R5bGVzIHRvcCB0b29sYmFyICovXG5pb24tdG9vbGJhciB7XG4gIGNvbG9yOiB3aGl0ZTtcbiAgLS1iYWNrZ3JvdW5kOiAjMzA2NGFiO1xuICBib3gtc2hhZG93OiBub25lO1xufVxuXG4vKiBTdHlsZXMgYmFja2dyb3VuZCBjb2xvciBvZiBldmVyeSBpdGVtIG9uIHBhZ2UgY29udGVudCovXG5pb24tY29udGVudCB7XG4gIC0taW9uLWJhY2tncm91bmQtY29sb3I6IGxpbmVhci1ncmFkaWVudCgxODBkZWcsICMzMDY0YWIgMCUsICMwYzQ5OWMgNTAlLCAjMDMyMTZlIDEwMCUpICFpbXBvcnRhbnQ7XG59XG5cbi8qIFN0eWxlcyBzZWFyY2JhciovXG4uc2MtaW9uLXNlYXJjaGJhci1tZC1oIHtcbiAgLS1jbGVhci1idXR0b24tY29sb3I6IGluaXRpYWw7XG4gIC0tY2FuY2VsLWJ1dHRvbi1jb2xvcjogdmFyKC0taW9uLWNvbG9yLXN0ZXAtOTAwLCNmZmYpO1xuICAtLWNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3RlcC04NTAsI2ZmZik7XG4gIC0taWNvbi1jb2xvcjogdmFyKC0taW9uLWNvbG9yLXN0ZXAtNjAwLCNmZmYpO1xuICAtLWJhY2tncm91bmQ6IHRyYW5zcGFyZW50ICFpbXBvcnRhbnQ7XG59XG5cbi8qIFN0eWxlcyAyIGRyb3Bkb3ducyovXG5pb24taXRlbSB7XG4gIC0tYmFja2dyb3VuZDogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbiAgLS1jb2xvcjogI2ZmZiAhaW1wb3J0YW50O1xuICAtLWJvcmRlci1jb2xvcjogdmFyKC0taW9uLWl0ZW0tYm9yZGVyLWNvbG9yLHZhcigtLWlvbi1ib3JkZXItY29sb3IsdmFyKC0taW9uLWNvbG9yLXN0ZXAtMTUwLHJnYmEoMjU1LDI1NSwyNTUsMC4xMykpKSk7XG59XG5cbi8qIFN0eWxlcyAyIGRyb3Bkb3ducyBiYWNncm91bmQgY29sb3IqL1xuLmxpc3QtbWQge1xuICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50O1xufVxuXG4vKiBTdHlsZXMgZWFjaCByZXNvdXJjZXMgZm9udCBjb2xvcnMqL1xucCB7XG4gIHRleHQtYWxpZ246IGxlZnQ7XG4gIGNvbG9yOiAjZmZmO1xufVxuXG5iIHtcbiAgY29sb3I6ICNmZmY7XG4gIGZvbnQtc2l6ZTogMTJwdDtcbn1cblxuLyogU3R5bGVzIGVhY2ggcmVzb3VyY2VzIGJhY2tncm91bmQgY29sb3IqL1xuaW9uLWxpc3Qge1xuICAtLWNvbG9yOiB2YXIoLS1pb24tY29sb3Itc3RlcC04NTAsI2ZmZik7XG4gIC0tYmFja2dyb3VuZDogdHJhbnNwYXJlbnQgIWltcG9ydGFudDtcbn1cblxuLyogU3R5bGVzIHNoYXJlIGJ1dHRvbiovXG5pb24tZmFiLWJ1dHRvbiB7XG4gIC0tY29sb3I6IHZhcigtLWlvbi1jb2xvci1zdGVwLTg1MCwjZmZmKTtcbiAgLS1iYWNrZ3JvdW5kOiByYWRpYWwtZ3JhZGllbnQoIzAwY2Q2NyAyMCUsICMwMWZmODAgMTAwJSkgIWltcG9ydGFudDtcbn1cblxuaW9uLWxhYmVsIHtcbiAgYm9yZGVyOiBub25lICFpbXBvcnRhbnQ7XG4gIG91dGxpbmU6IG5vbmUgIWltcG9ydGFudDtcbn0iXX0= */";
     /***/
   },
 
@@ -259,15 +265,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var _ionic_native_firebase_analytics_ngx__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
     /*! @ionic-native/firebase-analytics/ngx */
     "./node_modules/@ionic-native/firebase-analytics/ngx/index.js");
+    /* harmony import */
+
+
+    var _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! @ngx-translate/core */
+    "./node_modules/@ngx-translate/core/fesm2015/ngx-translate-core.js");
 
     var HomePage =
     /*#__PURE__*/
     function () {
-      function HomePage(resourceListService, modalCtrl, zone, toastController, router, modalController, actionSheetController, firebaseAnalytics) {
+      function HomePage(resourceListService, modalCtrl, zone, toastController, router, modalController, actionSheetController, firebaseAnalytics, _translate) {
         var _this = this;
 
         _classCallCheck(this, HomePage);
 
+        // if (this._translate.getBrowserLang() !== undefined) {
         this.resourceListService = resourceListService;
         this.modalCtrl = modalCtrl;
         this.zone = zone;
@@ -276,6 +289,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.modalController = modalController;
         this.actionSheetController = actionSheetController;
         this.firebaseAnalytics = firebaseAnalytics;
+        this._translate = _translate;
         this.isChecked = false;
         this.searchedCity = [];
         this.searchedCategory = [];
@@ -290,7 +304,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.modalMessage = '';
         this.isShown = false;
         this.selectedResources = [];
-        this.search_analytics = '';
+        this.search_analytics = ''; //   this._translate.setDefaultLang(this._translate.getBrowserLang());
+        //   console.log('browser language is', this._translate.getBrowserLang());
+        // }
+        // else {
+        //   // Set your language here
+        //   this._translate.setDefaultLang('en');
+        // }
 
         this.router.routeReuseStrategy.shouldReuseRoute = function () {
           return false;
@@ -317,11 +337,39 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           console.log(result.checked);
           result.checked = false;
         });
+        this.pagetitle = 'page.resources';
       }
 
       _createClass(HomePage, [{
         key: "ngOnInit",
-        value: function ngOnInit() {}
+        value: function ngOnInit() {
+          var _this2 = this;
+
+          this._translate.get('sharemenu.clear').subscribe(function (res) {
+            console.log(res);
+            _this2.acClear = res;
+          });
+
+          this._translate.get('sharemenu.cancel').subscribe(function (res) {
+            console.log(res);
+            _this2.acCancel = res;
+          });
+
+          this._translate.get('sharemenu.close').subscribe(function (res) {
+            console.log(res);
+            _this2.acClose = res;
+          });
+
+          this._translate.get('sharemenu.shareallresults').subscribe(function (res) {
+            console.log(res);
+            _this2.acShareAll = res;
+          });
+
+          this._translate.get('sharemenu.share').subscribe(function (res) {
+            console.log(res);
+            _this2.acShare = res;
+          });
+        }
       }, {
         key: "ngOnDestroy",
         value: function ngOnDestroy() {
@@ -338,20 +386,20 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "scrollStop",
         value: function scrollStop(event) {
-          var _this2 = this;
+          var _this3 = this;
 
           this.zone.run(function () {
-            _this2.isShown = true;
+            _this3.isShown = true;
           });
         }
       }, {
         key: "scrollHandler",
         value: function scrollHandler(event) {
-          var _this3 = this;
+          var _this4 = this;
 
           console.log("ScrollEvent: ".concat(event));
           this.zone.run(function () {
-            _this3.isShown = true;
+            _this4.isShown = true;
           });
         }
       }, {
@@ -389,7 +437,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee2() {
-            var _this4 = this;
+            var _this5 = this;
 
             var modal;
             return regeneratorRuntime.wrap(function _callee2$(_context2) {
@@ -408,7 +456,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     modal = _context2.sent;
                     modal.onDidDismiss().then(function (dataReturned) {
                       if (dataReturned !== null) {
-                        _this4.dataReturned = dataReturned.data;
+                        _this5.dataReturned = dataReturned.data;
                       }
                     });
                     _context2.next = 6;
@@ -432,7 +480,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
           /*#__PURE__*/
           regeneratorRuntime.mark(function _callee3() {
-            var _this5 = this;
+            var _this6 = this;
 
             var actionSheet;
             return regeneratorRuntime.wrap(function _callee3$(_context3) {
@@ -441,36 +489,36 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                   case 0:
                     _context3.next = 2;
                     return this.actionSheetController.create({
-                      header: 'Share',
+                      header: this.acShare,
                       buttons: [{
-                        text: 'Clear Selected',
+                        text: this.acClear,
                         role: 'destructive',
                         icon: 'trash',
                         handler: function handler() {
-                          _this5.router.navigate(['/home']);
+                          _this6.router.navigate(['/home']);
 
-                          _this5.clearSelected();
+                          _this6.clearSelected();
 
                           console.log('Cleared selected resources');
                         }
                       }, {
-                        text: 'Share ' + this.selectItems + ' Selected',
+                        text: this.acShare + ' ' + this.selectItems,
                         icon: 'share',
                         handler: function handler() {
-                          _this5.shareSelected();
+                          _this6.shareSelected();
 
                           console.log('Share clicked');
                         }
                       }, {
-                        text: 'Share All (' + this.numberOfSearchResults + ') Search Results',
+                        text: this.acShareAll + ' ' + this.numberOfSearchResults,
                         icon: 'share',
                         handler: function handler() {
-                          _this5.shareAllResults();
+                          _this6.shareAllResults();
 
                           console.log('Share All clicked');
                         }
                       }, {
-                        text: 'Cancel',
+                        text: this.acCancel,
                         icon: 'close',
                         role: 'cancel',
                         handler: function handler() {
@@ -507,7 +555,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "search",
         value: function search() {
-          var _this6 = this;
+          var _this7 = this;
 
           // Reset search_term to log to firebase analytics
           this.search_analytics = '';
@@ -525,10 +573,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               });
               this.searchResults = this.searchThisList.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (data) {
                 return data.filter(function (resource) {
-                  for (var j = 0; j < _this6.cities.length; j++) {
+                  for (var j = 0; j < _this7.cities.length; j++) {
                     return resource.Category.split(", ").filter(function (e) {
                       return this.indexOf(e) > -1;
-                    }, _this6.categories).length == _this6.categories.length && resource.LocationCity.toString().includes(_this6.cities[j]);
+                    }, _this7.categories).length == _this7.categories.length && resource.LocationCity.toString().includes(_this7.cities[j]);
                   }
                 });
               }));
@@ -546,7 +594,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 return data.filter(function (resource) {
                   return resource.Category.split(", ").filter(function (e) {
                     return this.indexOf(e) > -1;
-                  }, _this6.categories).length == _this6.categories.length;
+                  }, _this7.categories).length == _this7.categories.length;
                 });
               }));
             }
@@ -560,14 +608,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               });
               this.searchResults = this.searchThisList.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (data) {
                 return data.filter(function (resource) {
-                  for (var i = 0; i < _this6.cities.length; i++) {
-                    if (resource.LocationCity.toString().includes(_this6.cities[i])) {
-                      console.log(resource.LocationCity.toString().includes(_this6.cities[i]));
+                  for (var i = 0; i < _this7.cities.length; i++) {
+                    if (resource.LocationCity.toString().includes(_this7.cities[i])) {
+                      console.log(resource.LocationCity.toString().includes(_this7.cities[i]));
 
-                      _this6.searchedCity.push(resource);
+                      _this7.searchedCity.push(resource);
 
-                      console.log(_this6.searchedCity);
-                      return resource.LocationCity.toString().includes(_this6.cities[i]);
+                      console.log(_this7.searchedCity);
+                      return resource.LocationCity.toString().includes(_this7.cities[i]);
                     }
                   }
                 });
@@ -593,10 +641,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               console.log(Array.isArray(this.cities));
               this.searchResults = this.searchThisList.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (data) {
                 return data.filter(function (resource) {
-                  for (var j = 0; j < _this6.cities.length; j++) {
+                  for (var j = 0; j < _this7.cities.length; j++) {
                     return resource.Category.split(", ").filter(function (e) {
                       return this.indexOf(e) > -1;
-                    }, _this6.categories).length == _this6.categories.length && resource.LocationCity.toString().includes(_this6.cities[j]) && (resource.ProgramName.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationCity.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationState.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.TelephoneNumber1.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Zip.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Description.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Category.toString().toLowerCase().indexOf(val.toLowerCase()) > -1);
+                    }, _this7.categories).length == _this7.categories.length && resource.LocationCity.toString().includes(_this7.cities[j]) && (resource.ProgramName.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationCity.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationState.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.TelephoneNumber1.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Zip.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Description.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Category.toString().toLowerCase().indexOf(val.toLowerCase()) > -1);
                   }
                 });
               }));
@@ -608,7 +656,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 return data.filter(function (resource) {
                   return resource.Category.split(", ").filter(function (e) {
                     return this.indexOf(e) > -1;
-                  }, _this6.categories).length == _this6.categories.length && (resource.ProgramName.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationCity.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationState.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.TelephoneNumber1.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Zip.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Description.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Category.toString().toLowerCase().indexOf(val.toLowerCase()) > -1);
+                  }, _this7.categories).length == _this7.categories.length && (resource.ProgramName.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationCity.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationState.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.TelephoneNumber1.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Zip.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Description.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Category.toString().toLowerCase().indexOf(val.toLowerCase()) > -1);
                 });
               }));
             }
@@ -616,14 +664,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             if (this.cities.length > 0 && this.categories.length == 0) {
               this.searchResults = this.searchThisList.pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["map"])(function (data) {
                 return data.filter(function (resource) {
-                  for (var i = 0; i < _this6.cities.length; i++) {
-                    if (resource.LocationCity.toString().includes(_this6.cities[i]) && (resource.ProgramName.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationCity.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationState.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.TelephoneNumber1.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Zip.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Description.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Category.toString().toLowerCase().indexOf(val.toLowerCase()) > -1)) {
-                      console.log(resource.LocationCity.toString().includes(_this6.cities[i]));
+                  for (var i = 0; i < _this7.cities.length; i++) {
+                    if (resource.LocationCity.toString().includes(_this7.cities[i]) && (resource.ProgramName.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationCity.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationState.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.TelephoneNumber1.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Zip.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Description.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Category.toString().toLowerCase().indexOf(val.toLowerCase()) > -1)) {
+                      console.log(resource.LocationCity.toString().includes(_this7.cities[i]));
 
-                      _this6.searchedCity.push(resource);
+                      _this7.searchedCity.push(resource);
 
-                      console.log(_this6.searchedCity);
-                      return resource.LocationCity.toString().includes(_this6.cities[i]) && (resource.ProgramName.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationCity.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationState.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.TelephoneNumber1.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Zip.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Description.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Category.toString().toLowerCase().indexOf(val.toLowerCase()) > -1);
+                      console.log(_this7.searchedCity);
+                      return resource.LocationCity.toString().includes(_this7.cities[i]) && (resource.ProgramName.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationCity.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.LocationState.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.TelephoneNumber1.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Zip.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Description.toString().toLowerCase().indexOf(val.toLowerCase()) > -1 || resource.Category.toString().toLowerCase().indexOf(val.toLowerCase()) > -1);
                     }
                   }
                 });
@@ -640,7 +688,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           this.searchResults.forEach(function (result) {
-            _this6.numberOfSearchResults = result.length;
+            _this7.numberOfSearchResults = result.length;
           });
         }
       }, {
@@ -667,7 +715,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "shareResource",
         value: function shareResource(event, resource) {
-          var _this7 = this;
+          var _this8 = this;
 
           var name = resource.ProgramName;
           var phone = resource.TelephoneNumber1;
@@ -679,13 +727,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             message: this.shareOneResourceString
           };
           this.openModal(data).then(function () {
-            _this7.router.navigate(['/home']);
+            _this8.router.navigate(['/home']);
           });
         }
       }, {
         key: "shareSelected",
         value: function shareSelected() {
-          var _this8 = this;
+          var _this9 = this;
 
           if (this.selectItems == 0) {
             alert("No resoureces selected - please choose at least 1");
@@ -714,13 +762,13 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           };
           this.openModal(data).then(function () {
             // this.firebaseAnalytics.logEvent('share', {resources_shared: this.shareSelectedString})
-            _this8.router.navigate(['/home']);
+            _this9.router.navigate(['/home']);
           });
         }
       }, {
         key: "shareAllResults",
         value: function shareAllResults() {
-          var _this9 = this;
+          var _this10 = this;
 
           // ************************************************************************************************************************************ //
           this.searchResults.forEach(function (result) {
@@ -731,23 +779,23 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               var phone = result[i].TelephoneNumber1;
               var website = result[i].Website;
               var email = result[i].EmailAddress;
-              _this9.shareAllString = _this9.shareAllString + '\n' + name + '\n' + phone + '\n' + website + '\n' + email + '\n'; // Log resource individually as shared into Firebase Analytics
+              _this10.shareAllString = _this10.shareAllString + '\n' + name + '\n' + phone + '\n' + website + '\n' + email + '\n'; // Log resource individually as shared into Firebase Analytics
 
-              _this9.firebaseAnalytics.logEvent('share', {
+              _this10.firebaseAnalytics.logEvent('share', {
                 resources_shared: name
               });
             }
 
             console.log('exited for loop');
-            _this9.shareAllString = _this9.shareAllString + '\n' + "This information is provided by NAMI St. Tammany.  For more behavioral health information call us at 985-626-6528, or www.namisttammany.org or www.facebook.com/namisttammany" + '\n';
-            console.log(_this9.shareAllString);
+            _this10.shareAllString = _this10.shareAllString + '\n' + "This information is provided by NAMI St. Tammany.  For more behavioral health information call us at 985-626-6528, or www.namisttammany.org or www.facebook.com/namisttammany" + '\n';
+            console.log(_this10.shareAllString);
             var data = {
-              message: _this9.shareAllString
+              message: _this10.shareAllString
             };
 
-            _this9.openModal(data).then(function () {
+            _this10.openModal(data).then(function () {
               // this.firebaseAnalytics.logEvent('share', {resources_shared: this.shareAllString})
-              _this9.router.navigate(['/home']);
+              _this10.router.navigate(['/home']);
             });
           }); // ************************************************************************************************************************************ //
         }
@@ -773,6 +821,8 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ActionSheetController"]
       }, {
         type: _ionic_native_firebase_analytics_ngx__WEBPACK_IMPORTED_MODULE_8__["FirebaseAnalytics"]
+      }, {
+        type: _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]
       }];
     };
 
@@ -787,7 +837,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./home.page.scss */
       "./src/app/home/home.page.scss")).default]
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_resource_list_service__WEBPACK_IMPORTED_MODULE_3__["ResourceListService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ActionSheetController"], _ionic_native_firebase_analytics_ngx__WEBPACK_IMPORTED_MODULE_8__["FirebaseAnalytics"]])], HomePage);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_resource_list_service__WEBPACK_IMPORTED_MODULE_3__["ResourceListService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ActionSheetController"], _ionic_native_firebase_analytics_ngx__WEBPACK_IMPORTED_MODULE_8__["FirebaseAnalytics"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])], HomePage);
     /***/
   },
 
@@ -858,7 +908,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*#__PURE__*/
     function () {
       function NetworkService(network, toastController, plt) {
-        var _this10 = this;
+        var _this11 = this;
 
         _classCallCheck(this, NetworkService);
 
@@ -867,31 +917,31 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         this.plt = plt;
         this.status = new rxjs__WEBPACK_IMPORTED_MODULE_3__["BehaviorSubject"](ConnectionStatus.Offline);
         this.plt.ready().then(function () {
-          _this10.initializeNetworkEvents();
+          _this11.initializeNetworkEvents();
 
-          var status = _this10.network.type !== 'none' ? ConnectionStatus.Online : ConnectionStatus.Offline;
+          var status = _this11.network.type !== 'none' ? ConnectionStatus.Online : ConnectionStatus.Offline;
 
-          _this10.status.next(status);
+          _this11.status.next(status);
         });
       }
 
       _createClass(NetworkService, [{
         key: "initializeNetworkEvents",
         value: function initializeNetworkEvents() {
-          var _this11 = this;
+          var _this12 = this;
 
           this.network.onDisconnect().subscribe(function () {
-            if (_this11.status.getValue() === ConnectionStatus.Online) {
+            if (_this12.status.getValue() === ConnectionStatus.Online) {
               console.log('WE ARE OFFLINE');
 
-              _this11.updateNetworkStatus(ConnectionStatus.Offline);
+              _this12.updateNetworkStatus(ConnectionStatus.Offline);
             }
           });
           this.network.onConnect().subscribe(function () {
-            if (_this11.status.getValue() === ConnectionStatus.Offline) {
+            if (_this12.status.getValue() === ConnectionStatus.Offline) {
               console.log('WE ARE ONLINE');
 
-              _this11.updateNetworkStatus(ConnectionStatus.Online);
+              _this12.updateNetworkStatus(ConnectionStatus.Online);
             }
           });
         }
@@ -1011,33 +1061,56 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     var rxjs_operators__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
     /*! rxjs/operators */
     "./node_modules/rxjs/_esm2015/operators/index.js");
+    /* harmony import */
+
+
+    var _translate_config_service__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./translate-config.service */
+    "./src/app/services/translate-config.service.ts");
 
     var API_STORAGE_KEY = 'specialkey';
 
     var ResourceListService =
     /*#__PURE__*/
     function () {
-      function ResourceListService(db, sdb, networkService) {
+      function ResourceListService(db, sdb, networkService, translateConfigService) {
         _classCallCheck(this, ResourceListService);
 
         this.db = db;
         this.sdb = sdb;
         this.networkService = networkService;
+        this.translateConfigService = translateConfigService;
+        this.selectedLanguage = this.translateConfigService.getDefaultLanguage();
       }
 
       _createClass(ResourceListService, [{
         key: "getResourceList",
         value: function getResourceList() {
-          return this.db.list('resource', function (ref) {
-            return ref.orderByChild('ProgramName');
-          }).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (changes) {
-            console.log(changes);
-            return changes.map(function (c) {
-              return Object.assign({
-                key: c.payload.key
-              }, c.payload.val());
-            });
-          }));
+          if (this.selectedLanguage = 'en') {
+            return this.db.list('resource', function (ref) {
+              return ref.orderByChild('ProgramName');
+            }).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (changes) {
+              console.log(changes);
+              return changes.map(function (c) {
+                return Object.assign({
+                  key: c.payload.key
+                }, c.payload.val());
+              });
+            }));
+          }
+
+          if (this.selectedLanguage = 'es') {
+            return this.db.list('resource', function (ref) {
+              return ref.orderByChild('ProgramName');
+            }).snapshotChanges().pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_5__["map"])(function (changes) {
+              console.log(changes);
+              return changes.map(function (c) {
+                return Object.assign({
+                  key: c.payload.key
+                }, c.payload.val());
+              });
+            }));
+          }
         }
       }, {
         key: "getCityList",
@@ -1066,18 +1139,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
               }, c.payload.val());
             });
           }));
-        } // Save result of API requests
-
-      }, {
-        key: "setLocalData",
-        value: function setLocalData(key, data) {
-          this.sdb.set("".concat(API_STORAGE_KEY, "-").concat(key), data);
-        } // Get cached API result
-
-      }, {
-        key: "getLocalData",
-        value: function getLocalData(key) {
-          return this.sdb.get("".concat(API_STORAGE_KEY, "-").concat(key));
         }
       }]);
 
@@ -1091,12 +1152,14 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         type: _ionic_storage__WEBPACK_IMPORTED_MODULE_3__["Storage"]
       }, {
         type: _network_service__WEBPACK_IMPORTED_MODULE_4__["NetworkService"]
+      }, {
+        type: _translate_config_service__WEBPACK_IMPORTED_MODULE_6__["TranslateConfigService"]
       }];
     };
 
     ResourceListService = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Injectable"])({
       providedIn: 'root'
-    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"], _ionic_storage__WEBPACK_IMPORTED_MODULE_3__["Storage"], _network_service__WEBPACK_IMPORTED_MODULE_4__["NetworkService"]])], ResourceListService);
+    }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_angular_fire_database__WEBPACK_IMPORTED_MODULE_2__["AngularFireDatabase"], _ionic_storage__WEBPACK_IMPORTED_MODULE_3__["Storage"], _network_service__WEBPACK_IMPORTED_MODULE_4__["NetworkService"], _translate_config_service__WEBPACK_IMPORTED_MODULE_6__["TranslateConfigService"]])], ResourceListService);
     /***/
   }
 }]);
