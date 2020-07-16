@@ -99,13 +99,13 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/Analytics (~> 6.3.0)
+  - Firebase/Core (~> 6.3.0)
   - Firebase/Messaging (~> 6.3.0)
   - GoogleSignIn (~> 5.0.2)
   - GoogleUtilities (~> 6.5.1)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
-    - AppAuth
     - Firebase
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
@@ -114,9 +114,7 @@ SPEC REPOS:
     - FirebaseMessaging
     - GoogleAppMeasurement
     - GoogleSignIn
-    - GoogleUtilities
     - GTMAppAuth
-    - GTMSessionFetcher
     - nanopb
     - Protobuf
   trunk:
@@ -140,6 +138,6 @@ SPEC CHECKSUMS:
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: 0e94afe3b47cb11876eb6aee296638711a24bf75
 
-PODFILE CHECKSUM: fb7647f9874612a6f048a5077b2df67552372ba1
+PODFILE CHECKSUM: 31bdc78e0536cb7f7884e1c594fd736e59ec6f26
 
 COCOAPODS: 1.8.4

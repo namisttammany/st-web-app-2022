@@ -62,6 +62,7 @@
 		A0428F4B2AA24A72B80C68FF /* BinaryRequestSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = F8F45FED70C8472A8C36C7CA /* BinaryRequestSerializer.m */; };
 		A3BB0F6D1F9F439B8D206084 /* CDVUIInAppBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 13D5C97693454729B523F11A /* CDVUIInAppBrowser.m */; };
 		A4548847141F4CB88760F212 /* CDVSplashScreen.m in Sources */ = {isa = PBXBuildFile; fileRef = 6E3DE74F594E4AABA24F5B4C /* CDVSplashScreen.m */; };
+		A86E2446A5254FFB8F78EFFC /* CDVGlobalization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C1F24B33DD4B9D81108E06 /* CDVGlobalization.m */; };
 		A89FF79C21534D2A937662C0 /* GooglePlus.m in Sources */ = {isa = PBXBuildFile; fileRef = F71884DD9F434C5685CB1489 /* GooglePlus.m */; };
 		AAB07E41F2B04E469807737A /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4805BB8DAFE74580876BDA85 /* libsqlite3.0.tbd */; };
 		BA2ACA84355F4767B69E3284 /* LaunchNavigatorPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 17C0C47D8E8D41B6BD543DF2 /* LaunchNavigatorPlugin.m */; };
@@ -84,7 +85,6 @@
 		F3E5E4EF8C1E4EB7A5EFA4E6 /* WE_CordovaLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = A785A56E632C4C7494DC3D79 /* WE_CordovaLogger.m */; };
 		F6F3B750B17D4A4189AC9FC4 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 56067E16E27D482995DE08BB /* AddressBookUI.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		F75F547A89614460BCDBE6AB /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A9A091B31584D2D917F5CD7 /* AFURLResponseSerialization.m */; };
-		A86E2446A5254FFB8F78EFFC /* CDVGlobalization.m in Sources */ = {isa = PBXBuildFile; fileRef = A4C1F24B33DD4B9D81108E06 /* CDVGlobalization.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -210,6 +210,7 @@
 		A33ECC8C839943D0A84F334C /* FirebaseAnalyticsPlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = FirebaseAnalyticsPlugin.h; path = "cordova-plugin-firebase-analytics/FirebaseAnalyticsPlugin.h"; sourceTree = "<group>"; };
 		A4426A0E3FB54235B78FBFC4 /* CDVUIInAppBrowser.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVUIInAppBrowser.h; path = "cordova-plugin-inappbrowser/CDVUIInAppBrowser.h"; sourceTree = "<group>"; };
 		A45D9DC11076493AB5564E64 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = AFHTTPSessionManager.m; path = "cordova-plugin-advanced-http/AFHTTPSessionManager.m"; sourceTree = "<group>"; };
+		A4C1F24B33DD4B9D81108E06 /* CDVGlobalization.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVGlobalization.m; path = "cordova-plugin-globalization/CDVGlobalization.m"; sourceTree = "<group>"; };
 		A51A9AA45B3E4CAAAD82964B /* AppDelegate+FirebaseMessagingPlugin.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = "AppDelegate+FirebaseMessagingPlugin.h"; path = "cordova-plugin-firebase-messaging/AppDelegate+FirebaseMessagingPlugin.h"; sourceTree = "<group>"; };
 		A578C6A5D49C4D0ABD5CBCEC /* CDVContact.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = CDVContact.m; path = "cordova-plugin-contacts/CDVContact.m"; sourceTree = "<group>"; };
 		A785A56E632C4C7494DC3D79 /* WE_CordovaLogger.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = WE_CordovaLogger.m; path = uk.co.workingedge.phonegap.plugin.launchnavigator/WE_CordovaLogger.m; sourceTree = "<group>"; };
@@ -218,6 +219,7 @@
 		B3C08B4CF54542C5AD24FFD3 /* TextResponseSerializer.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = TextResponseSerializer.m; path = "cordova-plugin-advanced-http/TextResponseSerializer.m"; sourceTree = "<group>"; };
 		B461451FBE077E5183EB7D74 /* Pods-NAMI ST.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NAMI ST.debug.xcconfig"; path = "Target Support Files/Pods-NAMI ST/Pods-NAMI ST.debug.xcconfig"; sourceTree = "<group>"; };
 		B4EFB34136AE4B0195692FC6 /* AddressBook.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		B5C98746C6DB458AA0BD001E /* CDVGlobalization.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = CDVGlobalization.h; path = "cordova-plugin-globalization/CDVGlobalization.h"; sourceTree = "<group>"; };
 		BAA9FECF34C64B5CB85CC508 /* WE_Logger.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = WE_Logger.h; path = uk.co.workingedge.phonegap.plugin.launchnavigator/WE_Logger.h; sourceTree = "<group>"; };
 		BB59C0E93956434FAD3DC62F /* TextResponseSerializer.h */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.h; name = TextResponseSerializer.h; path = "cordova-plugin-advanced-http/TextResponseSerializer.h"; sourceTree = "<group>"; };
 		BD7F9EE9A87B4848A522BCBD /* CoreLocation.framework */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
@@ -254,8 +256,6 @@
 		F71884DD9F434C5685CB1489 /* GooglePlus.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = GooglePlus.m; path = "cordova-plugin-googleplus/GooglePlus.m"; sourceTree = "<group>"; };
 		F840E1F0165FE0F500CFE078 /* config.xml */ = {isa = PBXFileReference; lastKnownFileType = text.xml; name = config.xml; path = "NAMI ST/config.xml"; sourceTree = "<group>"; };
 		F8F45FED70C8472A8C36C7CA /* BinaryRequestSerializer.m */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 4; includeInIndex = 0; lastKnownFileType = sourcecode.c.objc; name = BinaryRequestSerializer.m; path = "cordova-plugin-advanced-http/BinaryRequestSerializer.m"; sourceTree = "<group>"; };
-		A4C1F24B33DD4B9D81108E06 /* CDVGlobalization.m */ = {isa = PBXFileReference; name = "CDVGlobalization.m"; path = "cordova-plugin-globalization/CDVGlobalization.m"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; explicitFileType = undefined; includeInIndex = 0; };
-		B5C98746C6DB458AA0BD001E /* CDVGlobalization.h */ = {isa = PBXFileReference; name = "CDVGlobalization.h"; path = "cordova-plugin-globalization/CDVGlobalization.h"; sourceTree = "<group>"; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; explicitFileType = undefined; includeInIndex = 0; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -570,6 +570,11 @@
 				English,
 				en,
 				Base,
+				"zh-Hans",
+				es,
+				hi,
+				ja,
+				vi,
 			);
 			mainGroup = 29B97314FDCFA39411CA2CEA /* CustomTemplate */;
 			productRefGroup = 19C28FACFE9D520D11CA2CBB /* Products */;
@@ -800,9 +805,9 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "NAMI ST/NAMI ST-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				MARKETING_VERSION = 2020.04.26;
+				MARKETING_VERSION = 2020.07.16;
 				PRODUCT_BUNDLE_IDENTIFIER = io.apptitude.nami;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -829,9 +834,9 @@
 				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "NAMI ST/NAMI ST-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
-				MARKETING_VERSION = 2020.04.26;
+				MARKETING_VERSION = 2020.07.16;
 				PRODUCT_BUNDLE_IDENTIFIER = io.apptitude.nami;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -874,7 +879,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = io.apptitude.nami;
 				SDKROOT = iphoneos;
@@ -917,7 +922,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				PRODUCT_BUNDLE_IDENTIFIER = io.apptitude.nami;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = NO;

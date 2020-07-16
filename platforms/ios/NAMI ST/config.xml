@@ -97,6 +97,9 @@
     <feature name="LaunchNavigator">
         <param name="ios-package" value="LaunchNavigatorPlugin" />
     </feature>
+    <feature name="Globalization">
+        <param name="ios-package" value="CDVGlobalization" />
+    </feature>
     <name>NAMI ST</name>
     <description>Resources App</description>
     <author email="apatel@namisttammany.org" href="http://namisttammany.org/">Akshar Patel</author>
@@ -185,7 +188,4 @@
     <preference name="SplashShowOnlyFirstTime" value="false" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenDelay" value="3000" />
-    <feature name="Globalization">
-        <param name="ios-package" value="CDVGlobalization" />
-    </feature>
 </widget>
