@@ -1,1214 +1,506 @@
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
-function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _nonIterableSpread(); }
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
-function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance"); }
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function _iterableToArray(iter) { if (Symbol.iterator in Object(iter) || Object.prototype.toString.call(iter) === "[object Arguments]") return Array.from(iter); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = new Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[0], {
   /***/
-  "./node_modules/@ionic/core/dist/esm/animation-af478fe9.js":
-  /*!*****************************************************************!*\
-    !*** ./node_modules/@ionic/core/dist/esm/animation-af478fe9.js ***!
-    \*****************************************************************/
+  "./node_modules/@ionic/core/dist/esm/ion-action-sheet-ios.entry.js":
+  /*!*************************************************************************!*\
+    !*** ./node_modules/@ionic/core/dist/esm/ion-action-sheet-ios.entry.js ***!
+    \*************************************************************************/
 
-  /*! exports provided: c */
+  /*! exports provided: ion_action_sheet */
 
   /***/
-  function node_modulesIonicCoreDistEsmAnimationAf478fe9Js(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesIonicCoreDistEsmIonActionSheetIosEntryJs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "c", function () {
-      return createAnimation;
+    __webpack_require__.d(__webpack_exports__, "ion_action_sheet", function () {
+      return ActionSheet;
     });
     /* harmony import */
 
 
-    var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! ./helpers-46f4a262.js */
-    "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
+    var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./index-29df6f59.js */
+    "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
+    /* harmony import */
 
-    var setStyleProperty = function setStyleProperty(element, propertyName, value) {
-      element.style.setProperty(propertyName, value);
+
+    var _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./ionic-global-08f4fb8a.js */
+    "./node_modules/@ionic/core/dist/esm/ionic-global-08f4fb8a.js");
+    /* harmony import */
+
+
+    var _helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./helpers-5c745fbd.js */
+    "./node_modules/@ionic/core/dist/esm/helpers-5c745fbd.js");
+    /* harmony import */
+
+
+    var _animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./animation-a635a2fc.js */
+    "./node_modules/@ionic/core/dist/esm/animation-a635a2fc.js");
+    /* harmony import */
+
+
+    var _gesture_controller_89173521_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
+    /*! ./gesture-controller-89173521.js */
+    "./node_modules/@ionic/core/dist/esm/gesture-controller-89173521.js");
+    /* harmony import */
+
+
+    var _index_eea61379_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
+    /*! ./index-eea61379.js */
+    "./node_modules/@ionic/core/dist/esm/index-eea61379.js");
+    /* harmony import */
+
+
+    var _hardware_back_button_7b6ede21_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(
+    /*! ./hardware-back-button-7b6ede21.js */
+    "./node_modules/@ionic/core/dist/esm/hardware-back-button-7b6ede21.js");
+    /* harmony import */
+
+
+    var _overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(
+    /*! ./overlays-7369bfcc.js */
+    "./node_modules/@ionic/core/dist/esm/overlays-7369bfcc.js");
+    /* harmony import */
+
+
+    var _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(
+    /*! ./haptic-7b8ba70a.js */
+    "./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js");
+    /* harmony import */
+
+
+    var _button_active_4b76b5c3_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(
+    /*! ./button-active-4b76b5c3.js */
+    "./node_modules/@ionic/core/dist/esm/button-active-4b76b5c3.js");
+    /* harmony import */
+
+
+    var _theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(
+    /*! ./theme-3f0b0c04.js */
+    "./node_modules/@ionic/core/dist/esm/theme-3f0b0c04.js");
+    /**
+     * iOS Action Sheet Enter Animation
+     */
+
+
+    var iosEnterAnimation = function iosEnterAnimation(baseEl) {
+      var baseAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var backdropAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var wrapperAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
+        'pointer-events': 'none'
+      }).afterClearStyles(['pointer-events']);
+      wrapperAnimation.addElement(baseEl.querySelector('.action-sheet-wrapper')).fromTo('transform', 'translateY(100%)', 'translateY(0%)');
+      return baseAnimation.addElement(baseEl).easing('cubic-bezier(.36,.66,.04,1)').duration(400).addAnimation([backdropAnimation, wrapperAnimation]);
+    };
+    /**
+     * iOS Action Sheet Leave Animation
+     */
+
+
+    var iosLeaveAnimation = function iosLeaveAnimation(baseEl) {
+      var baseAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var backdropAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var wrapperAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0);
+      wrapperAnimation.addElement(baseEl.querySelector('.action-sheet-wrapper')).fromTo('transform', 'translateY(0%)', 'translateY(100%)');
+      return baseAnimation.addElement(baseEl).easing('cubic-bezier(.36,.66,.04,1)').duration(450).addAnimation([backdropAnimation, wrapperAnimation]);
+    };
+    /**
+     * MD Action Sheet Enter Animation
+     */
+
+
+    var mdEnterAnimation = function mdEnterAnimation(baseEl) {
+      var baseAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var backdropAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var wrapperAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 0.01, 'var(--backdrop-opacity)').beforeStyles({
+        'pointer-events': 'none'
+      }).afterClearStyles(['pointer-events']);
+      wrapperAnimation.addElement(baseEl.querySelector('.action-sheet-wrapper')).fromTo('transform', 'translateY(100%)', 'translateY(0%)');
+      return baseAnimation.addElement(baseEl).easing('cubic-bezier(.36,.66,.04,1)').duration(400).addAnimation([backdropAnimation, wrapperAnimation]);
+    };
+    /**
+     * MD Action Sheet Leave Animation
+     */
+
+
+    var mdLeaveAnimation = function mdLeaveAnimation(baseEl) {
+      var baseAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var backdropAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      var wrapperAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+      backdropAnimation.addElement(baseEl.querySelector('ion-backdrop')).fromTo('opacity', 'var(--backdrop-opacity)', 0);
+      wrapperAnimation.addElement(baseEl.querySelector('.action-sheet-wrapper')).fromTo('transform', 'translateY(0%)', 'translateY(100%)');
+      return baseAnimation.addElement(baseEl).easing('cubic-bezier(.36,.66,.04,1)').duration(450).addAnimation([backdropAnimation, wrapperAnimation]);
     };
 
-    var removeStyleProperty = function removeStyleProperty(element, propertyName) {
-      element.style.removeProperty(propertyName);
-    };
-
-    var animationEnd = function animationEnd(el, callback) {
-      var unRegTrans;
-      var opts = {
-        passive: true
-      };
-
-      var unregister = function unregister() {
-        if (unRegTrans) {
-          unRegTrans();
-        }
-      };
-
-      var onTransitionEnd = function onTransitionEnd(ev) {
-        if (el === ev.target) {
-          unregister();
-          callback(ev);
-        }
-      };
-
-      if (el) {
-        el.addEventListener('webkitAnimationEnd', onTransitionEnd, opts);
-        el.addEventListener('animationend', onTransitionEnd, opts);
-
-        unRegTrans = function unRegTrans() {
-          el.removeEventListener('webkitAnimationEnd', onTransitionEnd, opts);
-          el.removeEventListener('animationend', onTransitionEnd, opts);
-        };
-      }
-
-      return unregister;
-    };
-
-    var generateKeyframeRules = function generateKeyframeRules() {
-      var keyframes = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-      return keyframes.map(function (keyframe) {
-        var offset = keyframe.offset;
-        var frameString = [];
-
-        for (var property in keyframe) {
-          if (keyframe.hasOwnProperty(property) && property !== 'offset') {
-            frameString.push("".concat(property, ": ").concat(keyframe[property], ";"));
-          }
-        }
-
-        return "".concat(offset * 100, "% { ").concat(frameString.join(' '), " }");
-      }).join(' ');
-    };
-
-    var keyframeIds = [];
-
-    var generateKeyframeName = function generateKeyframeName(keyframeRules) {
-      var index = keyframeIds.indexOf(keyframeRules);
-
-      if (index < 0) {
-        index = keyframeIds.push(keyframeRules) - 1;
-      }
-
-      return "ion-animation-".concat(index);
-    };
-
-    var getStyleContainer = function getStyleContainer(element) {
-      var rootNode = element.getRootNode();
-      return rootNode.head || rootNode;
-    };
-
-    var createKeyframeStylesheet = function createKeyframeStylesheet(keyframeName, keyframeRules, element) {
-      var styleContainer = getStyleContainer(element);
-      var existingStylesheet = styleContainer.querySelector('#' + keyframeName);
-
-      if (existingStylesheet) {
-        return existingStylesheet;
-      }
-
-      var stylesheet = (element.ownerDocument || document).createElement('style');
-      stylesheet.id = keyframeName;
-      stylesheet.textContent = "@keyframes ".concat(keyframeName, " { ").concat(keyframeRules, " } @keyframes ").concat(keyframeName, "-alt { ").concat(keyframeRules, " }");
-      styleContainer.appendChild(stylesheet);
-      return stylesheet;
-    };
-
-    var addClassToArray = function addClassToArray() {
-      var classes = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-      var className = arguments.length > 1 ? arguments[1] : undefined;
-
-      if (className !== undefined) {
-        var classNameToAppend = Array.isArray(className) ? className : [className];
-        return [].concat(_toConsumableArray(classes), _toConsumableArray(classNameToAppend));
-      }
-
-      return classes;
-    }; // TODO: Add more tests. until then, be sure to manually test menu and swipe to go back/routing transitions
-
-
-    var createAnimation = function createAnimation() {
-      var _delay;
-
-      var _duration;
-
-      var _easing;
-
-      var _iterations;
-
-      var _fill;
-
-      var _direction;
-
-      var _keyframes = [];
-      var beforeAddClasses = [];
-      var beforeRemoveClasses = [];
-      var initialized = false;
-      var parentAnimation;
-      var beforeStylesValue = {};
-      var afterAddClasses = [];
-      var afterRemoveClasses = [];
-      var afterStylesValue = {};
-      var numAnimationsRunning = 0;
-      var shouldForceLinearEasing = false;
-      var shouldForceSyncPlayback = false;
-      var cssAnimationsTimerFallback;
-      var forceDirectionValue;
-      var forceDurationValue;
-      var forceDelayValue;
-      var willComplete = true;
-      var finished = false;
-      var shouldCalculateNumAnimations = true;
-      var keyframeName;
-      var ani;
-      var onFinishCallbacks = [];
-      var onFinishOneTimeCallbacks = [];
-      var elements = [];
-      var childAnimations = [];
-      var stylesheets = [];
-      var _beforeAddReadFunctions = [];
-      var _beforeAddWriteFunctions = [];
-      var _afterAddReadFunctions = [];
-      var _afterAddWriteFunctions = [];
-      var webAnimations = [];
-      var supportsAnimationEffect = typeof AnimationEffect === 'function' || typeof window.AnimationEffect === 'function';
-      var supportsWebAnimations = typeof Element === 'function' && typeof Element.prototype.animate === 'function' && supportsAnimationEffect;
-      var ANIMATION_END_FALLBACK_PADDING_MS = 100;
-
-      var getWebAnimations = function getWebAnimations() {
-        return webAnimations;
-      };
-
-      var destroy = function destroy() {
-        childAnimations.forEach(function (childAnimation) {
-          childAnimation.destroy();
-        });
-        cleanUp();
-        elements.length = 0;
-        childAnimations.length = 0;
-        _keyframes.length = 0;
-        clearOnFinish();
-        initialized = false;
-        shouldCalculateNumAnimations = true;
-        return ani;
-      };
-      /**
-       * Cancels any Web Animations, removes
-       * any animation properties from the
-       * animation's elements, and removes the
-       * animation's stylesheets from the DOM.
-       */
-
-
-      var cleanUp = function cleanUp() {
-        cleanUpElements();
-        cleanUpStyleSheets();
-      };
-
-      var onFinish = function onFinish(callback, opts) {
-        var callbacks = opts && opts.oneTimeCallback ? onFinishOneTimeCallbacks : onFinishCallbacks;
-        callbacks.push({
-          c: callback,
-          o: opts
-        });
-        return ani;
-      };
-
-      var clearOnFinish = function clearOnFinish() {
-        onFinishCallbacks.length = 0;
-        onFinishOneTimeCallbacks.length = 0;
-        return ani;
-      };
-      /**
-       * Cancels any Web Animations and removes
-       * any animation properties from the
-       * the animation's elements.
-       */
-
-
-      var cleanUpElements = function cleanUpElements() {
-        if (supportsWebAnimations) {
-          webAnimations.forEach(function (animation) {
-            animation.cancel();
-          });
-          webAnimations.length = 0;
-        } else {
-          var elementsArray = elements.slice();
-          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["r"])(function () {
-            elementsArray.forEach(function (element) {
-              removeStyleProperty(element, 'animation-name');
-              removeStyleProperty(element, 'animation-duration');
-              removeStyleProperty(element, 'animation-timing-function');
-              removeStyleProperty(element, 'animation-iteration-count');
-              removeStyleProperty(element, 'animation-delay');
-              removeStyleProperty(element, 'animation-play-state');
-              removeStyleProperty(element, 'animation-fill-mode');
-              removeStyleProperty(element, 'animation-direction');
-            });
-          });
-        }
-      };
-      /**
-       * Removes the animation's stylesheets
-       * from the DOM.
-       */
-
-
-      var cleanUpStyleSheets = function cleanUpStyleSheets() {
-        stylesheets.forEach(function (stylesheet) {
-          /**
-           * When sharing stylesheets, it's possible
-           * for another animation to have already
-           * cleaned up a particular stylesheet
-           */
-          if (stylesheet && stylesheet.parentNode) {
-            stylesheet.parentNode.removeChild(stylesheet);
-          }
-        });
-        stylesheets.length = 0;
-      };
-
-      var beforeAddRead = function beforeAddRead(readFn) {
-        _beforeAddReadFunctions.push(readFn);
-
-        return ani;
-      };
-
-      var beforeAddWrite = function beforeAddWrite(writeFn) {
-        _beforeAddWriteFunctions.push(writeFn);
-
-        return ani;
-      };
-
-      var afterAddRead = function afterAddRead(readFn) {
-        _afterAddReadFunctions.push(readFn);
-
-        return ani;
-      };
-
-      var afterAddWrite = function afterAddWrite(writeFn) {
-        _afterAddWriteFunctions.push(writeFn);
-
-        return ani;
-      };
-
-      var beforeAddClass = function beforeAddClass(className) {
-        beforeAddClasses = addClassToArray(beforeAddClasses, className);
-        return ani;
-      };
-
-      var beforeRemoveClass = function beforeRemoveClass(className) {
-        beforeRemoveClasses = addClassToArray(beforeRemoveClasses, className);
-        return ani;
-      };
-      /**
-       * Set CSS inline styles to the animation's
-       * elements before the animation begins.
-       */
-
-
-      var beforeStyles = function beforeStyles() {
-        var styles = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-        beforeStylesValue = styles;
-        return ani;
-      };
-      /**
-       * Clear CSS inline styles from the animation's
-       * elements before the animation begins.
-       */
-
-
-      var beforeClearStyles = function beforeClearStyles() {
-        var propertyNames = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-        var _iteratorNormalCompletion = true;
-        var _didIteratorError = false;
-        var _iteratorError = undefined;
-
-        try {
-          for (var _iterator = propertyNames[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-            var property = _step.value;
-            beforeStylesValue[property] = '';
-          }
-        } catch (err) {
-          _didIteratorError = true;
-          _iteratorError = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion && _iterator.return != null) {
-              _iterator.return();
-            }
-          } finally {
-            if (_didIteratorError) {
-              throw _iteratorError;
-            }
-          }
-        }
-
-        return ani;
-      };
-
-      var afterAddClass = function afterAddClass(className) {
-        afterAddClasses = addClassToArray(afterAddClasses, className);
-        return ani;
-      };
-
-      var afterRemoveClass = function afterRemoveClass(className) {
-        afterRemoveClasses = addClassToArray(afterRemoveClasses, className);
-        return ani;
-      };
-
-      var afterStyles = function afterStyles() {
-        var styles = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
-        afterStylesValue = styles;
-        return ani;
-      };
-
-      var afterClearStyles = function afterClearStyles() {
-        var propertyNames = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : [];
-        var _iteratorNormalCompletion2 = true;
-        var _didIteratorError2 = false;
-        var _iteratorError2 = undefined;
-
-        try {
-          for (var _iterator2 = propertyNames[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-            var property = _step2.value;
-            afterStylesValue[property] = '';
-          }
-        } catch (err) {
-          _didIteratorError2 = true;
-          _iteratorError2 = err;
-        } finally {
-          try {
-            if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
-              _iterator2.return();
-            }
-          } finally {
-            if (_didIteratorError2) {
-              throw _iteratorError2;
-            }
-          }
-        }
-
-        return ani;
-      };
-
-      var getFill = function getFill() {
-        if (_fill !== undefined) {
-          return _fill;
-        }
-
-        if (parentAnimation) {
-          return parentAnimation.getFill();
-        }
-
-        return 'both';
-      };
-
-      var getDirection = function getDirection() {
-        if (forceDirectionValue !== undefined) {
-          return forceDirectionValue;
-        }
-
-        if (_direction !== undefined) {
-          return _direction;
-        }
-
-        if (parentAnimation) {
-          return parentAnimation.getDirection();
-        }
-
-        return 'normal';
-      };
-
-      var getEasing = function getEasing() {
-        if (shouldForceLinearEasing) {
-          return 'linear';
-        }
-
-        if (_easing !== undefined) {
-          return _easing;
-        }
-
-        if (parentAnimation) {
-          return parentAnimation.getEasing();
-        }
-
-        return 'linear';
-      };
-
-      var getDuration = function getDuration() {
-        if (shouldForceSyncPlayback) {
-          return 0;
-        }
-
-        if (forceDurationValue !== undefined) {
-          return forceDurationValue;
-        }
-
-        if (_duration !== undefined) {
-          return _duration;
-        }
-
-        if (parentAnimation) {
-          return parentAnimation.getDuration();
-        }
-
-        return 0;
-      };
-
-      var getIterations = function getIterations() {
-        if (_iterations !== undefined) {
-          return _iterations;
-        }
-
-        if (parentAnimation) {
-          return parentAnimation.getIterations();
-        }
-
-        return 1;
-      };
-
-      var getDelay = function getDelay() {
-        if (forceDelayValue !== undefined) {
-          return forceDelayValue;
-        }
-
-        if (_delay !== undefined) {
-          return _delay;
-        }
-
-        if (parentAnimation) {
-          return parentAnimation.getDelay();
-        }
-
-        return 0;
-      };
-
-      var getKeyframes = function getKeyframes() {
-        return _keyframes;
-      };
-
-      var direction = function direction(animationDirection) {
-        _direction = animationDirection;
-        update(true);
-        return ani;
-      };
-
-      var fill = function fill(animationFill) {
-        _fill = animationFill;
-        update(true);
-        return ani;
-      };
-
-      var delay = function delay(animationDelay) {
-        _delay = animationDelay;
-        update(true);
-        return ani;
-      };
-
-      var easing = function easing(animationEasing) {
-        _easing = animationEasing;
-        update(true);
-        return ani;
-      };
-
-      var duration = function duration(animationDuration) {
+    var actionSheetIosCss = ".sc-ion-action-sheet-ios-h{--color:initial;--button-color-activated:var(--button-color);--button-color-focused:var(--button-color);--button-color-hover:var(--button-color);--button-color-selected:var(--button-color);--min-width:auto;--width:100%;--max-width:500px;--min-height:auto;--height:100%;--max-height:calc(100% - (var(--ion-safe-area-top) + var(--ion-safe-area-bottom)));-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;left:0;right:0;top:0;bottom:0;display:block;position:fixed;outline:none;font-family:var(--ion-font-family, inherit);-ms-touch-action:none;touch-action:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:1001}.overlay-hidden.sc-ion-action-sheet-ios-h{display:none}.action-sheet-wrapper.sc-ion-action-sheet-ios{left:0;right:0;bottom:0;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto;-webkit-transform:translate3d(0,  100%,  0);transform:translate3d(0,  100%,  0);display:block;position:absolute;width:var(--width);min-width:var(--min-width);max-width:var(--max-width);height:var(--height);min-height:var(--min-height);max-height:var(--max-height);z-index:10;pointer-events:none}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-wrapper.sc-ion-action-sheet-ios{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}.action-sheet-button.sc-ion-action-sheet-ios{display:block;position:relative;width:100%;border:0;outline:none;background:var(--button-background);color:var(--button-color);font-family:inherit;overflow:hidden}.action-sheet-button-inner.sc-ion-action-sheet-ios{display:-ms-flexbox;display:flex;position:relative;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-ms-flex-negative:0;flex-shrink:0;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;pointer-events:none;width:100%;height:100%;z-index:1}.action-sheet-container.sc-ion-action-sheet-ios{display:-ms-flexbox;display:flex;-ms-flex-flow:column;flex-flow:column;-ms-flex-pack:end;justify-content:flex-end;height:100%;max-height:100%}.action-sheet-group.sc-ion-action-sheet-ios{-ms-flex-negative:2;flex-shrink:2;overscroll-behavior-y:contain;overflow-y:auto;-webkit-overflow-scrolling:touch;pointer-events:all;background:var(--background)}.action-sheet-group.sc-ion-action-sheet-ios::-webkit-scrollbar{display:none}.action-sheet-group-cancel.sc-ion-action-sheet-ios{-ms-flex-negative:0;flex-shrink:0;overflow:hidden}.action-sheet-button.sc-ion-action-sheet-ios::after{left:0;right:0;top:0;bottom:0;position:absolute;content:\"\";opacity:0}.action-sheet-selected.sc-ion-action-sheet-ios{color:var(--button-color-selected)}.action-sheet-selected.sc-ion-action-sheet-ios::after{background:var(--button-background-selected);opacity:var(--button-background-selected-opacity)}.action-sheet-button.ion-activated.sc-ion-action-sheet-ios{color:var(--button-color-activated)}.action-sheet-button.ion-activated.sc-ion-action-sheet-ios::after{background:var(--button-background-activated);opacity:var(--button-background-activated-opacity)}.action-sheet-button.ion-focused.sc-ion-action-sheet-ios{color:var(--button-color-focused)}.action-sheet-button.ion-focused.sc-ion-action-sheet-ios::after{background:var(--button-background-focused);opacity:var(--button-background-focused-opacity)}@media (any-hover: hover){.action-sheet-button.sc-ion-action-sheet-ios:hover{color:var(--button-color-hover)}.action-sheet-button.sc-ion-action-sheet-ios:hover::after{background:var(--button-background-hover);opacity:var(--button-background-hover-opacity)}}.sc-ion-action-sheet-ios-h{--background:var(--ion-overlay-background-color, var(--ion-color-step-100, #f9f9f9));--backdrop-opacity:var(--ion-backdrop-opacity, 0.4);--button-background:linear-gradient(0deg, rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.08), rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.08) 50%, transparent 50%) bottom/100% 1px no-repeat transparent;--button-background-activated:var(--ion-text-color, #000);--button-background-activated-opacity:.08;--button-background-hover:currentColor;--button-background-hover-opacity:.04;--button-background-focused:currentColor;--button-background-focused-opacity:.12;--button-background-selected:var(--ion-color-step-150, var(--ion-background-color, #fff));--button-background-selected-opacity:1;--button-color:var(--ion-color-primary, #3880ff);--color:var(--ion-color-step-400, #999999);text-align:center}.action-sheet-wrapper.sc-ion-action-sheet-ios{margin-left:auto;margin-right:auto;margin-top:var(--ion-safe-area-top, 0);margin-bottom:var(--ion-safe-area-bottom, 0)}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-wrapper.sc-ion-action-sheet-ios{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}.action-sheet-container.sc-ion-action-sheet-ios{padding-left:8px;padding-right:8px;padding-top:0;padding-bottom:0}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-container.sc-ion-action-sheet-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:8px;padding-inline-start:8px;-webkit-padding-end:8px;padding-inline-end:8px}}.action-sheet-group.sc-ion-action-sheet-ios{border-radius:13px;margin-bottom:8px}.action-sheet-group.sc-ion-action-sheet-ios:first-child{margin-top:10px}.action-sheet-group.sc-ion-action-sheet-ios:last-child{margin-bottom:10px}@supports ((-webkit-backdrop-filter: blur(0)) or (backdrop-filter: blur(0))){.action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-group.sc-ion-action-sheet-ios{background-color:transparent;-webkit-backdrop-filter:saturate(280%) blur(20px);backdrop-filter:saturate(280%) blur(20px)}.action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-title.sc-ion-action-sheet-ios,.action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-button.sc-ion-action-sheet-ios{background-color:transparent;background-image:-webkit-gradient(linear, left bottom, left top, from(rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.8)), to(rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.8))), -webkit-gradient(linear, left bottom, left top, from(rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.4)), color-stop(50%, rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.4)), color-stop(50%, rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.8)));background-image:linear-gradient(0deg, rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.8), rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.8) 100%), linear-gradient(0deg, rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.4), rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.4) 50%, rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.8) 50%);background-repeat:no-repeat;background-position:top, bottom;background-size:100% calc(100% - 1px), 100% 1px;-webkit-backdrop-filter:saturate(120%);backdrop-filter:saturate(120%)}.action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-button.ion-activated.sc-ion-action-sheet-ios{background-color:rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.7);background-image:none}.action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-cancel.sc-ion-action-sheet-ios{background:var(--button-background-selected)}}.action-sheet-title.sc-ion-action-sheet-ios{background:-webkit-gradient(linear, left bottom, left top, from(rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.08)), color-stop(50%, rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.08)), color-stop(50%, transparent)) bottom/100% 1px no-repeat transparent;background:linear-gradient(0deg, rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.08), rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.08) 50%, transparent 50%) bottom/100% 1px no-repeat transparent}.action-sheet-title.sc-ion-action-sheet-ios{padding-left:10px;padding-right:10px;padding-top:14px;padding-bottom:13px;color:var(--color, var(--ion-color-step-400, #999999));font-size:13px;font-weight:400;text-align:center}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-title.sc-ion-action-sheet-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:10px;padding-inline-start:10px;-webkit-padding-end:10px;padding-inline-end:10px}}.action-sheet-sub-title.sc-ion-action-sheet-ios{padding-left:0;padding-right:0;padding-top:15px;padding-bottom:0;font-size:12px}.action-sheet-button.sc-ion-action-sheet-ios{padding-left:18px;padding-right:18px;padding-top:18px;padding-bottom:18px;height:56px;font-size:20px;contain:strict}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-button.sc-ion-action-sheet-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:18px;padding-inline-start:18px;-webkit-padding-end:18px;padding-inline-end:18px}}.action-sheet-button.sc-ion-action-sheet-ios .action-sheet-icon.sc-ion-action-sheet-ios{margin-right:0.1em;font-size:28px;pointer-events:none}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-button.sc-ion-action-sheet-ios .action-sheet-icon.sc-ion-action-sheet-ios{margin-right:unset;-webkit-margin-end:0.1em;margin-inline-end:0.1em}}.action-sheet-button.sc-ion-action-sheet-ios:last-child{background-image:none}.action-sheet-selected.sc-ion-action-sheet-ios{font-weight:bold}.action-sheet-cancel.sc-ion-action-sheet-ios{font-weight:600}.action-sheet-cancel.sc-ion-action-sheet-ios::after{background:var(--button-background-selected);opacity:var(--button-background-selected-opacity)}.action-sheet-destructive.sc-ion-action-sheet-ios,.action-sheet-destructive.ion-activated.sc-ion-action-sheet-ios,.action-sheet-destructive.ion-focused.sc-ion-action-sheet-ios{color:var(--ion-color-danger, #eb445a)}@media (any-hover: hover){.action-sheet-destructive.sc-ion-action-sheet-ios:hover{color:var(--ion-color-danger, #eb445a)}}";
+    var actionSheetMdCss = ".sc-ion-action-sheet-md-h{--color:initial;--button-color-activated:var(--button-color);--button-color-focused:var(--button-color);--button-color-hover:var(--button-color);--button-color-selected:var(--button-color);--min-width:auto;--width:100%;--max-width:500px;--min-height:auto;--height:100%;--max-height:calc(100% - (var(--ion-safe-area-top) + var(--ion-safe-area-bottom)));-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;left:0;right:0;top:0;bottom:0;display:block;position:fixed;outline:none;font-family:var(--ion-font-family, inherit);-ms-touch-action:none;touch-action:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:1001}.overlay-hidden.sc-ion-action-sheet-md-h{display:none}.action-sheet-wrapper.sc-ion-action-sheet-md{left:0;right:0;bottom:0;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto;-webkit-transform:translate3d(0,  100%,  0);transform:translate3d(0,  100%,  0);display:block;position:absolute;width:var(--width);min-width:var(--min-width);max-width:var(--max-width);height:var(--height);min-height:var(--min-height);max-height:var(--max-height);z-index:10;pointer-events:none}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-wrapper.sc-ion-action-sheet-md{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}.action-sheet-button.sc-ion-action-sheet-md{display:block;position:relative;width:100%;border:0;outline:none;background:var(--button-background);color:var(--button-color);font-family:inherit;overflow:hidden}.action-sheet-button-inner.sc-ion-action-sheet-md{display:-ms-flexbox;display:flex;position:relative;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-ms-flex-negative:0;flex-shrink:0;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;pointer-events:none;width:100%;height:100%;z-index:1}.action-sheet-container.sc-ion-action-sheet-md{display:-ms-flexbox;display:flex;-ms-flex-flow:column;flex-flow:column;-ms-flex-pack:end;justify-content:flex-end;height:100%;max-height:100%}.action-sheet-group.sc-ion-action-sheet-md{-ms-flex-negative:2;flex-shrink:2;overscroll-behavior-y:contain;overflow-y:auto;-webkit-overflow-scrolling:touch;pointer-events:all;background:var(--background)}.action-sheet-group.sc-ion-action-sheet-md::-webkit-scrollbar{display:none}.action-sheet-group-cancel.sc-ion-action-sheet-md{-ms-flex-negative:0;flex-shrink:0;overflow:hidden}.action-sheet-button.sc-ion-action-sheet-md::after{left:0;right:0;top:0;bottom:0;position:absolute;content:\"\";opacity:0}.action-sheet-selected.sc-ion-action-sheet-md{color:var(--button-color-selected)}.action-sheet-selected.sc-ion-action-sheet-md::after{background:var(--button-background-selected);opacity:var(--button-background-selected-opacity)}.action-sheet-button.ion-activated.sc-ion-action-sheet-md{color:var(--button-color-activated)}.action-sheet-button.ion-activated.sc-ion-action-sheet-md::after{background:var(--button-background-activated);opacity:var(--button-background-activated-opacity)}.action-sheet-button.ion-focused.sc-ion-action-sheet-md{color:var(--button-color-focused)}.action-sheet-button.ion-focused.sc-ion-action-sheet-md::after{background:var(--button-background-focused);opacity:var(--button-background-focused-opacity)}@media (any-hover: hover){.action-sheet-button.sc-ion-action-sheet-md:hover{color:var(--button-color-hover)}.action-sheet-button.sc-ion-action-sheet-md:hover::after{background:var(--button-background-hover);opacity:var(--button-background-hover-opacity)}}.sc-ion-action-sheet-md-h{--background:var(--ion-overlay-background-color, var(--ion-background-color, #fff));--backdrop-opacity:var(--ion-backdrop-opacity, 0.32);--button-background:transparent;--button-background-selected:currentColor;--button-background-selected-opacity:0;--button-background-activated:transparent;--button-background-activated-opacity:0;--button-background-hover:currentColor;--button-background-hover-opacity:.04;--button-background-focused:currentColor;--button-background-focused-opacity:.12;--button-color:var(--ion-color-step-850, #262626);--color:rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.54)}.action-sheet-title.sc-ion-action-sheet-md{padding-left:16px;padding-right:16px;padding-top:20px;padding-bottom:17px;height:60px;color:var(--color, rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.54));font-size:16px;text-align:start}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-title.sc-ion-action-sheet-md{padding-left:unset;padding-right:unset;-webkit-padding-start:16px;padding-inline-start:16px;-webkit-padding-end:16px;padding-inline-end:16px}}.action-sheet-sub-title.sc-ion-action-sheet-md{padding-left:0;padding-right:0;padding-top:16px;padding-bottom:0;font-size:14px}.action-sheet-group.sc-ion-action-sheet-md:first-child{padding-top:0}.action-sheet-group.sc-ion-action-sheet-md:last-child{padding-bottom:0}.action-sheet-button.sc-ion-action-sheet-md{padding-left:16px;padding-right:16px;padding-top:0;padding-bottom:0;position:relative;height:52px;font-size:16px;text-align:start;contain:strict;overflow:hidden}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-button.sc-ion-action-sheet-md{padding-left:unset;padding-right:unset;-webkit-padding-start:16px;padding-inline-start:16px;-webkit-padding-end:16px;padding-inline-end:16px}}.action-sheet-icon.sc-ion-action-sheet-md{padding-bottom:4px;margin-left:0;margin-right:32px;margin-top:0;margin-bottom:0;color:var(--color);font-size:24px}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-icon.sc-ion-action-sheet-md{margin-left:unset;margin-right:unset;-webkit-margin-start:0;margin-inline-start:0;-webkit-margin-end:32px;margin-inline-end:32px}}.action-sheet-button-inner.sc-ion-action-sheet-md{-ms-flex-pack:start;justify-content:flex-start}.action-sheet-selected.sc-ion-action-sheet-md{font-weight:bold}";
+    /**
+     * @virtualProp {"ios" | "md"} mode - The mode determines which platform styles to use.
+     */
+
+    var ActionSheet = /*#__PURE__*/function () {
+      function ActionSheet(hostRef) {
+        var _this = this;
+
+        _classCallCheck(this, ActionSheet);
+
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.presented = false;
         /**
-         * CSS Animation Durations of 0ms work fine on Chrome
-         * but do not run on Safari, so force it to 1ms to
-         * get it to run on both platforms.
+         * If `true`, the keyboard will be automatically dismissed when the overlay is presented.
          */
-        if (!supportsWebAnimations && animationDuration === 0) {
-          animationDuration = 1;
-        }
 
-        _duration = animationDuration;
-        update(true);
-        return ani;
-      };
+        this.keyboardClose = true;
+        /**
+         * An array of buttons for the action sheet.
+         */
 
-      var iterations = function iterations(animationIterations) {
-        _iterations = animationIterations;
-        update(true);
-        return ani;
-      };
+        this.buttons = [];
+        /**
+         * If `true`, the action sheet will be dismissed when the backdrop is clicked.
+         */
 
-      var parent = function parent(animation) {
-        parentAnimation = animation;
-        return ani;
-      };
+        this.backdropDismiss = true;
+        /**
+         * If `true`, the action sheet will be translucent.
+         * Only applies when the mode is `"ios"` and the device supports
+         * [`backdrop-filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter#Browser_compatibility).
+         */
 
-      var addElement = function addElement(el) {
-        if (el != null) {
-          if (el.nodeType === 1) {
-            elements.push(el);
-          } else if (el.length >= 0) {
-            for (var i = 0; i < el.length; i++) {
-              elements.push(el[i]);
-            }
-          } else {
-            console.error('Invalid addElement value');
+        this.translucent = false;
+        /**
+         * If `true`, the action sheet will animate.
+         */
+
+        this.animated = true;
+
+        this.onBackdropTap = function () {
+          _this.dismiss(undefined, _overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["B"]);
+        };
+
+        this.dispatchCancelHandler = function (ev) {
+          var role = ev.detail.role;
+
+          if (Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["i"])(role)) {
+            var cancelButton = _this.getButtons().find(function (b) {
+              return b.role === 'cancel';
+            });
+
+            _this.callButtonHandler(cancelButton);
           }
+        };
+
+        Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["d"])(this.el);
+        this.didPresent = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionActionSheetDidPresent", 7);
+        this.willPresent = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionActionSheetWillPresent", 7);
+        this.willDismiss = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionActionSheetWillDismiss", 7);
+        this.didDismiss = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionActionSheetDidDismiss", 7);
+      }
+      /**
+       * Present the action sheet overlay after it has been created.
+       */
+
+
+      _createClass(ActionSheet, [{
+        key: "present",
+        value: function present() {
+          return Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, 'actionSheetEnter', iosEnterAnimation, mdEnterAnimation);
         }
+        /**
+         * Dismiss the action sheet overlay after it has been presented.
+         *
+         * @param data Any data to emit in the dismiss events.
+         * @param role The role of the element that is dismissing the action sheet.
+         * This can be useful in a button handler for determining which button was
+         * clicked to dismiss the action sheet.
+         * Some examples include: ``"cancel"`, `"destructive"`, "selected"`, and `"backdrop"`.
+         */
 
-        return ani;
-      };
+      }, {
+        key: "dismiss",
+        value: function dismiss(data, role) {
+          return Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["f"])(this, data, role, 'actionSheetLeave', iosLeaveAnimation, mdLeaveAnimation);
+        }
+        /**
+         * Returns a promise that resolves when the action sheet did dismiss.
+         */
 
-      var addAnimation = function addAnimation(animationToAdd) {
-        if (animationToAdd != null) {
-          if (Array.isArray(animationToAdd)) {
-            var _iteratorNormalCompletion3 = true;
-            var _didIteratorError3 = false;
-            var _iteratorError3 = undefined;
+      }, {
+        key: "onDidDismiss",
+        value: function onDidDismiss() {
+          return Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["g"])(this.el, 'ionActionSheetDidDismiss');
+        }
+        /**
+         * Returns a promise that resolves when the action sheet will dismiss.
+         *
+         */
 
-            try {
-              for (var _iterator3 = animationToAdd[Symbol.iterator](), _step3; !(_iteratorNormalCompletion3 = (_step3 = _iterator3.next()).done); _iteratorNormalCompletion3 = true) {
-                var animation = _step3.value;
-                animation.parent(ani);
-                childAnimations.push(animation);
-              }
-            } catch (err) {
-              _didIteratorError3 = true;
-              _iteratorError3 = err;
-            } finally {
-              try {
-                if (!_iteratorNormalCompletion3 && _iterator3.return != null) {
-                  _iterator3.return();
+      }, {
+        key: "onWillDismiss",
+        value: function onWillDismiss() {
+          return Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["g"])(this.el, 'ionActionSheetWillDismiss');
+        }
+      }, {
+        key: "buttonClick",
+        value: function () {
+          var _buttonClick = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(button) {
+            var role, shouldDismiss;
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    role = button.role;
+
+                    if (!Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["i"])(role)) {
+                      _context.next = 3;
+                      break;
+                    }
+
+                    return _context.abrupt("return", this.dismiss(undefined, role));
+
+                  case 3:
+                    _context.next = 5;
+                    return this.callButtonHandler(button);
+
+                  case 5:
+                    shouldDismiss = _context.sent;
+
+                    if (!shouldDismiss) {
+                      _context.next = 8;
+                      break;
+                    }
+
+                    return _context.abrupt("return", this.dismiss(undefined, button.role));
+
+                  case 8:
+                    return _context.abrupt("return", Promise.resolve());
+
+                  case 9:
+                  case "end":
+                    return _context.stop();
                 }
-              } finally {
-                if (_didIteratorError3) {
-                  throw _iteratorError3;
+              }
+            }, _callee, this);
+          }));
+
+          function buttonClick(_x) {
+            return _buttonClick.apply(this, arguments);
+          }
+
+          return buttonClick;
+        }()
+      }, {
+        key: "callButtonHandler",
+        value: function () {
+          var _callButtonHandler = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(button) {
+            var rtn;
+            return regeneratorRuntime.wrap(function _callee2$(_context2) {
+              while (1) {
+                switch (_context2.prev = _context2.next) {
+                  case 0:
+                    if (!button) {
+                      _context2.next = 6;
+                      break;
+                    }
+
+                    _context2.next = 3;
+                    return Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["s"])(button.handler);
+
+                  case 3:
+                    rtn = _context2.sent;
+
+                    if (!(rtn === false)) {
+                      _context2.next = 6;
+                      break;
+                    }
+
+                    return _context2.abrupt("return", false);
+
+                  case 6:
+                    return _context2.abrupt("return", true);
+
+                  case 7:
+                  case "end":
+                    return _context2.stop();
                 }
               }
-            }
-          } else {
-            animationToAdd.parent(ani);
-            childAnimations.push(animationToAdd);
+            }, _callee2);
+          }));
+
+          function callButtonHandler(_x2) {
+            return _callButtonHandler.apply(this, arguments);
           }
-        }
 
-        return ani;
-      };
-
-      var keyframes = function keyframes(keyframeValues) {
-        _keyframes = keyframeValues;
-        return ani;
-      };
-      /**
-       * Runs all before read callbacks
-       */
-
-
-      var runBeforeRead = function runBeforeRead() {
-        _beforeAddReadFunctions.forEach(function (callback) {
-          callback();
-        });
-      };
-      /**
-       * Runs all before write callbacks
-       */
-
-
-      var runBeforeWrite = function runBeforeWrite() {
-        _beforeAddWriteFunctions.forEach(function (callback) {
-          callback();
-        });
-      };
-      /**
-       * Updates styles and classes before animation runs
-       */
-
-
-      var runBeforeStyles = function runBeforeStyles() {
-        var addClasses = beforeAddClasses;
-        var removeClasses = beforeRemoveClasses;
-        var styles = beforeStylesValue;
-        elements.forEach(function (el) {
-          var elementClassList = el.classList;
-          addClasses.forEach(function (c) {
-            return elementClassList.add(c);
-          });
-          removeClasses.forEach(function (c) {
-            return elementClassList.remove(c);
-          });
-
-          for (var property in styles) {
-            if (styles.hasOwnProperty(property)) {
-              setStyleProperty(el, property, styles[property]);
-            }
-          }
-        });
-      };
-      /**
-       * Run all "before" animation hooks.
-       */
-
-
-      var beforeAnimation = function beforeAnimation() {
-        runBeforeRead();
-        runBeforeWrite();
-        runBeforeStyles();
-      };
-      /**
-       * Runs all after read callbacks
-       */
-
-
-      var runAfterRead = function runAfterRead() {
-        _afterAddReadFunctions.forEach(function (callback) {
-          callback();
-        });
-      };
-      /**
-       * Runs all after write callbacks
-       */
-
-
-      var runAfterWrite = function runAfterWrite() {
-        _afterAddWriteFunctions.forEach(function (callback) {
-          callback();
-        });
-      };
-      /**
-       * Updates styles and classes before animation ends
-       */
-
-
-      var runAfterStyles = function runAfterStyles() {
-        var addClasses = afterAddClasses;
-        var removeClasses = afterRemoveClasses;
-        var styles = afterStylesValue;
-        elements.forEach(function (el) {
-          var elementClassList = el.classList;
-          addClasses.forEach(function (c) {
-            return elementClassList.add(c);
-          });
-          removeClasses.forEach(function (c) {
-            return elementClassList.remove(c);
-          });
-
-          for (var property in styles) {
-            if (styles.hasOwnProperty(property)) {
-              setStyleProperty(el, property, styles[property]);
-            }
-          }
-        });
-      };
-      /**
-       * Run all "after" animation hooks.
-       */
-
-
-      var afterAnimation = function afterAnimation() {
-        clearCSSAnimationsTimeout();
-        runAfterRead();
-        runAfterWrite();
-        runAfterStyles();
-        var currentStep = willComplete ? 1 : 0;
-        onFinishCallbacks.forEach(function (onFinishCallback) {
-          return onFinishCallback.c(currentStep, ani);
-        });
-        onFinishOneTimeCallbacks.forEach(function (onFinishCallback) {
-          return onFinishCallback.c(currentStep, ani);
-        });
-        onFinishOneTimeCallbacks.length = 0;
-        shouldCalculateNumAnimations = true;
-        finished = true;
-      };
-
-      var animationFinish = function animationFinish() {
-        if (numAnimationsRunning === 0) {
-          return;
-        }
-
-        numAnimationsRunning--;
-
-        if (numAnimationsRunning === 0) {
-          afterAnimation();
-
-          if (parentAnimation) {
-            parentAnimation.animationFinish();
-          }
-        }
-      };
-
-      var initializeCSSAnimation = function initializeCSSAnimation() {
-        var toggleAnimationName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-        cleanUpStyleSheets();
-        elements.forEach(function (element) {
-          if (_keyframes.length > 0) {
-            var keyframeRules = generateKeyframeRules(_keyframes);
-            keyframeName = generateKeyframeName(keyframeRules);
-            var stylesheet = createKeyframeStylesheet(keyframeName, keyframeRules, element);
-            stylesheets.push(stylesheet);
-            setStyleProperty(element, 'animation-duration', "".concat(getDuration(), "ms"));
-            setStyleProperty(element, 'animation-timing-function', getEasing());
-            setStyleProperty(element, 'animation-delay', "".concat(getDelay(), "ms"));
-            setStyleProperty(element, 'animation-fill-mode', getFill());
-            setStyleProperty(element, 'animation-direction', getDirection());
-            var iterationsCount = getIterations() === Infinity ? 'infinite' : getIterations().toString();
-            setStyleProperty(element, 'animation-iteration-count', iterationsCount);
-            setStyleProperty(element, 'animation-play-state', 'paused');
-
-            if (toggleAnimationName) {
-              setStyleProperty(element, 'animation-name', "".concat(stylesheet.id, "-alt"));
-            }
-
-            Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["r"])(function () {
-              setStyleProperty(element, 'animation-name', stylesheet.id || null);
-            });
-          }
-        });
-      };
-
-      var initializeWebAnimation = function initializeWebAnimation() {
-        elements.forEach(function (element) {
-          var animation = element.animate(_keyframes, {
-            delay: getDelay(),
-            duration: getDuration(),
-            easing: getEasing(),
-            iterations: getIterations(),
-            fill: getFill(),
-            direction: getDirection()
-          });
-          animation.pause();
-          webAnimations.push(animation);
-        });
-
-        if (webAnimations.length > 0) {
-          webAnimations[0].onfinish = function () {
-            animationFinish();
-          };
-        }
-      };
-
-      var initializeAnimation = function initializeAnimation() {
-        var toggleAnimationName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-        beforeAnimation();
-
-        if (_keyframes.length > 0) {
-          if (supportsWebAnimations) {
-            initializeWebAnimation();
-          } else {
-            initializeCSSAnimation(toggleAnimationName);
-          }
-        }
-
-        initialized = true;
-      };
-
-      var setAnimationStep = function setAnimationStep(step) {
-        step = Math.min(Math.max(step, 0), 0.999);
-
-        if (supportsWebAnimations) {
-          webAnimations.forEach(function (animation) {
-            animation.currentTime = animation.effect.getComputedTiming().delay + getDuration() * step;
-            animation.pause();
-          });
-        } else {
-          var animationDelay = getDelay() || 0;
-          var animationDuration = "-".concat(animationDelay + getDuration() * step, "ms");
-          elements.forEach(function (element) {
-            if (_keyframes.length > 0) {
-              setStyleProperty(element, 'animation-delay', animationDuration);
-              setStyleProperty(element, 'animation-play-state', 'paused');
-            }
+          return callButtonHandler;
+        }()
+      }, {
+        key: "getButtons",
+        value: function getButtons() {
+          return this.buttons.map(function (b) {
+            return typeof b === 'string' ? {
+              text: b
+            } : b;
           });
         }
-      };
-
-      var updateWebAnimation = function updateWebAnimation() {
-        webAnimations.forEach(function (animation) {
-          animation.effect.updateTiming({
-            delay: getDelay(),
-            duration: getDuration(),
-            easing: getEasing(),
-            iterations: getIterations(),
-            fill: getFill(),
-            direction: getDirection()
-          });
-        });
-      };
-
-      var updateCSSAnimation = function updateCSSAnimation() {
-        var toggleAnimationName = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : true;
-        elements.forEach(function (element) {
-          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["r"])(function () {
-            setStyleProperty(element, 'animation-name', keyframeName || null);
-            setStyleProperty(element, 'animation-duration', "".concat(getDuration(), "ms"));
-            setStyleProperty(element, 'animation-timing-function', getEasing());
-            setStyleProperty(element, 'animation-delay', "".concat(getDelay(), "ms"));
-            setStyleProperty(element, 'animation-fill-mode', getFill() || null);
-            setStyleProperty(element, 'animation-direction', getDirection() || null);
-            var iterationsCount = getIterations() === Infinity ? 'infinite' : getIterations().toString();
-            setStyleProperty(element, 'animation-iteration-count', iterationsCount);
-
-            if (toggleAnimationName) {
-              setStyleProperty(element, 'animation-name', "".concat(keyframeName, "-alt"));
-            }
-
-            Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["r"])(function () {
-              setStyleProperty(element, 'animation-name', keyframeName || null);
-            });
-          });
-        });
-      };
-
-      var update = function update() {
-        var deep = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-        var toggleAnimationName = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
-
-        if (deep) {
-          childAnimations.forEach(function (animation) {
-            animation.update(deep);
-          });
-        }
-
-        if (supportsWebAnimations) {
-          updateWebAnimation();
-        } else {
-          updateCSSAnimation(toggleAnimationName);
-        }
-
-        return ani;
-      };
-
-      var progressStart = function progressStart() {
-        var forceLinearEasing = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : false;
-        childAnimations.forEach(function (animation) {
-          animation.progressStart(forceLinearEasing);
-        });
-        pauseAnimation();
-        shouldForceLinearEasing = forceLinearEasing;
-
-        if (!initialized) {
-          initializeAnimation();
-        } else {
-          update();
-          setAnimationStep(0);
-        }
-
-        return ani;
-      };
-
-      var progressStep = function progressStep(step) {
-        childAnimations.forEach(function (animation) {
-          animation.progressStep(step);
-        });
-        setAnimationStep(step);
-        return ani;
-      };
-
-      var progressEnd = function progressEnd(playTo, step, dur) {
-        shouldForceLinearEasing = false;
-        childAnimations.forEach(function (animation) {
-          animation.progressEnd(playTo, step, dur);
-        });
-
-        if (dur !== undefined) {
-          forceDurationValue = dur;
-        }
-
-        finished = false;
-        willComplete = playTo === 1;
-
-        if (!willComplete) {
-          forceDirectionValue = getDirection() === 'reverse' ? 'normal' : 'reverse';
-
-          if (supportsWebAnimations) {
-            update();
-            setAnimationStep(1 - step);
-          } else {
-            forceDelayValue = (1 - step) * getDuration() * -1;
-            update(false, false);
-          }
-        } else {
-          if (!supportsWebAnimations) {
-            forceDelayValue = step * getDuration() * -1;
-            update(false, false);
+      }, {
+        key: "componentDidUnload",
+        value: function componentDidUnload() {
+          if (this.gesture) {
+            this.gesture.destroy();
+            this.gesture = undefined;
           }
         }
+      }, {
+        key: "componentDidLoad",
+        value: function componentDidLoad() {
+          var _this2 = this;
 
-        onFinish(function () {
-          willComplete = true;
-          forceDurationValue = undefined;
-          forceDirectionValue = undefined;
-          forceDelayValue = undefined;
-        }, {
-          oneTimeCallback: true
-        });
-
-        if (!parentAnimation) {
-          play();
-        }
-
-        return ani;
-      };
-
-      var pauseAnimation = function pauseAnimation() {
-        if (initialized) {
-          if (supportsWebAnimations) {
-            webAnimations.forEach(function (animation) {
-              animation.pause();
-            });
-          } else {
-            elements.forEach(function (element) {
-              setStyleProperty(element, 'animation-play-state', 'paused');
-            });
-          }
-        }
-      };
-
-      var pause = function pause() {
-        childAnimations.forEach(function (animation) {
-          animation.pause();
-        });
-        pauseAnimation();
-        return ani;
-      };
-
-      var playAsync = function playAsync() {
-        return play();
-      };
-
-      var playSync = function playSync() {
-        play({
-          sync: true
-        });
-        return ani;
-      };
-
-      var onAnimationEndFallback = function onAnimationEndFallback() {
-        cssAnimationsTimerFallback = undefined;
-        animationFinish();
-      };
-
-      var clearCSSAnimationsTimeout = function clearCSSAnimationsTimeout() {
-        if (cssAnimationsTimerFallback) {
-          clearTimeout(cssAnimationsTimerFallback);
-        }
-      };
-
-      var playCSSAnimations = function playCSSAnimations() {
-        clearCSSAnimationsTimeout();
-        elements.forEach(function (element) {
-          if (_keyframes.length > 0) {
-            Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["r"])(function () {
-              setStyleProperty(element, 'animation-play-state', 'running');
-            });
-          }
-        });
-
-        if (_keyframes.length === 0 || elements.length === 0) {
-          animationFinish();
-        } else {
           /**
-           * This is a catchall in the event that a CSS Animation did not finish.
-           * The Web Animations API has mechanisms in place for preventing this.
-           * CSS Animations will not fire an `animationend` event
-           * for elements with `display: none`. The Web Animations API
-           * accounts for this, but using raw CSS Animations requires
-           * this workaround.
+           * Do not create gesture if:
+           * 1. A gesture already exists
+           * 2. App is running in MD mode
+           * 3. A wrapper ref does not exist
            */
-          var animationDelay = getDelay() || 0;
-          var animationDuration = getDuration() || 0;
-          var animationIterations = getIterations() || 1;
-          cssAnimationsTimerFallback = setTimeout(onAnimationEndFallback, animationDelay + animationDuration * animationIterations + ANIMATION_END_FALLBACK_PADDING_MS);
-          animationEnd(elements[0], function () {
-            clearCSSAnimationsTimeout();
-            /**
-             * Ensure that clean up
-             * is always done a frame
-             * before the onFinish handlers
-             * are fired. Otherwise, there
-             * may be flickering if a new
-             * animation is started on the same
-             * element too quickly
-             *
-             * TODO: Is there a cleaner way to do this?
-             */
+          var groupEl = this.groupEl,
+              wrapperEl = this.wrapperEl;
 
-            Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["r"])(function () {
-              clearCSSAnimationPlayState();
-              Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_0__["r"])(animationFinish);
-            });
+          if (this.gesture || Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this) === 'md' || !wrapperEl || !groupEl) {
+            return;
+          }
+
+          Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["d"])(function () {
+            var isScrollable = groupEl.scrollHeight > groupEl.clientHeight;
+
+            if (!isScrollable) {
+              _this2.gesture = Object(_button_active_4b76b5c3_js__WEBPACK_IMPORTED_MODULE_9__["c"])(wrapperEl, function (refEl) {
+                return refEl.classList.contains('action-sheet-button');
+              });
+
+              _this2.gesture.enable(true);
+            }
           });
         }
-      };
+      }, {
+        key: "render",
+        value: function render() {
+          var _this3 = this;
 
-      var clearCSSAnimationPlayState = function clearCSSAnimationPlayState() {
-        elements.forEach(function (element) {
-          removeStyleProperty(element, 'animation-duration');
-          removeStyleProperty(element, 'animation-delay');
-          removeStyleProperty(element, 'animation-play-state');
-        });
-      };
-
-      var playWebAnimations = function playWebAnimations() {
-        webAnimations.forEach(function (animation) {
-          animation.play();
-        });
-
-        if (_keyframes.length === 0 || elements.length === 0) {
-          animationFinish();
-        }
-      };
-
-      var resetAnimation = function resetAnimation() {
-        if (supportsWebAnimations) {
-          setAnimationStep(0);
-        } else {
-          updateCSSAnimation();
-        }
-      };
-
-      var play = function play(opts) {
-        return new Promise(function (resolve) {
-          if (opts && opts.sync) {
-            shouldForceSyncPlayback = true;
-            onFinish(function () {
-              return shouldForceSyncPlayback = false;
-            }, {
-              oneTimeCallback: true
-            });
-          }
-
-          if (!initialized) {
-            initializeAnimation();
-          }
-
-          if (finished) {
-            resetAnimation();
-            finished = false;
-          }
-
-          if (shouldCalculateNumAnimations) {
-            numAnimationsRunning = childAnimations.length + 1;
-            shouldCalculateNumAnimations = false;
-          }
-
-          onFinish(function () {
-            return resolve();
-          }, {
-            oneTimeCallback: true
+          var mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
+          var allButtons = this.getButtons();
+          var cancelButton = allButtons.find(function (b) {
+            return b.role === 'cancel';
           });
-          childAnimations.forEach(function (animation) {
-            animation.play();
+          var buttons = allButtons.filter(function (b) {
+            return b.role !== 'cancel';
           });
-
-          if (supportsWebAnimations) {
-            playWebAnimations();
-          } else {
-            playCSSAnimations();
-          }
-        });
-      };
-
-      var stop = function stop() {
-        childAnimations.forEach(function (animation) {
-          animation.stop();
-        });
-
-        if (initialized) {
-          cleanUpElements();
-          initialized = false;
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            role: "dialog",
+            "aria-modal": "true",
+            tabindex: "-1",
+            style: {
+              zIndex: "".concat(20000 + this.overlayIndex)
+            },
+            "class": Object.assign(Object.assign(_defineProperty({}, mode, true), Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_10__["g"])(this.cssClass)), {
+              'action-sheet-translucent': this.translucent
+            }),
+            onIonActionSheetWillDismiss: this.dispatchCancelHandler,
+            onIonBackdropTap: this.onBackdropTap
+          }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-backdrop", {
+            tappable: this.backdropDismiss
+          }), Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            "class": "action-sheet-wrapper",
+            role: "dialog",
+            ref: function ref(el) {
+              return _this3.wrapperEl = el;
+            }
+          }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            "class": "action-sheet-container"
+          }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            "class": "action-sheet-group",
+            ref: function ref(el) {
+              return _this3.groupEl = el;
+            }
+          }, this.header !== undefined && Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            "class": "action-sheet-title"
+          }, this.header, this.subHeader && Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            "class": "action-sheet-sub-title"
+          }, this.subHeader)), buttons.map(function (b) {
+            return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", {
+              type: "button",
+              "class": buttonClass(b),
+              onClick: function onClick() {
+                return _this3.buttonClick(b);
+              }
+            }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("span", {
+              "class": "action-sheet-button-inner"
+            }, b.icon && Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-icon", {
+              icon: b.icon,
+              lazy: false,
+              "class": "action-sheet-icon"
+            }), b.text), mode === 'md' && Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-ripple-effect", null));
+          })), cancelButton && Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
+            "class": "action-sheet-group action-sheet-group-cancel"
+          }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", {
+            type: "button",
+            "class": buttonClass(cancelButton),
+            onClick: function onClick() {
+              return _this3.buttonClick(cancelButton);
+            }
+          }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("span", {
+            "class": "action-sheet-button-inner"
+          }, cancelButton.icon && Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-icon", {
+            icon: cancelButton.icon,
+            lazy: false,
+            "class": "action-sheet-icon"
+          }), cancelButton.text), mode === 'md' && Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-ripple-effect", null))))));
         }
-      };
-
-      var from = function from(property, value) {
-        var firstFrame = _keyframes[0];
-
-        if (firstFrame !== undefined && firstFrame.offset === 0) {
-          firstFrame[property] = value;
-        } else {
-          _keyframes = [_defineProperty({
-            offset: 0
-          }, property, value)].concat(_toConsumableArray(_keyframes));
+      }, {
+        key: "el",
+        get: function get() {
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
         }
+      }]);
 
-        return ani;
-      };
+      return ActionSheet;
+    }();
 
-      var to = function to(property, value) {
-        var lastFrame = _keyframes[_keyframes.length - 1];
+    var buttonClass = function buttonClass(button) {
+      return Object.assign(_defineProperty({
+        'action-sheet-button': true,
+        'ion-activatable': true,
+        'ion-focusable': true
+      }, "action-sheet-".concat(button.role), button.role !== undefined), Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_10__["g"])(button.cssClass));
+    };
 
-        if (lastFrame !== undefined && lastFrame.offset === 1) {
-          lastFrame[property] = value;
-        } else {
-          _keyframes = [].concat(_toConsumableArray(_keyframes), [_defineProperty({
-            offset: 1
-          }, property, value)]);
-        }
+    ActionSheet.style = {
+      /*STENCIL:MODE:ios*/
+      ios: actionSheetIosCss,
 
-        return ani;
-      };
-
-      var fromTo = function fromTo(property, fromValue, toValue) {
-        return from(property, fromValue).to(property, toValue);
-      };
-
-      return ani = {
-        parentAnimation: parentAnimation,
-        elements: elements,
-        childAnimations: childAnimations,
-        animationFinish: animationFinish,
-        from: from,
-        to: to,
-        fromTo: fromTo,
-        parent: parent,
-        play: play,
-        playAsync: playAsync,
-        playSync: playSync,
-        pause: pause,
-        stop: stop,
-        destroy: destroy,
-        keyframes: keyframes,
-        addAnimation: addAnimation,
-        addElement: addElement,
-        update: update,
-        fill: fill,
-        direction: direction,
-        iterations: iterations,
-        duration: duration,
-        easing: easing,
-        delay: delay,
-        getWebAnimations: getWebAnimations,
-        getKeyframes: getKeyframes,
-        getFill: getFill,
-        getDirection: getDirection,
-        getDelay: getDelay,
-        getIterations: getIterations,
-        getEasing: getEasing,
-        getDuration: getDuration,
-        afterAddRead: afterAddRead,
-        afterAddWrite: afterAddWrite,
-        afterClearStyles: afterClearStyles,
-        afterStyles: afterStyles,
-        afterRemoveClass: afterRemoveClass,
-        afterAddClass: afterAddClass,
-        beforeAddRead: beforeAddRead,
-        beforeAddWrite: beforeAddWrite,
-        beforeClearStyles: beforeClearStyles,
-        beforeStyles: beforeStyles,
-        beforeRemoveClass: beforeRemoveClass,
-        beforeAddClass: beforeAddClass,
-        onFinish: onFinish,
-        progressStart: progressStart,
-        progressStep: progressStep,
-        progressEnd: progressEnd
-      };
+      /*STENCIL:MODE:md*/
+      md: actionSheetMdCss
     };
     /***/
-
   }
 }]);
 //# sourceMappingURL=0-es5.js.map

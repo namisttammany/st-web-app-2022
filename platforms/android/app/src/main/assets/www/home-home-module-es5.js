@@ -272,9 +272,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @ngx-translate/core */
     "./node_modules/@ngx-translate/core/fesm2015/ngx-translate-core.js");
 
-    var HomePage =
-    /*#__PURE__*/
-    function () {
+    var HomePage = /*#__PURE__*/function () {
       function HomePage(resourceListService, modalCtrl, zone, toastController, router, modalController, actionSheetController, firebaseAnalytics, _translate) {
         var _this = this;
 
@@ -405,9 +403,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "showToast",
         value: function showToast(msg) {
-          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-          /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
             var toast;
             return regeneratorRuntime.wrap(function _callee$(_context) {
               while (1) {
@@ -434,9 +430,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "openModal",
         value: function openModal(data) {
-          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-          /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee2() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
             var _this5 = this;
 
             var modal;
@@ -477,9 +471,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "presentActionSheet",
         value: function presentActionSheet() {
-          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-          /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee3() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
             var _this6 = this;
 
             var actionSheet;
@@ -722,7 +714,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           var website = resource.Website;
           var email = resource.EmailAddress;
           var sms = name + '\n' + phone + '\n' + website + '\n' + email;
-          this.shareOneResourceString = sms + '\n' + "This information is provided by NAMI St. Tammany.  For more behavioral health information call us at 985-626-6528, or www.namisttammany.org or www.facebook.com/namisttammany" + '\n';
+          this.shareOneResourceString = sms + '\n' + "This information is provided by NAMI Georgia. Please visit https://www.namiga.org." + '\n';
           var data = {
             message: this.shareOneResourceString
           };
@@ -756,7 +748,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           }
 
           console.log('exited for loop');
-          this.shareSelectedString = this.shareSelectedString + '\n' + "This information is provided by NAMI St. Tammany.  For more behavioral health information call us at 985-626-6528, or www.namisttammany.org or www.facebook.com/namisttammany" + '\n';
+          this.shareSelectedString = this.shareSelectedString + '\n' + "This information is provided by NAMI Georgia. Please visit https://www.namiga.org." + '\n';
           var data = {
             message: this.shareSelectedString
           };
@@ -827,16 +819,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonContent"], {
-      static: false
+      "static": false
     }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["IonContent"])], HomePage.prototype, "content", void 0);
     HomePage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-home',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./home.page.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/home.page.html")).default,
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/home/home.page.html"))["default"],
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./home.page.scss */
-      "./src/app/home/home.page.scss")).default]
+      "./src/app/home/home.page.scss"))["default"]]
     }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_resource_list_service__WEBPACK_IMPORTED_MODULE_3__["ResourceListService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"], _angular_router__WEBPACK_IMPORTED_MODULE_6__["Router"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ActionSheetController"], _ionic_native_firebase_analytics_ngx__WEBPACK_IMPORTED_MODULE_8__["FirebaseAnalytics"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_9__["TranslateService"]])], HomePage);
     /***/
   },
@@ -904,9 +896,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       ConnectionStatus[ConnectionStatus["Offline"] = 1] = "Offline";
     })(ConnectionStatus || (ConnectionStatus = {}));
 
-    var NetworkService =
-    /*#__PURE__*/
-    function () {
+    var NetworkService = /*#__PURE__*/function () {
       function NetworkService(network, toastController, plt) {
         var _this11 = this;
 
@@ -948,9 +938,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "updateNetworkStatus",
         value: function updateNetworkStatus(status) {
-          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-          /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee4() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
             var connection, toast;
             return regeneratorRuntime.wrap(function _callee4$(_context4) {
               while (1) {
@@ -1070,9 +1058,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
     var API_STORAGE_KEY = 'specialkey';
 
-    var ResourceListService =
-    /*#__PURE__*/
-    function () {
+    var ResourceListService = /*#__PURE__*/function () {
       function ResourceListService(db, sdb, networkService, translateConfigService) {
         _classCallCheck(this, ResourceListService);
 

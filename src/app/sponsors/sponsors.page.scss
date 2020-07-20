@@ -23,21 +23,31 @@ ion-list {
   // --background: transparent !important;
   }
 
-ion-col {
-  justify-content: center;
+
+.tier1container {
+  margin: auto;
+  width: 70%;
+  height: auto;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.tier2container {
+  margin: auto;
+  width: 60%;
+  height: auto;
+  padding-top: 25px;
+  padding-bottom: 25px;
+}
+.tier3container {
+  margin: auto;
+  width: 50%;
+  height: auto;
+  padding-top: 25px;
+  padding-bottom: 25px;
 }
 
-img {
-    justify-content: center;
-    object-fit: contain;
-  }
 
-  img .logo {
-        display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    max-width: 100%; 
-    max-height: 200px; 
-    object-fit: contain;
+  #logo {
+    width: 100%;
+    height: auto;    
   }

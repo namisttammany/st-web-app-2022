@@ -1,5 +1,23 @@
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -8,932 +26,1441 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[54], {
   /***/
-  "./node_modules/@ionic/core/dist/esm/ion-select_3-md.entry.js":
-  /*!********************************************************************!*\
-    !*** ./node_modules/@ionic/core/dist/esm/ion-select_3-md.entry.js ***!
-    \********************************************************************/
+  "./node_modules/@ionic/core/dist/esm/ion-route_4.entry.js":
+  /*!****************************************************************!*\
+    !*** ./node_modules/@ionic/core/dist/esm/ion-route_4.entry.js ***!
+    \****************************************************************/
 
-  /*! exports provided: ion_select, ion_select_option, ion_select_popover */
+  /*! exports provided: ion_route, ion_route_redirect, ion_router, ion_router_link */
 
   /***/
-  function node_modulesIonicCoreDistEsmIonSelect_3MdEntryJs(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesIonicCoreDistEsmIonRoute_4EntryJs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ion_select", function () {
-      return Select;
+    __webpack_require__.d(__webpack_exports__, "ion_route", function () {
+      return Route;
     });
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ion_select_option", function () {
-      return SelectOption;
+    __webpack_require__.d(__webpack_exports__, "ion_route_redirect", function () {
+      return RouteRedirect;
     });
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ion_select_popover", function () {
-      return SelectPopover;
+    __webpack_require__.d(__webpack_exports__, "ion_router", function () {
+      return Router;
+    });
+    /* harmony export (binding) */
+
+
+    __webpack_require__.d(__webpack_exports__, "ion_router_link", function () {
+      return RouterLink;
     });
     /* harmony import */
 
 
-    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! ./core-0a8d4d2e.js */
-    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
+    var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./index-29df6f59.js */
+    "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
     /* harmony import */
 
 
-    var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ./config-3c7f3790.js */
-    "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
+    var _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./ionic-global-08f4fb8a.js */
+    "./node_modules/@ionic/core/dist/esm/ionic-global-08f4fb8a.js");
     /* harmony import */
 
 
-    var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./helpers-46f4a262.js */
-    "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
+    var _helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./helpers-5c745fbd.js */
+    "./node_modules/@ionic/core/dist/esm/helpers-5c745fbd.js");
     /* harmony import */
 
 
-    var _hardware_back_button_1ed0083a_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./hardware-back-button-1ed0083a.js */
-    "./node_modules/@ionic/core/dist/esm/hardware-back-button-1ed0083a.js");
-    /* harmony import */
+    var _theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./theme-3f0b0c04.js */
+    "./node_modules/@ionic/core/dist/esm/theme-3f0b0c04.js");
 
+    var Route = /*#__PURE__*/function () {
+      function Route(hostRef) {
+        _classCallCheck(this, Route);
 
-    var _overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./overlays-e336664a.js */
-    "./node_modules/@ionic/core/dist/esm/overlays-e336664a.js");
-    /* harmony import */
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        /**
+         * Relative path that needs to match in order for this route to apply.
+         *
+         * Accepts paths similar to expressjs so that you can define parameters
+         * in the url /foo/:bar where bar would be available in incoming props.
+         */
 
-
-    var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(
-    /*! ./theme-18cbe2cc.js */
-    "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
-
-    var watchForOptions = function watchForOptions(containerEl, tagName, onChange) {
-      var mutation = new MutationObserver(function (mutationList) {
-        onChange(getSelectedOption(mutationList, tagName));
-      });
-      mutation.observe(containerEl, {
-        childList: true,
-        subtree: true
-      });
-      return mutation;
-    };
-
-    var getSelectedOption = function getSelectedOption(mutationList, tagName) {
-      var newOption;
-      mutationList.forEach(function (mut) {
-        // tslint:disable-next-line: prefer-for-of
-        for (var i = 0; i < mut.addedNodes.length; i++) {
-          newOption = findCheckedOption(mut.addedNodes[i], tagName) || newOption;
-        }
-      });
-      return newOption;
-    };
-
-    var findCheckedOption = function findCheckedOption(el, tagName) {
-      if (el.nodeType !== 1) {
-        return undefined;
+        this.url = '';
+        this.ionRouteDataChanged = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteDataChanged", 7);
       }
 
-      var options = el.tagName === tagName.toUpperCase() ? [el] : Array.from(el.querySelectorAll(tagName));
-      return options.find(function (o) {
-        return o.value === el.value;
-      });
-    };
-
-    var Select =
-    /*#__PURE__*/
-    function () {
-      function Select(hostRef) {
-        var _this = this;
-
-        _classCallCheck(this, Select);
-
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.inputId = "ion-sel-".concat(selectIds++);
-        this.didInit = false;
-        this.isExpanded = false;
-        /**
-         * If `true`, the user cannot interact with the select.
-         */
-
-        this.disabled = false;
-        /**
-         * The text to display on the cancel button.
-         */
-
-        this.cancelText = 'Cancel';
-        /**
-         * The text to display on the ok button.
-         */
-
-        this.okText = 'OK';
-        /**
-         * The name of the control, which is submitted with the form data.
-         */
-
-        this.name = this.inputId;
-        /**
-         * If `true`, the select can accept multiple values.
-         */
-
-        this.multiple = false;
-        /**
-         * The interface the select should use: `action-sheet`, `popover` or `alert`.
-         */
-
-        this.interface = 'alert';
-        /**
-         * Any additional options that the `alert`, `action-sheet` or `popover` interface
-         * can take. See the [AlertController API docs](../../alert/AlertController/#create), the
-         * [ActionSheetController API docs](../../action-sheet/ActionSheetController/#create) and the
-         * [PopoverController API docs](../../popover/PopoverController/#create) for the
-         * create options for each interface.
-         */
-
-        this.interfaceOptions = {};
-
-        this.onClick = function (ev) {
-          _this.setFocus();
-
-          _this.open(ev);
-        };
-
-        this.onFocus = function () {
-          _this.ionFocus.emit();
-        };
-
-        this.onBlur = function () {
-          _this.ionBlur.emit();
-        };
-
-        this.ionChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionChange", 7);
-        this.ionCancel = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionCancel", 7);
-        this.ionFocus = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionFocus", 7);
-        this.ionBlur = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionBlur", 7);
-        this.ionStyle = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionStyle", 7);
-      }
-
-      _createClass(Select, [{
-        key: "disabledChanged",
-        value: function disabledChanged() {
-          this.emitStyle();
+      _createClass(Route, [{
+        key: "onUpdate",
+        value: function onUpdate(newValue) {
+          this.ionRouteDataChanged.emit(newValue);
         }
       }, {
-        key: "valueChanged",
-        value: function valueChanged() {
-          this.emitStyle();
+        key: "onComponentProps",
+        value: function onComponentProps(newValue, oldValue) {
+          if (newValue === oldValue) {
+            return;
+          }
 
-          if (this.didInit) {
-            this.ionChange.emit({
-              value: this.value
-            });
+          var keys1 = newValue ? Object.keys(newValue) : [];
+          var keys2 = oldValue ? Object.keys(oldValue) : [];
+
+          if (keys1.length !== keys2.length) {
+            this.onUpdate(newValue);
+            return;
+          }
+
+          var _iterator = _createForOfIteratorHelper(keys1),
+              _step;
+
+          try {
+            for (_iterator.s(); !(_step = _iterator.n()).done;) {
+              var key = _step.value;
+
+              if (newValue[key] !== oldValue[key]) {
+                this.onUpdate(newValue);
+                return;
+              }
+            }
+          } catch (err) {
+            _iterator.e(err);
+          } finally {
+            _iterator.f();
           }
         }
       }, {
         key: "connectedCallback",
         value: function connectedCallback() {
-          var _this2 = this;
-
-          return regeneratorRuntime.async(function connectedCallback$(_context2) {
-            while (1) {
-              switch (_context2.prev = _context2.next) {
-                case 0:
-                  this.updateOverlayOptions();
-                  this.emitStyle();
-                  this.mutationO = watchForOptions(this.el, 'ion-select-option', function _callee() {
-                    return regeneratorRuntime.async(function _callee$(_context) {
-                      while (1) {
-                        switch (_context.prev = _context.next) {
-                          case 0:
-                            _this2.updateOverlayOptions();
-
-                          case 1:
-                          case "end":
-                            return _context.stop();
-                        }
-                      }
-                    });
-                  });
-
-                case 3:
-                case "end":
-                  return _context2.stop();
-              }
-            }
-          }, null, this);
-        }
-      }, {
-        key: "disconnectedCallback",
-        value: function disconnectedCallback() {
-          if (this.mutationO) {
-            this.mutationO.disconnect();
-            this.mutationO = undefined;
-          }
-        }
-      }, {
-        key: "componentDidLoad",
-        value: function componentDidLoad() {
-          this.didInit = true;
-        }
-        /**
-         * Open the select overlay. The overlay is either an alert, action sheet, or popover,
-         * depending on the `interface` property on the `ion-select`.
-         *
-         * @param event The user interface event that called the open.
-         */
-
-      }, {
-        key: "open",
-        value: function open(event) {
-          var _this3 = this;
-
-          var overlay;
-          return regeneratorRuntime.async(function open$(_context3) {
-            while (1) {
-              switch (_context3.prev = _context3.next) {
-                case 0:
-                  if (!(this.disabled || this.isExpanded)) {
-                    _context3.next = 2;
-                    break;
-                  }
-
-                  return _context3.abrupt("return", undefined);
-
-                case 2:
-                  _context3.next = 4;
-                  return regeneratorRuntime.awrap(this.createOverlay(event));
-
-                case 4:
-                  overlay = this.overlay = _context3.sent;
-                  this.isExpanded = true;
-                  overlay.onDidDismiss().then(function () {
-                    _this3.overlay = undefined;
-                    _this3.isExpanded = false;
-
-                    _this3.setFocus();
-                  });
-                  _context3.next = 9;
-                  return regeneratorRuntime.awrap(overlay.present());
-
-                case 9:
-                  return _context3.abrupt("return", overlay);
-
-                case 10:
-                case "end":
-                  return _context3.stop();
-              }
-            }
-          }, null, this);
-        }
-      }, {
-        key: "createOverlay",
-        value: function createOverlay(ev) {
-          var selectInterface = this.interface;
-
-          if ((selectInterface === 'action-sheet' || selectInterface === 'popover') && this.multiple) {
-            console.warn("Select interface cannot be \"".concat(selectInterface, "\" with a multi-value select. Using the \"alert\" interface instead."));
-            selectInterface = 'alert';
-          }
-
-          if (selectInterface === 'popover' && !ev) {
-            console.warn('Select interface cannot be a "popover" without passing an event. Using the "alert" interface instead.');
-            selectInterface = 'alert';
-          }
-
-          if (selectInterface === 'popover') {
-            return this.openPopover(ev);
-          }
-
-          if (selectInterface === 'action-sheet') {
-            return this.openActionSheet();
-          }
-
-          return this.openAlert();
-        }
-      }, {
-        key: "updateOverlayOptions",
-        value: function updateOverlayOptions() {
-          var overlay = this.overlay;
-
-          if (!overlay) {
-            return;
-          }
-
-          var childOpts = this.childOpts;
-          var value = this.value;
-
-          switch (this.interface) {
-            case 'action-sheet':
-              overlay.buttons = this.createActionSheetButtons(childOpts, value);
-              break;
-
-            case 'popover':
-              var popover = overlay.querySelector('ion-select-popover');
-
-              if (popover) {
-                popover.options = this.createPopoverOptions(childOpts, value);
-              }
-
-              break;
-
-            case 'alert':
-              var inputType = this.multiple ? 'checkbox' : 'radio';
-              overlay.inputs = this.createAlertInputs(childOpts, inputType, value);
-              break;
-          }
-        }
-      }, {
-        key: "createActionSheetButtons",
-        value: function createActionSheetButtons(data, selectValue) {
-          var _this4 = this;
-
-          var actionSheetButtons = data.map(function (option) {
-            var value = getOptionValue(option);
-            return {
-              role: isOptionSelected(value, selectValue, _this4.compareWith) ? 'selected' : '',
-              text: option.textContent,
-              handler: function handler() {
-                _this4.value = value;
-              }
-            };
-          }); // Add "cancel" button
-
-          actionSheetButtons.push({
-            text: this.cancelText,
-            role: 'cancel',
-            handler: function handler() {
-              _this4.ionCancel.emit();
-            }
-          });
-          return actionSheetButtons;
-        }
-      }, {
-        key: "createAlertInputs",
-        value: function createAlertInputs(data, inputType, selectValue) {
-          var _this5 = this;
-
-          return data.map(function (o) {
-            var value = getOptionValue(o);
-            return {
-              type: inputType,
-              label: o.textContent || '',
-              value: value,
-              checked: isOptionSelected(value, selectValue, _this5.compareWith),
-              disabled: o.disabled
-            };
-          });
-        }
-      }, {
-        key: "createPopoverOptions",
-        value: function createPopoverOptions(data, selectValue) {
-          var _this6 = this;
-
-          return data.map(function (o) {
-            var value = getOptionValue(o);
-            return {
-              text: o.textContent || '',
-              value: value,
-              checked: isOptionSelected(value, selectValue, _this6.compareWith),
-              disabled: o.disabled,
-              handler: function handler() {
-                _this6.value = value;
-
-                _this6.close();
-              }
-            };
-          });
-        }
-      }, {
-        key: "openPopover",
-        value: function openPopover(ev) {
-          var interfaceOptions, mode, value, popoverOpts;
-          return regeneratorRuntime.async(function openPopover$(_context4) {
-            while (1) {
-              switch (_context4.prev = _context4.next) {
-                case 0:
-                  interfaceOptions = this.interfaceOptions;
-                  mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-                  value = this.value;
-                  popoverOpts = Object.assign(Object.assign({
-                    mode: mode
-                  }, interfaceOptions), {
-                    component: 'ion-select-popover',
-                    cssClass: ['select-popover', interfaceOptions.cssClass],
-                    event: ev,
-                    componentProps: {
-                      header: interfaceOptions.header,
-                      subHeader: interfaceOptions.subHeader,
-                      message: interfaceOptions.message,
-                      value: value,
-                      options: this.createPopoverOptions(this.childOpts, value)
-                    }
-                  });
-                  return _context4.abrupt("return", _overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_4__["c"].create(popoverOpts));
-
-                case 5:
-                case "end":
-                  return _context4.stop();
-              }
-            }
-          }, null, this);
-        }
-      }, {
-        key: "openActionSheet",
-        value: function openActionSheet() {
-          var mode, interfaceOptions, actionSheetOpts;
-          return regeneratorRuntime.async(function openActionSheet$(_context5) {
-            while (1) {
-              switch (_context5.prev = _context5.next) {
-                case 0:
-                  mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-                  interfaceOptions = this.interfaceOptions;
-                  actionSheetOpts = Object.assign(Object.assign({
-                    mode: mode
-                  }, interfaceOptions), {
-                    buttons: this.createActionSheetButtons(this.childOpts, this.value),
-                    cssClass: ['select-action-sheet', interfaceOptions.cssClass]
-                  });
-                  return _context5.abrupt("return", _overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_4__["b"].create(actionSheetOpts));
-
-                case 4:
-                case "end":
-                  return _context5.stop();
-              }
-            }
-          }, null, this);
-        }
-      }, {
-        key: "openAlert",
-        value: function openAlert() {
-          var _this7 = this;
-
-          var label, labelText, interfaceOptions, inputType, mode, alertOpts;
-          return regeneratorRuntime.async(function openAlert$(_context6) {
-            while (1) {
-              switch (_context6.prev = _context6.next) {
-                case 0:
-                  label = this.getLabel();
-                  labelText = label ? label.textContent : null;
-                  interfaceOptions = this.interfaceOptions;
-                  inputType = this.multiple ? 'checkbox' : 'radio';
-                  mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-                  alertOpts = Object.assign(Object.assign({
-                    mode: mode
-                  }, interfaceOptions), {
-                    header: interfaceOptions.header ? interfaceOptions.header : labelText,
-                    inputs: this.createAlertInputs(this.childOpts, inputType, this.value),
-                    buttons: [{
-                      text: this.cancelText,
-                      role: 'cancel',
-                      handler: function handler() {
-                        _this7.ionCancel.emit();
-                      }
-                    }, {
-                      text: this.okText,
-                      handler: function handler(selectedValues) {
-                        _this7.value = selectedValues;
-                      }
-                    }],
-                    cssClass: ['select-alert', interfaceOptions.cssClass, this.multiple ? 'multiple-select-alert' : 'single-select-alert']
-                  });
-                  return _context6.abrupt("return", _overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_4__["a"].create(alertOpts));
-
-                case 7:
-                case "end":
-                  return _context6.stop();
-              }
-            }
-          }, null, this);
-        }
-        /**
-         * Close the select interface.
-         */
-
-      }, {
-        key: "close",
-        value: function close() {
-          // TODO check !this.overlay || !this.isFocus()
-          if (!this.overlay) {
-            return Promise.resolve(false);
-          }
-
-          return this.overlay.dismiss();
-        }
-      }, {
-        key: "getLabel",
-        value: function getLabel() {
-          return Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this.el);
-        }
-      }, {
-        key: "hasValue",
-        value: function hasValue() {
-          return this.getText() !== '';
-        }
-      }, {
-        key: "getText",
-        value: function getText() {
-          var selectedText = this.selectedText;
-
-          if (selectedText != null && selectedText !== '') {
-            return selectedText;
-          }
-
-          return generateText(this.childOpts, this.value, this.compareWith);
-        }
-      }, {
-        key: "setFocus",
-        value: function setFocus() {
-          if (this.buttonEl) {
-            this.buttonEl.focus();
-          }
-        }
-      }, {
-        key: "emitStyle",
-        value: function emitStyle() {
-          this.ionStyle.emit({
-            'interactive': true,
-            'select': true,
-            'has-placeholder': this.placeholder != null,
-            'has-value': this.hasValue(),
-            'interactive-disabled': this.disabled,
-            'select-disabled': this.disabled
-          });
-        }
-      }, {
-        key: "render",
-        value: function render() {
-          var _class,
-              _this8 = this;
-
-          var placeholder = this.placeholder,
-              name = this.name,
-              disabled = this.disabled,
-              isExpanded = this.isExpanded,
-              value = this.value,
-              el = this.el;
-          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-          var labelId = this.inputId + '-lbl';
-          var label = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["f"])(el);
-
-          if (label) {
-            label.id = labelId;
-          }
-
-          var addPlaceholderClass = false;
-          var selectText = this.getText();
-
-          if (selectText === '' && placeholder != null) {
-            selectText = placeholder;
-            addPlaceholderClass = true;
-          }
-
-          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["a"])(true, el, name, parseValue(value), disabled);
-          var selectTextClasses = {
-            'select-text': true,
-            'select-placeholder': addPlaceholderClass
-          };
-          var textPart = addPlaceholderClass ? 'placeholder' : 'text';
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
-            onClick: this.onClick,
-            role: "combobox",
-            "aria-haspopup": "dialog",
-            "aria-disabled": disabled ? 'true' : null,
-            "aria-expanded": "".concat(isExpanded),
-            "aria-labelledby": labelId,
-            class: (_class = {}, _defineProperty(_class, mode, true), _defineProperty(_class, 'in-item', Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_5__["h"])('ion-item', el)), _defineProperty(_class, 'select-disabled', disabled), _class)
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
-            class: selectTextClasses,
-            part: textPart
-          }, selectText), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
-            class: "select-icon",
-            role: "presentation",
-            part: "icon"
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
-            class: "select-icon-inner",
-            part: "icon-inner"
-          })), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", {
-            type: "button",
-            onFocus: this.onFocus,
-            onBlur: this.onBlur,
-            disabled: disabled,
-            ref: function ref(btnEl) {
-              return _this8.buttonEl = btnEl;
-            }
-          }));
-        }
-      }, {
-        key: "childOpts",
-        get: function get() {
-          return Array.from(this.el.querySelectorAll('ion-select-option'));
-        }
-      }, {
-        key: "el",
-        get: function get() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+          this.ionRouteDataChanged.emit();
         }
       }], [{
         key: "watchers",
         get: function get() {
           return {
-            "disabled": ["disabledChanged"],
-            "placeholder": ["disabledChanged"],
-            "value": ["valueChanged"]
+            "url": ["onUpdate"],
+            "component": ["onUpdate"],
+            "componentProps": ["onComponentProps"]
           };
-        }
-      }, {
-        key: "style",
-        get: function get() {
-          return ":host{--placeholder-color:currentColor;--placeholder-opacity:0.33;padding-left:var(--padding-start);padding-right:var(--padding-end);padding-top:var(--padding-top);padding-bottom:var(--padding-bottom);display:-ms-flexbox;display:flex;position:relative;-ms-flex-align:center;align-items:center;font-family:var(--ion-font-family,inherit);overflow:hidden;z-index:2}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--padding-start);padding-inline-start:var(--padding-start);-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}:host(.in-item){position:static;max-width:45%}:host(.select-disabled){opacity:.4;pointer-events:none}:host(.ion-focused) button{border:2px solid #5e9ed6}.select-placeholder{color:var(--placeholder-color);opacity:var(--placeholder-opacity)}button{left:0;top:0;margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;position:absolute;width:100%;height:100%;border:0;background:transparent;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;outline:none}:host-context([dir=rtl]) button,[dir=rtl] button{left:unset;right:unset;right:0}button::-moz-focus-inner{border:0}.select-icon{position:relative;opacity:.33}.select-text{-ms-flex:1;flex:1;min-width:16px;font-size:inherit;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.select-icon-inner{left:5px;top:50%;margin-top:-3px;position:absolute;width:0;height:0;border-top:5px solid;border-right:5px solid transparent;border-left:5px solid transparent;color:currentColor;pointer-events:none}:host-context([dir=rtl]) .select-icon-inner,[dir=rtl] .select-icon-inner{left:unset;right:unset;right:5px}:host{--padding-top:10px;--padding-end:0;--padding-bottom:11px;--padding-start:16px}.select-icon{width:19px;height:19px}";
         }
       }]);
 
-      return Select;
+      return Route;
     }();
 
-    var isOptionSelected = function isOptionSelected(currentValue, compareValue, compareWith) {
-      if (currentValue === undefined) {
-        return false;
+    var RouteRedirect = /*#__PURE__*/function () {
+      function RouteRedirect(hostRef) {
+        _classCallCheck(this, RouteRedirect);
+
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.ionRouteRedirectChanged = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteRedirectChanged", 7);
       }
 
-      if (Array.isArray(currentValue)) {
-        return currentValue.some(function (val) {
-          return compareOptions(val, compareValue, compareWith);
-        });
+      _createClass(RouteRedirect, [{
+        key: "propDidChange",
+        value: function propDidChange() {
+          this.ionRouteRedirectChanged.emit();
+        }
+      }, {
+        key: "connectedCallback",
+        value: function connectedCallback() {
+          this.ionRouteRedirectChanged.emit();
+        }
+      }], [{
+        key: "watchers",
+        get: function get() {
+          return {
+            "from": ["propDidChange"],
+            "to": ["propDidChange"]
+          };
+        }
+      }]);
+
+      return RouteRedirect;
+    }();
+
+    var ROUTER_INTENT_NONE = 'root';
+    var ROUTER_INTENT_FORWARD = 'forward';
+    var ROUTER_INTENT_BACK = 'back';
+
+    var generatePath = function generatePath(segments) {
+      var path = segments.filter(function (s) {
+        return s.length > 0;
+      }).join('/');
+      return '/' + path;
+    };
+
+    var chainToPath = function chainToPath(chain) {
+      var path = [];
+
+      var _iterator2 = _createForOfIteratorHelper(chain),
+          _step2;
+
+      try {
+        for (_iterator2.s(); !(_step2 = _iterator2.n()).done;) {
+          var route = _step2.value;
+
+          var _iterator3 = _createForOfIteratorHelper(route.path),
+              _step3;
+
+          try {
+            for (_iterator3.s(); !(_step3 = _iterator3.n()).done;) {
+              var segment = _step3.value;
+
+              if (segment[0] === ':') {
+                var param = route.params && route.params[segment.slice(1)];
+
+                if (!param) {
+                  return null;
+                }
+
+                path.push(param);
+              } else if (segment !== '') {
+                path.push(segment);
+              }
+            }
+          } catch (err) {
+            _iterator3.e(err);
+          } finally {
+            _iterator3.f();
+          }
+        }
+      } catch (err) {
+        _iterator2.e(err);
+      } finally {
+        _iterator2.f();
+      }
+
+      return path;
+    };
+
+    var writePath = function writePath(history, root, useHash, path, direction, state, queryString) {
+      var url = generatePath([].concat(_toConsumableArray(parsePath(root)), _toConsumableArray(path)));
+
+      if (useHash) {
+        url = '#' + url;
+      }
+
+      if (queryString !== undefined) {
+        url = url + '?' + queryString;
+      }
+
+      if (direction === ROUTER_INTENT_FORWARD) {
+        history.pushState(state, '', url);
       } else {
-        return compareOptions(currentValue, compareValue, compareWith);
+        history.replaceState(state, '', url);
       }
     };
 
-    var getOptionValue = function getOptionValue(el) {
-      var value = el.value;
-      return value === undefined ? el.textContent || '' : value;
+    var removePrefix = function removePrefix(prefix, path) {
+      if (prefix.length > path.length) {
+        return null;
+      }
+
+      if (prefix.length <= 1 && prefix[0] === '') {
+        return path;
+      }
+
+      for (var i = 0; i < prefix.length; i++) {
+        if (prefix[i].length > 0 && prefix[i] !== path[i]) {
+          return null;
+        }
+      }
+
+      if (path.length === prefix.length) {
+        return [''];
+      }
+
+      return path.slice(prefix.length);
     };
 
-    var parseValue = function parseValue(value) {
-      if (value == null) {
+    var readPath = function readPath(loc, root, useHash) {
+      var pathname = loc.pathname;
+
+      if (useHash) {
+        var hash = loc.hash;
+        pathname = hash[0] === '#' ? hash.slice(1) : '';
+      }
+
+      var prefix = parsePath(root);
+      var path = parsePath(pathname);
+      return removePrefix(prefix, path);
+    };
+
+    var parsePath = function parsePath(path) {
+      if (path == null) {
+        return [''];
+      }
+
+      var removeQueryString = path.split('?')[0];
+      var segments = removeQueryString.split('/').map(function (s) {
+        return s.trim();
+      }).filter(function (s) {
+        return s.length > 0;
+      });
+
+      if (segments.length === 0) {
+        return [''];
+      } else {
+        return segments;
+      }
+    };
+
+    var printRoutes = function printRoutes(routes) {
+      console.group("[ion-core] ROUTES[".concat(routes.length, "]"));
+
+      var _iterator4 = _createForOfIteratorHelper(routes),
+          _step4;
+
+      try {
+        var _loop = function _loop() {
+          var chain = _step4.value;
+          var path = [];
+          chain.forEach(function (r) {
+            return path.push.apply(path, _toConsumableArray(r.path));
+          });
+          var ids = chain.map(function (r) {
+            return r.id;
+          });
+          console.debug("%c ".concat(generatePath(path)), 'font-weight: bold; padding-left: 20px', '=>\t', "(".concat(ids.join(', '), ")"));
+        };
+
+        for (_iterator4.s(); !(_step4 = _iterator4.n()).done;) {
+          _loop();
+        }
+      } catch (err) {
+        _iterator4.e(err);
+      } finally {
+        _iterator4.f();
+      }
+
+      console.groupEnd();
+    };
+
+    var printRedirects = function printRedirects(redirects) {
+      console.group("[ion-core] REDIRECTS[".concat(redirects.length, "]"));
+
+      var _iterator5 = _createForOfIteratorHelper(redirects),
+          _step5;
+
+      try {
+        for (_iterator5.s(); !(_step5 = _iterator5.n()).done;) {
+          var redirect = _step5.value;
+
+          if (redirect.to) {
+            console.debug('FROM: ', "$c ".concat(generatePath(redirect.from)), 'font-weight: bold', ' TO: ', "$c ".concat(generatePath(redirect.to)), 'font-weight: bold');
+          }
+        }
+      } catch (err) {
+        _iterator5.e(err);
+      } finally {
+        _iterator5.f();
+      }
+
+      console.groupEnd();
+    };
+
+    var _writeNavState = /*#__PURE__*/function () {
+      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(root, chain, direction, index) {
+        var changed,
+            animation,
+            outlet,
+            route,
+            result,
+            _args = arguments;
+        return regeneratorRuntime.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                changed = _args.length > 4 && _args[4] !== undefined ? _args[4] : false;
+                animation = _args.length > 5 ? _args[5] : undefined;
+                _context.prev = 2;
+                // find next navigation outlet in the DOM
+                outlet = searchNavNode(root); // make sure we can continue interacting the DOM, otherwise abort
+
+                if (!(index >= chain.length || !outlet)) {
+                  _context.next = 6;
+                  break;
+                }
+
+                return _context.abrupt("return", changed);
+
+              case 6:
+                _context.next = 8;
+                return outlet.componentOnReady();
+
+              case 8:
+                route = chain[index];
+                _context.next = 11;
+                return outlet.setRouteId(route.id, route.params, direction, animation);
+
+              case 11:
+                result = _context.sent;
+
+                // if the outlet changed the page, reset navigation to neutral (no direction)
+                // this means nested outlets will not animate
+                if (result.changed) {
+                  direction = ROUTER_INTENT_NONE;
+                  changed = true;
+                } // recursively set nested outlets
+
+
+                _context.next = 15;
+                return _writeNavState(result.element, chain, direction, index + 1, changed, animation);
+
+              case 15:
+                changed = _context.sent;
+
+                if (!result.markVisible) {
+                  _context.next = 19;
+                  break;
+                }
+
+                _context.next = 19;
+                return result.markVisible();
+
+              case 19:
+                return _context.abrupt("return", changed);
+
+              case 22:
+                _context.prev = 22;
+                _context.t0 = _context["catch"](2);
+                console.error(_context.t0);
+                return _context.abrupt("return", false);
+
+              case 26:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[2, 22]]);
+      }));
+
+      return function writeNavState(_x, _x2, _x3, _x4) {
+        return _ref.apply(this, arguments);
+      };
+    }();
+
+    var readNavState = /*#__PURE__*/function () {
+      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(root) {
+        var ids, outlet, node, id;
+        return regeneratorRuntime.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                ids = [];
+                node = root; // tslint:disable-next-line:no-constant-condition
+
+              case 2:
+                if (!true) {
+                  _context2.next = 20;
+                  break;
+                }
+
+                outlet = searchNavNode(node);
+
+                if (!outlet) {
+                  _context2.next = 17;
+                  break;
+                }
+
+                _context2.next = 7;
+                return outlet.getRouteId();
+
+              case 7:
+                id = _context2.sent;
+
+                if (!id) {
+                  _context2.next = 14;
+                  break;
+                }
+
+                node = id.element;
+                id.element = undefined;
+                ids.push(id);
+                _context2.next = 15;
+                break;
+
+              case 14:
+                return _context2.abrupt("break", 20);
+
+              case 15:
+                _context2.next = 18;
+                break;
+
+              case 17:
+                return _context2.abrupt("break", 20);
+
+              case 18:
+                _context2.next = 2;
+                break;
+
+              case 20:
+                return _context2.abrupt("return", {
+                  ids: ids,
+                  outlet: outlet
+                });
+
+              case 21:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2);
+      }));
+
+      return function readNavState(_x5) {
+        return _ref2.apply(this, arguments);
+      };
+    }();
+
+    var waitUntilNavNode = function waitUntilNavNode() {
+      if (searchNavNode(document.body)) {
+        return Promise.resolve();
+      }
+
+      return new Promise(function (resolve) {
+        window.addEventListener('ionNavWillLoad', resolve, {
+          once: true
+        });
+      });
+    };
+
+    var QUERY = ':not([no-router]) ion-nav, :not([no-router]) ion-tabs, :not([no-router]) ion-router-outlet';
+
+    var searchNavNode = function searchNavNode(root) {
+      if (!root) {
         return undefined;
       }
 
-      if (Array.isArray(value)) {
-        return value.join(',');
+      if (root.matches(QUERY)) {
+        return root;
       }
 
-      return value.toString();
+      var outlet = root.querySelector(QUERY);
+      return outlet ? outlet : undefined;
     };
 
-    var compareOptions = function compareOptions(currentValue, compareValue, compareWith) {
-      if (typeof compareWith === 'function') {
-        return compareWith(currentValue, compareValue);
-      } else if (typeof compareWith === 'string') {
-        return currentValue[compareWith] === compareValue[compareWith];
-      } else {
-        return Array.isArray(compareValue) ? compareValue.includes(currentValue) : currentValue === compareValue;
+    var matchesRedirect = function matchesRedirect(input, route) {
+      var from = route.from,
+          to = route.to;
+
+      if (to === undefined) {
+        return false;
       }
+
+      if (from.length > input.length) {
+        return false;
+      }
+
+      for (var i = 0; i < from.length; i++) {
+        var expected = from[i];
+
+        if (expected === '*') {
+          return true;
+        }
+
+        if (expected !== input[i]) {
+          return false;
+        }
+      }
+
+      return from.length === input.length;
     };
 
-    var generateText = function generateText(opts, value, compareWith) {
-      if (value === undefined) {
-        return '';
-      }
-
-      if (Array.isArray(value)) {
-        return value.map(function (v) {
-          return textForValue(opts, v, compareWith);
-        }).filter(function (opt) {
-          return opt !== null;
-        }).join(', ');
-      } else {
-        return textForValue(opts, value, compareWith) || '';
-      }
-    };
-
-    var textForValue = function textForValue(opts, value, compareWith) {
-      var selectOpt = opts.find(function (opt) {
-        return compareOptions(getOptionValue(opt), value, compareWith);
+    var routeRedirect = function routeRedirect(path, routes) {
+      return routes.find(function (route) {
+        return matchesRedirect(path, route);
       });
-      return selectOpt ? selectOpt.textContent : null;
     };
 
-    var selectIds = 0;
+    var matchesIDs = function matchesIDs(ids, chain) {
+      var len = Math.min(ids.length, chain.length);
+      var i = 0;
 
-    var SelectOption =
-    /*#__PURE__*/
-    function () {
-      function SelectOption(hostRef) {
-        _classCallCheck(this, SelectOption);
+      for (; i < len; i++) {
+        if (ids[i].toLowerCase() !== chain[i].id) {
+          break;
+        }
+      }
 
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.inputId = "ion-selopt-".concat(selectOptionIds++);
+      return i;
+    };
+
+    var matchesPath = function matchesPath(inputPath, chain) {
+      var segments = new RouterSegments(inputPath);
+      var matchesDefault = false;
+      var allparams;
+
+      for (var i = 0; i < chain.length; i++) {
+        var path = chain[i].path;
+
+        if (path[0] === '') {
+          matchesDefault = true;
+        } else {
+          var _iterator6 = _createForOfIteratorHelper(path),
+              _step6;
+
+          try {
+            for (_iterator6.s(); !(_step6 = _iterator6.n()).done;) {
+              var segment = _step6.value;
+              var data = segments.next(); // data param
+
+              if (segment[0] === ':') {
+                if (data === '') {
+                  return null;
+                }
+
+                allparams = allparams || [];
+                var params = allparams[i] || (allparams[i] = {});
+                params[segment.slice(1)] = data;
+              } else if (data !== segment) {
+                return null;
+              }
+            }
+          } catch (err) {
+            _iterator6.e(err);
+          } finally {
+            _iterator6.f();
+          }
+
+          matchesDefault = false;
+        }
+      }
+
+      var matches = matchesDefault ? matchesDefault === (segments.next() === '') : true;
+
+      if (!matches) {
+        return null;
+      }
+
+      if (allparams) {
+        return chain.map(function (route, i) {
+          return {
+            id: route.id,
+            path: route.path,
+            params: mergeParams(route.params, allparams[i])
+          };
+        });
+      }
+
+      return chain;
+    };
+
+    var mergeParams = function mergeParams(a, b) {
+      if (!a && b) {
+        return b;
+      } else if (a && !b) {
+        return a;
+      } else if (a && b) {
+        return Object.assign(Object.assign({}, a), b);
+      }
+
+      return undefined;
+    };
+
+    var routerIDsToChain = function routerIDsToChain(ids, chains) {
+      var match = null;
+      var maxMatches = 0;
+      var plainIDs = ids.map(function (i) {
+        return i.id;
+      });
+
+      var _iterator7 = _createForOfIteratorHelper(chains),
+          _step7;
+
+      try {
+        for (_iterator7.s(); !(_step7 = _iterator7.n()).done;) {
+          var chain = _step7.value;
+          var score = matchesIDs(plainIDs, chain);
+
+          if (score > maxMatches) {
+            match = chain;
+            maxMatches = score;
+          }
+        }
+      } catch (err) {
+        _iterator7.e(err);
+      } finally {
+        _iterator7.f();
+      }
+
+      if (match) {
+        return match.map(function (route, i) {
+          return {
+            id: route.id,
+            path: route.path,
+            params: mergeParams(route.params, ids[i] && ids[i].params)
+          };
+        });
+      }
+
+      return null;
+    };
+
+    var routerPathToChain = function routerPathToChain(path, chains) {
+      var match = null;
+      var matches = 0;
+
+      var _iterator8 = _createForOfIteratorHelper(chains),
+          _step8;
+
+      try {
+        for (_iterator8.s(); !(_step8 = _iterator8.n()).done;) {
+          var chain = _step8.value;
+          var matchedChain = matchesPath(path, chain);
+
+          if (matchedChain !== null) {
+            var score = computePriority(matchedChain);
+
+            if (score > matches) {
+              matches = score;
+              match = matchedChain;
+            }
+          }
+        }
+      } catch (err) {
+        _iterator8.e(err);
+      } finally {
+        _iterator8.f();
+      }
+
+      return match;
+    };
+
+    var computePriority = function computePriority(chain) {
+      var score = 1;
+      var level = 1;
+
+      var _iterator9 = _createForOfIteratorHelper(chain),
+          _step9;
+
+      try {
+        for (_iterator9.s(); !(_step9 = _iterator9.n()).done;) {
+          var route = _step9.value;
+
+          var _iterator10 = _createForOfIteratorHelper(route.path),
+              _step10;
+
+          try {
+            for (_iterator10.s(); !(_step10 = _iterator10.n()).done;) {
+              var path = _step10.value;
+
+              if (path[0] === ':') {
+                score += Math.pow(1, level);
+              } else if (path !== '') {
+                score += Math.pow(2, level);
+              }
+
+              level++;
+            }
+          } catch (err) {
+            _iterator10.e(err);
+          } finally {
+            _iterator10.f();
+          }
+        }
+      } catch (err) {
+        _iterator9.e(err);
+      } finally {
+        _iterator9.f();
+      }
+
+      return score;
+    };
+
+    var RouterSegments = /*#__PURE__*/function () {
+      function RouterSegments(path) {
+        _classCallCheck(this, RouterSegments);
+
+        this.path = path.slice();
+      }
+
+      _createClass(RouterSegments, [{
+        key: "next",
+        value: function next() {
+          if (this.path.length > 0) {
+            return this.path.shift();
+          }
+
+          return '';
+        }
+      }]);
+
+      return RouterSegments;
+    }();
+
+    var readRedirects = function readRedirects(root) {
+      return Array.from(root.children).filter(function (el) {
+        return el.tagName === 'ION-ROUTE-REDIRECT';
+      }).map(function (el) {
+        var to = readProp(el, 'to');
+        return {
+          from: parsePath(readProp(el, 'from')),
+          to: to == null ? undefined : parsePath(to)
+        };
+      });
+    };
+
+    var readRoutes = function readRoutes(root) {
+      return flattenRouterTree(readRouteNodes(root));
+    };
+
+    var readRouteNodes = function readRouteNodes(root) {
+      var node = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : root;
+      return Array.from(node.children).filter(function (el) {
+        return el.tagName === 'ION-ROUTE' && el.component;
+      }).map(function (el) {
+        var component = readProp(el, 'component');
+
+        if (component == null) {
+          throw new Error('component missing in ion-route');
+        }
+
+        return {
+          path: parsePath(readProp(el, 'url')),
+          id: component.toLowerCase(),
+          params: el.componentProps,
+          children: readRouteNodes(root, el)
+        };
+      });
+    };
+
+    var readProp = function readProp(el, prop) {
+      if (prop in el) {
+        return el[prop];
+      }
+
+      if (el.hasAttribute(prop)) {
+        return el.getAttribute(prop);
+      }
+
+      return null;
+    };
+
+    var flattenRouterTree = function flattenRouterTree(nodes) {
+      var routes = [];
+
+      var _iterator11 = _createForOfIteratorHelper(nodes),
+          _step11;
+
+      try {
+        for (_iterator11.s(); !(_step11 = _iterator11.n()).done;) {
+          var node = _step11.value;
+          flattenNode([], routes, node);
+        }
+      } catch (err) {
+        _iterator11.e(err);
+      } finally {
+        _iterator11.f();
+      }
+
+      return routes;
+    };
+
+    var flattenNode = function flattenNode(chain, routes, node) {
+      var s = chain.slice();
+      s.push({
+        id: node.id,
+        path: node.path,
+        params: node.params
+      });
+
+      if (node.children.length === 0) {
+        routes.push(s);
+        return;
+      }
+
+      var _iterator12 = _createForOfIteratorHelper(node.children),
+          _step12;
+
+      try {
+        for (_iterator12.s(); !(_step12 = _iterator12.n()).done;) {
+          var sub = _step12.value;
+          flattenNode(s, routes, sub);
+        }
+      } catch (err) {
+        _iterator12.e(err);
+      } finally {
+        _iterator12.f();
+      }
+    };
+
+    var Router = /*#__PURE__*/function () {
+      function Router(hostRef) {
+        _classCallCheck(this, Router);
+
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.previousPath = null;
+        this.busy = false;
+        this.state = 0;
+        this.lastState = 0;
         /**
-         * If `true`, the user cannot interact with the select option.
+         * By default `ion-router` will match the routes at the root path ("/").
+         * That can be changed when
+         *
          */
 
-        this.disabled = false;
+        this.root = '/';
+        /**
+         * The router can work in two "modes":
+         * - With hash: `/index.html#/path/to/page`
+         * - Without hash: `/path/to/page`
+         *
+         * Using one or another might depend in the requirements of your app and/or where it's deployed.
+         *
+         * Usually "hash-less" navigation works better for SEO and it's more user friendly too, but it might
+         * requires additional server-side configuration in order to properly work.
+         *
+         * On the otherside hash-navigation is much easier to deploy, it even works over the file protocol.
+         *
+         * By default, this property is `true`, change to `false` to allow hash-less URLs.
+         */
+
+        this.useHash = true;
+        this.ionRouteWillChange = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteWillChange", 7);
+        this.ionRouteDidChange = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteDidChange", 7);
       }
 
-      _createClass(SelectOption, [{
-        key: "render",
-        value: function render() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
-            role: "option",
-            id: this.inputId,
-            class: Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this)
+      _createClass(Router, [{
+        key: "componentWillLoad",
+        value: function () {
+          var _componentWillLoad = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee3() {
+            return regeneratorRuntime.wrap(function _callee3$(_context3) {
+              while (1) {
+                switch (_context3.prev = _context3.next) {
+                  case 0:
+                    console.debug('[ion-router] router will load');
+                    _context3.next = 3;
+                    return waitUntilNavNode();
+
+                  case 3:
+                    console.debug('[ion-router] found nav');
+                    _context3.next = 6;
+                    return this.onRoutesChanged();
+
+                  case 6:
+                  case "end":
+                    return _context3.stop();
+                }
+              }
+            }, _callee3, this);
+          }));
+
+          function componentWillLoad() {
+            return _componentWillLoad.apply(this, arguments);
+          }
+
+          return componentWillLoad;
+        }()
+      }, {
+        key: "componentDidLoad",
+        value: function componentDidLoad() {
+          window.addEventListener('ionRouteRedirectChanged', Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.onRedirectChanged.bind(this), 10));
+          window.addEventListener('ionRouteDataChanged', Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.onRoutesChanged.bind(this), 100));
+        }
+      }, {
+        key: "onPopState",
+        value: function onPopState() {
+          var direction = this.historyDirection();
+          var path = this.getPath();
+          console.debug('[ion-router] URL changed -> update nav', path, direction);
+          return this.writeNavStateRoot(path, direction);
+        }
+      }, {
+        key: "onBackButton",
+        value: function onBackButton(ev) {
+          var _this = this;
+
+          ev.detail.register(0, function (processNextHandler) {
+            _this.back();
+
+            processNextHandler();
           });
+        }
+        /**
+         * Navigate to the specified URL.
+         *
+         * @param url The url to navigate to.
+         * @param direction The direction of the animation. Defaults to `"forward"`.
+         */
+
+      }, {
+        key: "push",
+        value: function push(url) {
+          var direction = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'forward';
+          var animation = arguments.length > 2 ? arguments[2] : undefined;
+
+          if (url.startsWith('.')) {
+            url = new URL(url, window.location.href).pathname;
+          }
+
+          console.debug('[ion-router] URL pushed -> updating nav', url, direction);
+          var path = parsePath(url);
+          var queryString = url.split('?')[1];
+          this.setPath(path, direction, queryString);
+          return this.writeNavStateRoot(path, direction, animation);
+        }
+        /**
+         * Go back to previous page in the window.history.
+         */
+
+      }, {
+        key: "back",
+        value: function back() {
+          window.history.back();
+          return Promise.resolve(this.waitPromise);
+        }
+        /** @internal */
+
+      }, {
+        key: "printDebug",
+        value: function () {
+          var _printDebug = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee4() {
+            return regeneratorRuntime.wrap(function _callee4$(_context4) {
+              while (1) {
+                switch (_context4.prev = _context4.next) {
+                  case 0:
+                    console.debug('CURRENT PATH', this.getPath());
+                    console.debug('PREVIOUS PATH', this.previousPath);
+                    printRoutes(readRoutes(this.el));
+                    printRedirects(readRedirects(this.el));
+
+                  case 4:
+                  case "end":
+                    return _context4.stop();
+                }
+              }
+            }, _callee4, this);
+          }));
+
+          function printDebug() {
+            return _printDebug.apply(this, arguments);
+          }
+
+          return printDebug;
+        }()
+        /** @internal */
+
+      }, {
+        key: "navChanged",
+        value: function () {
+          var _navChanged = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee5(direction) {
+            var _yield$readNavState, ids, outlet, routes, chain, path;
+
+            return regeneratorRuntime.wrap(function _callee5$(_context5) {
+              while (1) {
+                switch (_context5.prev = _context5.next) {
+                  case 0:
+                    if (!this.busy) {
+                      _context5.next = 3;
+                      break;
+                    }
+
+                    console.warn('[ion-router] router is busy, navChanged was cancelled');
+                    return _context5.abrupt("return", false);
+
+                  case 3:
+                    _context5.next = 5;
+                    return readNavState(window.document.body);
+
+                  case 5:
+                    _yield$readNavState = _context5.sent;
+                    ids = _yield$readNavState.ids;
+                    outlet = _yield$readNavState.outlet;
+                    routes = readRoutes(this.el);
+                    chain = routerIDsToChain(ids, routes);
+
+                    if (chain) {
+                      _context5.next = 13;
+                      break;
+                    }
+
+                    console.warn('[ion-router] no matching URL for ', ids.map(function (i) {
+                      return i.id;
+                    }));
+                    return _context5.abrupt("return", false);
+
+                  case 13:
+                    path = chainToPath(chain);
+
+                    if (path) {
+                      _context5.next = 17;
+                      break;
+                    }
+
+                    console.warn('[ion-router] router could not match path because some required param is missing');
+                    return _context5.abrupt("return", false);
+
+                  case 17:
+                    console.debug('[ion-router] nav changed -> update URL', ids, path);
+                    this.setPath(path, direction);
+                    _context5.next = 21;
+                    return this.safeWriteNavState(outlet, chain, ROUTER_INTENT_NONE, path, null, ids.length);
+
+                  case 21:
+                    return _context5.abrupt("return", true);
+
+                  case 22:
+                  case "end":
+                    return _context5.stop();
+                }
+              }
+            }, _callee5, this);
+          }));
+
+          function navChanged(_x6) {
+            return _navChanged.apply(this, arguments);
+          }
+
+          return navChanged;
+        }()
+      }, {
+        key: "onRedirectChanged",
+        value: function onRedirectChanged() {
+          var path = this.getPath();
+
+          if (path && routeRedirect(path, readRedirects(this.el))) {
+            this.writeNavStateRoot(path, ROUTER_INTENT_NONE);
+          }
+        }
+      }, {
+        key: "onRoutesChanged",
+        value: function onRoutesChanged() {
+          return this.writeNavStateRoot(this.getPath(), ROUTER_INTENT_NONE);
+        }
+      }, {
+        key: "historyDirection",
+        value: function historyDirection() {
+          var win = window;
+
+          if (win.history.state === null) {
+            this.state++;
+            win.history.replaceState(this.state, win.document.title, win.document.location && win.document.location.href);
+          }
+
+          var state = win.history.state;
+          var lastState = this.lastState;
+          this.lastState = state;
+
+          if (state > lastState || state >= lastState && lastState > 0) {
+            return ROUTER_INTENT_FORWARD;
+          } else if (state < lastState) {
+            return ROUTER_INTENT_BACK;
+          } else {
+            return ROUTER_INTENT_NONE;
+          }
+        }
+      }, {
+        key: "writeNavStateRoot",
+        value: function () {
+          var _writeNavStateRoot = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee6(path, direction, animation) {
+            var redirects, redirect, redirectFrom, routes, chain;
+            return regeneratorRuntime.wrap(function _callee6$(_context6) {
+              while (1) {
+                switch (_context6.prev = _context6.next) {
+                  case 0:
+                    if (path) {
+                      _context6.next = 3;
+                      break;
+                    }
+
+                    console.error('[ion-router] URL is not part of the routing set');
+                    return _context6.abrupt("return", false);
+
+                  case 3:
+                    // lookup redirect rule
+                    redirects = readRedirects(this.el);
+                    redirect = routeRedirect(path, redirects);
+                    redirectFrom = null;
+
+                    if (redirect) {
+                      this.setPath(redirect.to, direction);
+                      redirectFrom = redirect.from;
+                      path = redirect.to;
+                    } // lookup route chain
+
+
+                    routes = readRoutes(this.el);
+                    chain = routerPathToChain(path, routes);
+
+                    if (chain) {
+                      _context6.next = 12;
+                      break;
+                    }
+
+                    console.error('[ion-router] the path does not match any route');
+                    return _context6.abrupt("return", false);
+
+                  case 12:
+                    return _context6.abrupt("return", this.safeWriteNavState(document.body, chain, direction, path, redirectFrom, 0, animation));
+
+                  case 13:
+                  case "end":
+                    return _context6.stop();
+                }
+              }
+            }, _callee6, this);
+          }));
+
+          function writeNavStateRoot(_x7, _x8, _x9) {
+            return _writeNavStateRoot.apply(this, arguments);
+          }
+
+          return writeNavStateRoot;
+        }()
+      }, {
+        key: "safeWriteNavState",
+        value: function () {
+          var _safeWriteNavState = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee7(node, chain, direction, path, redirectFrom) {
+            var index,
+                animation,
+                unlock,
+                changed,
+                _args7 = arguments;
+            return regeneratorRuntime.wrap(function _callee7$(_context7) {
+              while (1) {
+                switch (_context7.prev = _context7.next) {
+                  case 0:
+                    index = _args7.length > 5 && _args7[5] !== undefined ? _args7[5] : 0;
+                    animation = _args7.length > 6 ? _args7[6] : undefined;
+                    _context7.next = 4;
+                    return this.lock();
+
+                  case 4:
+                    unlock = _context7.sent;
+                    changed = false;
+                    _context7.prev = 6;
+                    _context7.next = 9;
+                    return this.writeNavState(node, chain, direction, path, redirectFrom, index, animation);
+
+                  case 9:
+                    changed = _context7.sent;
+                    _context7.next = 15;
+                    break;
+
+                  case 12:
+                    _context7.prev = 12;
+                    _context7.t0 = _context7["catch"](6);
+                    console.error(_context7.t0);
+
+                  case 15:
+                    unlock();
+                    return _context7.abrupt("return", changed);
+
+                  case 17:
+                  case "end":
+                    return _context7.stop();
+                }
+              }
+            }, _callee7, this, [[6, 12]]);
+          }));
+
+          function safeWriteNavState(_x10, _x11, _x12, _x13, _x14) {
+            return _safeWriteNavState.apply(this, arguments);
+          }
+
+          return safeWriteNavState;
+        }()
+      }, {
+        key: "lock",
+        value: function () {
+          var _lock = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee8() {
+            var p, resolve;
+            return regeneratorRuntime.wrap(function _callee8$(_context8) {
+              while (1) {
+                switch (_context8.prev = _context8.next) {
+                  case 0:
+                    p = this.waitPromise;
+                    this.waitPromise = new Promise(function (r) {
+                      return resolve = r;
+                    });
+
+                    if (!(p !== undefined)) {
+                      _context8.next = 5;
+                      break;
+                    }
+
+                    _context8.next = 5;
+                    return p;
+
+                  case 5:
+                    return _context8.abrupt("return", resolve);
+
+                  case 6:
+                  case "end":
+                    return _context8.stop();
+                }
+              }
+            }, _callee8, this);
+          }));
+
+          function lock() {
+            return _lock.apply(this, arguments);
+          }
+
+          return lock;
+        }()
+      }, {
+        key: "writeNavState",
+        value: function () {
+          var _writeNavState2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee9(node, chain, direction, path, redirectFrom) {
+            var index,
+                animation,
+                routeEvent,
+                changed,
+                _args9 = arguments;
+            return regeneratorRuntime.wrap(function _callee9$(_context9) {
+              while (1) {
+                switch (_context9.prev = _context9.next) {
+                  case 0:
+                    index = _args9.length > 5 && _args9[5] !== undefined ? _args9[5] : 0;
+                    animation = _args9.length > 6 ? _args9[6] : undefined;
+
+                    if (!this.busy) {
+                      _context9.next = 5;
+                      break;
+                    }
+
+                    console.warn('[ion-router] router is busy, transition was cancelled');
+                    return _context9.abrupt("return", false);
+
+                  case 5:
+                    this.busy = true; // generate route event and emit will change
+
+                    routeEvent = this.routeChangeEvent(path, redirectFrom);
+
+                    if (routeEvent) {
+                      this.ionRouteWillChange.emit(routeEvent);
+                    }
+
+                    _context9.next = 10;
+                    return _writeNavState(node, chain, direction, index, false, animation);
+
+                  case 10:
+                    changed = _context9.sent;
+                    this.busy = false;
+
+                    if (changed) {
+                      console.debug('[ion-router] route changed', path);
+                    } // emit did change
+
+
+                    if (routeEvent) {
+                      this.ionRouteDidChange.emit(routeEvent);
+                    }
+
+                    return _context9.abrupt("return", changed);
+
+                  case 15:
+                  case "end":
+                    return _context9.stop();
+                }
+              }
+            }, _callee9, this);
+          }));
+
+          function writeNavState(_x15, _x16, _x17, _x18, _x19) {
+            return _writeNavState2.apply(this, arguments);
+          }
+
+          return writeNavState;
+        }()
+      }, {
+        key: "setPath",
+        value: function setPath(path, direction, queryString) {
+          this.state++;
+          writePath(window.history, this.root, this.useHash, path, direction, this.state, queryString);
+        }
+      }, {
+        key: "getPath",
+        value: function getPath() {
+          return readPath(window.location, this.root, this.useHash);
+        }
+      }, {
+        key: "routeChangeEvent",
+        value: function routeChangeEvent(path, redirectFromPath) {
+          var from = this.previousPath;
+          var to = generatePath(path);
+          this.previousPath = to;
+
+          if (to === from) {
+            return null;
+          }
+
+          var redirectedFrom = redirectFromPath ? generatePath(redirectFromPath) : null;
+          return {
+            from: from,
+            redirectedFrom: redirectedFrom,
+            to: to
+          };
         }
       }, {
         key: "el",
         get: function get() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
-        }
-      }], [{
-        key: "style",
-        get: function get() {
-          return ":host{display:none}";
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
         }
       }]);
 
-      return SelectOption;
+      return Router;
     }();
 
-    var selectOptionIds = 0;
+    var routerLinkCss = ":host{--background:transparent;--color:var(--ion-color-primary, #3880ff);background:var(--background);color:var(--color)}:host(.ion-color){color:var(--ion-color-base)}a{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-indent:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit}";
 
-    var SelectPopover =
-    /*#__PURE__*/
-    function () {
-      function SelectPopover(hostRef) {
-        _classCallCheck(this, SelectPopover);
+    var RouterLink = /*#__PURE__*/function () {
+      function RouterLink(hostRef) {
+        var _this2 = this;
 
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        /** Array of options for the popover */
+        _classCallCheck(this, RouterLink);
 
-        this.options = [];
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        /**
+         * When using a router, it specifies the transition direction when navigating to
+         * another page using `href`.
+         */
+
+        this.routerDirection = 'forward';
+
+        this.onClick = function (ev) {
+          Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__["o"])(_this2.href, ev, _this2.routerDirection, _this2.routerAnimation);
+        };
       }
 
-      _createClass(SelectPopover, [{
-        key: "onSelect",
-        value: function onSelect(ev) {
-          var option = this.options.find(function (o) {
-            return o.value === ev.target.value;
-          });
-
-          if (option) {
-            Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_4__["s"])(option.handler);
-          }
-        }
-      }, {
+      _createClass(RouterLink, [{
         key: "render",
         value: function render() {
-          var checkedOption = this.options.find(function (o) {
-            return o.checked;
-          });
-          var checkedValue = checkedOption ? checkedOption.value : undefined;
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
-            class: Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this)
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-list", null, this.header !== undefined && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-list-header", null, this.header), (this.subHeader !== undefined || this.message !== undefined) && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-item", null, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-label", {
-            class: "ion-text-wrap"
-          }, this.subHeader !== undefined && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("h3", null, this.subHeader), this.message !== undefined && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("p", null, this.message))), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-radio-group", {
-            value: checkedValue
-          }, this.options.map(function (option) {
-            return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-item", null, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-label", null, option.text), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-radio", {
-              value: option.value,
-              disabled: option.disabled
-            }));
-          }))));
-        }
-      }], [{
-        key: "style",
-        get: function get() {
-          return ".sc-ion-select-popover-h ion-list.sc-ion-select-popover{margin-left:0;margin-right:0;margin-top:-1px;margin-bottom:-1px}.sc-ion-select-popover-h ion-label.sc-ion-select-popover, .sc-ion-select-popover-h ion-list-header.sc-ion-select-popover{margin-left:0;margin-right:0;margin-top:0;margin-bottom:0}";
+          var _Object$assign;
+
+          var mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
+          var attrs = {
+            href: this.href,
+            rel: this.rel,
+            target: this.target
+          };
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            onClick: this.onClick,
+            "class": Object.assign(Object.assign({}, Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), (_Object$assign = {}, _defineProperty(_Object$assign, mode, true), _defineProperty(_Object$assign, 'ion-activatable', true), _Object$assign))
+          }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("a", Object.assign({}, attrs), Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null)));
         }
       }]);
 
-      return SelectPopover;
+      return RouterLink;
     }();
+
+    RouterLink.style = routerLinkCss;
     /***/
-
-  },
-
-  /***/
-  "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js":
-  /*!*************************************************************!*\
-    !*** ./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js ***!
-    \*************************************************************/
-
-  /*! exports provided: c, g, h, o */
-
-  /***/
-  function node_modulesIonicCoreDistEsmTheme18cbe2ccJs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "c", function () {
-      return createColorClasses;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "g", function () {
-      return getClassMap;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "h", function () {
-      return hostContext;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "o", function () {
-      return openURL;
-    });
-
-    var hostContext = function hostContext(selector, el) {
-      return el.closest(selector) !== null;
-    };
-    /**
-     * Create the mode and color classes for the component based on the classes passed in
-     */
-
-
-    var createColorClasses = function createColorClasses(color) {
-      return typeof color === 'string' && color.length > 0 ? _defineProperty({
-        'ion-color': true
-      }, "ion-color-".concat(color), true) : undefined;
-    };
-
-    var getClassList = function getClassList(classes) {
-      if (classes !== undefined) {
-        var array = Array.isArray(classes) ? classes : classes.split(' ');
-        return array.filter(function (c) {
-          return c != null;
-        }).map(function (c) {
-          return c.trim();
-        }).filter(function (c) {
-          return c !== '';
-        });
-      }
-
-      return [];
-    };
-
-    var getClassMap = function getClassMap(classes) {
-      var map = {};
-      getClassList(classes).forEach(function (c) {
-        return map[c] = true;
-      });
-      return map;
-    };
-
-    var SCHEME = /^[a-z][a-z0-9+\-.]*:/;
-
-    var openURL = function openURL(url, ev, direction) {
-      var router;
-      return regeneratorRuntime.async(function openURL$(_context7) {
-        while (1) {
-          switch (_context7.prev = _context7.next) {
-            case 0:
-              if (!(url != null && url[0] !== '#' && !SCHEME.test(url))) {
-                _context7.next = 5;
-                break;
-              }
-
-              router = document.querySelector('ion-router');
-
-              if (!router) {
-                _context7.next = 5;
-                break;
-              }
-
-              if (ev != null) {
-                ev.preventDefault();
-              }
-
-              return _context7.abrupt("return", router.push(url, direction));
-
-            case 5:
-              return _context7.abrupt("return", false);
-
-            case 6:
-            case "end":
-              return _context7.stop();
-          }
-        }
-      });
-    };
-    /***/
-
   }
 }]);
 //# sourceMappingURL=54-es5.js.map

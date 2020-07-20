@@ -242,9 +242,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /* harmony import */
 
 
-    var rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_5___default =
-    /*#__PURE__*/
-    __webpack_require__.n(rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_5__);
+    var rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(rxjs_add_operator_toPromise__WEBPACK_IMPORTED_MODULE_5__);
     /* harmony import */
 
 
@@ -259,9 +257,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/@ngx-translate/core/fesm2015/ngx-translate-core.js"); // import { Content } from '@ionic/angular';
 
 
-    var FavoritesPage =
-    /*#__PURE__*/
-    function () {
+    var FavoritesPage = /*#__PURE__*/function () {
       function FavoritesPage(favoriteProvider, modalCtrl, zone, _translate) {
         var _this = this;
 
@@ -379,10 +375,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       selector: 'app-favorites',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./favorites.page.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/favorites/favorites.page.html")).default,
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/favorites/favorites.page.html"))["default"],
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./favorites.page.scss */
-      "./src/app/favorites/favorites.page.scss")).default]
+      "./src/app/favorites/favorites.page.scss"))["default"]]
     }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_favorites_list_service__WEBPACK_IMPORTED_MODULE_3__["FavoritesListService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_6__["ModalController"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"]])], FavoritesPage);
     /***/
   }

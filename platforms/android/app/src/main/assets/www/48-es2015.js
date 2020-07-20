@@ -1,782 +1,420 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[48],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/ion-route_4.entry.js":
-/*!****************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/ion-route_4.entry.js ***!
-  \****************************************************************/
-/*! exports provided: ion_route, ion_route_redirect, ion_router, ion_router_link */
+/***/ "./node_modules/@ionic/core/dist/esm/ion-range-md.entry.js":
+/*!*****************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-range-md.entry.js ***!
+  \*****************************************************************/
+/*! exports provided: ion_range */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_route", function() { return Route; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_route_redirect", function() { return RouteRedirect; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_router", function() { return Router; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_router_link", function() { return RouterLink; });
-/* harmony import */ var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-0a8d4d2e.js */ "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
-/* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
-/* harmony import */ var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-46f4a262.js */ "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
-/* harmony import */ var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme-18cbe2cc.js */ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_range", function() { return Range; });
+/* harmony import */ var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index-29df6f59.js */ "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
+/* harmony import */ var _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ionic-global-08f4fb8a.js */ "./node_modules/@ionic/core/dist/esm/ionic-global-08f4fb8a.js");
+/* harmony import */ var _helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-5c745fbd.js */ "./node_modules/@ionic/core/dist/esm/helpers-5c745fbd.js");
+/* harmony import */ var _theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme-3f0b0c04.js */ "./node_modules/@ionic/core/dist/esm/theme-3f0b0c04.js");
 
 
 
 
 
-const Route = class {
+const rangeIosCss = ":host{--knob-handle-size:calc(var(--knob-size) * 2);display:-ms-flexbox;display:flex;position:relative;-ms-flex:3;flex:3;-ms-flex-align:center;align-items:center;font-family:var(--ion-font-family, inherit);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:2}:host(.range-disabled){pointer-events:none}::slotted(ion-label){-ms-flex:initial;flex:initial}::slotted(ion-icon[slot]){font-size:24px}.range-slider{position:relative;-ms-flex:1;flex:1;width:100%;height:var(--height);contain:size layout style;cursor:-webkit-grab;cursor:grab;-ms-touch-action:pan-y;touch-action:pan-y}:host(.range-pressed) .range-slider{cursor:-webkit-grabbing;cursor:grabbing}.range-pin{position:absolute;background:var(--ion-color-base);color:var(--ion-color-contrast);text-align:center;-webkit-box-sizing:border-box;box-sizing:border-box}.range-knob-handle{left:0;top:calc((var(--height) - var(--knob-handle-size)) / 2);margin-left:calc(0px - var(--knob-handle-size) / 2);position:absolute;width:var(--knob-handle-size);height:var(--knob-handle-size);text-align:center}[dir=rtl] .range-knob-handle,:host-context([dir=rtl]) .range-knob-handle{left:unset;right:unset;right:0}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.range-knob-handle{margin-left:unset;-webkit-margin-start:calc(0px - var(--knob-handle-size) / 2);margin-inline-start:calc(0px - var(--knob-handle-size) / 2)}}[dir=rtl] .range-knob-handle,:host-context([dir=rtl]) .range-knob-handle{left:unset}.range-knob-handle:active,.range-knob-handle:focus{outline:none}.range-bar{border-radius:var(--bar-border-radius);left:0;top:calc((var(--height) - var(--bar-height)) / 2);position:absolute;width:100%;height:var(--bar-height);background:var(--bar-background);pointer-events:none}[dir=rtl] .range-bar,:host-context([dir=rtl]) .range-bar{left:unset;right:unset;right:0}[dir=rtl] .range-bar,:host-context([dir=rtl]) .range-bar{left:unset}.range-knob{border-radius:var(--knob-border-radius);left:calc(50% - var(--knob-size) / 2);top:calc(50% - var(--knob-size) / 2);position:absolute;width:var(--knob-size);height:var(--knob-size);background:var(--knob-background);-webkit-box-shadow:var(--knob-box-shadow);box-shadow:var(--knob-box-shadow);z-index:2;pointer-events:none}[dir=rtl] .range-knob,:host-context([dir=rtl]) .range-knob{left:unset;right:unset;right:calc(50% - var(--knob-size) / 2)}[dir=rtl] .range-knob,:host-context([dir=rtl]) .range-knob{left:unset}:host(.range-pressed) .range-bar-active{will-change:left, right}:host(.in-item){width:100%}:host(.in-item) ::slotted(ion-label){-ms-flex-item-align:center;align-self:center}:host{--knob-border-radius:50%;--knob-background:#ffffff;--knob-box-shadow:0 3px 1px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.13), 0 0 0 1px rgba(0, 0, 0, 0.02);--knob-size:28px;--bar-height:2px;--bar-background:rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.1);--bar-background-active:var(--ion-color-primary, #3880ff);--bar-border-radius:0;--height:42px;padding-left:16px;padding-right:16px;padding-top:8px;padding-bottom:8px}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){:host{padding-left:unset;padding-right:unset;-webkit-padding-start:16px;padding-inline-start:16px;-webkit-padding-end:16px;padding-inline-end:16px}}:host(.ion-color) .range-bar-active,:host(.ion-color) .range-tick-active{background:var(--ion-color-base)}::slotted([slot=start]){margin-left:0;margin-right:16px;margin-top:0;margin-bottom:0}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){::slotted([slot=start]){margin-left:unset;margin-right:unset;-webkit-margin-start:0;margin-inline-start:0;-webkit-margin-end:16px;margin-inline-end:16px}}::slotted([slot=end]){margin-left:16px;margin-right:0;margin-top:0;margin-bottom:0}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){::slotted([slot=end]){margin-left:unset;margin-right:unset;-webkit-margin-start:16px;margin-inline-start:16px;-webkit-margin-end:0;margin-inline-end:0}}:host(.range-has-pin){padding-top:20px}.range-bar-active{bottom:0;width:auto;background:var(--bar-background-active)}.range-tick{margin-left:-1px;border-radius:0;position:absolute;top:18px;width:2px;height:8px;background:rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.1);pointer-events:none}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.range-tick{margin-left:unset;-webkit-margin-start:-1px;margin-inline-start:-1px}}.range-tick-active{background:var(--bar-background-active)}.range-pin{-webkit-transform:translate3d(0,  28px,  0) scale(0.01);transform:translate3d(0,  28px,  0) scale(0.01);padding-left:8px;padding-right:8px;padding-top:8px;padding-bottom:8px;display:inline-block;position:relative;top:-20px;min-width:28px;-webkit-transition:-webkit-transform 120ms ease;transition:-webkit-transform 120ms ease;transition:transform 120ms ease;transition:transform 120ms ease, -webkit-transform 120ms ease;background:transparent;color:var(--ion-text-color, #000);font-size:12px;text-align:center}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.range-pin{padding-left:unset;padding-right:unset;-webkit-padding-start:8px;padding-inline-start:8px;-webkit-padding-end:8px;padding-inline-end:8px}}.range-knob-pressed .range-pin{-webkit-transform:translate3d(0,  0,  0) scale(1);transform:translate3d(0,  0,  0) scale(1)}:host(.range-disabled){opacity:0.5}";
+
+const rangeMdCss = ":host{--knob-handle-size:calc(var(--knob-size) * 2);display:-ms-flexbox;display:flex;position:relative;-ms-flex:3;flex:3;-ms-flex-align:center;align-items:center;font-family:var(--ion-font-family, inherit);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:2}:host(.range-disabled){pointer-events:none}::slotted(ion-label){-ms-flex:initial;flex:initial}::slotted(ion-icon[slot]){font-size:24px}.range-slider{position:relative;-ms-flex:1;flex:1;width:100%;height:var(--height);contain:size layout style;cursor:-webkit-grab;cursor:grab;-ms-touch-action:pan-y;touch-action:pan-y}:host(.range-pressed) .range-slider{cursor:-webkit-grabbing;cursor:grabbing}.range-pin{position:absolute;background:var(--ion-color-base);color:var(--ion-color-contrast);text-align:center;-webkit-box-sizing:border-box;box-sizing:border-box}.range-knob-handle{left:0;top:calc((var(--height) - var(--knob-handle-size)) / 2);margin-left:calc(0px - var(--knob-handle-size) / 2);position:absolute;width:var(--knob-handle-size);height:var(--knob-handle-size);text-align:center}[dir=rtl] .range-knob-handle,:host-context([dir=rtl]) .range-knob-handle{left:unset;right:unset;right:0}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.range-knob-handle{margin-left:unset;-webkit-margin-start:calc(0px - var(--knob-handle-size) / 2);margin-inline-start:calc(0px - var(--knob-handle-size) / 2)}}[dir=rtl] .range-knob-handle,:host-context([dir=rtl]) .range-knob-handle{left:unset}.range-knob-handle:active,.range-knob-handle:focus{outline:none}.range-bar{border-radius:var(--bar-border-radius);left:0;top:calc((var(--height) - var(--bar-height)) / 2);position:absolute;width:100%;height:var(--bar-height);background:var(--bar-background);pointer-events:none}[dir=rtl] .range-bar,:host-context([dir=rtl]) .range-bar{left:unset;right:unset;right:0}[dir=rtl] .range-bar,:host-context([dir=rtl]) .range-bar{left:unset}.range-knob{border-radius:var(--knob-border-radius);left:calc(50% - var(--knob-size) / 2);top:calc(50% - var(--knob-size) / 2);position:absolute;width:var(--knob-size);height:var(--knob-size);background:var(--knob-background);-webkit-box-shadow:var(--knob-box-shadow);box-shadow:var(--knob-box-shadow);z-index:2;pointer-events:none}[dir=rtl] .range-knob,:host-context([dir=rtl]) .range-knob{left:unset;right:unset;right:calc(50% - var(--knob-size) / 2)}[dir=rtl] .range-knob,:host-context([dir=rtl]) .range-knob{left:unset}:host(.range-pressed) .range-bar-active{will-change:left, right}:host(.in-item){width:100%}:host(.in-item) ::slotted(ion-label){-ms-flex-item-align:center;align-self:center}:host{--knob-border-radius:50%;--knob-background:var(--bar-background-active);--knob-box-shadow:none;--knob-size:18px;--bar-height:2px;--bar-background:rgba(var(--ion-color-primary-rgb, 56, 128, 255), 0.26);--bar-background-active:var(--ion-color-primary, #3880ff);--bar-border-radius:0;--height:42px;--pin-background:var(--ion-color-primary, #3880ff);--pin-color:var(--ion-color-primary-contrast, #fff);padding-left:14px;padding-right:14px;padding-top:8px;padding-bottom:8px;font-size:12px}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){:host{padding-left:unset;padding-right:unset;-webkit-padding-start:14px;padding-inline-start:14px;-webkit-padding-end:14px;padding-inline-end:14px}}:host(.ion-color) .range-bar{background:rgba(var(--ion-color-base-rgb), 0.26)}:host(.ion-color) .range-bar-active,:host(.ion-color) .range-knob,:host(.ion-color) .range-pin,:host(.ion-color) .range-pin::before,:host(.ion-color) .range-tick{background:var(--ion-color-base);color:var(--ion-color-contrast)}::slotted([slot=start]){margin-left:0;margin-right:14px;margin-top:0;margin-bottom:0}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){::slotted([slot=start]){margin-left:unset;margin-right:unset;-webkit-margin-start:0;margin-inline-start:0;-webkit-margin-end:14px;margin-inline-end:14px}}::slotted([slot=end]){margin-left:14px;margin-right:0;margin-top:0;margin-bottom:0}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){::slotted([slot=end]){margin-left:unset;margin-right:unset;-webkit-margin-start:14px;margin-inline-start:14px;-webkit-margin-end:0;margin-inline-end:0}}:host(.range-has-pin){padding-top:28px}.range-bar-active{bottom:0;width:auto;background:var(--bar-background-active)}.range-knob{-webkit-transform:scale(0.67);transform:scale(0.67);-webkit-transition-duration:120ms;transition-duration:120ms;-webkit-transition-property:background-color, border, -webkit-transform;transition-property:background-color, border, -webkit-transform;transition-property:transform, background-color, border;transition-property:transform, background-color, border, -webkit-transform;-webkit-transition-timing-function:ease;transition-timing-function:ease;z-index:2}.range-tick{position:absolute;top:calc((var(--height) - var(--bar-height)) / 2);width:var(--bar-height);height:var(--bar-height);background:var(--bar-background-active);z-index:1;pointer-events:none}.range-tick-active{background:transparent}.range-pin{padding-left:0;padding-right:0;padding-top:8px;padding-bottom:8px;border-radius:50%;-webkit-transform:translate3d(0,  0,  0) scale(0.01);transform:translate3d(0,  0,  0) scale(0.01);display:inline-block;position:relative;min-width:28px;height:28px;-webkit-transition:background 120ms ease, -webkit-transform 120ms ease;transition:background 120ms ease, -webkit-transform 120ms ease;transition:transform 120ms ease, background 120ms ease;transition:transform 120ms ease, background 120ms ease, -webkit-transform 120ms ease;background:var(--pin-background);color:var(--pin-color);text-align:center}.range-pin::before{left:50%;top:3px;margin-left:-13px;border-radius:50% 50% 50% 0;position:absolute;width:26px;height:26px;-webkit-transform:rotate(-45deg);transform:rotate(-45deg);-webkit-transition:background 120ms ease;transition:background 120ms ease;background:var(--pin-background);content:\"\";z-index:-1}[dir=rtl] .range-pin::before,:host-context([dir=rtl]) .range-pin::before{left:unset;right:unset;right:50%}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.range-pin::before{margin-left:unset;-webkit-margin-start:-13px;margin-inline-start:-13px}}[dir=rtl] .range-pin::before,:host-context([dir=rtl]) .range-pin::before{left:unset}.range-knob-pressed .range-pin{-webkit-transform:translate3d(0,  -24px,  0) scale(1);transform:translate3d(0,  -24px,  0) scale(1)}:host(:not(.range-has-pin)) .range-knob-pressed .range-knob{-webkit-transform:scale(1);transform:scale(1)}:host(.range-disabled) .range-bar-active,:host(.range-disabled) .range-bar,:host(.range-disabled) .range-tick{background-color:var(--ion-color-step-250, #bfbfbf)}:host(.range-disabled) .range-knob{-webkit-transform:scale(0.55);transform:scale(0.55);outline:5px solid #fff;background-color:var(--ion-color-step-250, #bfbfbf)}";
+
+/**
+ * @virtualProp {"ios" | "md"} mode - The mode determines which platform styles to use.
+ *
+ * @slot start - Content is placed to the left of the range slider in LTR, and to the right in RTL.
+ * @slot end - Content is placed to the right of the range slider in LTR, and to the left in RTL.
+ *
+ * @part tick - An inactive tick mark.
+ * @part tick-active - An active tick mark.
+ * @part pin - The counter that appears above a knob.
+ * @part knob - The handle that is used to drag the range.
+ * @part bar - The inactive part of the bar.
+ * @part bar-active - The active part of the bar.
+ */
+class Range {
     constructor(hostRef) {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.noUpdate = false;
+        this.hasFocus = false;
+        this.ratioA = 0;
+        this.ratioB = 0;
         /**
-         * Relative path that needs to match in order for this route to apply.
-         *
-         * Accepts paths similar to expressjs so that you can define parameters
-         * in the url /foo/:bar where bar would be available in incoming props.
+         * How long, in milliseconds, to wait to trigger the
+         * `ionChange` event after each change in the range value.
          */
-        this.url = '';
-        this.ionRouteDataChanged = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionRouteDataChanged", 7);
-    }
-    onUpdate(newValue) {
-        this.ionRouteDataChanged.emit(newValue);
-    }
-    onComponentProps(newValue, oldValue) {
-        if (newValue === oldValue) {
-            return;
-        }
-        const keys1 = newValue ? Object.keys(newValue) : [];
-        const keys2 = oldValue ? Object.keys(oldValue) : [];
-        if (keys1.length !== keys2.length) {
-            this.onUpdate(newValue);
-            return;
-        }
-        for (const key of keys1) {
-            if (newValue[key] !== oldValue[key]) {
-                this.onUpdate(newValue);
-                return;
-            }
-        }
-    }
-    connectedCallback() {
-        this.ionRouteDataChanged.emit();
-    }
-    static get watchers() { return {
-        "url": ["onUpdate"],
-        "component": ["onUpdate"],
-        "componentProps": ["onComponentProps"]
-    }; }
-};
-
-const RouteRedirect = class {
-    constructor(hostRef) {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.ionRouteRedirectChanged = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionRouteRedirectChanged", 7);
-    }
-    propDidChange() {
-        this.ionRouteRedirectChanged.emit();
-    }
-    connectedCallback() {
-        this.ionRouteRedirectChanged.emit();
-    }
-    static get watchers() { return {
-        "from": ["propDidChange"],
-        "to": ["propDidChange"]
-    }; }
-};
-
-const ROUTER_INTENT_NONE = 'root';
-const ROUTER_INTENT_FORWARD = 'forward';
-const ROUTER_INTENT_BACK = 'back';
-
-const generatePath = (segments) => {
-    const path = segments
-        .filter(s => s.length > 0)
-        .join('/');
-    return '/' + path;
-};
-const chainToPath = (chain) => {
-    const path = [];
-    for (const route of chain) {
-        for (const segment of route.path) {
-            if (segment[0] === ':') {
-                const param = route.params && route.params[segment.slice(1)];
-                if (!param) {
-                    return null;
-                }
-                path.push(param);
-            }
-            else if (segment !== '') {
-                path.push(segment);
-            }
-        }
-    }
-    return path;
-};
-const writePath = (history, root, useHash, path, direction, state) => {
-    let url = generatePath([
-        ...parsePath(root),
-        ...path
-    ]);
-    if (useHash) {
-        url = '#' + url;
-    }
-    if (direction === ROUTER_INTENT_FORWARD) {
-        history.pushState(state, '', url);
-    }
-    else {
-        history.replaceState(state, '', url);
-    }
-};
-const removePrefix = (prefix, path) => {
-    if (prefix.length > path.length) {
-        return null;
-    }
-    if (prefix.length <= 1 && prefix[0] === '') {
-        return path;
-    }
-    for (let i = 0; i < prefix.length; i++) {
-        if (prefix[i].length > 0 && prefix[i] !== path[i]) {
-            return null;
-        }
-    }
-    if (path.length === prefix.length) {
-        return [''];
-    }
-    return path.slice(prefix.length);
-};
-const readPath = (loc, root, useHash) => {
-    let pathname = loc.pathname;
-    if (useHash) {
-        const hash = loc.hash;
-        pathname = (hash[0] === '#')
-            ? hash.slice(1)
-            : '';
-    }
-    const prefix = parsePath(root);
-    const path = parsePath(pathname);
-    return removePrefix(prefix, path);
-};
-const parsePath = (path) => {
-    if (path == null) {
-        return [''];
-    }
-    const segments = path.split('/')
-        .map(s => s.trim())
-        .filter(s => s.length > 0);
-    if (segments.length === 0) {
-        return [''];
-    }
-    else {
-        return segments;
-    }
-};
-
-const printRoutes = (routes) => {
-    console.group(`[ion-core] ROUTES[${routes.length}]`);
-    for (const chain of routes) {
-        const path = [];
-        chain.forEach(r => path.push(...r.path));
-        const ids = chain.map(r => r.id);
-        console.debug(`%c ${generatePath(path)}`, 'font-weight: bold; padding-left: 20px', '=>\t', `(${ids.join(', ')})`);
-    }
-    console.groupEnd();
-};
-const printRedirects = (redirects) => {
-    console.group(`[ion-core] REDIRECTS[${redirects.length}]`);
-    for (const redirect of redirects) {
-        if (redirect.to) {
-            console.debug('FROM: ', `$c ${generatePath(redirect.from)}`, 'font-weight: bold', ' TO: ', `$c ${generatePath(redirect.to)}`, 'font-weight: bold');
-        }
-    }
-    console.groupEnd();
-};
-
-const writeNavState = async (root, chain, direction, index, changed = false) => {
-    try {
-        // find next navigation outlet in the DOM
-        const outlet = searchNavNode(root);
-        // make sure we can continue interacting the DOM, otherwise abort
-        if (index >= chain.length || !outlet) {
-            return changed;
-        }
-        await outlet.componentOnReady();
-        const route = chain[index];
-        const result = await outlet.setRouteId(route.id, route.params, direction);
-        // if the outlet changed the page, reset navigation to neutral (no direction)
-        // this means nested outlets will not animate
-        if (result.changed) {
-            direction = ROUTER_INTENT_NONE;
-            changed = true;
-        }
-        // recursively set nested outlets
-        changed = await writeNavState(result.element, chain, direction, index + 1, changed);
-        // once all nested outlets are visible let's make the parent visible too,
-        // using markVisible prevents flickering
-        if (result.markVisible) {
-            await result.markVisible();
-        }
-        return changed;
-    }
-    catch (e) {
-        console.error(e);
-        return false;
-    }
-};
-const readNavState = async (root) => {
-    const ids = [];
-    let outlet;
-    let node = root;
-    // tslint:disable-next-line:no-constant-condition
-    while (true) {
-        outlet = searchNavNode(node);
-        if (outlet) {
-            const id = await outlet.getRouteId();
-            if (id) {
-                node = id.element;
-                id.element = undefined;
-                ids.push(id);
+        this.debounce = 0;
+        /**
+         * The name of the control, which is submitted with the form data.
+         */
+        this.name = '';
+        /**
+         * Show two knobs.
+         */
+        this.dualKnobs = false;
+        /**
+         * Minimum integer value of the range.
+         */
+        this.min = 0;
+        /**
+         * Maximum integer value of the range.
+         */
+        this.max = 100;
+        /**
+         * If `true`, a pin with integer value is shown when the knob
+         * is pressed.
+         */
+        this.pin = false;
+        /**
+         * If `true`, the knob snaps to tick marks evenly spaced based
+         * on the step property value.
+         */
+        this.snaps = false;
+        /**
+         * Specifies the value granularity.
+         */
+        this.step = 1;
+        /**
+         * If `true`, tick marks are displayed based on the step value.
+         * Only applies when `snaps` is `true`.
+         */
+        this.ticks = true;
+        /**
+         * If `true`, the user cannot interact with the range.
+         */
+        this.disabled = false;
+        /**
+         * the value of the range.
+         */
+        this.value = 0;
+        this.clampBounds = (value) => {
+            return Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["c"])(this.min, value, this.max);
+        };
+        this.ensureValueInBounds = (value) => {
+            if (this.dualKnobs) {
+                return {
+                    lower: this.clampBounds(value.lower),
+                    upper: this.clampBounds(value.upper)
+                };
             }
             else {
-                break;
+                return this.clampBounds(value);
             }
+        };
+        this.handleKeyboard = (knob, isIncrease) => {
+            let step = this.step;
+            step = step > 0 ? step : 1;
+            step = step / (this.max - this.min);
+            if (!isIncrease) {
+                step *= -1;
+            }
+            if (knob === 'A') {
+                this.ratioA = Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["c"])(0, this.ratioA + step, 1);
+            }
+            else {
+                this.ratioB = Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["c"])(0, this.ratioB + step, 1);
+            }
+            this.updateValue();
+        };
+        this.onBlur = () => {
+            if (this.hasFocus) {
+                this.hasFocus = false;
+                this.ionBlur.emit();
+                this.emitStyle();
+            }
+        };
+        this.onFocus = () => {
+            if (!this.hasFocus) {
+                this.hasFocus = true;
+                this.ionFocus.emit();
+                this.emitStyle();
+            }
+        };
+        this.ionChange = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionChange", 7);
+        this.ionStyle = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionStyle", 7);
+        this.ionFocus = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionFocus", 7);
+        this.ionBlur = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionBlur", 7);
+    }
+    debounceChanged() {
+        this.ionChange = Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["d"])(this.ionChange, this.debounce);
+    }
+    minChanged() {
+        if (!this.noUpdate) {
+            this.updateRatio();
+        }
+    }
+    maxChanged() {
+        if (!this.noUpdate) {
+            this.updateRatio();
+        }
+    }
+    disabledChanged() {
+        if (this.gesture) {
+            this.gesture.enable(!this.disabled);
+        }
+        this.emitStyle();
+    }
+    valueChanged(value) {
+        if (!this.noUpdate) {
+            this.updateRatio();
+        }
+        value = this.ensureValueInBounds(value);
+        this.ionChange.emit({ value });
+    }
+    connectedCallback() {
+        this.updateRatio();
+        this.debounceChanged();
+        this.disabledChanged();
+    }
+    disconnectedCallback() {
+        if (this.gesture) {
+            this.gesture.destroy();
+            this.gesture = undefined;
+        }
+    }
+    async componentDidLoad() {
+        const rangeSlider = this.rangeSlider;
+        if (rangeSlider) {
+            this.gesture = (await Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-eea61379.js */ "./node_modules/@ionic/core/dist/esm/index-eea61379.js"))).createGesture({
+                el: rangeSlider,
+                gestureName: 'range',
+                gesturePriority: 100,
+                threshold: 0,
+                onStart: ev => this.onStart(ev),
+                onMove: ev => this.onMove(ev),
+                onEnd: ev => this.onEnd(ev),
+            });
+            this.gesture.enable(!this.disabled);
+        }
+    }
+    getValue() {
+        const value = this.value || 0;
+        if (this.dualKnobs) {
+            if (typeof value === 'object') {
+                return value;
+            }
+            return {
+                lower: 0,
+                upper: value
+            };
         }
         else {
-            break;
+            if (typeof value === 'object') {
+                return value.upper;
+            }
+            return value;
         }
     }
-    return { ids, outlet };
-};
-const waitUntilNavNode = () => {
-    if (searchNavNode(document.body)) {
-        return Promise.resolve();
+    emitStyle() {
+        this.ionStyle.emit({
+            'interactive': true,
+            'interactive-disabled': this.disabled
+        });
     }
-    return new Promise(resolve => {
-        window.addEventListener('ionNavWillLoad', resolve, { once: true });
-    });
-};
-const QUERY = ':not([no-router]) ion-nav, :not([no-router]) ion-tabs, :not([no-router]) ion-router-outlet';
-const searchNavNode = (root) => {
-    if (!root) {
-        return undefined;
-    }
-    if (root.matches(QUERY)) {
-        return root;
-    }
-    const outlet = root.querySelector(QUERY);
-    return outlet ? outlet : undefined;
-};
-
-const matchesRedirect = (input, route) => {
-    const { from, to } = route;
-    if (to === undefined) {
-        return false;
-    }
-    if (from.length > input.length) {
-        return false;
-    }
-    for (let i = 0; i < from.length; i++) {
-        const expected = from[i];
-        if (expected === '*') {
-            return true;
+    onStart(detail) {
+        const rect = this.rect = this.rangeSlider.getBoundingClientRect();
+        const currentX = detail.currentX;
+        // figure out which knob they started closer to
+        let ratio = Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["c"])(0, (currentX - rect.left) / rect.width, 1);
+        if (document.dir === 'rtl') {
+            ratio = 1 - ratio;
         }
-        if (expected !== input[i]) {
-            return false;
-        }
+        this.pressedKnob =
+            !this.dualKnobs ||
+                Math.abs(this.ratioA - ratio) < Math.abs(this.ratioB - ratio)
+                ? 'A'
+                : 'B';
+        this.setFocus(this.pressedKnob);
+        // update the active knob's position
+        this.update(currentX);
     }
-    return from.length === input.length;
-};
-const routeRedirect = (path, routes) => {
-    return routes.find(route => matchesRedirect(path, route));
-};
-const matchesIDs = (ids, chain) => {
-    const len = Math.min(ids.length, chain.length);
-    let i = 0;
-    for (; i < len; i++) {
-        if (ids[i].toLowerCase() !== chain[i].id) {
-            break;
-        }
+    onMove(detail) {
+        this.update(detail.currentX);
     }
-    return i;
-};
-const matchesPath = (inputPath, chain) => {
-    const segments = new RouterSegments(inputPath);
-    let matchesDefault = false;
-    let allparams;
-    for (let i = 0; i < chain.length; i++) {
-        const path = chain[i].path;
-        if (path[0] === '') {
-            matchesDefault = true;
+    onEnd(detail) {
+        this.update(detail.currentX);
+        this.pressedKnob = undefined;
+    }
+    update(currentX) {
+        // figure out where the pointer is currently at
+        // update the knob being interacted with
+        const rect = this.rect;
+        let ratio = Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["c"])(0, (currentX - rect.left) / rect.width, 1);
+        if (document.dir === 'rtl') {
+            ratio = 1 - ratio;
+        }
+        if (this.snaps) {
+            // snaps the ratio to the current value
+            ratio = valueToRatio(ratioToValue(ratio, this.min, this.max, this.step), this.min, this.max);
+        }
+        // update which knob is pressed
+        if (this.pressedKnob === 'A') {
+            this.ratioA = ratio;
         }
         else {
-            for (const segment of path) {
-                const data = segments.next();
-                // data param
-                if (segment[0] === ':') {
-                    if (data === '') {
-                        return null;
-                    }
-                    allparams = allparams || [];
-                    const params = allparams[i] || (allparams[i] = {});
-                    params[segment.slice(1)] = data;
-                }
-                else if (data !== segment) {
-                    return null;
-                }
-            }
-            matchesDefault = false;
+            this.ratioB = ratio;
         }
+        // Update input value
+        this.updateValue();
     }
-    const matches = (matchesDefault)
-        ? matchesDefault === (segments.next() === '')
-        : true;
-    if (!matches) {
-        return null;
+    get valA() {
+        return ratioToValue(this.ratioA, this.min, this.max, this.step);
     }
-    if (allparams) {
-        return chain.map((route, i) => ({
-            id: route.id,
-            path: route.path,
-            params: mergeParams(route.params, allparams[i])
-        }));
+    get valB() {
+        return ratioToValue(this.ratioB, this.min, this.max, this.step);
     }
-    return chain;
-};
-const mergeParams = (a, b) => {
-    if (!a && b) {
-        return b;
-    }
-    else if (a && !b) {
-        return a;
-    }
-    else if (a && b) {
-        return Object.assign(Object.assign({}, a), b);
-    }
-    return undefined;
-};
-const routerIDsToChain = (ids, chains) => {
-    let match = null;
-    let maxMatches = 0;
-    const plainIDs = ids.map(i => i.id);
-    for (const chain of chains) {
-        const score = matchesIDs(plainIDs, chain);
-        if (score > maxMatches) {
-            match = chain;
-            maxMatches = score;
+    get ratioLower() {
+        if (this.dualKnobs) {
+            return Math.min(this.ratioA, this.ratioB);
         }
+        return 0;
     }
-    if (match) {
-        return match.map((route, i) => ({
-            id: route.id,
-            path: route.path,
-            params: mergeParams(route.params, ids[i] && ids[i].params)
-        }));
-    }
-    return null;
-};
-const routerPathToChain = (path, chains) => {
-    let match = null;
-    let matches = 0;
-    for (const chain of chains) {
-        const matchedChain = matchesPath(path, chain);
-        if (matchedChain !== null) {
-            const score = computePriority(matchedChain);
-            if (score > matches) {
-                matches = score;
-                match = matchedChain;
-            }
+    get ratioUpper() {
+        if (this.dualKnobs) {
+            return Math.max(this.ratioA, this.ratioB);
         }
+        return this.ratioA;
     }
-    return match;
-};
-const computePriority = (chain) => {
-    let score = 1;
-    let level = 1;
-    for (const route of chain) {
-        for (const path of route.path) {
-            if (path[0] === ':') {
-                score += Math.pow(1, level);
-            }
-            else if (path !== '') {
-                score += Math.pow(2, level);
-            }
-            level++;
-        }
-    }
-    return score;
-};
-class RouterSegments {
-    constructor(path) {
-        this.path = path.slice();
-    }
-    next() {
-        if (this.path.length > 0) {
-            return this.path.shift();
-        }
-        return '';
-    }
-}
-
-const readRedirects = (root) => {
-    return Array.from(root.children)
-        .filter(el => el.tagName === 'ION-ROUTE-REDIRECT')
-        .map(el => {
-        const to = readProp(el, 'to');
-        return {
-            from: parsePath(readProp(el, 'from')),
-            to: to == null ? undefined : parsePath(to),
-        };
-    });
-};
-const readRoutes = (root) => {
-    return flattenRouterTree(readRouteNodes(root));
-};
-const readRouteNodes = (root, node = root) => {
-    return Array.from(node.children)
-        .filter(el => el.tagName === 'ION-ROUTE' && el.component)
-        .map(el => {
-        const component = readProp(el, 'component');
-        if (component == null) {
-            throw new Error('component missing in ion-route');
-        }
-        return {
-            path: parsePath(readProp(el, 'url')),
-            id: component.toLowerCase(),
-            params: el.componentProps,
-            children: readRouteNodes(root, el)
-        };
-    });
-};
-const readProp = (el, prop) => {
-    if (prop in el) {
-        return el[prop];
-    }
-    if (el.hasAttribute(prop)) {
-        return el.getAttribute(prop);
-    }
-    return null;
-};
-const flattenRouterTree = (nodes) => {
-    const routes = [];
-    for (const node of nodes) {
-        flattenNode([], routes, node);
-    }
-    return routes;
-};
-const flattenNode = (chain, routes, node) => {
-    const s = chain.slice();
-    s.push({
-        id: node.id,
-        path: node.path,
-        params: node.params
-    });
-    if (node.children.length === 0) {
-        routes.push(s);
-        return;
-    }
-    for (const sub of node.children) {
-        flattenNode(s, routes, sub);
-    }
-};
-
-const Router = class {
-    constructor(hostRef) {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.previousPath = null;
-        this.busy = false;
-        this.state = 0;
-        this.lastState = 0;
-        /**
-         * By default `ion-router` will match the routes at the root path ("/").
-         * That can be changed when
-         *
-         */
-        this.root = '/';
-        /**
-         * The router can work in two "modes":
-         * - With hash: `/index.html#/path/to/page`
-         * - Without hash: `/path/to/page`
-         *
-         * Using one or another might depend in the requirements of your app and/or where it's deployed.
-         *
-         * Usually "hash-less" navigation works better for SEO and it's more user friendly too, but it might
-         * requires additional server-side configuration in order to properly work.
-         *
-         * On the otherside hash-navigation is much easier to deploy, it even works over the file protocol.
-         *
-         * By default, this property is `true`, change to `false` to allow hash-less URLs.
-         */
-        this.useHash = true;
-        this.ionRouteWillChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionRouteWillChange", 7);
-        this.ionRouteDidChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionRouteDidChange", 7);
-    }
-    async componentWillLoad() {
-        console.debug('[ion-router] router will load');
-        await waitUntilNavNode();
-        console.debug('[ion-router] found nav');
-        await this.onRoutesChanged();
-    }
-    componentDidLoad() {
-        window.addEventListener('ionRouteRedirectChanged', Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.onRedirectChanged.bind(this), 10));
-        window.addEventListener('ionRouteDataChanged', Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.onRoutesChanged.bind(this), 100));
-    }
-    onPopState() {
-        const direction = this.historyDirection();
-        const path = this.getPath();
-        console.debug('[ion-router] URL changed -> update nav', path, direction);
-        return this.writeNavStateRoot(path, direction);
-    }
-    onBackButton(ev) {
-        ev.detail.register(0, () => this.back());
-    }
-    /**
-     * Navigate to the specified URL.
-     *
-     * @param url The url to navigate to.
-     * @param direction The direction of the animation. Defaults to `"forward"`.
-     */
-    push(url, direction = 'forward') {
-        if (url.startsWith('.')) {
-            url = (new URL(url, window.location.href)).pathname;
-        }
-        console.debug('[ion-router] URL pushed -> updating nav', url, direction);
-        const path = parsePath(url);
-        this.setPath(path, direction);
-        return this.writeNavStateRoot(path, direction);
-    }
-    /**
-     * Go back to previous page in the window.history.
-     */
-    back() {
-        window.history.back();
-        return Promise.resolve(this.waitPromise);
-    }
-    /** @internal */
-    async printDebug() {
-        console.debug('CURRENT PATH', this.getPath());
-        console.debug('PREVIOUS PATH', this.previousPath);
-        printRoutes(readRoutes(this.el));
-        printRedirects(readRedirects(this.el));
-    }
-    /** @internal */
-    async navChanged(direction) {
-        if (this.busy) {
-            console.warn('[ion-router] router is busy, navChanged was cancelled');
-            return false;
-        }
-        const { ids, outlet } = await readNavState(window.document.body);
-        const routes = readRoutes(this.el);
-        const chain = routerIDsToChain(ids, routes);
-        if (!chain) {
-            console.warn('[ion-router] no matching URL for ', ids.map(i => i.id));
-            return false;
-        }
-        const path = chainToPath(chain);
-        if (!path) {
-            console.warn('[ion-router] router could not match path because some required param is missing');
-            return false;
-        }
-        console.debug('[ion-router] nav changed -> update URL', ids, path);
-        this.setPath(path, direction);
-        await this.safeWriteNavState(outlet, chain, ROUTER_INTENT_NONE, path, null, ids.length);
-        return true;
-    }
-    onRedirectChanged() {
-        const path = this.getPath();
-        if (path && routeRedirect(path, readRedirects(this.el))) {
-            this.writeNavStateRoot(path, ROUTER_INTENT_NONE);
-        }
-    }
-    onRoutesChanged() {
-        return this.writeNavStateRoot(this.getPath(), ROUTER_INTENT_NONE);
-    }
-    historyDirection() {
-        const win = window;
-        if (win.history.state === null) {
-            this.state++;
-            win.history.replaceState(this.state, win.document.title, win.document.location && win.document.location.href);
-        }
-        const state = win.history.state;
-        const lastState = this.lastState;
-        this.lastState = state;
-        if (state > lastState) {
-            return ROUTER_INTENT_FORWARD;
-        }
-        else if (state < lastState) {
-            return ROUTER_INTENT_BACK;
+    updateRatio() {
+        const value = this.getValue();
+        const { min, max } = this;
+        if (this.dualKnobs) {
+            this.ratioA = valueToRatio(value.lower, min, max);
+            this.ratioB = valueToRatio(value.upper, min, max);
         }
         else {
-            return ROUTER_INTENT_NONE;
+            this.ratioA = valueToRatio(value, min, max);
         }
     }
-    async writeNavStateRoot(path, direction) {
-        if (!path) {
-            console.error('[ion-router] URL is not part of the routing set');
-            return false;
-        }
-        // lookup redirect rule
-        const redirects = readRedirects(this.el);
-        const redirect = routeRedirect(path, redirects);
-        let redirectFrom = null;
-        if (redirect) {
-            this.setPath(redirect.to, direction);
-            redirectFrom = redirect.from;
-            path = redirect.to;
-        }
-        // lookup route chain
-        const routes = readRoutes(this.el);
-        const chain = routerPathToChain(path, routes);
-        if (!chain) {
-            console.error('[ion-router] the path does not match any route');
-            return false;
-        }
-        // write DOM give
-        return this.safeWriteNavState(document.body, chain, direction, path, redirectFrom);
+    updateValue() {
+        this.noUpdate = true;
+        const { valA, valB } = this;
+        this.value = !this.dualKnobs
+            ? valA
+            : {
+                lower: Math.min(valA, valB),
+                upper: Math.max(valA, valB)
+            };
+        this.noUpdate = false;
     }
-    async safeWriteNavState(node, chain, direction, path, redirectFrom, index = 0) {
-        const unlock = await this.lock();
-        let changed = false;
-        try {
-            changed = await this.writeNavState(node, chain, direction, path, redirectFrom, index);
+    setFocus(knob) {
+        if (this.el.shadowRoot) {
+            const knobEl = this.el.shadowRoot.querySelector(knob === 'A' ? '.range-knob-a' : '.range-knob-b');
+            if (knobEl) {
+                knobEl.focus();
+            }
         }
-        catch (e) {
-            console.error(e);
-        }
-        unlock();
-        return changed;
-    }
-    async lock() {
-        const p = this.waitPromise;
-        let resolve;
-        this.waitPromise = new Promise(r => resolve = r);
-        if (p !== undefined) {
-            await p;
-        }
-        return resolve;
-    }
-    async writeNavState(node, chain, direction, path, redirectFrom, index = 0) {
-        if (this.busy) {
-            console.warn('[ion-router] router is busy, transition was cancelled');
-            return false;
-        }
-        this.busy = true;
-        // generate route event and emit will change
-        const routeEvent = this.routeChangeEvent(path, redirectFrom);
-        if (routeEvent) {
-            this.ionRouteWillChange.emit(routeEvent);
-        }
-        const changed = await writeNavState(node, chain, direction, index);
-        this.busy = false;
-        if (changed) {
-            console.debug('[ion-router] route changed', path);
-        }
-        // emit did change
-        if (routeEvent) {
-            this.ionRouteDidChange.emit(routeEvent);
-        }
-        return changed;
-    }
-    setPath(path, direction) {
-        this.state++;
-        writePath(window.history, this.root, this.useHash, path, direction, this.state);
-    }
-    getPath() {
-        return readPath(window.location, this.root, this.useHash);
-    }
-    routeChangeEvent(path, redirectFromPath) {
-        const from = this.previousPath;
-        const to = generatePath(path);
-        this.previousPath = to;
-        if (to === from) {
-            return null;
-        }
-        const redirectedFrom = redirectFromPath ? generatePath(redirectFromPath) : null;
-        return {
-            from,
-            redirectedFrom,
-            to,
-        };
-    }
-    get el() { return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
-};
-
-const RouterLink = class {
-    constructor(hostRef) {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        /**
-         * When using a router, it specifies the transition direction when navigating to
-         * another page using `href`.
-         */
-        this.routerDirection = 'forward';
-        this.onClick = (ev) => {
-            Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["o"])(this.href, ev, this.routerDirection);
-        };
     }
     render() {
-        const mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-        const attrs = {
-            href: this.href,
-            rel: this.rel,
-            target: this.target
+        const { min, max, step, el, handleKeyboard, pressedKnob, disabled, pin, ratioLower, ratioUpper } = this;
+        const mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
+        const barStart = `${ratioLower * 100}%`;
+        const barEnd = `${100 - ratioUpper * 100}%`;
+        const doc = document;
+        const isRTL = doc.dir === 'rtl';
+        const start = isRTL ? 'right' : 'left';
+        const end = isRTL ? 'left' : 'right';
+        const tickStyle = (tick) => {
+            return {
+                [start]: tick[start]
+            };
         };
-        return (Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.onClick, class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), { [mode]: true, 'ion-activatable': true }) }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("a", Object.assign({}, attrs), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null))));
-    }
-    static get style() { return ":host{--background:transparent;--color:var(--ion-color-primary,#3880ff);background:var(--background);color:var(--color)}:host(.ion-color){color:var(--ion-color-base)}a{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-indent:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit}"; }
-};
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js ***!
-  \*************************************************************/
-/*! exports provided: c, g, h, o */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return createColorClasses; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return getClassMap; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return hostContext; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return openURL; });
-const hostContext = (selector, el) => {
-    return el.closest(selector) !== null;
-};
-/**
- * Create the mode and color classes for the component based on the classes passed in
- */
-const createColorClasses = (color) => {
-    return (typeof color === 'string' && color.length > 0) ? {
-        'ion-color': true,
-        [`ion-color-${color}`]: true
-    } : undefined;
-};
-const getClassList = (classes) => {
-    if (classes !== undefined) {
-        const array = Array.isArray(classes) ? classes : classes.split(' ');
-        return array
-            .filter(c => c != null)
-            .map(c => c.trim())
-            .filter(c => c !== '');
-    }
-    return [];
-};
-const getClassMap = (classes) => {
-    const map = {};
-    getClassList(classes).forEach(c => map[c] = true);
-    return map;
-};
-const SCHEME = /^[a-z][a-z0-9+\-.]*:/;
-const openURL = async (url, ev, direction) => {
-    if (url != null && url[0] !== '#' && !SCHEME.test(url)) {
-        const router = document.querySelector('ion-router');
-        if (router) {
-            if (ev != null) {
-                ev.preventDefault();
+        const barStyle = {
+            [start]: barStart,
+            [end]: barEnd
+        };
+        const ticks = [];
+        if (this.snaps && this.ticks) {
+            for (let value = min; value <= max; value += step) {
+                const ratio = valueToRatio(value, min, max);
+                const tick = {
+                    ratio,
+                    active: ratio >= ratioLower && ratio <= ratioUpper,
+                };
+                tick[start] = `${ratio * 100}%`;
+                ticks.push(tick);
             }
-            return router.push(url, direction);
         }
+        Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["a"])(true, el, this.name, JSON.stringify(this.getValue()), disabled);
+        return (Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onFocusin: this.onFocus, onFocusout: this.onBlur, class: Object.assign(Object.assign({}, Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), { [mode]: true, 'in-item': Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__["h"])('ion-item', el), 'range-disabled': disabled, 'range-pressed': pressedKnob !== undefined, 'range-has-pin': pin }) }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", { name: "start" }), Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "range-slider", ref: rangeEl => this.rangeSlider = rangeEl }, ticks.map(tick => (Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { style: tickStyle(tick), role: "presentation", class: {
+                'range-tick': true,
+                'range-tick-active': tick.active
+            }, part: tick.active ? 'tick-active' : 'tick' }))), Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "range-bar", role: "presentation", part: "bar" }), Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "range-bar range-bar-active", role: "presentation", style: barStyle, part: "bar-active" }), renderKnob(isRTL, {
+            knob: 'A',
+            pressed: pressedKnob === 'A',
+            value: this.valA,
+            ratio: this.ratioA,
+            pin,
+            disabled,
+            handleKeyboard,
+            min,
+            max
+        }), this.dualKnobs && renderKnob(isRTL, {
+            knob: 'B',
+            pressed: pressedKnob === 'B',
+            value: this.valB,
+            ratio: this.ratioB,
+            pin,
+            disabled,
+            handleKeyboard,
+            min,
+            max
+        })), Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", { name: "end" })));
     }
-    return false;
+    get el() { return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
+    static get watchers() { return {
+        "debounce": ["debounceChanged"],
+        "min": ["minChanged"],
+        "max": ["maxChanged"],
+        "disabled": ["disabledChanged"],
+        "value": ["valueChanged"]
+    }; }
+}
+const renderKnob = (isRTL, { knob, value, ratio, min, max, disabled, pressed, pin, handleKeyboard }) => {
+    const start = isRTL ? 'right' : 'left';
+    const knobStyle = () => {
+        const style = {};
+        style[start] = `${ratio * 100}%`;
+        return style;
+    };
+    return (Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { onKeyDown: (ev) => {
+            const key = ev.key;
+            if (key === 'ArrowLeft' || key === 'ArrowDown') {
+                handleKeyboard(knob, false);
+                ev.preventDefault();
+                ev.stopPropagation();
+            }
+            else if (key === 'ArrowRight' || key === 'ArrowUp') {
+                handleKeyboard(knob, true);
+                ev.preventDefault();
+                ev.stopPropagation();
+            }
+        }, class: {
+            'range-knob-handle': true,
+            'range-knob-a': knob === 'A',
+            'range-knob-b': knob === 'B',
+            'range-knob-pressed': pressed,
+            'range-knob-min': value === min,
+            'range-knob-max': value === max
+        }, style: knobStyle(), role: "slider", tabindex: disabled ? -1 : 0, "aria-valuemin": min, "aria-valuemax": max, "aria-disabled": disabled ? 'true' : null, "aria-valuenow": value }, pin && Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "range-pin", role: "presentation", part: "pin" }, Math.round(value)), Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "range-knob", role: "presentation", part: "knob" })));
+};
+const ratioToValue = (ratio, min, max, step) => {
+    let value = (max - min) * ratio;
+    if (step > 0) {
+        value = Math.round(value / step) * step + min;
+    }
+    return Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["c"])(min, value, max);
+};
+const valueToRatio = (value, min, max) => {
+    return Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["c"])(0, (value - min) / (max - min), 1);
+};
+Range.style = {
+    /*STENCIL:MODE:ios*/ ios: rangeIosCss,
+    /*STENCIL:MODE:md*/ md: rangeMdCss
 };
 
 

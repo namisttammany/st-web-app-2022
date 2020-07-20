@@ -37,6 +37,9 @@
     "cordova-plugin-geolocation": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
+    },
     "cordova-plugin-googleplus": {
       "REVERSED_CLIENT_ID": "com.googleusercontent.apps.958975244118-005f86ihavon68hbo320qqmqd32vjemi",
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
@@ -67,9 +70,6 @@
     },
     "uk.co.workingedge.phonegap.plugin.launchnavigator": {
       "LOCATION_USAGE_DESCRIPTION": "This app requires access to your location for navigation purposes",
-      "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
-    },
-    "cordova-plugin-globalization": {
       "PACKAGE_NAME": "$(PRODUCT_BUNDLE_IDENTIFIER)"
     }
   },

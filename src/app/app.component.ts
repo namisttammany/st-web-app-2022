@@ -130,22 +130,15 @@ sideMenu()
  
       },
       {
+        title : 'Sponsors',
+        url   : "/sponsors",
+        icon  : "ribbon-outline",
+
+      },
+      {
         title : 'menu.logout',
         url   : "/login",
         icon  : "log-out",
-
-      },
-      {
-        title : 'language',
-        url   : "/language-modal",
-        icon  : "language-outline",
-
-      },
-      {
-        title : 'sponsors',
-        url   : "/sponsors",
-        icon  : "language-outline",
-
       },
     ]
   }

@@ -1,525 +1,734 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[54],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/ion-select_3-md.entry.js":
-/*!********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/ion-select_3-md.entry.js ***!
-  \********************************************************************/
-/*! exports provided: ion_select, ion_select_option, ion_select_popover */
+/***/ "./node_modules/@ionic/core/dist/esm/ion-route_4.entry.js":
+/*!****************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-route_4.entry.js ***!
+  \****************************************************************/
+/*! exports provided: ion_route, ion_route_redirect, ion_router, ion_router_link */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_select", function() { return Select; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_select_option", function() { return SelectOption; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_select_popover", function() { return SelectPopover; });
-/* harmony import */ var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-0a8d4d2e.js */ "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
-/* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
-/* harmony import */ var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-46f4a262.js */ "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
-/* harmony import */ var _hardware_back_button_1ed0083a_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./hardware-back-button-1ed0083a.js */ "./node_modules/@ionic/core/dist/esm/hardware-back-button-1ed0083a.js");
-/* harmony import */ var _overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./overlays-e336664a.js */ "./node_modules/@ionic/core/dist/esm/overlays-e336664a.js");
-/* harmony import */ var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./theme-18cbe2cc.js */ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_route", function() { return Route; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_route_redirect", function() { return RouteRedirect; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_router", function() { return Router; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_router_link", function() { return RouterLink; });
+/* harmony import */ var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index-29df6f59.js */ "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
+/* harmony import */ var _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ionic-global-08f4fb8a.js */ "./node_modules/@ionic/core/dist/esm/ionic-global-08f4fb8a.js");
+/* harmony import */ var _helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-5c745fbd.js */ "./node_modules/@ionic/core/dist/esm/helpers-5c745fbd.js");
+/* harmony import */ var _theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./theme-3f0b0c04.js */ "./node_modules/@ionic/core/dist/esm/theme-3f0b0c04.js");
 
 
 
 
 
-
-
-const watchForOptions = (containerEl, tagName, onChange) => {
-    const mutation = new MutationObserver(mutationList => {
-        onChange(getSelectedOption(mutationList, tagName));
-    });
-    mutation.observe(containerEl, {
-        childList: true,
-        subtree: true
-    });
-    return mutation;
-};
-const getSelectedOption = (mutationList, tagName) => {
-    let newOption;
-    mutationList.forEach(mut => {
-        // tslint:disable-next-line: prefer-for-of
-        for (let i = 0; i < mut.addedNodes.length; i++) {
-            newOption = findCheckedOption(mut.addedNodes[i], tagName) || newOption;
-        }
-    });
-    return newOption;
-};
-const findCheckedOption = (el, tagName) => {
-    if (el.nodeType !== 1) {
-        return undefined;
-    }
-    const options = (el.tagName === tagName.toUpperCase())
-        ? [el]
-        : Array.from(el.querySelectorAll(tagName));
-    return options.find((o) => o.value === el.value);
-};
-
-const Select = class {
+class Route {
     constructor(hostRef) {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.inputId = `ion-sel-${selectIds++}`;
-        this.didInit = false;
-        this.isExpanded = false;
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         /**
-         * If `true`, the user cannot interact with the select.
+         * Relative path that needs to match in order for this route to apply.
+         *
+         * Accepts paths similar to expressjs so that you can define parameters
+         * in the url /foo/:bar where bar would be available in incoming props.
          */
-        this.disabled = false;
-        /**
-         * The text to display on the cancel button.
-         */
-        this.cancelText = 'Cancel';
-        /**
-         * The text to display on the ok button.
-         */
-        this.okText = 'OK';
-        /**
-         * The name of the control, which is submitted with the form data.
-         */
-        this.name = this.inputId;
-        /**
-         * If `true`, the select can accept multiple values.
-         */
-        this.multiple = false;
-        /**
-         * The interface the select should use: `action-sheet`, `popover` or `alert`.
-         */
-        this.interface = 'alert';
-        /**
-         * Any additional options that the `alert`, `action-sheet` or `popover` interface
-         * can take. See the [AlertController API docs](../../alert/AlertController/#create), the
-         * [ActionSheetController API docs](../../action-sheet/ActionSheetController/#create) and the
-         * [PopoverController API docs](../../popover/PopoverController/#create) for the
-         * create options for each interface.
-         */
-        this.interfaceOptions = {};
-        this.onClick = (ev) => {
-            this.setFocus();
-            this.open(ev);
-        };
-        this.onFocus = () => {
-            this.ionFocus.emit();
-        };
-        this.onBlur = () => {
-            this.ionBlur.emit();
-        };
-        this.ionChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionChange", 7);
-        this.ionCancel = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionCancel", 7);
-        this.ionFocus = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionFocus", 7);
-        this.ionBlur = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionBlur", 7);
-        this.ionStyle = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionStyle", 7);
+        this.url = '';
+        this.ionRouteDataChanged = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteDataChanged", 7);
     }
-    disabledChanged() {
-        this.emitStyle();
+    onUpdate(newValue) {
+        this.ionRouteDataChanged.emit(newValue);
     }
-    valueChanged() {
-        this.emitStyle();
-        if (this.didInit) {
-            this.ionChange.emit({
-                value: this.value,
-            });
-        }
-    }
-    async connectedCallback() {
-        this.updateOverlayOptions();
-        this.emitStyle();
-        this.mutationO = watchForOptions(this.el, 'ion-select-option', async () => {
-            this.updateOverlayOptions();
-        });
-    }
-    disconnectedCallback() {
-        if (this.mutationO) {
-            this.mutationO.disconnect();
-            this.mutationO = undefined;
-        }
-    }
-    componentDidLoad() {
-        this.didInit = true;
-    }
-    /**
-     * Open the select overlay. The overlay is either an alert, action sheet, or popover,
-     * depending on the `interface` property on the `ion-select`.
-     *
-     * @param event The user interface event that called the open.
-     */
-    async open(event) {
-        if (this.disabled || this.isExpanded) {
-            return undefined;
-        }
-        const overlay = this.overlay = await this.createOverlay(event);
-        this.isExpanded = true;
-        overlay.onDidDismiss().then(() => {
-            this.overlay = undefined;
-            this.isExpanded = false;
-            this.setFocus();
-        });
-        await overlay.present();
-        return overlay;
-    }
-    createOverlay(ev) {
-        let selectInterface = this.interface;
-        if ((selectInterface === 'action-sheet' || selectInterface === 'popover') && this.multiple) {
-            console.warn(`Select interface cannot be "${selectInterface}" with a multi-value select. Using the "alert" interface instead.`);
-            selectInterface = 'alert';
-        }
-        if (selectInterface === 'popover' && !ev) {
-            console.warn('Select interface cannot be a "popover" without passing an event. Using the "alert" interface instead.');
-            selectInterface = 'alert';
-        }
-        if (selectInterface === 'popover') {
-            return this.openPopover(ev);
-        }
-        if (selectInterface === 'action-sheet') {
-            return this.openActionSheet();
-        }
-        return this.openAlert();
-    }
-    updateOverlayOptions() {
-        const overlay = this.overlay;
-        if (!overlay) {
+    onComponentProps(newValue, oldValue) {
+        if (newValue === oldValue) {
             return;
         }
-        const childOpts = this.childOpts;
-        const value = this.value;
-        switch (this.interface) {
-            case 'action-sheet':
-                overlay.buttons = this.createActionSheetButtons(childOpts, value);
-                break;
-            case 'popover':
-                const popover = overlay.querySelector('ion-select-popover');
-                if (popover) {
-                    popover.options = this.createPopoverOptions(childOpts, value);
-                }
-                break;
-            case 'alert':
-                const inputType = (this.multiple ? 'checkbox' : 'radio');
-                overlay.inputs = this.createAlertInputs(childOpts, inputType, value);
-                break;
+        const keys1 = newValue ? Object.keys(newValue) : [];
+        const keys2 = oldValue ? Object.keys(oldValue) : [];
+        if (keys1.length !== keys2.length) {
+            this.onUpdate(newValue);
+            return;
         }
-    }
-    createActionSheetButtons(data, selectValue) {
-        const actionSheetButtons = data.map(option => {
-            const value = getOptionValue(option);
-            return {
-                role: (isOptionSelected(value, selectValue, this.compareWith) ? 'selected' : ''),
-                text: option.textContent,
-                handler: () => {
-                    this.value = value;
-                }
-            };
-        });
-        // Add "cancel" button
-        actionSheetButtons.push({
-            text: this.cancelText,
-            role: 'cancel',
-            handler: () => {
-                this.ionCancel.emit();
+        for (const key of keys1) {
+            if (newValue[key] !== oldValue[key]) {
+                this.onUpdate(newValue);
+                return;
             }
-        });
-        return actionSheetButtons;
-    }
-    createAlertInputs(data, inputType, selectValue) {
-        return data.map(o => {
-            const value = getOptionValue(o);
-            return {
-                type: inputType,
-                label: o.textContent || '',
-                value,
-                checked: isOptionSelected(value, selectValue, this.compareWith),
-                disabled: o.disabled
-            };
-        });
-    }
-    createPopoverOptions(data, selectValue) {
-        return data.map(o => {
-            const value = getOptionValue(o);
-            return {
-                text: o.textContent || '',
-                value,
-                checked: isOptionSelected(value, selectValue, this.compareWith),
-                disabled: o.disabled,
-                handler: () => {
-                    this.value = value;
-                    this.close();
-                }
-            };
-        });
-    }
-    async openPopover(ev) {
-        const interfaceOptions = this.interfaceOptions;
-        const mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-        const value = this.value;
-        const popoverOpts = Object.assign(Object.assign({ mode }, interfaceOptions), { component: 'ion-select-popover', cssClass: ['select-popover', interfaceOptions.cssClass], event: ev, componentProps: {
-                header: interfaceOptions.header,
-                subHeader: interfaceOptions.subHeader,
-                message: interfaceOptions.message,
-                value,
-                options: this.createPopoverOptions(this.childOpts, value)
-            } });
-        return _overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_4__["c"].create(popoverOpts);
-    }
-    async openActionSheet() {
-        const mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-        const interfaceOptions = this.interfaceOptions;
-        const actionSheetOpts = Object.assign(Object.assign({ mode }, interfaceOptions), { buttons: this.createActionSheetButtons(this.childOpts, this.value), cssClass: ['select-action-sheet', interfaceOptions.cssClass] });
-        return _overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_4__["b"].create(actionSheetOpts);
-    }
-    async openAlert() {
-        const label = this.getLabel();
-        const labelText = (label) ? label.textContent : null;
-        const interfaceOptions = this.interfaceOptions;
-        const inputType = (this.multiple ? 'checkbox' : 'radio');
-        const mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-        const alertOpts = Object.assign(Object.assign({ mode }, interfaceOptions), { header: interfaceOptions.header ? interfaceOptions.header : labelText, inputs: this.createAlertInputs(this.childOpts, inputType, this.value), buttons: [
-                {
-                    text: this.cancelText,
-                    role: 'cancel',
-                    handler: () => {
-                        this.ionCancel.emit();
-                    }
-                },
-                {
-                    text: this.okText,
-                    handler: (selectedValues) => {
-                        this.value = selectedValues;
-                    }
-                }
-            ], cssClass: ['select-alert', interfaceOptions.cssClass,
-                (this.multiple ? 'multiple-select-alert' : 'single-select-alert')] });
-        return _overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_4__["a"].create(alertOpts);
-    }
-    /**
-     * Close the select interface.
-     */
-    close() {
-        // TODO check !this.overlay || !this.isFocus()
-        if (!this.overlay) {
-            return Promise.resolve(false);
-        }
-        return this.overlay.dismiss();
-    }
-    getLabel() {
-        return Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["f"])(this.el);
-    }
-    hasValue() {
-        return this.getText() !== '';
-    }
-    get childOpts() {
-        return Array.from(this.el.querySelectorAll('ion-select-option'));
-    }
-    getText() {
-        const selectedText = this.selectedText;
-        if (selectedText != null && selectedText !== '') {
-            return selectedText;
-        }
-        return generateText(this.childOpts, this.value, this.compareWith);
-    }
-    setFocus() {
-        if (this.buttonEl) {
-            this.buttonEl.focus();
         }
     }
-    emitStyle() {
-        this.ionStyle.emit({
-            'interactive': true,
-            'select': true,
-            'has-placeholder': this.placeholder != null,
-            'has-value': this.hasValue(),
-            'interactive-disabled': this.disabled,
-            'select-disabled': this.disabled
-        });
+    connectedCallback() {
+        this.ionRouteDataChanged.emit();
     }
-    render() {
-        const { placeholder, name, disabled, isExpanded, value, el } = this;
-        const mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-        const labelId = this.inputId + '-lbl';
-        const label = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["f"])(el);
-        if (label) {
-            label.id = labelId;
-        }
-        let addPlaceholderClass = false;
-        let selectText = this.getText();
-        if (selectText === '' && placeholder != null) {
-            selectText = placeholder;
-            addPlaceholderClass = true;
-        }
-        Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["a"])(true, el, name, parseValue(value), disabled);
-        const selectTextClasses = {
-            'select-text': true,
-            'select-placeholder': addPlaceholderClass
-        };
-        const textPart = addPlaceholderClass ? 'placeholder' : 'text';
-        return (Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.onClick, role: "combobox", "aria-haspopup": "dialog", "aria-disabled": disabled ? 'true' : null, "aria-expanded": `${isExpanded}`, "aria-labelledby": labelId, class: {
-                [mode]: true,
-                'in-item': Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_5__["h"])('ion-item', el),
-                'select-disabled': disabled,
-            } }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: selectTextClasses, part: textPart }, selectText), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "select-icon", role: "presentation", part: "icon" }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "select-icon-inner", part: "icon-inner" })), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", { type: "button", onFocus: this.onFocus, onBlur: this.onBlur, disabled: disabled, ref: (btnEl => this.buttonEl = btnEl) })));
-    }
-    get el() { return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
     static get watchers() { return {
-        "disabled": ["disabledChanged"],
-        "placeholder": ["disabledChanged"],
-        "value": ["valueChanged"]
+        "url": ["onUpdate"],
+        "component": ["onUpdate"],
+        "componentProps": ["onComponentProps"]
     }; }
-    static get style() { return ":host{--placeholder-color:currentColor;--placeholder-opacity:0.33;padding-left:var(--padding-start);padding-right:var(--padding-end);padding-top:var(--padding-top);padding-bottom:var(--padding-bottom);display:-ms-flexbox;display:flex;position:relative;-ms-flex-align:center;align-items:center;font-family:var(--ion-font-family,inherit);overflow:hidden;z-index:2}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host{padding-left:unset;padding-right:unset;-webkit-padding-start:var(--padding-start);padding-inline-start:var(--padding-start);-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}:host(.in-item){position:static;max-width:45%}:host(.select-disabled){opacity:.4;pointer-events:none}:host(.ion-focused) button{border:2px solid #5e9ed6}.select-placeholder{color:var(--placeholder-color);opacity:var(--placeholder-opacity)}button{left:0;top:0;margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;position:absolute;width:100%;height:100%;border:0;background:transparent;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;outline:none}:host-context([dir=rtl]) button,[dir=rtl] button{left:unset;right:unset;right:0}button::-moz-focus-inner{border:0}.select-icon{position:relative;opacity:.33}.select-text{-ms-flex:1;flex:1;min-width:16px;font-size:inherit;text-overflow:ellipsis;white-space:nowrap;overflow:hidden}.select-icon-inner{left:5px;top:50%;margin-top:-3px;position:absolute;width:0;height:0;border-top:5px solid;border-right:5px solid transparent;border-left:5px solid transparent;color:currentColor;pointer-events:none}:host-context([dir=rtl]) .select-icon-inner,[dir=rtl] .select-icon-inner{left:unset;right:unset;right:5px}:host{--padding-top:10px;--padding-end:0;--padding-bottom:11px;--padding-start:16px}.select-icon{width:19px;height:19px}"; }
+}
+
+class RouteRedirect {
+    constructor(hostRef) {
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.ionRouteRedirectChanged = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteRedirectChanged", 7);
+    }
+    propDidChange() {
+        this.ionRouteRedirectChanged.emit();
+    }
+    connectedCallback() {
+        this.ionRouteRedirectChanged.emit();
+    }
+    static get watchers() { return {
+        "from": ["propDidChange"],
+        "to": ["propDidChange"]
+    }; }
+}
+
+const ROUTER_INTENT_NONE = 'root';
+const ROUTER_INTENT_FORWARD = 'forward';
+const ROUTER_INTENT_BACK = 'back';
+
+const generatePath = (segments) => {
+    const path = segments
+        .filter(s => s.length > 0)
+        .join('/');
+    return '/' + path;
 };
-const isOptionSelected = (currentValue, compareValue, compareWith) => {
-    if (currentValue === undefined) {
+const chainToPath = (chain) => {
+    const path = [];
+    for (const route of chain) {
+        for (const segment of route.path) {
+            if (segment[0] === ':') {
+                const param = route.params && route.params[segment.slice(1)];
+                if (!param) {
+                    return null;
+                }
+                path.push(param);
+            }
+            else if (segment !== '') {
+                path.push(segment);
+            }
+        }
+    }
+    return path;
+};
+const writePath = (history, root, useHash, path, direction, state, queryString) => {
+    let url = generatePath([
+        ...parsePath(root),
+        ...path
+    ]);
+    if (useHash) {
+        url = '#' + url;
+    }
+    if (queryString !== undefined) {
+        url = url + '?' + queryString;
+    }
+    if (direction === ROUTER_INTENT_FORWARD) {
+        history.pushState(state, '', url);
+    }
+    else {
+        history.replaceState(state, '', url);
+    }
+};
+const removePrefix = (prefix, path) => {
+    if (prefix.length > path.length) {
+        return null;
+    }
+    if (prefix.length <= 1 && prefix[0] === '') {
+        return path;
+    }
+    for (let i = 0; i < prefix.length; i++) {
+        if (prefix[i].length > 0 && prefix[i] !== path[i]) {
+            return null;
+        }
+    }
+    if (path.length === prefix.length) {
+        return [''];
+    }
+    return path.slice(prefix.length);
+};
+const readPath = (loc, root, useHash) => {
+    let pathname = loc.pathname;
+    if (useHash) {
+        const hash = loc.hash;
+        pathname = (hash[0] === '#')
+            ? hash.slice(1)
+            : '';
+    }
+    const prefix = parsePath(root);
+    const path = parsePath(pathname);
+    return removePrefix(prefix, path);
+};
+const parsePath = (path) => {
+    if (path == null) {
+        return [''];
+    }
+    const removeQueryString = path.split('?')[0];
+    const segments = removeQueryString.split('/')
+        .map(s => s.trim())
+        .filter(s => s.length > 0);
+    if (segments.length === 0) {
+        return [''];
+    }
+    else {
+        return segments;
+    }
+};
+
+const printRoutes = (routes) => {
+    console.group(`[ion-core] ROUTES[${routes.length}]`);
+    for (const chain of routes) {
+        const path = [];
+        chain.forEach(r => path.push(...r.path));
+        const ids = chain.map(r => r.id);
+        console.debug(`%c ${generatePath(path)}`, 'font-weight: bold; padding-left: 20px', '=>\t', `(${ids.join(', ')})`);
+    }
+    console.groupEnd();
+};
+const printRedirects = (redirects) => {
+    console.group(`[ion-core] REDIRECTS[${redirects.length}]`);
+    for (const redirect of redirects) {
+        if (redirect.to) {
+            console.debug('FROM: ', `$c ${generatePath(redirect.from)}`, 'font-weight: bold', ' TO: ', `$c ${generatePath(redirect.to)}`, 'font-weight: bold');
+        }
+    }
+    console.groupEnd();
+};
+
+const writeNavState = async (root, chain, direction, index, changed = false, animation) => {
+    try {
+        // find next navigation outlet in the DOM
+        const outlet = searchNavNode(root);
+        // make sure we can continue interacting the DOM, otherwise abort
+        if (index >= chain.length || !outlet) {
+            return changed;
+        }
+        await outlet.componentOnReady();
+        const route = chain[index];
+        const result = await outlet.setRouteId(route.id, route.params, direction, animation);
+        // if the outlet changed the page, reset navigation to neutral (no direction)
+        // this means nested outlets will not animate
+        if (result.changed) {
+            direction = ROUTER_INTENT_NONE;
+            changed = true;
+        }
+        // recursively set nested outlets
+        changed = await writeNavState(result.element, chain, direction, index + 1, changed, animation);
+        // once all nested outlets are visible let's make the parent visible too,
+        // using markVisible prevents flickering
+        if (result.markVisible) {
+            await result.markVisible();
+        }
+        return changed;
+    }
+    catch (e) {
+        console.error(e);
         return false;
     }
-    if (Array.isArray(currentValue)) {
-        return currentValue.some(val => compareOptions(val, compareValue, compareWith));
-    }
-    else {
-        return compareOptions(currentValue, compareValue, compareWith);
-    }
 };
-const getOptionValue = (el) => {
-    const value = el.value;
-    return (value === undefined)
-        ? el.textContent || ''
-        : value;
+const readNavState = async (root) => {
+    const ids = [];
+    let outlet;
+    let node = root;
+    // tslint:disable-next-line:no-constant-condition
+    while (true) {
+        outlet = searchNavNode(node);
+        if (outlet) {
+            const id = await outlet.getRouteId();
+            if (id) {
+                node = id.element;
+                id.element = undefined;
+                ids.push(id);
+            }
+            else {
+                break;
+            }
+        }
+        else {
+            break;
+        }
+    }
+    return { ids, outlet };
 };
-const parseValue = (value) => {
-    if (value == null) {
+const waitUntilNavNode = () => {
+    if (searchNavNode(document.body)) {
+        return Promise.resolve();
+    }
+    return new Promise(resolve => {
+        window.addEventListener('ionNavWillLoad', resolve, { once: true });
+    });
+};
+const QUERY = ':not([no-router]) ion-nav, :not([no-router]) ion-tabs, :not([no-router]) ion-router-outlet';
+const searchNavNode = (root) => {
+    if (!root) {
         return undefined;
     }
-    if (Array.isArray(value)) {
-        return value.join(',');
+    if (root.matches(QUERY)) {
+        return root;
     }
-    return value.toString();
+    const outlet = root.querySelector(QUERY);
+    return outlet ? outlet : undefined;
 };
-const compareOptions = (currentValue, compareValue, compareWith) => {
-    if (typeof compareWith === 'function') {
-        return compareWith(currentValue, compareValue);
+
+const matchesRedirect = (input, route) => {
+    const { from, to } = route;
+    if (to === undefined) {
+        return false;
     }
-    else if (typeof compareWith === 'string') {
-        return currentValue[compareWith] === compareValue[compareWith];
+    if (from.length > input.length) {
+        return false;
     }
-    else {
-        return Array.isArray(compareValue) ? compareValue.includes(currentValue) : currentValue === compareValue;
+    for (let i = 0; i < from.length; i++) {
+        const expected = from[i];
+        if (expected === '*') {
+            return true;
+        }
+        if (expected !== input[i]) {
+            return false;
+        }
     }
+    return from.length === input.length;
 };
-const generateText = (opts, value, compareWith) => {
-    if (value === undefined) {
+const routeRedirect = (path, routes) => {
+    return routes.find(route => matchesRedirect(path, route));
+};
+const matchesIDs = (ids, chain) => {
+    const len = Math.min(ids.length, chain.length);
+    let i = 0;
+    for (; i < len; i++) {
+        if (ids[i].toLowerCase() !== chain[i].id) {
+            break;
+        }
+    }
+    return i;
+};
+const matchesPath = (inputPath, chain) => {
+    const segments = new RouterSegments(inputPath);
+    let matchesDefault = false;
+    let allparams;
+    for (let i = 0; i < chain.length; i++) {
+        const path = chain[i].path;
+        if (path[0] === '') {
+            matchesDefault = true;
+        }
+        else {
+            for (const segment of path) {
+                const data = segments.next();
+                // data param
+                if (segment[0] === ':') {
+                    if (data === '') {
+                        return null;
+                    }
+                    allparams = allparams || [];
+                    const params = allparams[i] || (allparams[i] = {});
+                    params[segment.slice(1)] = data;
+                }
+                else if (data !== segment) {
+                    return null;
+                }
+            }
+            matchesDefault = false;
+        }
+    }
+    const matches = (matchesDefault)
+        ? matchesDefault === (segments.next() === '')
+        : true;
+    if (!matches) {
+        return null;
+    }
+    if (allparams) {
+        return chain.map((route, i) => ({
+            id: route.id,
+            path: route.path,
+            params: mergeParams(route.params, allparams[i])
+        }));
+    }
+    return chain;
+};
+const mergeParams = (a, b) => {
+    if (!a && b) {
+        return b;
+    }
+    else if (a && !b) {
+        return a;
+    }
+    else if (a && b) {
+        return Object.assign(Object.assign({}, a), b);
+    }
+    return undefined;
+};
+const routerIDsToChain = (ids, chains) => {
+    let match = null;
+    let maxMatches = 0;
+    const plainIDs = ids.map(i => i.id);
+    for (const chain of chains) {
+        const score = matchesIDs(plainIDs, chain);
+        if (score > maxMatches) {
+            match = chain;
+            maxMatches = score;
+        }
+    }
+    if (match) {
+        return match.map((route, i) => ({
+            id: route.id,
+            path: route.path,
+            params: mergeParams(route.params, ids[i] && ids[i].params)
+        }));
+    }
+    return null;
+};
+const routerPathToChain = (path, chains) => {
+    let match = null;
+    let matches = 0;
+    for (const chain of chains) {
+        const matchedChain = matchesPath(path, chain);
+        if (matchedChain !== null) {
+            const score = computePriority(matchedChain);
+            if (score > matches) {
+                matches = score;
+                match = matchedChain;
+            }
+        }
+    }
+    return match;
+};
+const computePriority = (chain) => {
+    let score = 1;
+    let level = 1;
+    for (const route of chain) {
+        for (const path of route.path) {
+            if (path[0] === ':') {
+                score += Math.pow(1, level);
+            }
+            else if (path !== '') {
+                score += Math.pow(2, level);
+            }
+            level++;
+        }
+    }
+    return score;
+};
+class RouterSegments {
+    constructor(path) {
+        this.path = path.slice();
+    }
+    next() {
+        if (this.path.length > 0) {
+            return this.path.shift();
+        }
         return '';
     }
-    if (Array.isArray(value)) {
-        return value
-            .map(v => textForValue(opts, v, compareWith))
-            .filter(opt => opt !== null)
-            .join(', ');
-    }
-    else {
-        return textForValue(opts, value, compareWith) || '';
-    }
-};
-const textForValue = (opts, value, compareWith) => {
-    const selectOpt = opts.find(opt => {
-        return compareOptions(getOptionValue(opt), value, compareWith);
+}
+
+const readRedirects = (root) => {
+    return Array.from(root.children)
+        .filter(el => el.tagName === 'ION-ROUTE-REDIRECT')
+        .map(el => {
+        const to = readProp(el, 'to');
+        return {
+            from: parsePath(readProp(el, 'from')),
+            to: to == null ? undefined : parsePath(to),
+        };
     });
-    return selectOpt
-        ? selectOpt.textContent
-        : null;
 };
-let selectIds = 0;
+const readRoutes = (root) => {
+    return flattenRouterTree(readRouteNodes(root));
+};
+const readRouteNodes = (root, node = root) => {
+    return Array.from(node.children)
+        .filter(el => el.tagName === 'ION-ROUTE' && el.component)
+        .map(el => {
+        const component = readProp(el, 'component');
+        if (component == null) {
+            throw new Error('component missing in ion-route');
+        }
+        return {
+            path: parsePath(readProp(el, 'url')),
+            id: component.toLowerCase(),
+            params: el.componentProps,
+            children: readRouteNodes(root, el)
+        };
+    });
+};
+const readProp = (el, prop) => {
+    if (prop in el) {
+        return el[prop];
+    }
+    if (el.hasAttribute(prop)) {
+        return el.getAttribute(prop);
+    }
+    return null;
+};
+const flattenRouterTree = (nodes) => {
+    const routes = [];
+    for (const node of nodes) {
+        flattenNode([], routes, node);
+    }
+    return routes;
+};
+const flattenNode = (chain, routes, node) => {
+    const s = chain.slice();
+    s.push({
+        id: node.id,
+        path: node.path,
+        params: node.params
+    });
+    if (node.children.length === 0) {
+        routes.push(s);
+        return;
+    }
+    for (const sub of node.children) {
+        flattenNode(s, routes, sub);
+    }
+};
 
-const SelectOption = class {
+class Router {
     constructor(hostRef) {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.inputId = `ion-selopt-${selectOptionIds++}`;
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.previousPath = null;
+        this.busy = false;
+        this.state = 0;
+        this.lastState = 0;
         /**
-         * If `true`, the user cannot interact with the select option.
+         * By default `ion-router` will match the routes at the root path ("/").
+         * That can be changed when
+         *
          */
-        this.disabled = false;
+        this.root = '/';
+        /**
+         * The router can work in two "modes":
+         * - With hash: `/index.html#/path/to/page`
+         * - Without hash: `/path/to/page`
+         *
+         * Using one or another might depend in the requirements of your app and/or where it's deployed.
+         *
+         * Usually "hash-less" navigation works better for SEO and it's more user friendly too, but it might
+         * requires additional server-side configuration in order to properly work.
+         *
+         * On the otherside hash-navigation is much easier to deploy, it even works over the file protocol.
+         *
+         * By default, this property is `true`, change to `false` to allow hash-less URLs.
+         */
+        this.useHash = true;
+        this.ionRouteWillChange = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteWillChange", 7);
+        this.ionRouteDidChange = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionRouteDidChange", 7);
     }
-    render() {
-        return (Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], { role: "option", id: this.inputId, class: Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this) }));
+    async componentWillLoad() {
+        console.debug('[ion-router] router will load');
+        await waitUntilNavNode();
+        console.debug('[ion-router] found nav');
+        await this.onRoutesChanged();
     }
-    get el() { return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
-    static get style() { return ":host{display:none}"; }
-};
-let selectOptionIds = 0;
+    componentDidLoad() {
+        window.addEventListener('ionRouteRedirectChanged', Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.onRedirectChanged.bind(this), 10));
+        window.addEventListener('ionRouteDataChanged', Object(_helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__["e"])(this.onRoutesChanged.bind(this), 100));
+    }
+    onPopState() {
+        const direction = this.historyDirection();
+        const path = this.getPath();
+        console.debug('[ion-router] URL changed -> update nav', path, direction);
+        return this.writeNavStateRoot(path, direction);
+    }
+    onBackButton(ev) {
+        ev.detail.register(0, processNextHandler => {
+            this.back();
+            processNextHandler();
+        });
+    }
+    /**
+     * Navigate to the specified URL.
+     *
+     * @param url The url to navigate to.
+     * @param direction The direction of the animation. Defaults to `"forward"`.
+     */
+    push(url, direction = 'forward', animation) {
+        if (url.startsWith('.')) {
+            url = (new URL(url, window.location.href)).pathname;
+        }
+        console.debug('[ion-router] URL pushed -> updating nav', url, direction);
+        const path = parsePath(url);
+        const queryString = url.split('?')[1];
+        this.setPath(path, direction, queryString);
+        return this.writeNavStateRoot(path, direction, animation);
+    }
+    /**
+     * Go back to previous page in the window.history.
+     */
+    back() {
+        window.history.back();
+        return Promise.resolve(this.waitPromise);
+    }
+    /** @internal */
+    async printDebug() {
+        console.debug('CURRENT PATH', this.getPath());
+        console.debug('PREVIOUS PATH', this.previousPath);
+        printRoutes(readRoutes(this.el));
+        printRedirects(readRedirects(this.el));
+    }
+    /** @internal */
+    async navChanged(direction) {
+        if (this.busy) {
+            console.warn('[ion-router] router is busy, navChanged was cancelled');
+            return false;
+        }
+        const { ids, outlet } = await readNavState(window.document.body);
+        const routes = readRoutes(this.el);
+        const chain = routerIDsToChain(ids, routes);
+        if (!chain) {
+            console.warn('[ion-router] no matching URL for ', ids.map(i => i.id));
+            return false;
+        }
+        const path = chainToPath(chain);
+        if (!path) {
+            console.warn('[ion-router] router could not match path because some required param is missing');
+            return false;
+        }
+        console.debug('[ion-router] nav changed -> update URL', ids, path);
+        this.setPath(path, direction);
+        await this.safeWriteNavState(outlet, chain, ROUTER_INTENT_NONE, path, null, ids.length);
+        return true;
+    }
+    onRedirectChanged() {
+        const path = this.getPath();
+        if (path && routeRedirect(path, readRedirects(this.el))) {
+            this.writeNavStateRoot(path, ROUTER_INTENT_NONE);
+        }
+    }
+    onRoutesChanged() {
+        return this.writeNavStateRoot(this.getPath(), ROUTER_INTENT_NONE);
+    }
+    historyDirection() {
+        const win = window;
+        if (win.history.state === null) {
+            this.state++;
+            win.history.replaceState(this.state, win.document.title, win.document.location && win.document.location.href);
+        }
+        const state = win.history.state;
+        const lastState = this.lastState;
+        this.lastState = state;
+        if (state > lastState || (state >= lastState && lastState > 0)) {
+            return ROUTER_INTENT_FORWARD;
+        }
+        else if (state < lastState) {
+            return ROUTER_INTENT_BACK;
+        }
+        else {
+            return ROUTER_INTENT_NONE;
+        }
+    }
+    async writeNavStateRoot(path, direction, animation) {
+        if (!path) {
+            console.error('[ion-router] URL is not part of the routing set');
+            return false;
+        }
+        // lookup redirect rule
+        const redirects = readRedirects(this.el);
+        const redirect = routeRedirect(path, redirects);
+        let redirectFrom = null;
+        if (redirect) {
+            this.setPath(redirect.to, direction);
+            redirectFrom = redirect.from;
+            path = redirect.to;
+        }
+        // lookup route chain
+        const routes = readRoutes(this.el);
+        const chain = routerPathToChain(path, routes);
+        if (!chain) {
+            console.error('[ion-router] the path does not match any route');
+            return false;
+        }
+        // write DOM give
+        return this.safeWriteNavState(document.body, chain, direction, path, redirectFrom, 0, animation);
+    }
+    async safeWriteNavState(node, chain, direction, path, redirectFrom, index = 0, animation) {
+        const unlock = await this.lock();
+        let changed = false;
+        try {
+            changed = await this.writeNavState(node, chain, direction, path, redirectFrom, index, animation);
+        }
+        catch (e) {
+            console.error(e);
+        }
+        unlock();
+        return changed;
+    }
+    async lock() {
+        const p = this.waitPromise;
+        let resolve;
+        this.waitPromise = new Promise(r => resolve = r);
+        if (p !== undefined) {
+            await p;
+        }
+        return resolve;
+    }
+    async writeNavState(node, chain, direction, path, redirectFrom, index = 0, animation) {
+        if (this.busy) {
+            console.warn('[ion-router] router is busy, transition was cancelled');
+            return false;
+        }
+        this.busy = true;
+        // generate route event and emit will change
+        const routeEvent = this.routeChangeEvent(path, redirectFrom);
+        if (routeEvent) {
+            this.ionRouteWillChange.emit(routeEvent);
+        }
+        const changed = await writeNavState(node, chain, direction, index, false, animation);
+        this.busy = false;
+        if (changed) {
+            console.debug('[ion-router] route changed', path);
+        }
+        // emit did change
+        if (routeEvent) {
+            this.ionRouteDidChange.emit(routeEvent);
+        }
+        return changed;
+    }
+    setPath(path, direction, queryString) {
+        this.state++;
+        writePath(window.history, this.root, this.useHash, path, direction, this.state, queryString);
+    }
+    getPath() {
+        return readPath(window.location, this.root, this.useHash);
+    }
+    routeChangeEvent(path, redirectFromPath) {
+        const from = this.previousPath;
+        const to = generatePath(path);
+        this.previousPath = to;
+        if (to === from) {
+            return null;
+        }
+        const redirectedFrom = redirectFromPath ? generatePath(redirectFromPath) : null;
+        return {
+            from,
+            redirectedFrom,
+            to,
+        };
+    }
+    get el() { return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
+}
 
-const SelectPopover = class {
+const routerLinkCss = ":host{--background:transparent;--color:var(--ion-color-primary, #3880ff);background:var(--background);color:var(--color)}:host(.ion-color){color:var(--ion-color-base)}a{font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-indent:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit}";
+
+class RouterLink {
     constructor(hostRef) {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        /** Array of options for the popover */
-        this.options = [];
-    }
-    onSelect(ev) {
-        const option = this.options.find(o => o.value === ev.target.value);
-        if (option) {
-            Object(_overlays_e336664a_js__WEBPACK_IMPORTED_MODULE_4__["s"])(option.handler);
-        }
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        /**
+         * When using a router, it specifies the transition direction when navigating to
+         * another page using `href`.
+         */
+        this.routerDirection = 'forward';
+        this.onClick = (ev) => {
+            Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__["o"])(this.href, ev, this.routerDirection, this.routerAnimation);
+        };
     }
     render() {
-        const checkedOption = this.options.find(o => o.checked);
-        const checkedValue = checkedOption ? checkedOption.value : undefined;
-        return (Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], { class: Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this) }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-list", null, this.header !== undefined && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-list-header", null, this.header), (this.subHeader !== undefined || this.message !== undefined) &&
-            Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-item", null, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-label", { class: "ion-text-wrap" }, this.subHeader !== undefined && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("h3", null, this.subHeader), this.message !== undefined && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("p", null, this.message))), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-radio-group", { value: checkedValue }, this.options.map(option => Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-item", null, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-label", null, option.text), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-radio", { value: option.value, disabled: option.disabled })))))));
+        const mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
+        const attrs = {
+            href: this.href,
+            rel: this.rel,
+            target: this.target
+        };
+        return (Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], { onClick: this.onClick, class: Object.assign(Object.assign({}, Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), { [mode]: true, 'ion-activatable': true }) }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("a", Object.assign({}, attrs), Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null))));
     }
-    static get style() { return ".sc-ion-select-popover-h ion-list.sc-ion-select-popover{margin-left:0;margin-right:0;margin-top:-1px;margin-bottom:-1px}.sc-ion-select-popover-h ion-label.sc-ion-select-popover, .sc-ion-select-popover-h ion-list-header.sc-ion-select-popover{margin-left:0;margin-right:0;margin-top:0;margin-bottom:0}"; }
-};
-
-
-
-
-/***/ }),
-
-/***/ "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js":
-/*!*************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js ***!
-  \*************************************************************/
-/*! exports provided: c, g, h, o */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return createColorClasses; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return getClassMap; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return hostContext; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "o", function() { return openURL; });
-const hostContext = (selector, el) => {
-    return el.closest(selector) !== null;
-};
-/**
- * Create the mode and color classes for the component based on the classes passed in
- */
-const createColorClasses = (color) => {
-    return (typeof color === 'string' && color.length > 0) ? {
-        'ion-color': true,
-        [`ion-color-${color}`]: true
-    } : undefined;
-};
-const getClassList = (classes) => {
-    if (classes !== undefined) {
-        const array = Array.isArray(classes) ? classes : classes.split(' ');
-        return array
-            .filter(c => c != null)
-            .map(c => c.trim())
-            .filter(c => c !== '');
-    }
-    return [];
-};
-const getClassMap = (classes) => {
-    const map = {};
-    getClassList(classes).forEach(c => map[c] = true);
-    return map;
-};
-const SCHEME = /^[a-z][a-z0-9+\-.]*:/;
-const openURL = async (url, ev, direction) => {
-    if (url != null && url[0] !== '#' && !SCHEME.test(url)) {
-        const router = document.querySelector('ion-router');
-        if (router) {
-            if (ev != null) {
-                ev.preventDefault();
-            }
-            return router.push(url, direction);
-        }
-    }
-    return false;
-};
+}
+RouterLink.style = routerLinkCss;
 
 
 

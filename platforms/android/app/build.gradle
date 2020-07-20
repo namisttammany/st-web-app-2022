@@ -98,8 +98,8 @@ ext {
 }
 
 // PLUGIN GRADLE EXTENSIONS START
-apply from: "../cordova-support-google-services/base-build.gradle"
-apply from: "../cordova-plugin-fcm-with-dependecy-updated/base-FCMPlugin.gradle"
+apply from: "../cordova-plugin-fcm-with-dependecy-updated/ga-FCMPlugin.gradle"
+apply from: "../cordova-support-google-services/ga-build.gradle"
 // PLUGIN GRADLE EXTENSIONS END
 
 def hasBuildExtras1 = file('build-extras.gradle').exists()
@@ -296,16 +296,16 @@ dependencies {
     // SUB-PROJECT DEPENDENCIES START
     implementation(project(path: ":CordovaLib"))
     implementation "com.squareup.okhttp3:okhttp-urlconnection:3.10.0"
+    implementation "com.google.firebase:firebase-core:16.0.9"
+    implementation "com.google.firebase:firebase-messaging:18.0.0"
     implementation "com.google.firebase:firebase-analytics:17.2.+"
+    implementation "com.google.firebase:firebase-messaging:20.1.+"
+    implementation "androidx.core:core:1.0.+"
+    implementation "me.leolin:ShortcutBadger:1.1.22@aar"
     implementation "com.google.android.gms:play-services-auth:15.0.1"
     implementation "com.google.android.gms:play-services-identity:15.0.1"
     implementation "androidx.annotation:annotation:1.0.0"
     implementation "com.squareup.okhttp3:okhttp:1.2.3"
-    implementation "com.google.firebase:firebase-core:16.0.9"
-    implementation "com.google.firebase:firebase-messaging:18.0.0"
-    implementation "com.google.firebase:firebase-messaging:20.1.+"
-    implementation "androidx.core:core:1.0.+"
-    implementation "me.leolin:ShortcutBadger:1.1.22@aar"
     // SUB-PROJECT DEPENDENCIES END
 }
 

@@ -6,14 +6,14 @@ export const environment = {
   production: false,
   googleWebClientId: '286425454623-3leqmjh55paiq73ap5rjfcu41c7ap13g.apps.googleusercontent.com',
   firebase: {
-    apiKey: "AIzaSyCjrWJCXYXRo24uPuv9ufvYtsPApMKWhNY",
-    authDomain: "nami-sttammany-30439.firebaseapp.com",
-    databaseURL: "https://nami-sttammany-30439.firebaseio.com",
-    projectId: "nami-sttammany-30439",
-    storageBucket: "nami-sttammany-30439.appspot.com",
-    messagingSenderId: "286425454623",
-    appId: "1:286425454623:web:c9f2a84b21ad3a04",
-    measurementId: "G-NKSM711X5Y"
+    apiKey: "AIzaSyAktZ9RG_4Cc5EKUNo1EBPIciSUjsqryAs",
+    authDomain: "nami-georgia.firebaseapp.com",
+    databaseURL: "https://nami-georgia.firebaseio.com",
+    projectId: "nami-georgia",
+    storageBucket: "nami-georgia.appspot.com",
+    messagingSenderId: "1055371007594",
+    appId: "1:1055371007594:web:d63d50c2c081ce503b5c13",
+    measurementId: "G-RR9FY64B3W"
 
   }
 };

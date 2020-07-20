@@ -222,9 +222,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     /*! @ionic-native/firebase-analytics/ngx */
     "./node_modules/@ionic-native/firebase-analytics/ngx/index.js");
 
-    var AboutPage =
-    /*#__PURE__*/
-    function () {
+    var AboutPage = /*#__PURE__*/function () {
       function AboutPage(firebaseAnalytics) {
         _classCallCheck(this, AboutPage);
 
@@ -254,10 +252,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       selector: 'app-about',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./about.page.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/about/about.page.html")).default,
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/about/about.page.html"))["default"],
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./about.page.scss */
-      "./src/app/about/about.page.scss")).default]
+      "./src/app/about/about.page.scss"))["default"]]
     }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_firebase_analytics_ngx__WEBPACK_IMPORTED_MODULE_2__["FirebaseAnalytics"]])], AboutPage);
     /***/
   }

@@ -428,6 +428,22 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-globalization.GlobalizationError",
+      "file": "plugins/cordova-plugin-globalization/www/GlobalizationError.js",
+      "pluginId": "cordova-plugin-globalization",
+      "clobbers": [
+        "window.GlobalizationError"
+      ]
+    },
+    {
+      "id": "cordova-plugin-globalization.globalization",
+      "file": "plugins/cordova-plugin-globalization/www/globalization.js",
+      "pluginId": "cordova-plugin-globalization",
+      "clobbers": [
+        "navigator.globalization"
+      ]
+    },
+    {
       "id": "cordova-plugin-googleplus.GooglePlus",
       "file": "plugins/cordova-plugin-googleplus/www/GooglePlus.js",
       "pluginId": "cordova-plugin-googleplus",
@@ -532,22 +548,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "merges": [
         "launchnavigator"
       ]
-    },
-    {
-      "id": "cordova-plugin-globalization.GlobalizationError",
-      "file": "plugins/cordova-plugin-globalization/www/GlobalizationError.js",
-      "pluginId": "cordova-plugin-globalization",
-      "clobbers": [
-        "window.GlobalizationError"
-      ]
-    },
-    {
-      "id": "cordova-plugin-globalization.globalization",
-      "file": "plugins/cordova-plugin-globalization/www/globalization.js",
-      "pluginId": "cordova-plugin-globalization",
-      "clobbers": [
-        "navigator.globalization"
-      ]
     }
   ];
   module.exports.metadata = {
@@ -563,6 +563,7 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-firebase-analytics": "4.0.1",
     "cordova-plugin-firebase-messaging": "4.0.2",
     "cordova-plugin-geolocation": "4.0.2",
+    "cordova-plugin-globalization": "1.11.0",
     "cordova-plugin-googleplus": "8.4.0",
     "cordova-plugin-inappbrowser": "3.2.0",
     "cordova-plugin-ionic-keyboard": "2.2.0",
@@ -574,7 +575,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-whitelist": "1.3.3",
     "cordova-support-android-plugin": "1.0.1",
     "cordova-support-google-services": "1.3.2",
-    "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.4",
-    "cordova-plugin-globalization": "1.11.0"
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.4"
   };
 });

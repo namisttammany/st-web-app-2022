@@ -476,7 +476,7 @@ let HomePage = class HomePage {
         let website = resource.Website;
         let email = resource.EmailAddress;
         let sms = name + '\n' + phone + '\n' + website + '\n' + email;
-        this.shareOneResourceString = sms + '\n' + "This information is provided by NAMI St. Tammany.  For more behavioral health information call us at 985-626-6528, or www.namisttammany.org or www.facebook.com/namisttammany" + '\n';
+        this.shareOneResourceString = sms + '\n' + "This information is provided by NAMI Georgia. Please visit https://www.namiga.org." + '\n';
         var data = { message: this.shareOneResourceString };
         this.openModal(data).then(() => {
             this.router.navigate(['/home']);
@@ -499,7 +499,7 @@ let HomePage = class HomePage {
             console.log(this.shareSelectedString);
         }
         console.log('exited for loop');
-        this.shareSelectedString = this.shareSelectedString + '\n' + "This information is provided by NAMI St. Tammany.  For more behavioral health information call us at 985-626-6528, or www.namisttammany.org or www.facebook.com/namisttammany" + '\n';
+        this.shareSelectedString = this.shareSelectedString + '\n' + "This information is provided by NAMI Georgia. Please visit https://www.namiga.org." + '\n';
         var data = { message: this.shareSelectedString };
         this.openModal(data).then(() => {
             // this.firebaseAnalytics.logEvent('share', {resources_shared: this.shareSelectedString})

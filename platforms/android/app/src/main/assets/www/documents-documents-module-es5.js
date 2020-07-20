@@ -263,9 +263,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     // import { FileOpener } from '@ionic-native/file-opener';
 
 
-    var DocumentsPage =
-    /*#__PURE__*/
-    function () {
+    var DocumentsPage = /*#__PURE__*/function () {
       function DocumentsPage( // private file: File,
       // private transfer: FileTransfer,
       inAppBrowser, documentsProvider, modalController, platform, // private fileOpener: FileOpener,
@@ -328,9 +326,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "showToast",
         value: function showToast(msg) {
-          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-          /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
             var toast;
             return regeneratorRuntime.wrap(function _callee$(_context) {
               while (1) {
@@ -357,9 +353,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       }, {
         key: "openModal",
         value: function openModal(data) {
-          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0,
-          /*#__PURE__*/
-          regeneratorRuntime.mark(function _callee2() {
+          return tslib__WEBPACK_IMPORTED_MODULE_0__["__awaiter"](this, void 0, void 0, /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
             var _this3 = this;
 
             var modal;
@@ -500,16 +494,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     };
 
     tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["ViewChild"])(_ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonContent"], {
-      static: false
+      "static": false
     }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:type", _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["IonContent"])], DocumentsPage.prototype, "content", void 0);
     DocumentsPage = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
       selector: 'app-documents',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./documents.page.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/documents/documents.page.html")).default,
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/documents/documents.page.html"))["default"],
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./documents.page.scss */
-      "./src/app/documents/documents.page.scss")).default]
+      "./src/app/documents/documents.page.scss"))["default"]]
     }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_native_in_app_browser_ngx__WEBPACK_IMPORTED_MODULE_6__["InAppBrowser"], _services_documents_service__WEBPACK_IMPORTED_MODULE_2__["DocumentsService"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ModalController"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["Platform"], _angular_core__WEBPACK_IMPORTED_MODULE_1__["NgZone"], _ionic_angular__WEBPACK_IMPORTED_MODULE_3__["ToastController"], _ionic_native_firebase_analytics_ngx__WEBPACK_IMPORTED_MODULE_7__["FirebaseAnalytics"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_8__["TranslateService"]])], DocumentsPage);
     /***/
   },
@@ -559,9 +553,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/@angular/fire/database/es2015/index.js"); // import { AngularFireStorage } from '@angular/fire/storage';
 
 
-    var DocumentsService =
-    /*#__PURE__*/
-    function () {
+    var DocumentsService = /*#__PURE__*/function () {
       function DocumentsService(http, db) {
         _classCallCheck(this, DocumentsService);
 

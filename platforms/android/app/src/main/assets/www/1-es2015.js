@@ -1,2078 +1,281 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[1],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/core-ca0488fc.js":
-/*!************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/core-ca0488fc.js ***!
-  \************************************************************/
-/*! exports provided: H, a, b, c, d, e, f, g, h, i, j, p, r, w */
+/***/ "./node_modules/@ionic/core/dist/esm/ion-action-sheet-md.entry.js":
+/*!************************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-action-sheet-md.entry.js ***!
+  \************************************************************************/
+/*! exports provided: ion_action_sheet */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "H", function() { return Host; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return patchEsm; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "b", function() { return bootstrapLazy; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "c", function() { return createEvent; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "d", function() { return getIonMode; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "e", function() { return getElement; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "f", function() { return readTask; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "g", function() { return globals; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "h", function() { return h; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "i", function() { return getAssetPath; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "j", function() { return getMode; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "p", function() { return patchBrowser; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "r", function() { return registerInstance; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "w", function() { return writeTask; });
-/* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_action_sheet", function() { return ActionSheet; });
+/* harmony import */ var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index-29df6f59.js */ "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
+/* harmony import */ var _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./ionic-global-08f4fb8a.js */ "./node_modules/@ionic/core/dist/esm/ionic-global-08f4fb8a.js");
+/* harmony import */ var _helpers_5c745fbd_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./helpers-5c745fbd.js */ "./node_modules/@ionic/core/dist/esm/helpers-5c745fbd.js");
+/* harmony import */ var _animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./animation-a635a2fc.js */ "./node_modules/@ionic/core/dist/esm/animation-a635a2fc.js");
+/* harmony import */ var _gesture_controller_89173521_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./gesture-controller-89173521.js */ "./node_modules/@ionic/core/dist/esm/gesture-controller-89173521.js");
+/* harmony import */ var _index_eea61379_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./index-eea61379.js */ "./node_modules/@ionic/core/dist/esm/index-eea61379.js");
+/* harmony import */ var _hardware_back_button_7b6ede21_js__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./hardware-back-button-7b6ede21.js */ "./node_modules/@ionic/core/dist/esm/hardware-back-button-7b6ede21.js");
+/* harmony import */ var _overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./overlays-7369bfcc.js */ "./node_modules/@ionic/core/dist/esm/overlays-7369bfcc.js");
+/* harmony import */ var _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./haptic-7b8ba70a.js */ "./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js");
+/* harmony import */ var _button_active_4b76b5c3_js__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./button-active-4b76b5c3.js */ "./node_modules/@ionic/core/dist/esm/button-active-4b76b5c3.js");
+/* harmony import */ var _theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./theme-3f0b0c04.js */ "./node_modules/@ionic/core/dist/esm/theme-3f0b0c04.js");
 
 
-const NAMESPACE = 'ionic';
 
-let queueCongestion = 0;
-let queuePending = false;
-let scopeId;
-let contentRef;
-let hostTagName;
-let useNativeShadowDom = false;
-let checkSlotFallbackVisibility = false;
-let checkSlotRelocate = false;
-let isSvgMode = false;
-const win = window;
-const doc = document;
-const plt = {
-    $flags$: 0,
-    $resourcesUrl$: '',
-    jmp: (h) => h(),
-    raf: (h) => requestAnimationFrame(h),
-    ael: (el, eventName, listener, opts) => el.addEventListener(eventName, listener, opts),
-    rel: (el, eventName, listener, opts) => el.removeEventListener(eventName, listener, opts),
-};
-const supportsShadowDom =  /*@__PURE__*/ (() => !!doc.documentElement.attachShadow)() ;
-const supportsListenerOptions = /*@__PURE__*/ (() => {
-    let supportsListenerOptions = false;
-    try {
-        doc.addEventListener('e', null, Object.defineProperty({}, 'passive', {
-            get() { supportsListenerOptions = true; }
-        }));
-    }
-    catch (e) { }
-    return supportsListenerOptions;
-})();
-const supportsConstructibleStylesheets =  /*@__PURE__*/ (() => {
-    try {
-        new CSSStyleSheet();
-        return true;
-    }
-    catch (e) { }
-    return false;
-})() ;
-const hostRefs = new WeakMap();
-const getHostRef = (ref) => hostRefs.get(ref);
-const registerInstance = (lazyInstance, hostRef) => hostRefs.set(hostRef.$lazyInstance$ = lazyInstance, hostRef);
-const registerHost = (elm) => {
-    const hostRef = {
-        $flags$: 0,
-        $hostElement$: elm,
-        $instanceValues$: new Map()
-    };
-    {
-        hostRef.$onInstancePromise$ = new Promise(r => hostRef.$onInstanceResolve$ = r);
-    }
-    {
-        hostRef.$onReadyPromise$ = new Promise(r => hostRef.$onReadyResolve$ = r);
-        elm['s-p'] = [];
-        elm['s-rc'] = [];
-    }
-    return hostRefs.set(elm, hostRef);
-};
-const isMemberInElement = (elm, memberName) => memberName in elm;
-const consoleError = (e) => console.error(e);
-const moduleCache = /*@__PURE__*/ new Map();
-const loadModule = (cmpMeta, hostRef, hmrVersionId) => {
-    // loadModuleImport
-    const exportName = cmpMeta.$tagName$.replace(/-/g, '_');
-    const bundleId = (( typeof cmpMeta.$lazyBundleIds$ !== 'string')
-        ? cmpMeta.$lazyBundleIds$[hostRef.$modeName$]
-        : cmpMeta.$lazyBundleIds$);
-    const module =  moduleCache.get(bundleId) ;
-    if (module) {
-        return module[exportName];
-    }
-    return __webpack_require__("./node_modules/@ionic/core/dist/esm lazy recursive ^\\.\\/.*\\.entry\\.js$ include: \\.entry\\.js$ exclude: \\.system\\.entry\\.js$")(`./${bundleId}.entry.js`).then(importedModule => {
-        {
-            moduleCache.set(bundleId, importedModule);
-        }
-        return importedModule[exportName];
-    }, consoleError);
-};
-const styles = new Map();
-const queueDomReads = [];
-const queueDomWrites = [];
-const queueDomWritesLow = [];
-const queueTask = (queue, write) => (cb) => {
-    queue.push(cb);
-    if (!queuePending) {
-        queuePending = true;
-        if (write && plt.$flags$ & 4 /* queueSync */) {
-            nextTick(flush);
-        }
-        else {
-            plt.raf(flush);
-        }
-    }
-};
-const consume = (queue) => {
-    for (let i = 0; i < queue.length; i++) {
-        try {
-            queue[i](performance.now());
-        }
-        catch (e) {
-            consoleError(e);
-        }
-    }
-    queue.length = 0;
-};
-const consumeTimeout = (queue, timeout) => {
-    let i = 0;
-    let ts = 0;
-    while (i < queue.length && (ts = performance.now()) < timeout) {
-        try {
-            queue[i++](ts);
-        }
-        catch (e) {
-            consoleError(e);
-        }
-    }
-    if (i === queue.length) {
-        queue.length = 0;
-    }
-    else if (i !== 0) {
-        queue.splice(0, i);
-    }
-};
-const flush = () => {
-    queueCongestion++;
-    // always force a bunch of medium callbacks to run, but still have
-    // a throttle on how many can run in a certain time
-    // DOM READS!!!
-    consume(queueDomReads);
-    const timeout = (plt.$flags$ & 6 /* queueMask */) === 2 /* appLoaded */
-        ? performance.now() + (10 * Math.ceil(queueCongestion * (1.0 / 22.0)))
-        : Infinity;
-    // DOM WRITES!!!
-    consumeTimeout(queueDomWrites, timeout);
-    consumeTimeout(queueDomWritesLow, timeout);
-    if (queueDomWrites.length > 0) {
-        queueDomWritesLow.push(...queueDomWrites);
-        queueDomWrites.length = 0;
-    }
-    if (queuePending = ((queueDomReads.length + queueDomWrites.length + queueDomWritesLow.length) > 0)) {
-        // still more to do yet, but we've run out of time
-        // let's let this thing cool off and try again in the next tick
-        plt.raf(flush);
-    }
-    else {
-        queueCongestion = 0;
-    }
-};
-const nextTick = /*@__PURE__*/ (cb) => Promise.resolve().then(cb);
-const readTask = /*@__PURE__*/ queueTask(queueDomReads, false);
-const writeTask = /*@__PURE__*/ queueTask(queueDomWrites, true);
+
+
+
+
+
+
+
+
+
 /**
- * Default style mode id
+ * iOS Action Sheet Enter Animation
  */
+const iosEnterAnimation = (baseEl) => {
+    const baseAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const backdropAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const wrapperAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    backdropAnimation
+        .addElement(baseEl.querySelector('ion-backdrop'))
+        .fromTo('opacity', 0.01, 'var(--backdrop-opacity)')
+        .beforeStyles({
+        'pointer-events': 'none'
+    })
+        .afterClearStyles(['pointer-events']);
+    wrapperAnimation
+        .addElement(baseEl.querySelector('.action-sheet-wrapper'))
+        .fromTo('transform', 'translateY(100%)', 'translateY(0%)');
+    return baseAnimation
+        .addElement(baseEl)
+        .easing('cubic-bezier(.36,.66,.04,1)')
+        .duration(400)
+        .addAnimation([backdropAnimation, wrapperAnimation]);
+};
+
 /**
- * Reusable empty obj/array
- * Don't add values to these!!
+ * iOS Action Sheet Leave Animation
  */
-const EMPTY_OBJ = {};
+const iosLeaveAnimation = (baseEl) => {
+    const baseAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const backdropAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const wrapperAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    backdropAnimation
+        .addElement(baseEl.querySelector('ion-backdrop'))
+        .fromTo('opacity', 'var(--backdrop-opacity)', 0);
+    wrapperAnimation
+        .addElement(baseEl.querySelector('.action-sheet-wrapper'))
+        .fromTo('transform', 'translateY(0%)', 'translateY(100%)');
+    return baseAnimation
+        .addElement(baseEl)
+        .easing('cubic-bezier(.36,.66,.04,1)')
+        .duration(450)
+        .addAnimation([backdropAnimation, wrapperAnimation]);
+};
+
 /**
- * Namespaces
+ * MD Action Sheet Enter Animation
  */
-const SVG_NS = 'http://www.w3.org/2000/svg';
-const HTML_NS = 'http://www.w3.org/1999/xhtml';
-const isDef = (v) => v != null;
-const isComplexType = (o) => {
-    // https://jsperf.com/typeof-fn-object/5
-    o = typeof o;
-    return o === 'object' || o === 'function';
+const mdEnterAnimation = (baseEl) => {
+    const baseAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const backdropAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const wrapperAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    backdropAnimation
+        .addElement(baseEl.querySelector('ion-backdrop'))
+        .fromTo('opacity', 0.01, 'var(--backdrop-opacity)')
+        .beforeStyles({
+        'pointer-events': 'none'
+    })
+        .afterClearStyles(['pointer-events']);
+    wrapperAnimation
+        .addElement(baseEl.querySelector('.action-sheet-wrapper'))
+        .fromTo('transform', 'translateY(100%)', 'translateY(0%)');
+    return baseAnimation
+        .addElement(baseEl)
+        .easing('cubic-bezier(.36,.66,.04,1)')
+        .duration(400)
+        .addAnimation([backdropAnimation, wrapperAnimation]);
 };
-const getDynamicImportFunction = (namespace) => {
-    return `__sc_import_${namespace.replace(/\s|-/g, '_')}`;
-};
-const patchEsm = () => {
-    // @ts-ignore
-    if ( !(win.CSS && win.CSS.supports && win.CSS.supports('color', 'var(--c)'))) {
-        // @ts-ignore
-        return __webpack_require__.e(/*! import() | css-shim-206ea950-3169f23e-js */ "css-shim-206ea950-3169f23e-js").then(__webpack_require__.t.bind(null, /*! ./css-shim-206ea950-3169f23e.js */ "./node_modules/@ionic/core/dist/esm/css-shim-206ea950-3169f23e.js", 7)).then(() => {
-            plt.$cssShim$ = win.__stencil_cssshim;
-            if (plt.$cssShim$) {
-                return plt.$cssShim$.initShim();
-            }
-        });
-    }
-    return Promise.resolve();
-};
-const patchBrowser = async () => {
-    {
-        plt.$cssShim$ = win.__stencil_cssshim;
-    }
-    // @ts-ignore
-    const importMeta = "";
-    const regex = new RegExp(`\/${NAMESPACE}(\\.esm)?\\.js($|\\?|#)`);
-    const scriptElm = Array.from(doc.querySelectorAll('script')).find(s => (regex.test(s.src) ||
-        s.getAttribute('data-stencil-namespace') === NAMESPACE));
-    const opts = scriptElm['data-opts'];
-    if (importMeta !== '') {
-        return Object.assign(Object.assign({}, opts), { resourcesUrl: new URL('.', importMeta).href });
-    }
-    else {
-        const resourcesUrl = new URL('.', new URL(scriptElm.getAttribute('data-resources-url') || scriptElm.src, win.location.href));
-        patchDynamicImport(resourcesUrl.href);
-        if (!window.customElements) {
-            // @ts-ignore
-            await __webpack_require__.e(/*! import() | dom-96781eef-a2fb04dd-js */ "dom-96781eef-a2fb04dd-js").then(__webpack_require__.t.bind(null, /*! ./dom-96781eef-a2fb04dd.js */ "./node_modules/@ionic/core/dist/esm/dom-96781eef-a2fb04dd.js", 7));
-        }
-        return Object.assign(Object.assign({}, opts), { resourcesUrl: resourcesUrl.href });
-    }
-};
-const patchDynamicImport = (base) => {
-    const importFunctionName = getDynamicImportFunction(NAMESPACE);
-    try {
-        // There is a caching issue in V8, that breaks using import() in Function
-        // By generating a random string, we can workaround it
-        // Check https://bugs.chromium.org/p/v8/issues/detail?id=9558 for more info
-        win[importFunctionName] = new Function('w', `return import(w);//${Math.random()}`);
-    }
-    catch (e) {
-        const moduleMap = new Map();
-        win[importFunctionName] = (src) => {
-            const url = new URL(src, base).href;
-            let mod = moduleMap.get(url);
-            if (!mod) {
-                const script = doc.createElement('script');
-                script.type = 'module';
-                script.src = URL.createObjectURL(new Blob([`import * as m from '${url}'; window.${importFunctionName}.m = m;`], { type: 'application/javascript' }));
-                mod = new Promise(resolve => {
-                    script.onload = () => {
-                        resolve(win[importFunctionName].m);
-                        script.remove();
-                    };
-                });
-                moduleMap.set(url, mod);
-                doc.head.appendChild(script);
-            }
-            return mod;
-        };
-    }
-};
-const parsePropertyValue = (propValue, propType) => {
-    // ensure this value is of the correct prop type
-    if (propValue != null && !isComplexType(propValue)) {
-        if ( propType & 4 /* Boolean */) {
-            // per the HTML spec, any string value means it is a boolean true value
-            // but we'll cheat here and say that the string "false" is the boolean false
-            return (propValue === 'false' ? false : propValue === '' || !!propValue);
-        }
-        if ( propType & 2 /* Number */) {
-            // force it to be a number
-            return parseFloat(propValue);
-        }
-        if ( propType & 1 /* String */) {
-            // could have been passed as a number or boolean
-            // but we still want it as a string
-            return String(propValue);
-        }
-        // redundant return here for better minification
-        return propValue;
-    }
-    // not sure exactly what type we want
-    // so no need to change to a different type
-    return propValue;
-};
-const CONTENT_REF_ID = 'r';
-const ORG_LOCATION_ID = 'o';
-const SLOT_NODE_ID = 's';
-const TEXT_NODE_ID = 't';
-const HYDRATED_CLASS = 'hydrated';
-const HYDRATE_ID = 's-id';
-const HYDRATE_CHILD_ID = 'c-id';
-const XLINK_NS = 'http://www.w3.org/1999/xlink';
-const rootAppliedStyles = new WeakMap();
-const registerStyle = (scopeId, cssText, allowCS) => {
-    let style = styles.get(scopeId);
-    if (supportsConstructibleStylesheets && allowCS) {
-        style = (style || new CSSStyleSheet());
-        style.replace(cssText);
-    }
-    else {
-        style = cssText;
-    }
-    styles.set(scopeId, style);
-};
-const addStyle = (styleContainerNode, cmpMeta, mode, hostElm) => {
-    let scopeId =  getScopeId(cmpMeta.$tagName$, mode) ;
-    let style = styles.get(scopeId);
-    // if an element is NOT connected then getRootNode() will return the wrong root node
-    // so the fallback is to always use the document for the root node in those cases
-    styleContainerNode = (styleContainerNode.nodeType === 11 /* DocumentFragment */ ? styleContainerNode : doc);
-    if ( !style) {
-        scopeId = getScopeId(cmpMeta.$tagName$);
-        style = styles.get(scopeId);
-    }
-    if (style) {
-        if (typeof style === 'string') {
-            styleContainerNode = styleContainerNode.head || styleContainerNode;
-            let appliedStyles = rootAppliedStyles.get(styleContainerNode);
-            let styleElm;
-            if (!appliedStyles) {
-                rootAppliedStyles.set(styleContainerNode, appliedStyles = new Set());
-            }
-            if (!appliedStyles.has(scopeId)) {
-                if ( styleContainerNode.host && (styleElm = styleContainerNode.firstElementChild) && styleElm.tagName === 'STYLE') {
-                    // This is only happening on native shadow-dom, do not needs CSS var shim
-                    styleElm.innerHTML = style;
-                }
-                else {
-                    if ( plt.$cssShim$) {
-                        styleElm = plt.$cssShim$.createHostStyle(hostElm, scopeId, style, !!(cmpMeta.$flags$ & 10 /* needsScopedEncapsulation */));
-                        const newScopeId = styleElm['s-sc'];
-                        if (newScopeId) {
-                            scopeId = newScopeId;
-                            // we don't want to add this styleID to the appliedStyles Set
-                            // since the cssVarShim might need to apply several different
-                            // stylesheets for the same component
-                            appliedStyles = null;
-                        }
-                    }
-                    else {
-                        styleElm = doc.createElement('style');
-                        styleElm.setAttribute('data-styles', '');
-                        styleElm.innerHTML = style;
-                    }
-                    styleContainerNode.insertBefore(styleElm, styleContainerNode.querySelector('link'));
-                }
-                if (appliedStyles) {
-                    appliedStyles.add(scopeId);
-                }
-            }
-        }
-        else if ( !styleContainerNode.adoptedStyleSheets.includes(style)) {
-            styleContainerNode.adoptedStyleSheets = [
-                ...styleContainerNode.adoptedStyleSheets,
-                style
-            ];
-        }
-    }
-    return scopeId;
-};
-const attachStyles = (elm, cmpMeta, mode) => {
-    const scopeId = addStyle(( supportsShadowDom && elm.shadowRoot)
-        ? elm.shadowRoot
-        : elm.getRootNode(), cmpMeta, mode, elm);
-    if ( cmpMeta.$flags$ & 10 /* needsScopedEncapsulation */) {
-        // only required when we're NOT using native shadow dom (slot)
-        // or this browser doesn't support native shadow dom
-        // and this host element was NOT created with SSR
-        // let's pick out the inner content for slot projection
-        // create a node to represent where the original
-        // content was first placed, which is useful later on
-        // DOM WRITE!!
-        elm['s-sc'] = scopeId;
-        elm.classList.add(scopeId + '-h');
-        if ( cmpMeta.$flags$ & 2 /* scopedCssEncapsulation */) {
-            elm.classList.add(scopeId + '-s');
-        }
-    }
-};
-const getScopeId = (tagName, mode) => 'sc-' + (( mode) ? tagName + '-' + mode : tagName);
-const convertScopedToShadow = (css) => css.replace(/\/\*!@([^\/]+)\*\/[^\{]+\{/g, '$1{');
+
 /**
- * Production h() function based on Preact by
- * Jason Miller (@developit)
- * Licensed under the MIT License
- * https://github.com/developit/preact/blob/master/LICENSE
- *
- * Modified for Stencil's compiler and vdom
+ * MD Action Sheet Leave Animation
  */
-// const stack: any[] = [];
-// export function h(nodeName: string | d.FunctionalComponent, vnodeData: d.PropsType, child?: d.ChildType): d.VNode;
-// export function h(nodeName: string | d.FunctionalComponent, vnodeData: d.PropsType, ...children: d.ChildType[]): d.VNode;
-const h = (nodeName, vnodeData, ...children) => {
-    let child = null;
-    let key = null;
-    let slotName = null;
-    let simple = false;
-    let lastSimple = false;
-    let vNodeChildren = [];
-    const walk = (c) => {
-        for (let i = 0; i < c.length; i++) {
-            child = c[i];
-            if (Array.isArray(child)) {
-                walk(child);
-            }
-            else if (child != null && typeof child !== 'boolean') {
-                if (simple = typeof nodeName !== 'function' && !isComplexType(child)) {
-                    child = String(child);
-                }
-                if (simple && lastSimple) {
-                    // If the previous child was simple (string), we merge both
-                    vNodeChildren[vNodeChildren.length - 1].$text$ += child;
-                }
-                else {
-                    // Append a new vNode, if it's text, we create a text vNode
-                    vNodeChildren.push(simple ? newVNode(null, child) : child);
-                }
-                lastSimple = simple;
-            }
-        }
-    };
-    walk(children);
-    if (vnodeData) {
-        // normalize class / classname attributes
-        if ( vnodeData.key) {
-            key = vnodeData.key;
-        }
-        if ( vnodeData.name) {
-            slotName = vnodeData.name;
-        }
-        {
-            const classData = vnodeData.className || vnodeData.class;
-            if (classData) {
-                vnodeData.class = typeof classData !== 'object'
-                    ? classData
-                    : Object.keys(classData)
-                        .filter(k => classData[k])
-                        .join(' ');
-            }
-        }
-    }
-    if ( typeof nodeName === 'function') {
-        // nodeName is a functional component
-        return nodeName(vnodeData, vNodeChildren, vdomFnUtils);
-    }
-    const vnode = newVNode(nodeName, null);
-    vnode.$attrs$ = vnodeData;
-    if (vNodeChildren.length > 0) {
-        vnode.$children$ = vNodeChildren;
-    }
-    {
-        vnode.$key$ = key;
-    }
-    {
-        vnode.$name$ = slotName;
-    }
-    return vnode;
+const mdLeaveAnimation = (baseEl) => {
+    const baseAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const backdropAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    const wrapperAnimation = Object(_animation_a635a2fc_js__WEBPACK_IMPORTED_MODULE_3__["c"])();
+    backdropAnimation
+        .addElement(baseEl.querySelector('ion-backdrop'))
+        .fromTo('opacity', 'var(--backdrop-opacity)', 0);
+    wrapperAnimation
+        .addElement(baseEl.querySelector('.action-sheet-wrapper'))
+        .fromTo('transform', 'translateY(0%)', 'translateY(100%)');
+    return baseAnimation
+        .addElement(baseEl)
+        .easing('cubic-bezier(.36,.66,.04,1)')
+        .duration(450)
+        .addAnimation([backdropAnimation, wrapperAnimation]);
 };
-const newVNode = (tag, text) => {
-    const vnode = {
-        $flags$: 0,
-        $tag$: tag,
-        $text$: text,
-        $elm$: null,
-        $children$: null
-    };
-    {
-        vnode.$attrs$ = null;
-    }
-    {
-        vnode.$key$ = null;
-    }
-    {
-        vnode.$name$ = null;
-    }
-    return vnode;
-};
-const Host = {};
-const isHost = (node) => {
-    return node && node.$tag$ === Host;
-};
-const vdomFnUtils = {
-    'forEach': (children, cb) => children.map(convertToPublic).forEach(cb),
-    'map': (children, cb) => children.map(convertToPublic).map(cb).map(convertToPrivate)
-};
-const convertToPublic = (node) => {
-    return {
-        vattrs: node.$attrs$,
-        vchildren: node.$children$,
-        vkey: node.$key$,
-        vname: node.$name$,
-        vtag: node.$tag$,
-        vtext: node.$text$
-    };
-};
-const convertToPrivate = (node) => {
-    const vnode = newVNode(node.vtag, node.vtext);
-    vnode.$attrs$ = node.vattrs;
-    vnode.$children$ = node.vchildren;
-    vnode.$key$ = node.vkey;
-    vnode.$name$ = node.vname;
-    return vnode;
-};
+
+const actionSheetIosCss = ".sc-ion-action-sheet-ios-h{--color:initial;--button-color-activated:var(--button-color);--button-color-focused:var(--button-color);--button-color-hover:var(--button-color);--button-color-selected:var(--button-color);--min-width:auto;--width:100%;--max-width:500px;--min-height:auto;--height:100%;--max-height:calc(100% - (var(--ion-safe-area-top) + var(--ion-safe-area-bottom)));-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;left:0;right:0;top:0;bottom:0;display:block;position:fixed;outline:none;font-family:var(--ion-font-family, inherit);-ms-touch-action:none;touch-action:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:1001}.overlay-hidden.sc-ion-action-sheet-ios-h{display:none}.action-sheet-wrapper.sc-ion-action-sheet-ios{left:0;right:0;bottom:0;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto;-webkit-transform:translate3d(0,  100%,  0);transform:translate3d(0,  100%,  0);display:block;position:absolute;width:var(--width);min-width:var(--min-width);max-width:var(--max-width);height:var(--height);min-height:var(--min-height);max-height:var(--max-height);z-index:10;pointer-events:none}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-wrapper.sc-ion-action-sheet-ios{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}.action-sheet-button.sc-ion-action-sheet-ios{display:block;position:relative;width:100%;border:0;outline:none;background:var(--button-background);color:var(--button-color);font-family:inherit;overflow:hidden}.action-sheet-button-inner.sc-ion-action-sheet-ios{display:-ms-flexbox;display:flex;position:relative;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-ms-flex-negative:0;flex-shrink:0;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;pointer-events:none;width:100%;height:100%;z-index:1}.action-sheet-container.sc-ion-action-sheet-ios{display:-ms-flexbox;display:flex;-ms-flex-flow:column;flex-flow:column;-ms-flex-pack:end;justify-content:flex-end;height:100%;max-height:100%}.action-sheet-group.sc-ion-action-sheet-ios{-ms-flex-negative:2;flex-shrink:2;overscroll-behavior-y:contain;overflow-y:auto;-webkit-overflow-scrolling:touch;pointer-events:all;background:var(--background)}.action-sheet-group.sc-ion-action-sheet-ios::-webkit-scrollbar{display:none}.action-sheet-group-cancel.sc-ion-action-sheet-ios{-ms-flex-negative:0;flex-shrink:0;overflow:hidden}.action-sheet-button.sc-ion-action-sheet-ios::after{left:0;right:0;top:0;bottom:0;position:absolute;content:\"\";opacity:0}.action-sheet-selected.sc-ion-action-sheet-ios{color:var(--button-color-selected)}.action-sheet-selected.sc-ion-action-sheet-ios::after{background:var(--button-background-selected);opacity:var(--button-background-selected-opacity)}.action-sheet-button.ion-activated.sc-ion-action-sheet-ios{color:var(--button-color-activated)}.action-sheet-button.ion-activated.sc-ion-action-sheet-ios::after{background:var(--button-background-activated);opacity:var(--button-background-activated-opacity)}.action-sheet-button.ion-focused.sc-ion-action-sheet-ios{color:var(--button-color-focused)}.action-sheet-button.ion-focused.sc-ion-action-sheet-ios::after{background:var(--button-background-focused);opacity:var(--button-background-focused-opacity)}@media (any-hover: hover){.action-sheet-button.sc-ion-action-sheet-ios:hover{color:var(--button-color-hover)}.action-sheet-button.sc-ion-action-sheet-ios:hover::after{background:var(--button-background-hover);opacity:var(--button-background-hover-opacity)}}.sc-ion-action-sheet-ios-h{--background:var(--ion-overlay-background-color, var(--ion-color-step-100, #f9f9f9));--backdrop-opacity:var(--ion-backdrop-opacity, 0.4);--button-background:linear-gradient(0deg, rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.08), rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.08) 50%, transparent 50%) bottom/100% 1px no-repeat transparent;--button-background-activated:var(--ion-text-color, #000);--button-background-activated-opacity:.08;--button-background-hover:currentColor;--button-background-hover-opacity:.04;--button-background-focused:currentColor;--button-background-focused-opacity:.12;--button-background-selected:var(--ion-color-step-150, var(--ion-background-color, #fff));--button-background-selected-opacity:1;--button-color:var(--ion-color-primary, #3880ff);--color:var(--ion-color-step-400, #999999);text-align:center}.action-sheet-wrapper.sc-ion-action-sheet-ios{margin-left:auto;margin-right:auto;margin-top:var(--ion-safe-area-top, 0);margin-bottom:var(--ion-safe-area-bottom, 0)}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-wrapper.sc-ion-action-sheet-ios{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}.action-sheet-container.sc-ion-action-sheet-ios{padding-left:8px;padding-right:8px;padding-top:0;padding-bottom:0}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-container.sc-ion-action-sheet-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:8px;padding-inline-start:8px;-webkit-padding-end:8px;padding-inline-end:8px}}.action-sheet-group.sc-ion-action-sheet-ios{border-radius:13px;margin-bottom:8px}.action-sheet-group.sc-ion-action-sheet-ios:first-child{margin-top:10px}.action-sheet-group.sc-ion-action-sheet-ios:last-child{margin-bottom:10px}@supports ((-webkit-backdrop-filter: blur(0)) or (backdrop-filter: blur(0))){.action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-group.sc-ion-action-sheet-ios{background-color:transparent;-webkit-backdrop-filter:saturate(280%) blur(20px);backdrop-filter:saturate(280%) blur(20px)}.action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-title.sc-ion-action-sheet-ios,.action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-button.sc-ion-action-sheet-ios{background-color:transparent;background-image:-webkit-gradient(linear, left bottom, left top, from(rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.8)), to(rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.8))), -webkit-gradient(linear, left bottom, left top, from(rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.4)), color-stop(50%, rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.4)), color-stop(50%, rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.8)));background-image:linear-gradient(0deg, rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.8), rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.8) 100%), linear-gradient(0deg, rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.4), rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.4) 50%, rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.8) 50%);background-repeat:no-repeat;background-position:top, bottom;background-size:100% calc(100% - 1px), 100% 1px;-webkit-backdrop-filter:saturate(120%);backdrop-filter:saturate(120%)}.action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-button.ion-activated.sc-ion-action-sheet-ios{background-color:rgba(var(--ion-background-color-rgb, 255, 255, 255), 0.7);background-image:none}.action-sheet-translucent.sc-ion-action-sheet-ios-h .action-sheet-cancel.sc-ion-action-sheet-ios{background:var(--button-background-selected)}}.action-sheet-title.sc-ion-action-sheet-ios{background:-webkit-gradient(linear, left bottom, left top, from(rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.08)), color-stop(50%, rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.08)), color-stop(50%, transparent)) bottom/100% 1px no-repeat transparent;background:linear-gradient(0deg, rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.08), rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.08) 50%, transparent 50%) bottom/100% 1px no-repeat transparent}.action-sheet-title.sc-ion-action-sheet-ios{padding-left:10px;padding-right:10px;padding-top:14px;padding-bottom:13px;color:var(--color, var(--ion-color-step-400, #999999));font-size:13px;font-weight:400;text-align:center}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-title.sc-ion-action-sheet-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:10px;padding-inline-start:10px;-webkit-padding-end:10px;padding-inline-end:10px}}.action-sheet-sub-title.sc-ion-action-sheet-ios{padding-left:0;padding-right:0;padding-top:15px;padding-bottom:0;font-size:12px}.action-sheet-button.sc-ion-action-sheet-ios{padding-left:18px;padding-right:18px;padding-top:18px;padding-bottom:18px;height:56px;font-size:20px;contain:strict}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-button.sc-ion-action-sheet-ios{padding-left:unset;padding-right:unset;-webkit-padding-start:18px;padding-inline-start:18px;-webkit-padding-end:18px;padding-inline-end:18px}}.action-sheet-button.sc-ion-action-sheet-ios .action-sheet-icon.sc-ion-action-sheet-ios{margin-right:0.1em;font-size:28px;pointer-events:none}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-button.sc-ion-action-sheet-ios .action-sheet-icon.sc-ion-action-sheet-ios{margin-right:unset;-webkit-margin-end:0.1em;margin-inline-end:0.1em}}.action-sheet-button.sc-ion-action-sheet-ios:last-child{background-image:none}.action-sheet-selected.sc-ion-action-sheet-ios{font-weight:bold}.action-sheet-cancel.sc-ion-action-sheet-ios{font-weight:600}.action-sheet-cancel.sc-ion-action-sheet-ios::after{background:var(--button-background-selected);opacity:var(--button-background-selected-opacity)}.action-sheet-destructive.sc-ion-action-sheet-ios,.action-sheet-destructive.ion-activated.sc-ion-action-sheet-ios,.action-sheet-destructive.ion-focused.sc-ion-action-sheet-ios{color:var(--ion-color-danger, #eb445a)}@media (any-hover: hover){.action-sheet-destructive.sc-ion-action-sheet-ios:hover{color:var(--ion-color-danger, #eb445a)}}";
+
+const actionSheetMdCss = ".sc-ion-action-sheet-md-h{--color:initial;--button-color-activated:var(--button-color);--button-color-focused:var(--button-color);--button-color-hover:var(--button-color);--button-color-selected:var(--button-color);--min-width:auto;--width:100%;--max-width:500px;--min-height:auto;--height:100%;--max-height:calc(100% - (var(--ion-safe-area-top) + var(--ion-safe-area-bottom)));-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;left:0;right:0;top:0;bottom:0;display:block;position:fixed;outline:none;font-family:var(--ion-font-family, inherit);-ms-touch-action:none;touch-action:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:1001}.overlay-hidden.sc-ion-action-sheet-md-h{display:none}.action-sheet-wrapper.sc-ion-action-sheet-md{left:0;right:0;bottom:0;margin-left:auto;margin-right:auto;margin-top:auto;margin-bottom:auto;-webkit-transform:translate3d(0,  100%,  0);transform:translate3d(0,  100%,  0);display:block;position:absolute;width:var(--width);min-width:var(--min-width);max-width:var(--max-width);height:var(--height);min-height:var(--min-height);max-height:var(--max-height);z-index:10;pointer-events:none}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-wrapper.sc-ion-action-sheet-md{margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}.action-sheet-button.sc-ion-action-sheet-md{display:block;position:relative;width:100%;border:0;outline:none;background:var(--button-background);color:var(--button-color);font-family:inherit;overflow:hidden}.action-sheet-button-inner.sc-ion-action-sheet-md{display:-ms-flexbox;display:flex;position:relative;-ms-flex-flow:row nowrap;flex-flow:row nowrap;-ms-flex-negative:0;flex-shrink:0;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;pointer-events:none;width:100%;height:100%;z-index:1}.action-sheet-container.sc-ion-action-sheet-md{display:-ms-flexbox;display:flex;-ms-flex-flow:column;flex-flow:column;-ms-flex-pack:end;justify-content:flex-end;height:100%;max-height:100%}.action-sheet-group.sc-ion-action-sheet-md{-ms-flex-negative:2;flex-shrink:2;overscroll-behavior-y:contain;overflow-y:auto;-webkit-overflow-scrolling:touch;pointer-events:all;background:var(--background)}.action-sheet-group.sc-ion-action-sheet-md::-webkit-scrollbar{display:none}.action-sheet-group-cancel.sc-ion-action-sheet-md{-ms-flex-negative:0;flex-shrink:0;overflow:hidden}.action-sheet-button.sc-ion-action-sheet-md::after{left:0;right:0;top:0;bottom:0;position:absolute;content:\"\";opacity:0}.action-sheet-selected.sc-ion-action-sheet-md{color:var(--button-color-selected)}.action-sheet-selected.sc-ion-action-sheet-md::after{background:var(--button-background-selected);opacity:var(--button-background-selected-opacity)}.action-sheet-button.ion-activated.sc-ion-action-sheet-md{color:var(--button-color-activated)}.action-sheet-button.ion-activated.sc-ion-action-sheet-md::after{background:var(--button-background-activated);opacity:var(--button-background-activated-opacity)}.action-sheet-button.ion-focused.sc-ion-action-sheet-md{color:var(--button-color-focused)}.action-sheet-button.ion-focused.sc-ion-action-sheet-md::after{background:var(--button-background-focused);opacity:var(--button-background-focused-opacity)}@media (any-hover: hover){.action-sheet-button.sc-ion-action-sheet-md:hover{color:var(--button-color-hover)}.action-sheet-button.sc-ion-action-sheet-md:hover::after{background:var(--button-background-hover);opacity:var(--button-background-hover-opacity)}}.sc-ion-action-sheet-md-h{--background:var(--ion-overlay-background-color, var(--ion-background-color, #fff));--backdrop-opacity:var(--ion-backdrop-opacity, 0.32);--button-background:transparent;--button-background-selected:currentColor;--button-background-selected-opacity:0;--button-background-activated:transparent;--button-background-activated-opacity:0;--button-background-hover:currentColor;--button-background-hover-opacity:.04;--button-background-focused:currentColor;--button-background-focused-opacity:.12;--button-color:var(--ion-color-step-850, #262626);--color:rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.54)}.action-sheet-title.sc-ion-action-sheet-md{padding-left:16px;padding-right:16px;padding-top:20px;padding-bottom:17px;height:60px;color:var(--color, rgba(var(--ion-text-color-rgb, 0, 0, 0), 0.54));font-size:16px;text-align:start}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-title.sc-ion-action-sheet-md{padding-left:unset;padding-right:unset;-webkit-padding-start:16px;padding-inline-start:16px;-webkit-padding-end:16px;padding-inline-end:16px}}.action-sheet-sub-title.sc-ion-action-sheet-md{padding-left:0;padding-right:0;padding-top:16px;padding-bottom:0;font-size:14px}.action-sheet-group.sc-ion-action-sheet-md:first-child{padding-top:0}.action-sheet-group.sc-ion-action-sheet-md:last-child{padding-bottom:0}.action-sheet-button.sc-ion-action-sheet-md{padding-left:16px;padding-right:16px;padding-top:0;padding-bottom:0;position:relative;height:52px;font-size:16px;text-align:start;contain:strict;overflow:hidden}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-button.sc-ion-action-sheet-md{padding-left:unset;padding-right:unset;-webkit-padding-start:16px;padding-inline-start:16px;-webkit-padding-end:16px;padding-inline-end:16px}}.action-sheet-icon.sc-ion-action-sheet-md{padding-bottom:4px;margin-left:0;margin-right:32px;margin-top:0;margin-bottom:0;color:var(--color);font-size:24px}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){.action-sheet-icon.sc-ion-action-sheet-md{margin-left:unset;margin-right:unset;-webkit-margin-start:0;margin-inline-start:0;-webkit-margin-end:32px;margin-inline-end:32px}}.action-sheet-button-inner.sc-ion-action-sheet-md{-ms-flex-pack:start;justify-content:flex-start}.action-sheet-selected.sc-ion-action-sheet-md{font-weight:bold}";
+
 /**
- * Production setAccessor() function based on Preact by
- * Jason Miller (@developit)
- * Licensed under the MIT License
- * https://github.com/developit/preact/blob/master/LICENSE
- *
- * Modified for Stencil's compiler and vdom
+ * @virtualProp {"ios" | "md"} mode - The mode determines which platform styles to use.
  */
-const setAccessor = (elm, memberName, oldValue, newValue, isSvg, flags) => {
-    if (oldValue === newValue) {
-        return;
-    }
-    let isProp = isMemberInElement(elm, memberName);
-    let ln = memberName.toLowerCase();
-    if ( memberName === 'class') {
-        const classList = elm.classList;
-        const oldClasses = parseClassList(oldValue);
-        const newClasses = parseClassList(newValue);
-        classList.remove(...oldClasses.filter(c => c && !newClasses.includes(c)));
-        classList.add(...newClasses.filter(c => c && !oldClasses.includes(c)));
-    }
-    else if ( memberName === 'style') {
-        // update style attribute, css properties and values
-        {
-            for (const prop in oldValue) {
-                if (!newValue || newValue[prop] == null) {
-                    if ( prop.includes('-')) {
-                        elm.style.removeProperty(prop);
-                    }
-                    else {
-                        elm.style[prop] = '';
-                    }
-                }
-            }
-        }
-        for (const prop in newValue) {
-            if (!oldValue || newValue[prop] !== oldValue[prop]) {
-                if ( prop.includes('-')) {
-                    elm.style.setProperty(prop, newValue[prop]);
-                }
-                else {
-                    elm.style[prop] = newValue[prop];
-                }
-            }
-        }
-    }
-    else if ( memberName === 'key')
-        ;
-    else if ( memberName === 'ref') {
-        // minifier will clean this up
-        if (newValue) {
-            newValue(elm);
-        }
-    }
-    else if ( !isProp && memberName[0] === 'o' && memberName[1] === 'n') {
-        // Event Handlers
-        // so if the member name starts with "on" and the 3rd characters is
-        // a capital letter, and it's not already a member on the element,
-        // then we're assuming it's an event listener
-        if (memberName[2] === '-') {
-            // on- prefixed events
-            // allows to be explicit about the dom event to listen without any magic
-            // under the hood:
-            // <my-cmp on-click> // listens for "click"
-            // <my-cmp on-Click> // listens for "Click"
-            // <my-cmp on-ionChange> // listens for "ionChange"
-            // <my-cmp on-EVENTS> // listens for "EVENTS"
-            memberName = memberName.slice(3);
-        }
-        else if (isMemberInElement(win, ln)) {
-            // standard event
-            // the JSX attribute could have been "onMouseOver" and the
-            // member name "onmouseover" is on the window's prototype
-            // so let's add the listener "mouseover", which is all lowercased
-            memberName = ln.slice(2);
-        }
-        else {
-            // custom event
-            // the JSX attribute could have been "onMyCustomEvent"
-            // so let's trim off the "on" prefix and lowercase the first character
-            // and add the listener "myCustomEvent"
-            // except for the first character, we keep the event name case
-            memberName = ln[2] + memberName.slice(3);
-        }
-        if (oldValue) {
-            plt.rel(elm, memberName, oldValue, false);
-        }
-        if (newValue) {
-            plt.ael(elm, memberName, newValue, false);
-        }
-    }
-    else {
-        // Set property if it exists and it's not a SVG
-        const isComplex = isComplexType(newValue);
-        if ((isProp || (isComplex && newValue !== null)) && !isSvg) {
-            try {
-                if (!elm.tagName.includes('-')) {
-                    let n = newValue == null ? '' : newValue;
-                    // Workaround for Safari, moving the <input> caret when re-assigning the same valued
-                    // tslint:disable-next-line: triple-equals
-                    if (oldValue == null || elm[memberName] != n) {
-                        elm[memberName] = n;
-                    }
-                }
-                else {
-                    elm[memberName] = newValue;
-                }
-            }
-            catch (e) { }
-        }
+class ActionSheet {
+    constructor(hostRef) {
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.presented = false;
         /**
-         * Need to manually update attribute if:
-         * - memberName is not an attribute
-         * - if we are rendering the host element in order to reflect attribute
-         * - if it's a SVG, since properties might not work in <svg>
-         * - if the newValue is null/undefined or 'false'.
+         * If `true`, the keyboard will be automatically dismissed when the overlay is presented.
          */
-        let xlink = false;
-        {
-            if (ln !== (ln = ln.replace(/^xlink\:?/, ''))) {
-                memberName = ln;
-                xlink = true;
+        this.keyboardClose = true;
+        /**
+         * An array of buttons for the action sheet.
+         */
+        this.buttons = [];
+        /**
+         * If `true`, the action sheet will be dismissed when the backdrop is clicked.
+         */
+        this.backdropDismiss = true;
+        /**
+         * If `true`, the action sheet will be translucent.
+         * Only applies when the mode is `"ios"` and the device supports
+         * [`backdrop-filter`](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter#Browser_compatibility).
+         */
+        this.translucent = false;
+        /**
+         * If `true`, the action sheet will animate.
+         */
+        this.animated = true;
+        this.onBackdropTap = () => {
+            this.dismiss(undefined, _overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["B"]);
+        };
+        this.dispatchCancelHandler = (ev) => {
+            const role = ev.detail.role;
+            if (Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["i"])(role)) {
+                const cancelButton = this.getButtons().find(b => b.role === 'cancel');
+                this.callButtonHandler(cancelButton);
             }
-        }
-        if (newValue == null || newValue === false) {
-            if ( xlink) {
-                elm.removeAttributeNS(XLINK_NS, memberName);
-            }
-            else {
-                elm.removeAttribute(memberName);
-            }
-        }
-        else if ((!isProp || (flags & 4 /* isHost */) || isSvg) && !isComplex) {
-            newValue = newValue === true ? '' : newValue;
-            if ( xlink) {
-                elm.setAttributeNS(XLINK_NS, memberName, newValue);
-            }
-            else {
-                elm.setAttribute(memberName, newValue);
-            }
-        }
+        };
+        Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["d"])(this.el);
+        this.didPresent = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionActionSheetDidPresent", 7);
+        this.willPresent = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionActionSheetWillPresent", 7);
+        this.willDismiss = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionActionSheetWillDismiss", 7);
+        this.didDismiss = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionActionSheetDidDismiss", 7);
     }
-};
-const parseClassListRegex = /\s/;
-const parseClassList = (value) => (!value) ? [] : value.split(parseClassListRegex);
-const updateElement = (oldVnode, newVnode, isSvgMode, memberName) => {
-    // if the element passed in is a shadow root, which is a document fragment
-    // then we want to be adding attrs/props to the shadow root's "host" element
-    // if it's not a shadow root, then we add attrs/props to the same element
-    const elm = (newVnode.$elm$.nodeType === 11 /* DocumentFragment */ && newVnode.$elm$.host) ? newVnode.$elm$.host : newVnode.$elm$;
-    const oldVnodeAttrs = (oldVnode && oldVnode.$attrs$) || EMPTY_OBJ;
-    const newVnodeAttrs = newVnode.$attrs$ || EMPTY_OBJ;
-    {
-        // remove attributes no longer present on the vnode by setting them to undefined
-        for (memberName in oldVnodeAttrs) {
-            if (!(memberName in newVnodeAttrs)) {
-                setAccessor(elm, memberName, oldVnodeAttrs[memberName], undefined, isSvgMode, newVnode.$flags$);
-            }
-        }
+    /**
+     * Present the action sheet overlay after it has been created.
+     */
+    present() {
+        return Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["e"])(this, 'actionSheetEnter', iosEnterAnimation, mdEnterAnimation);
     }
-    // add new & update changed attributes
-    for (memberName in newVnodeAttrs) {
-        setAccessor(elm, memberName, oldVnodeAttrs[memberName], newVnodeAttrs[memberName], isSvgMode, newVnode.$flags$);
+    /**
+     * Dismiss the action sheet overlay after it has been presented.
+     *
+     * @param data Any data to emit in the dismiss events.
+     * @param role The role of the element that is dismissing the action sheet.
+     * This can be useful in a button handler for determining which button was
+     * clicked to dismiss the action sheet.
+     * Some examples include: ``"cancel"`, `"destructive"`, "selected"`, and `"backdrop"`.
+     */
+    dismiss(data, role) {
+        return Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["f"])(this, data, role, 'actionSheetLeave', iosLeaveAnimation, mdLeaveAnimation);
     }
-};
-const createElm = (oldParentVNode, newParentVNode, childIndex, parentElm) => {
-    // tslint:disable-next-line: prefer-const
-    let newVNode = newParentVNode.$children$[childIndex];
-    let i = 0;
-    let elm;
-    let childNode;
-    let oldVNode;
-    if ( !useNativeShadowDom) {
-        // remember for later we need to check to relocate nodes
-        checkSlotRelocate = true;
-        if (newVNode.$tag$ === 'slot') {
-            if (scopeId) {
-                // scoped css needs to add its scoped id to the parent element
-                parentElm.classList.add(scopeId + '-s');
-            }
-            newVNode.$flags$ |= (newVNode.$children$)
-                // slot element has fallback content
-                // still create an element that "mocks" the slot element
-                ? 2 /* isSlotFallback */
-                // slot element does not have fallback content
-                // create an html comment we'll use to always reference
-                // where actual slot content should sit next to
-                : 1 /* isSlotReference */;
-        }
+    /**
+     * Returns a promise that resolves when the action sheet did dismiss.
+     */
+    onDidDismiss() {
+        return Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["g"])(this.el, 'ionActionSheetDidDismiss');
     }
-    if ( newVNode.$text$ !== null) {
-        // create text node
-        elm = newVNode.$elm$ = doc.createTextNode(newVNode.$text$);
+    /**
+     * Returns a promise that resolves when the action sheet will dismiss.
+     *
+     */
+    onWillDismiss() {
+        return Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["g"])(this.el, 'ionActionSheetWillDismiss');
     }
-    else if ( newVNode.$flags$ & 1 /* isSlotReference */) {
-        // create a slot reference node
-        elm = newVNode.$elm$ =  doc.createTextNode('');
+    async buttonClick(button) {
+        const role = button.role;
+        if (Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["i"])(role)) {
+            return this.dismiss(undefined, role);
+        }
+        const shouldDismiss = await this.callButtonHandler(button);
+        if (shouldDismiss) {
+            return this.dismiss(undefined, button.role);
+        }
+        return Promise.resolve();
     }
-    else {
-        if ( !isSvgMode) {
-            isSvgMode = newVNode.$tag$ === 'svg';
-        }
-        // create element
-        elm = newVNode.$elm$ = ( doc.createElementNS(isSvgMode ? SVG_NS : HTML_NS, ( newVNode.$flags$ & 2 /* isSlotFallback */) ? 'slot-fb' : newVNode.$tag$)
-            );
-        if ( isSvgMode && newVNode.$tag$ === 'foreignObject') {
-            isSvgMode = false;
-        }
-        // add css classes, attrs, props, listeners, etc.
-        {
-            updateElement(null, newVNode, isSvgMode);
-        }
-        if ( isDef(scopeId) && elm['s-si'] !== scopeId) {
-            // if there is a scopeId and this is the initial render
-            // then let's add the scopeId as a css class
-            elm.classList.add((elm['s-si'] = scopeId));
-        }
-        if (newVNode.$children$) {
-            for (i = 0; i < newVNode.$children$.length; ++i) {
-                // create the node
-                childNode = createElm(oldParentVNode, newVNode, i, elm);
-                // return node could have been null
-                if (childNode) {
-                    // append our new node
-                    elm.appendChild(childNode);
-                }
+    async callButtonHandler(button) {
+        if (button) {
+            // a handler has been provided, execute it
+            // pass the handler the values from the inputs
+            const rtn = await Object(_overlays_7369bfcc_js__WEBPACK_IMPORTED_MODULE_7__["s"])(button.handler);
+            if (rtn === false) {
+                // if the return value of the handler is false then do not dismiss
+                return false;
             }
-        }
-        {
-            if (newVNode.$tag$ === 'svg') {
-                // Only reset the SVG context when we're exiting <svg> element
-                isSvgMode = false;
-            }
-            else if (elm.tagName === 'foreignObject') {
-                // Reenter SVG context when we're exiting <foreignObject> element
-                isSvgMode = true;
-            }
-        }
-    }
-    {
-        elm['s-hn'] = hostTagName;
-        if (newVNode.$flags$ & (2 /* isSlotFallback */ | 1 /* isSlotReference */)) {
-            // remember the content reference comment
-            elm['s-sr'] = true;
-            // remember the content reference comment
-            elm['s-cr'] = contentRef;
-            // remember the slot name, or empty string for default slot
-            elm['s-sn'] = newVNode.$name$ || '';
-            // check if we've got an old vnode for this slot
-            oldVNode = oldParentVNode && oldParentVNode.$children$ && oldParentVNode.$children$[childIndex];
-            if (oldVNode && oldVNode.$tag$ === newVNode.$tag$ && oldParentVNode.$elm$) {
-                // we've got an old slot vnode and the wrapper is being replaced
-                // so let's move the old slot content back to it's original location
-                putBackInOriginalLocation(oldParentVNode.$elm$, false);
-            }
-        }
-    }
-    return elm;
-};
-const putBackInOriginalLocation = (parentElm, recursive) => {
-    plt.$flags$ |= 1 /* isTmpDisconnected */;
-    const oldSlotChildNodes = parentElm.childNodes;
-    for (let i = oldSlotChildNodes.length - 1; i >= 0; i--) {
-        const childNode = oldSlotChildNodes[i];
-        if (childNode['s-hn'] !== hostTagName && childNode['s-ol']) {
-            // // this child node in the old element is from another component
-            // // remove this node from the old slot's parent
-            // childNode.remove();
-            // and relocate it back to it's original location
-            parentReferenceNode(childNode).insertBefore(childNode, referenceNode(childNode));
-            // remove the old original location comment entirely
-            // later on the patch function will know what to do
-            // and move this to the correct spot in need be
-            childNode['s-ol'].remove();
-            childNode['s-ol'] = undefined;
-            checkSlotRelocate = true;
-        }
-        if (recursive) {
-            putBackInOriginalLocation(childNode, recursive);
-        }
-    }
-    plt.$flags$ &= ~1 /* isTmpDisconnected */;
-};
-const addVnodes = (parentElm, before, parentVNode, vnodes, startIdx, endIdx) => {
-    let containerElm = (( parentElm['s-cr'] && parentElm['s-cr'].parentNode) || parentElm);
-    let childNode;
-    if ( containerElm.shadowRoot && containerElm.tagName === hostTagName) {
-        containerElm = containerElm.shadowRoot;
-    }
-    for (; startIdx <= endIdx; ++startIdx) {
-        if (vnodes[startIdx]) {
-            childNode = createElm(null, parentVNode, startIdx, parentElm);
-            if (childNode) {
-                vnodes[startIdx].$elm$ = childNode;
-                containerElm.insertBefore(childNode,  referenceNode(before) );
-            }
-        }
-    }
-};
-const removeVnodes = (vnodes, startIdx, endIdx, vnode, elm) => {
-    for (; startIdx <= endIdx; ++startIdx) {
-        if (vnode = vnodes[startIdx]) {
-            elm = vnode.$elm$;
-            callNodeRefs(vnode);
-            {
-                // we're removing this element
-                // so it's possible we need to show slot fallback content now
-                checkSlotFallbackVisibility = true;
-                if (elm['s-ol']) {
-                    // remove the original location comment
-                    elm['s-ol'].remove();
-                }
-                else {
-                    // it's possible that child nodes of the node
-                    // that's being removed are slot nodes
-                    putBackInOriginalLocation(elm, true);
-                }
-            }
-            // remove the vnode's element from the dom
-            elm.remove();
-        }
-    }
-};
-const updateChildren = (parentElm, oldCh, newVNode, newCh) => {
-    let oldStartIdx = 0;
-    let newStartIdx = 0;
-    let idxInOld = 0;
-    let i = 0;
-    let oldEndIdx = oldCh.length - 1;
-    let oldStartVnode = oldCh[0];
-    let oldEndVnode = oldCh[oldEndIdx];
-    let newEndIdx = newCh.length - 1;
-    let newStartVnode = newCh[0];
-    let newEndVnode = newCh[newEndIdx];
-    let node;
-    let elmToMove;
-    while (oldStartIdx <= oldEndIdx && newStartIdx <= newEndIdx) {
-        if (oldStartVnode == null) {
-            // Vnode might have been moved left
-            oldStartVnode = oldCh[++oldStartIdx];
-        }
-        else if (oldEndVnode == null) {
-            oldEndVnode = oldCh[--oldEndIdx];
-        }
-        else if (newStartVnode == null) {
-            newStartVnode = newCh[++newStartIdx];
-        }
-        else if (newEndVnode == null) {
-            newEndVnode = newCh[--newEndIdx];
-        }
-        else if (isSameVnode(oldStartVnode, newStartVnode)) {
-            patch(oldStartVnode, newStartVnode);
-            oldStartVnode = oldCh[++oldStartIdx];
-            newStartVnode = newCh[++newStartIdx];
-        }
-        else if (isSameVnode(oldEndVnode, newEndVnode)) {
-            patch(oldEndVnode, newEndVnode);
-            oldEndVnode = oldCh[--oldEndIdx];
-            newEndVnode = newCh[--newEndIdx];
-        }
-        else if (isSameVnode(oldStartVnode, newEndVnode)) {
-            // Vnode moved right
-            if ( (oldStartVnode.$tag$ === 'slot' || newEndVnode.$tag$ === 'slot')) {
-                putBackInOriginalLocation(oldStartVnode.$elm$.parentNode, false);
-            }
-            patch(oldStartVnode, newEndVnode);
-            parentElm.insertBefore(oldStartVnode.$elm$, oldEndVnode.$elm$.nextSibling);
-            oldStartVnode = oldCh[++oldStartIdx];
-            newEndVnode = newCh[--newEndIdx];
-        }
-        else if (isSameVnode(oldEndVnode, newStartVnode)) {
-            // Vnode moved left
-            if ( (oldStartVnode.$tag$ === 'slot' || newEndVnode.$tag$ === 'slot')) {
-                putBackInOriginalLocation(oldEndVnode.$elm$.parentNode, false);
-            }
-            patch(oldEndVnode, newStartVnode);
-            parentElm.insertBefore(oldEndVnode.$elm$, oldStartVnode.$elm$);
-            oldEndVnode = oldCh[--oldEndIdx];
-            newStartVnode = newCh[++newStartIdx];
-        }
-        else {
-            // createKeyToOldIdx
-            idxInOld = -1;
-            {
-                for (i = oldStartIdx; i <= oldEndIdx; ++i) {
-                    if (oldCh[i] && oldCh[i].$key$ !== null && oldCh[i].$key$ === newStartVnode.$key$) {
-                        idxInOld = i;
-                        break;
-                    }
-                }
-            }
-            if ( idxInOld >= 0) {
-                elmToMove = oldCh[idxInOld];
-                if (elmToMove.$tag$ !== newStartVnode.$tag$) {
-                    node = createElm(oldCh && oldCh[newStartIdx], newVNode, idxInOld, parentElm);
-                }
-                else {
-                    patch(elmToMove, newStartVnode);
-                    oldCh[idxInOld] = undefined;
-                    node = elmToMove.$elm$;
-                }
-                newStartVnode = newCh[++newStartIdx];
-            }
-            else {
-                // new element
-                node = createElm(oldCh && oldCh[newStartIdx], newVNode, newStartIdx, parentElm);
-                newStartVnode = newCh[++newStartIdx];
-            }
-            if (node) {
-                {
-                    parentReferenceNode(oldStartVnode.$elm$).insertBefore(node, referenceNode(oldStartVnode.$elm$));
-                }
-            }
-        }
-    }
-    if (oldStartIdx > oldEndIdx) {
-        addVnodes(parentElm, (newCh[newEndIdx + 1] == null ? null : newCh[newEndIdx + 1].$elm$), newVNode, newCh, newStartIdx, newEndIdx);
-    }
-    else if ( newStartIdx > newEndIdx) {
-        removeVnodes(oldCh, oldStartIdx, oldEndIdx);
-    }
-};
-const isSameVnode = (vnode1, vnode2) => {
-    // compare if two vnode to see if they're "technically" the same
-    // need to have the same element tag, and same key to be the same
-    if (vnode1.$tag$ === vnode2.$tag$) {
-        if ( vnode1.$tag$ === 'slot') {
-            return vnode1.$name$ === vnode2.$name$;
-        }
-        {
-            return vnode1.$key$ === vnode2.$key$;
         }
         return true;
     }
-    return false;
-};
-const referenceNode = (node) => {
-    // this node was relocated to a new location in the dom
-    // because of some other component's slot
-    // but we still have an html comment in place of where
-    // it's original location was according to it's original vdom
-    return (node && node['s-ol']) || node;
-};
-const parentReferenceNode = (node) => (node['s-ol'] ? node['s-ol'] : node).parentNode;
-const patch = (oldVNode, newVNode) => {
-    const elm = newVNode.$elm$ = oldVNode.$elm$;
-    const oldChildren = oldVNode.$children$;
-    const newChildren = newVNode.$children$;
-    let defaultHolder;
-    {
-        // test if we're rendering an svg element, or still rendering nodes inside of one
-        // only add this to the when the compiler sees we're using an svg somewhere
-        isSvgMode = elm && elm.parentNode &&
-            elm.ownerSVGElement !== undefined;
-        isSvgMode = newVNode.$tag$ === 'svg' ? true : (newVNode.$tag$ === 'foreignObject' ? false : isSvgMode);
-    }
-    if ( newVNode.$text$ === null) {
-        // element node
-        {
-            if ( newVNode.$tag$ === 'slot')
-                ;
-            else {
-                // either this is the first render of an element OR it's an update
-                // AND we already know it's possible it could have changed
-                // this updates the element's css classes, attrs, props, listeners, etc.
-                updateElement(oldVNode, newVNode, isSvgMode);
-            }
-        }
-        if ( oldChildren !== null && newChildren !== null) {
-            // looks like there's child vnodes for both the old and new vnodes
-            updateChildren(elm, oldChildren, newVNode, newChildren);
-        }
-        else if (newChildren !== null) {
-            // no old child vnodes, but there are new child vnodes to add
-            if ( oldVNode.$text$ !== null) {
-                // the old vnode was text, so be sure to clear it out
-                elm.textContent = '';
-            }
-            // add the new vnode children
-            addVnodes(elm, null, newVNode, newChildren, 0, newChildren.length - 1);
-        }
-        else if ( oldChildren !== null) {
-            // no new child vnodes, but there are old child vnodes to remove
-            removeVnodes(oldChildren, 0, oldChildren.length - 1);
-        }
-    }
-    else if ( (defaultHolder = elm['s-cr'])) {
-        // this element has slotted content
-        defaultHolder.parentNode.textContent = newVNode.$text$;
-    }
-    else if ( oldVNode.$text$ !== newVNode.$text$) {
-        // update the text content for the text only vnode
-        // and also only if the text is different than before
-        elm.data = newVNode.$text$;
-    }
-    if ( isSvgMode && newVNode.$tag$ === 'svg') {
-        isSvgMode = false;
-    }
-};
-const updateFallbackSlotVisibility = (elm) => {
-    // tslint:disable-next-line: prefer-const
-    let childNodes = elm.childNodes;
-    let childNode;
-    let i;
-    let ilen;
-    let j;
-    let slotNameAttr;
-    let nodeType;
-    for (i = 0, ilen = childNodes.length; i < ilen; i++) {
-        childNode = childNodes[i];
-        if (childNode.nodeType === 1 /* ElementNode */) {
-            if (childNode['s-sr']) {
-                // this is a slot fallback node
-                // get the slot name for this slot reference node
-                slotNameAttr = childNode['s-sn'];
-                // by default always show a fallback slot node
-                // then hide it if there are other slots in the light dom
-                childNode.hidden = false;
-                for (j = 0; j < ilen; j++) {
-                    if (childNodes[j]['s-hn'] !== childNode['s-hn']) {
-                        // this sibling node is from a different component
-                        nodeType = childNodes[j].nodeType;
-                        if (slotNameAttr !== '') {
-                            // this is a named fallback slot node
-                            if (nodeType === 1 /* ElementNode */ && slotNameAttr === childNodes[j].getAttribute('slot')) {
-                                childNode.hidden = true;
-                                break;
-                            }
-                        }
-                        else {
-                            // this is a default fallback slot node
-                            // any element or text node (with content)
-                            // should hide the default fallback slot node
-                            if (nodeType === 1 /* ElementNode */ || (nodeType === 3 /* TextNode */ && childNodes[j].textContent.trim() !== '')) {
-                                childNode.hidden = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-            }
-            // keep drilling down
-            updateFallbackSlotVisibility(childNode);
-        }
-    }
-};
-const relocateNodes = [];
-const relocateSlotContent = (elm) => {
-    // tslint:disable-next-line: prefer-const
-    let childNodes = elm.childNodes;
-    let ilen = childNodes.length;
-    let i = 0;
-    let j = 0;
-    let nodeType = 0;
-    let childNode;
-    let node;
-    let hostContentNodes;
-    let slotNameAttr;
-    for (ilen = childNodes.length; i < ilen; i++) {
-        childNode = childNodes[i];
-        if (childNode['s-sr'] && (node = childNode['s-cr'])) {
-            // first got the content reference comment node
-            // then we got it's parent, which is where all the host content is in now
-            hostContentNodes = node.parentNode.childNodes;
-            slotNameAttr = childNode['s-sn'];
-            for (j = hostContentNodes.length - 1; j >= 0; j--) {
-                node = hostContentNodes[j];
-                if (!node['s-cn'] && !node['s-nr'] && node['s-hn'] !== childNode['s-hn']) {
-                    // let's do some relocating to its new home
-                    // but never relocate a content reference node
-                    // that is suppose to always represent the original content location
-                    nodeType = node.nodeType;
-                    if (((nodeType === 3 /* TextNode */ || nodeType === 8 /* CommentNode */) && slotNameAttr === '') ||
-                        (nodeType === 1 /* ElementNode */ && node.getAttribute('slot') === null && slotNameAttr === '') ||
-                        (nodeType === 1 /* ElementNode */ && node.getAttribute('slot') === slotNameAttr)) {
-                        // it's possible we've already decided to relocate this node
-                        if (!relocateNodes.some(r => r.$nodeToRelocate$ === node)) {
-                            // made some changes to slots
-                            // let's make sure we also double check
-                            // fallbacks are correctly hidden or shown
-                            checkSlotFallbackVisibility = true;
-                            node['s-sn'] = slotNameAttr;
-                            // add to our list of nodes to relocate
-                            relocateNodes.push({
-                                $slotRefNode$: childNode,
-                                $nodeToRelocate$: node
-                            });
-                        }
-                    }
-                }
-            }
-        }
-        if (childNode.nodeType === 1 /* ElementNode */) {
-            relocateSlotContent(childNode);
-        }
-    }
-};
-const callNodeRefs = (vNode) => {
-    {
-        vNode.$attrs$ && vNode.$attrs$.ref && vNode.$attrs$.ref(null);
-        vNode.$children$ && vNode.$children$.forEach(callNodeRefs);
-    }
-};
-const renderVdom = (hostElm, hostRef, cmpMeta, renderFnResults) => {
-    hostTagName = hostElm.tagName;
-    const oldVNode = hostRef.$vnode$ || newVNode(null, null);
-    const rootVnode = isHost(renderFnResults)
-        ? renderFnResults
-        : h(null, null, renderFnResults);
-    if ( cmpMeta.$attrsToReflect$) {
-        rootVnode.$attrs$ = rootVnode.$attrs$ || {};
-        cmpMeta.$attrsToReflect$.forEach(([propName, attribute]) => rootVnode.$attrs$[attribute] = hostElm[propName]);
-    }
-    rootVnode.$tag$ = null;
-    rootVnode.$flags$ |= 4 /* isHost */;
-    hostRef.$vnode$ = rootVnode;
-    rootVnode.$elm$ = oldVNode.$elm$ = ( hostElm.shadowRoot || hostElm );
-    {
-        scopeId = hostElm['s-sc'];
-    }
-    {
-        contentRef = hostElm['s-cr'];
-        useNativeShadowDom = supportsShadowDom && (cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) !== 0;
-        // always reset
-        checkSlotRelocate = checkSlotFallbackVisibility = false;
-    }
-    // synchronous patch
-    patch(oldVNode, rootVnode);
-    {
-        if (checkSlotRelocate) {
-            relocateSlotContent(rootVnode.$elm$);
-            for (let i = 0; i < relocateNodes.length; i++) {
-                const relocateNode = relocateNodes[i];
-                if (!relocateNode.$nodeToRelocate$['s-ol']) {
-                    // add a reference node marking this node's original location
-                    // keep a reference to this node for later lookups
-                    const orgLocationNode =  doc.createTextNode('');
-                    orgLocationNode['s-nr'] = relocateNode.$nodeToRelocate$;
-                    relocateNode.$nodeToRelocate$.parentNode.insertBefore((relocateNode.$nodeToRelocate$['s-ol'] = orgLocationNode), relocateNode.$nodeToRelocate$);
-                }
-            }
-            // while we're moving nodes around existing nodes, temporarily disable
-            // the disconnectCallback from working
-            plt.$flags$ |= 1 /* isTmpDisconnected */;
-            for (let i = 0; i < relocateNodes.length; i++) {
-                const relocateNode = relocateNodes[i];
-                // by default we're just going to insert it directly
-                // after the slot reference node
-                const parentNodeRef = relocateNode.$slotRefNode$.parentNode;
-                let insertBeforeNode = relocateNode.$slotRefNode$.nextSibling;
-                let orgLocationNode = relocateNode.$nodeToRelocate$['s-ol'];
-                while (orgLocationNode = orgLocationNode.previousSibling) {
-                    let refNode = orgLocationNode['s-nr'];
-                    if (refNode &&
-                        refNode['s-sn'] === relocateNode.$nodeToRelocate$['s-sn'] &&
-                        parentNodeRef === refNode.parentNode) {
-                        refNode = refNode.nextSibling;
-                        if (!refNode || !refNode['s-nr']) {
-                            insertBeforeNode = refNode;
-                            break;
-                        }
-                    }
-                }
-                if ((!insertBeforeNode && parentNodeRef !== relocateNode.$nodeToRelocate$.parentNode) ||
-                    (relocateNode.$nodeToRelocate$.nextSibling !== insertBeforeNode)) {
-                    // we've checked that it's worth while to relocate
-                    // since that the node to relocate
-                    // has a different next sibling or parent relocated
-                    if (relocateNode.$nodeToRelocate$ !== insertBeforeNode) {
-                        // add it back to the dom but in its new home
-                        parentNodeRef.insertBefore(relocateNode.$nodeToRelocate$, insertBeforeNode);
-                    }
-                }
-            }
-            // done moving nodes around
-            // allow the disconnect callback to work again
-            plt.$flags$ &= ~1 /* isTmpDisconnected */;
-        }
-        if (checkSlotFallbackVisibility) {
-            updateFallbackSlotVisibility(rootVnode.$elm$);
-        }
-        // always reset
-        relocateNodes.length = 0;
-    }
-};
-const attachToAncestor = (hostRef, ancestorComponent) => {
-    if ( ancestorComponent && !hostRef.$onRenderResolve$) {
-        ancestorComponent['s-p'].push(new Promise(r => hostRef.$onRenderResolve$ = r));
-    }
-};
-const scheduleUpdate = (elm, hostRef, cmpMeta, isInitialLoad) => {
-    {
-        hostRef.$flags$ |= 16 /* isQueuedForUpdate */;
-    }
-    if ( hostRef.$flags$ & 4 /* isWaitingForChildren */) {
-        hostRef.$flags$ |= 512 /* needsRerender */;
-        return;
-    }
-    const ancestorComponent = hostRef.$ancestorComponent$;
-    const instance =  hostRef.$lazyInstance$ ;
-    const update = () => updateComponent(elm, hostRef, cmpMeta, instance, isInitialLoad);
-    const rc = elm['s-rc'];
-    attachToAncestor(hostRef, ancestorComponent);
-    let promise;
-    if (isInitialLoad) {
-        {
-            hostRef.$flags$ |= 256 /* isListenReady */;
-            if (hostRef.$queuedListeners$) {
-                hostRef.$queuedListeners$.forEach(([methodName, event]) => safeCall(instance, methodName, event));
-                hostRef.$queuedListeners$ = null;
-            }
-        }
-        {
-            promise = safeCall(instance, 'componentWillLoad');
-        }
-    }
-    {
-        promise = then(promise, () => safeCall(instance, 'componentWillRender'));
-    }
-    if ( rc) {
-        // ok, so turns out there are some child host elements
-        // waiting on this parent element to load
-        // let's fire off all update callbacks waiting
-        rc.forEach(cb => cb());
-        elm['s-rc'] = undefined;
-    }
-    // there is no ancestorc omponent or the ancestor component
-    // has already fired off its lifecycle update then
-    // fire off the initial update
-    return then(promise,  () => writeTask(update)
-        );
-};
-const updateComponent = (elm, hostRef, cmpMeta, instance, isInitialLoad) => {
-    // updateComponent
-    if ( isInitialLoad) {
-        // DOM WRITE!
-        attachStyles(elm, cmpMeta, hostRef.$modeName$);
-    }
-    {
-        {
-            try {
-                // looks like we've got child nodes to render into this host element
-                // or we need to update the css class/attrs on the host element
-                // DOM WRITE!
-                renderVdom(elm, hostRef, cmpMeta,  (instance.render && instance.render()));
-            }
-            catch (e) {
-                consoleError(e);
-            }
-        }
-    }
-    if ( plt.$cssShim$) {
-        plt.$cssShim$.updateHost(elm);
-    }
-    {
-        hostRef.$flags$ &= ~16 /* isQueuedForUpdate */;
-    }
-    {
-        hostRef.$flags$ |= 2 /* hasRendered */;
-    }
-    {
-        const childrenPromises = elm['s-p'];
-        const postUpdate = () => postUpdateComponent(elm, hostRef, cmpMeta);
-        if (childrenPromises.length === 0) {
-            postUpdate();
-        }
-        else {
-            Promise.all(childrenPromises).then(postUpdate);
-            hostRef.$flags$ |= 4 /* isWaitingForChildren */;
-            childrenPromises.length = 0;
-        }
-    }
-};
-const postUpdateComponent = (elm, hostRef, cmpMeta) => {
-    const instance =  hostRef.$lazyInstance$ ;
-    const ancestorComponent = hostRef.$ancestorComponent$;
-    if (!(hostRef.$flags$ & 64 /* hasLoadedComponent */)) {
-        hostRef.$flags$ |= 64 /* hasLoadedComponent */;
-        {
-            // DOM WRITE!
-            // add the css class that this element has officially hydrated
-            elm.classList.add(HYDRATED_CLASS);
-        }
-        {
-            safeCall(instance, 'componentDidLoad');
-        }
-        {
-            hostRef.$onReadyResolve$(elm);
-            if (!ancestorComponent) {
-                appDidLoad();
-            }
-        }
-    }
-    else {
-        {
-            // we've already loaded this component
-            // fire off the user's componentDidUpdate method (if one was provided)
-            // componentDidUpdate runs AFTER render() has been called
-            // and all child components have finished updating
-            safeCall(instance, 'componentDidUpdate');
-        }
-    }
-    {
-        hostRef.$onInstanceResolve$(elm);
-    }
-    // load events fire from bottom to top
-    // the deepest elements load first then bubbles up
-    {
-        if (hostRef.$onRenderResolve$) {
-            hostRef.$onRenderResolve$();
-            hostRef.$onRenderResolve$ = undefined;
-        }
-        if (hostRef.$flags$ & 512 /* needsRerender */) {
-            nextTick(() => scheduleUpdate(elm, hostRef, cmpMeta, false));
-        }
-        hostRef.$flags$ &= ~(4 /* isWaitingForChildren */ | 512 /* needsRerender */);
-    }
-    // ( •_•)
-    // ( •_•)>⌐■-■
-    // (⌐■_■)
-};
-const forceUpdate = (elm, cmpMeta) => {
-    {
-        const hostRef = getHostRef(elm);
-        if ((hostRef.$flags$ & (2 /* hasRendered */ | 16 /* isQueuedForUpdate */)) === 2 /* hasRendered */) {
-            scheduleUpdate(elm, hostRef, cmpMeta, false);
-        }
-    }
-};
-const appDidLoad = () => {
-    // on appload
-    // we have finish the first big initial render
-    {
-        doc.documentElement.classList.add(HYDRATED_CLASS);
-    }
-    {
-        plt.$flags$ |= 2 /* appLoaded */;
-    }
-};
-const safeCall = (instance, method, arg) => {
-    if (instance && instance[method]) {
-        try {
-            return instance[method](arg);
-        }
-        catch (e) {
-            consoleError(e);
-        }
-    }
-    return undefined;
-};
-const then = (promise, thenFn) => {
-    return promise && promise.then ? promise.then(thenFn) : thenFn();
-};
-const getValue = (ref, propName) => getHostRef(ref).$instanceValues$.get(propName);
-const setValue = (ref, propName, newVal, cmpMeta) => {
-    // check our new property value against our internal value
-    const hostRef = getHostRef(ref);
-    const elm =  hostRef.$hostElement$ ;
-    const oldVal = hostRef.$instanceValues$.get(propName);
-    const flags = hostRef.$flags$;
-    const instance =  hostRef.$lazyInstance$ ;
-    newVal = parsePropertyValue(newVal, cmpMeta.$members$[propName][0]);
-    if (newVal !== oldVal && ( !(flags & 8 /* isConstructingInstance */) || oldVal === undefined)) {
-        // gadzooks! the property's value has changed!!
-        // set our new value!
-        hostRef.$instanceValues$.set(propName, newVal);
-        if ( instance) {
-            // get an array of method names of watch functions to call
-            if ( cmpMeta.$watchers$ && flags & 128 /* isWatchReady */) {
-                const watchMethods = cmpMeta.$watchers$[propName];
-                if (watchMethods) {
-                    // this instance is watching for when this property changed
-                    watchMethods.forEach(watchMethodName => {
-                        try {
-                            // fire off each of the watch methods that are watching this property
-                            instance[watchMethodName](newVal, oldVal, propName);
-                        }
-                        catch (e) {
-                            consoleError(e);
-                        }
-                    });
-                }
-            }
-            if ( (flags & (2 /* hasRendered */ | 16 /* isQueuedForUpdate */)) === 2 /* hasRendered */) {
-                // looks like this value actually changed, so we've got work to do!
-                // but only if we've already rendered, otherwise just chill out
-                // queue that we need to do an update, but don't worry about queuing
-                // up millions cuz this function ensures it only runs once
-                scheduleUpdate(elm, hostRef, cmpMeta, false);
-            }
-        }
-    }
-};
-const proxyComponent = (Cstr, cmpMeta, flags) => {
-    if ( cmpMeta.$members$) {
-        if ( Cstr.watchers) {
-            cmpMeta.$watchers$ = Cstr.watchers;
-        }
-        // It's better to have a const than two Object.entries()
-        const members = Object.entries(cmpMeta.$members$);
-        const prototype = Cstr.prototype;
-        members.forEach(([memberName, [memberFlags]]) => {
-            if ( ((memberFlags & 31 /* Prop */) ||
-                (( flags & 2 /* proxyState */) &&
-                    (memberFlags & 32 /* State */)))) {
-                // proxyComponent - prop
-                Object.defineProperty(prototype, memberName, {
-                    get() {
-                        // proxyComponent, get value
-                        return getValue(this, memberName);
-                    },
-                    set(newValue) {
-                        // proxyComponent, set value
-                        setValue(this, memberName, newValue, cmpMeta);
-                    },
-                    configurable: true,
-                    enumerable: true
-                });
-            }
-            else if ( (flags & 1 /* isElementConstructor */) && (memberFlags & 64 /* Method */)) {
-                // proxyComponent - method
-                Object.defineProperty(prototype, memberName, {
-                    value(...args) {
-                        const ref = getHostRef(this);
-                        return ref.$onInstancePromise$.then(() => ref.$lazyInstance$[memberName](...args));
-                    }
-                });
-            }
+    getButtons() {
+        return this.buttons.map(b => {
+            return (typeof b === 'string')
+                ? { text: b }
+                : b;
         });
-        if ( ( flags & 1 /* isElementConstructor */)) {
-            const attrNameToPropName = new Map();
-            prototype.attributeChangedCallback = function (attrName, _oldValue, newValue) {
-                plt.jmp(() => {
-                    const propName = attrNameToPropName.get(attrName);
-                    this[propName] = newValue === null && typeof this[propName] === 'boolean'
-                        ? false
-                        : newValue;
-                });
-            };
-            // create an array of attributes to observe
-            // and also create a map of html attribute name to js property name
-            Cstr.observedAttributes = members
-                .filter(([_, m]) => m[0] & 15 /* HasAttribute */) // filter to only keep props that should match attributes
-                .map(([propName, m]) => {
-                const attrName = m[1] || propName;
-                attrNameToPropName.set(attrName, propName);
-                if ( m[0] & 512 /* ReflectAttr */) {
-                    cmpMeta.$attrsToReflect$.push([propName, attrName]);
-                }
-                return attrName;
-            });
+    }
+    componentDidUnload() {
+        if (this.gesture) {
+            this.gesture.destroy();
+            this.gesture = undefined;
         }
     }
-    return Cstr;
-};
-const addEventListeners = (elm, hostRef, listeners) => {
-    hostRef.$queuedListeners$ = hostRef.$queuedListeners$ || [];
-    const removeFns = listeners.map(([flags, name, method]) => {
-        const target = ( getHostListenerTarget(elm, flags) );
-        const handler = hostListenerProxy(hostRef, method);
-        const opts = hostListenerOpts(flags);
-        plt.ael(target, name, handler, opts);
-        return () => plt.rel(target, name, handler, opts);
-    });
-    return () => removeFns.forEach(fn => fn());
-};
-const hostListenerProxy = (hostRef, methodName) => {
-    return (ev) => {
-        {
-            if (hostRef.$flags$ & 256 /* isListenReady */) {
-                // instance is ready, let's call it's member method for this event
-                hostRef.$lazyInstance$[methodName](ev);
-            }
-            else {
-                hostRef.$queuedListeners$.push([methodName, ev]);
-            }
+    componentDidLoad() {
+        /**
+         * Do not create gesture if:
+         * 1. A gesture already exists
+         * 2. App is running in MD mode
+         * 3. A wrapper ref does not exist
+         */
+        const { groupEl, wrapperEl } = this;
+        if (this.gesture || Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this) === 'md' || !wrapperEl || !groupEl) {
+            return;
         }
-    };
-};
-const getHostListenerTarget = (elm, flags) => {
-    if ( flags & 4 /* TargetDocument */)
-        return doc;
-    if ( flags & 8 /* TargetWindow */)
-        return win;
-    if ( flags & 32 /* TargetBody */)
-        return doc.body;
-    if ( flags & 16 /* TargetParent */)
-        return elm.parentElement;
-    return elm;
-};
-const hostListenerOpts = (flags) => supportsListenerOptions ?
-    {
-        'passive': (flags & 1 /* Passive */) !== 0,
-        'capture': (flags & 2 /* Capture */) !== 0,
-    }
-    : (flags & 2 /* Capture */) !== 0;
-const initializeClientHydrate = (hostElm, tagName, hostId, hostRef) => {
-    const shadowRoot = hostElm.shadowRoot;
-    const childRenderNodes = [];
-    const slotNodes = [];
-    const shadowRootNodes = ( shadowRoot ? [] : null);
-    const vnode = hostRef.$vnode$ = newVNode(tagName, null);
-    if (!plt.$orgLocNodes$) {
-        initializeDocumentHydrate(doc.body, plt.$orgLocNodes$ = new Map());
-    }
-    hostElm[HYDRATE_ID] = hostId;
-    hostElm.removeAttribute(HYDRATE_ID);
-    clientHydrate(vnode, childRenderNodes, slotNodes, shadowRootNodes, hostElm, hostElm, hostId);
-    childRenderNodes.forEach(c => {
-        const orgLocationId = c.$hostId$ + '.' + c.$nodeId$;
-        const orgLocationNode = plt.$orgLocNodes$.get(orgLocationId);
-        const node = c.$elm$;
-        if (orgLocationNode && (orgLocationNode['s-sd'] || c.$hostId$ === '0')) {
-            orgLocationNode.parentNode.insertBefore(node, orgLocationNode.nextSibling);
-        }
-        if (!shadowRoot) {
-            node['s-hn'] = tagName;
-            if (orgLocationNode) {
-                node['s-ol'] = orgLocationNode;
-                node['s-ol']['s-nr'] = node;
-            }
-        }
-        plt.$orgLocNodes$.delete(orgLocationId);
-    });
-    if ( shadowRoot) {
-        shadowRootNodes.forEach(shadowRootNode => {
-            if (shadowRootNode) {
-                shadowRoot.appendChild(shadowRootNode);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["d"])(() => {
+            const isScrollable = groupEl.scrollHeight > groupEl.clientHeight;
+            if (!isScrollable) {
+                this.gesture = Object(_button_active_4b76b5c3_js__WEBPACK_IMPORTED_MODULE_9__["c"])(wrapperEl, (refEl) => refEl.classList.contains('action-sheet-button'));
+                this.gesture.enable(true);
             }
         });
     }
+    render() {
+        const mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
+        const allButtons = this.getButtons();
+        const cancelButton = allButtons.find(b => b.role === 'cancel');
+        const buttons = allButtons.filter(b => b.role !== 'cancel');
+        return (Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], { role: "dialog", "aria-modal": "true", tabindex: "-1", style: {
+                zIndex: `${20000 + this.overlayIndex}`,
+            }, class: Object.assign(Object.assign({ [mode]: true }, Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_10__["g"])(this.cssClass)), { 'action-sheet-translucent': this.translucent }), onIonActionSheetWillDismiss: this.dispatchCancelHandler, onIonBackdropTap: this.onBackdropTap }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-backdrop", { tappable: this.backdropDismiss }), Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "action-sheet-wrapper", role: "dialog", ref: el => this.wrapperEl = el }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "action-sheet-container" }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "action-sheet-group", ref: el => this.groupEl = el }, this.header !== undefined &&
+            Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "action-sheet-title" }, this.header, this.subHeader && Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "action-sheet-sub-title" }, this.subHeader)), buttons.map(b => Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", { type: "button", class: buttonClass(b), onClick: () => this.buttonClick(b) }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("span", { class: "action-sheet-button-inner" }, b.icon && Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-icon", { icon: b.icon, lazy: false, class: "action-sheet-icon" }), b.text), mode === 'md' && Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-ripple-effect", null)))), cancelButton &&
+            Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", { class: "action-sheet-group action-sheet-group-cancel" }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", { type: "button", class: buttonClass(cancelButton), onClick: () => this.buttonClick(cancelButton) }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("span", { class: "action-sheet-button-inner" }, cancelButton.icon &&
+                Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-icon", { icon: cancelButton.icon, lazy: false, class: "action-sheet-icon" }), cancelButton.text), mode === 'md' && Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-ripple-effect", null)))))));
+    }
+    get el() { return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
+}
+const buttonClass = (button) => {
+    return Object.assign({ 'action-sheet-button': true, 'ion-activatable': true, 'ion-focusable': true, [`action-sheet-${button.role}`]: button.role !== undefined }, Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_10__["g"])(button.cssClass));
 };
-const clientHydrate = (parentVNode, childRenderNodes, slotNodes, shadowRootNodes, hostElm, node, hostId) => {
-    let childNodeType;
-    let childIdSplt;
-    let childVNode;
-    let i;
-    if (node.nodeType === 1 /* ElementNode */) {
-        childNodeType = node.getAttribute(HYDRATE_CHILD_ID);
-        if (childNodeType) {
-            // got the node data from the element's attribute
-            // `${hostId}.${nodeId}.${depth}.${index}`
-            childIdSplt = childNodeType.split('.');
-            if (childIdSplt[0] === hostId || childIdSplt[0] === '0') {
-                childVNode = {
-                    $flags$: 0,
-                    $hostId$: childIdSplt[0],
-                    $nodeId$: childIdSplt[1],
-                    $depth$: childIdSplt[2],
-                    $index$: childIdSplt[3],
-                    $tag$: node.tagName.toLowerCase(),
-                    $elm$: node,
-                    $attrs$: null,
-                    $children$: null,
-                    $key$: null,
-                    $name$: null,
-                    $text$: null
-                };
-                childRenderNodes.push(childVNode);
-                node.removeAttribute(HYDRATE_CHILD_ID);
-                // this is a new child vnode
-                // so ensure its parent vnode has the vchildren array
-                if (!parentVNode.$children$) {
-                    parentVNode.$children$ = [];
-                }
-                // add our child vnode to a specific index of the vnode's children
-                parentVNode.$children$[childVNode.$index$] = childVNode;
-                // this is now the new parent vnode for all the next child checks
-                parentVNode = childVNode;
-                if (shadowRootNodes && childVNode.$depth$ === '0') {
-                    shadowRootNodes[childVNode.$index$] = childVNode.$elm$;
-                }
-            }
-        }
-        // recursively drill down, end to start so we can remove nodes
-        for (i = node.childNodes.length - 1; i >= 0; i--) {
-            clientHydrate(parentVNode, childRenderNodes, slotNodes, shadowRootNodes, hostElm, node.childNodes[i], hostId);
-        }
-        if (node.shadowRoot) {
-            // keep drilling down through the shadow root nodes
-            for (i = node.shadowRoot.childNodes.length - 1; i >= 0; i--) {
-                clientHydrate(parentVNode, childRenderNodes, slotNodes, shadowRootNodes, hostElm, node.shadowRoot.childNodes[i], hostId);
-            }
-        }
-    }
-    else if (node.nodeType === 8 /* CommentNode */) {
-        // `${COMMENT_TYPE}.${hostId}.${nodeId}.${depth}.${index}`
-        childIdSplt = node.nodeValue.split('.');
-        if (childIdSplt[1] === hostId || childIdSplt[1] === '0') {
-            // comment node for either the host id or a 0 host id
-            childNodeType = childIdSplt[0];
-            childVNode = {
-                $flags$: 0,
-                $hostId$: childIdSplt[1],
-                $nodeId$: childIdSplt[2],
-                $depth$: childIdSplt[3],
-                $index$: childIdSplt[4],
-                $elm$: node,
-                $attrs$: null,
-                $children$: null,
-                $key$: null,
-                $name$: null,
-                $tag$: null,
-                $text$: null
-            };
-            if (childNodeType === TEXT_NODE_ID) {
-                childVNode.$elm$ = node.nextSibling;
-                if (childVNode.$elm$ && childVNode.$elm$.nodeType === 3 /* TextNode */) {
-                    childVNode.$text$ = childVNode.$elm$.textContent;
-                    childRenderNodes.push(childVNode);
-                    // remove the text comment since it's no longer needed
-                    node.remove();
-                    if (!parentVNode.$children$) {
-                        parentVNode.$children$ = [];
-                    }
-                    parentVNode.$children$[childVNode.$index$] = childVNode;
-                    if (shadowRootNodes && childVNode.$depth$ === '0') {
-                        shadowRootNodes[childVNode.$index$] = childVNode.$elm$;
-                    }
-                }
-            }
-            else if (childVNode.$hostId$ === hostId) {
-                // this comment node is specifcally for this host id
-                if (childNodeType === SLOT_NODE_ID) {
-                    // `${SLOT_NODE_ID}.${hostId}.${nodeId}.${depth}.${index}.${slotName}`;
-                    childVNode.$tag$ = 'slot';
-                    if (childIdSplt[5]) {
-                        node['s-sn'] = childVNode.$name$ = childIdSplt[5];
-                    }
-                    else {
-                        node['s-sn'] = '';
-                    }
-                    node['s-sr'] = true;
-                    if ( shadowRootNodes) {
-                        // browser support shadowRoot and this is a shadow dom component
-                        // create an actual slot element
-                        childVNode.$elm$ = doc.createElement(childVNode.$tag$);
-                        if (childVNode.$name$) {
-                            // add the slot name attribute
-                            childVNode.$elm$.setAttribute('name', childVNode.$name$);
-                        }
-                        // insert the new slot element before the slot comment
-                        node.parentNode.insertBefore(childVNode.$elm$, node);
-                        // remove the slot comment since it's not needed for shadow
-                        node.remove();
-                        if (childVNode.$depth$ === '0') {
-                            shadowRootNodes[childVNode.$index$] = childVNode.$elm$;
-                        }
-                    }
-                    slotNodes.push(childVNode);
-                    if (!parentVNode.$children$) {
-                        parentVNode.$children$ = [];
-                    }
-                    parentVNode.$children$[childVNode.$index$] = childVNode;
-                }
-                else if (childNodeType === CONTENT_REF_ID) {
-                    // `${CONTENT_REF_ID}.${hostId}`;
-                    if ( shadowRootNodes) {
-                        // remove the content ref comment since it's not needed for shadow
-                        node.remove();
-                    }
-                    else {
-                        hostElm['s-cr'] = node;
-                        node['s-cn'] = true;
-                    }
-                }
-            }
-        }
-    }
-    else if (parentVNode && parentVNode.$tag$ === 'style') {
-        const vnode = newVNode(null, node.textContent);
-        vnode.$elm$ = node;
-        vnode.$index$ = '0';
-        parentVNode.$children$ = [vnode];
-    }
-};
-const initializeDocumentHydrate = (node, orgLocNodes) => {
-    if (node.nodeType === 1 /* ElementNode */) {
-        let i = 0;
-        for (; i < node.childNodes.length; i++) {
-            initializeDocumentHydrate(node.childNodes[i], orgLocNodes);
-        }
-        if (node.shadowRoot) {
-            for (i = 0; i < node.shadowRoot.childNodes.length; i++) {
-                initializeDocumentHydrate(node.shadowRoot.childNodes[i], orgLocNodes);
-            }
-        }
-    }
-    else if (node.nodeType === 8 /* CommentNode */) {
-        const childIdSplt = node.nodeValue.split('.');
-        if (childIdSplt[0] === ORG_LOCATION_ID) {
-            orgLocNodes.set(childIdSplt[1] + '.' + childIdSplt[2], node);
-            node.nodeValue = '';
-            // useful to know if the original location is
-            // the root light-dom of a shadow dom component
-            node['s-sd'] = (childIdSplt[3] === '');
-        }
-    }
-};
-const modeResolutionChain = [];
-const computeMode = (elm) => modeResolutionChain.map(h => h(elm)).find(m => !!m);
-// Public
-const setMode = (handler) => modeResolutionChain.push(handler);
-const getMode = (ref) => getHostRef(ref).$modeName$;
-const initializeComponent = async (elm, hostRef, cmpMeta, hmrVersionId, Cstr) => {
-    // initializeComponent
-    if ( (hostRef.$flags$ & 32 /* hasInitializedComponent */) === 0) {
-        // we haven't initialized this element yet
-        hostRef.$flags$ |= 32 /* hasInitializedComponent */;
-        if ( hostRef.$modeName$ == null) {
-            // initializeComponent
-            // looks like mode wasn't set as a property directly yet
-            // first check if there's an attribute
-            // next check the app's global
-            hostRef.$modeName$ = typeof cmpMeta.$lazyBundleIds$ !== 'string' ? computeMode(elm) : '';
-        }
-        {
-            // lazy loaded components
-            // request the component's implementation to be
-            // wired up with the host element
-            Cstr = loadModule(cmpMeta, hostRef);
-            if (Cstr.then) {
-                // Await creates a micro-task avoid if possible
-                Cstr = await Cstr;
-            }
-            if ( !Cstr.isProxied) {
-                // we'eve never proxied this Constructor before
-                // let's add the getters/setters to its prototype before
-                // the first time we create an instance of the implementation
-                {
-                    cmpMeta.$watchers$ = Cstr.watchers;
-                }
-                proxyComponent(Cstr, cmpMeta, 2 /* proxyState */);
-                Cstr.isProxied = true;
-            }
-            // ok, time to construct the instance
-            // but let's keep track of when we start and stop
-            // so that the getters/setters don't incorrectly step on data
-            {
-                hostRef.$flags$ |= 8 /* isConstructingInstance */;
-            }
-            // construct the lazy-loaded component implementation
-            // passing the hostRef is very important during
-            // construction in order to directly wire together the
-            // host element and the lazy-loaded instance
-            try {
-                new Cstr(hostRef);
-            }
-            catch (e) {
-                consoleError(e);
-            }
-            {
-                hostRef.$flags$ &= ~8 /* isConstructingInstance */;
-            }
-            {
-                hostRef.$flags$ |= 128 /* isWatchReady */;
-            }
-            fireConnectedCallback(hostRef.$lazyInstance$);
-        }
-        const scopeId =  getScopeId(cmpMeta.$tagName$, hostRef.$modeName$) ;
-        if ( !styles.has(scopeId) && Cstr.style) {
-            // this component has styles but we haven't registered them yet
-            let style = Cstr.style;
-            if ( typeof style !== 'string') {
-                style = style[hostRef.$modeName$];
-            }
-            if ( cmpMeta.$flags$ & 8 /* needsShadowDomShim */) {
-                style = await __webpack_require__.e(/*! import() | shadow-css-4889ae62-23996f3f-js */ "shadow-css-4889ae62-23996f3f-js").then(__webpack_require__.bind(null, /*! ./shadow-css-4889ae62-23996f3f.js */ "./node_modules/@ionic/core/dist/esm/shadow-css-4889ae62-23996f3f.js")).then(m => m.scopeCss(style, scopeId, false));
-            }
-            registerStyle(scopeId, style, !!(cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */));
-        }
-    }
-    // we've successfully created a lazy instance
-    const ancestorComponent = hostRef.$ancestorComponent$;
-    const schedule = () => scheduleUpdate(elm, hostRef, cmpMeta, true);
-    if ( ancestorComponent && ancestorComponent['s-rc']) {
-        // this is the intial load and this component it has an ancestor component
-        // but the ancestor component has NOT fired its will update lifecycle yet
-        // so let's just cool our jets and wait for the ancestor to continue first
-        // this will get fired off when the ancestor component
-        // finally gets around to rendering its lazy self
-        // fire off the initial update
-        ancestorComponent['s-rc'].push(schedule);
-    }
-    else {
-        schedule();
-    }
-};
-const fireConnectedCallback = (instance) => {
-    {
-        safeCall(instance, 'connectedCallback');
-    }
-};
-const connectedCallback = (elm, cmpMeta) => {
-    if ((plt.$flags$ & 1 /* isTmpDisconnected */) === 0) {
-        // connectedCallback
-        const hostRef = getHostRef(elm);
-        if ( cmpMeta.$listeners$) {
-            // initialize our event listeners on the host element
-            // we do this now so that we can listening to events that may
-            // have fired even before the instance is ready
-            hostRef.$rmListeners$ = addEventListeners(elm, hostRef, cmpMeta.$listeners$);
-        }
-        if (!(hostRef.$flags$ & 1 /* hasConnected */)) {
-            // first time this component has connected
-            hostRef.$flags$ |= 1 /* hasConnected */;
-            let hostId;
-            {
-                hostId = elm.getAttribute(HYDRATE_ID);
-                if (hostId) {
-                    if ( supportsShadowDom && cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) {
-                        const scopeId =  addStyle(elm.shadowRoot, cmpMeta, elm.getAttribute('s-mode')) ;
-                        elm.classList.remove(scopeId + '-h');
-                        elm.classList.remove(scopeId + '-s');
-                    }
-                    initializeClientHydrate(elm, cmpMeta.$tagName$, hostId, hostRef);
-                }
-            }
-            if ( !hostId) {
-                // initUpdate
-                // if the slot polyfill is required we'll need to put some nodes
-                // in here to act as original content anchors as we move nodes around
-                // host element has been connected to the DOM
-                if (
-                    ( cmpMeta.$flags$ & 4 /* hasSlotRelocation */) ||
-                    ( cmpMeta.$flags$ & 8 /* needsShadowDomShim */)) {
-                    setContentReference(elm);
-                }
-            }
-            {
-                // find the first ancestor component (if there is one) and register
-                // this component as one of the actively loading child components for its ancestor
-                let ancestorComponent = elm;
-                while ((ancestorComponent = (ancestorComponent.parentNode || ancestorComponent.host))) {
-                    // climb up the ancestors looking for the first
-                    // component that hasn't finished its lifecycle update yet
-                    if (( ancestorComponent.nodeType === 1 /* ElementNode */ && ancestorComponent.hasAttribute('s-id')) ||
-                        (ancestorComponent['s-p'])) {
-                        // we found this components first ancestor component
-                        // keep a reference to this component's ancestor component
-                        attachToAncestor(hostRef, (hostRef.$ancestorComponent$ = ancestorComponent));
-                        break;
-                    }
-                }
-            }
-            // Lazy properties
-            // https://developers.google.com/web/fundamentals/web-components/best-practices#lazy-properties
-            if ( cmpMeta.$members$) {
-                Object.entries(cmpMeta.$members$).forEach(([memberName, [memberFlags]]) => {
-                    if (memberFlags & 31 /* Prop */ && elm.hasOwnProperty(memberName)) {
-                        const value = elm[memberName];
-                        delete elm[memberName];
-                        elm[memberName] = value;
-                    }
-                });
-            }
-            {
-                // connectedCallback, taskQueue, initialLoad
-                // angular sets attribute AFTER connectCallback
-                // https://github.com/angular/angular/issues/18909
-                // https://github.com/angular/angular/issues/19940
-                nextTick(() => initializeComponent(elm, hostRef, cmpMeta));
-            }
-        }
-        fireConnectedCallback(hostRef.$lazyInstance$);
-    }
-};
-const setContentReference = (elm) => {
-    // only required when we're NOT using native shadow dom (slot)
-    // or this browser doesn't support native shadow dom
-    // and this host element was NOT created with SSR
-    // let's pick out the inner content for slot projection
-    // create a node to represent where the original
-    // content was first placed, which is useful later on
-    const crName =  '';
-    const contentRefElm = elm['s-cr'] = doc.createComment(crName);
-    contentRefElm['s-cn'] = true;
-    elm.insertBefore(contentRefElm, elm.firstChild);
-};
-const disconnectedCallback = (elm) => {
-    if ((plt.$flags$ & 1 /* isTmpDisconnected */) === 0) {
-        const hostRef = getHostRef(elm);
-        const instance =  hostRef.$lazyInstance$ ;
-        {
-            if (hostRef.$rmListeners$) {
-                hostRef.$rmListeners$();
-                hostRef.$rmListeners$ = undefined;
-            }
-        }
-        // clear CSS var-shim tracking
-        if ( plt.$cssShim$) {
-            plt.$cssShim$.removeHost(elm);
-        }
-        {
-            safeCall(instance, 'disconnectedCallback');
-        }
-        {
-            safeCall(instance, 'componentDidUnload');
-        }
-    }
-};
-const bootstrapLazy = (lazyBundles, options = {}) => {
-    const cmpTags = [];
-    const exclude = options.exclude || [];
-    const head = doc.head;
-    const customElements = win.customElements;
-    const y = /*@__PURE__*/ head.querySelector('meta[charset]');
-    const visibilityStyle = /*@__PURE__*/ doc.createElement('style');
-    let appLoadFallback;
-    Object.assign(plt, options);
-    plt.$resourcesUrl$ = new URL(options.resourcesUrl || './', doc.baseURI).href;
-    if (options.syncQueue) {
-        plt.$flags$ |= 4 /* queueSync */;
-    }
-    {
-        // If the app is already hydrated there is not point to disable the
-        // async queue. This will improve the first input delay
-        plt.$flags$ |= 2 /* appLoaded */;
-    }
-    {
-        const styles = doc.querySelectorAll('style[s-id]');
-        let globalStyles = '';
-        let i = 0;
-        for (; i < styles.length; i++) {
-            globalStyles += styles[i].innerHTML;
-        }
-        for (i = 0; i < styles.length; i++) {
-            const styleElm = styles[i];
-            registerStyle(styleElm.getAttribute(HYDRATE_ID), globalStyles + convertScopedToShadow(styleElm.innerHTML), true);
-        }
-    }
-    lazyBundles.forEach(lazyBundle => lazyBundle[1].forEach(compactMeta => {
-        const cmpMeta = {
-            $flags$: compactMeta[0],
-            $tagName$: compactMeta[1],
-            $members$: compactMeta[2],
-            $listeners$: compactMeta[3],
-        };
-        {
-            cmpMeta.$members$ = compactMeta[2];
-        }
-        {
-            cmpMeta.$listeners$ = compactMeta[3];
-        }
-        {
-            cmpMeta.$attrsToReflect$ = [];
-        }
-        {
-            cmpMeta.$watchers$ = {};
-        }
-        if ( !supportsShadowDom && cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) {
-            cmpMeta.$flags$ |= 8 /* needsShadowDomShim */;
-        }
-        const tagName = cmpMeta.$tagName$;
-        const HostElement = class extends HTMLElement {
-            // StencilLazyHost
-            constructor(self) {
-                // @ts-ignore
-                super(self);
-                self = this;
-                registerHost(self);
-                if ( cmpMeta.$flags$ & 1 /* shadowDomEncapsulation */) {
-                    // this component is using shadow dom
-                    // and this browser supports shadow dom
-                    // add the read-only property "shadowRoot" to the host element
-                    if (supportsShadowDom) {
-                        self.attachShadow({ 'mode': 'open' });
-                    }
-                    else if ( !('shadowRoot' in self)) {
-                        self.shadowRoot = self;
-                    }
-                }
-            }
-            connectedCallback() {
-                if (appLoadFallback) {
-                    clearTimeout(appLoadFallback);
-                    appLoadFallback = null;
-                }
-                plt.jmp(() => connectedCallback(this, cmpMeta));
-            }
-            disconnectedCallback() {
-                plt.jmp(() => disconnectedCallback(this));
-            }
-            's-hmr'(hmrVersionId) {
-            }
-            forceUpdate() {
-                forceUpdate(this, cmpMeta);
-            }
-            componentOnReady() {
-                return getHostRef(this).$onReadyPromise$;
-            }
-        };
-        cmpMeta.$lazyBundleIds$ = lazyBundle[0];
-        if (!exclude.includes(tagName) && !customElements.get(tagName)) {
-            cmpTags.push(tagName);
-            customElements.define(tagName, proxyComponent(HostElement, cmpMeta, 1 /* isElementConstructor */));
-        }
-    }));
-    // visibilityStyle.innerHTML = cmpTags.map(t => `${t}:not(.hydrated)`) + '{display:none}';
-    visibilityStyle.innerHTML = cmpTags + '{visibility:hidden}.hydrated{visibility:inherit}';
-    visibilityStyle.setAttribute('data-styles', '');
-    head.insertBefore(visibilityStyle, y ? y.nextSibling : head.firstChild);
-    // Fallback appLoad event
-    plt.jmp(() => appLoadFallback = setTimeout(appDidLoad, 30));
-};
-const createEvent = (ref, name, flags) => {
-    const elm = getElement(ref);
-    return {
-        emit: (detail) => {
-            return elm.dispatchEvent(new ( CustomEvent)(name, {
-                bubbles: !!(flags & 4 /* Bubbles */),
-                composed: !!(flags & 2 /* Composed */),
-                cancelable: !!(flags & 1 /* Cancellable */),
-                detail
-            }));
-        }
-    };
-};
-const getAssetPath = (path) => {
-    const assetUrl = new URL(path, plt.$resourcesUrl$);
-    return (assetUrl.origin !== win.location.origin)
-        ? assetUrl.href
-        : assetUrl.pathname;
-};
-const getElement = (ref) =>  getHostRef(ref).$hostElement$ ;
-
-let mode;
-const getIonMode = (ref) => {
-    return (ref && getMode(ref)) || mode;
-};
-const global0 = () => {
-    const doc = document;
-    const win = window;
-    const Ionic = win.Ionic = win.Ionic || {};
-    // Setup platforms
-    Object(_config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_0__["s"])(win);
-    // create the Ionic.config from raw config object (if it exists)
-    // and convert Ionic.config into a ConfigApi that has a get() fn
-    const configObj = Object.assign(Object.assign(Object.assign(Object.assign({}, Object(_config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_0__["c"])(win)), { persistConfig: false }), Ionic.config), Object(_config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_0__["a"])(win));
-    _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_0__["b"].reset(configObj);
-    if (_config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_0__["b"].getBoolean('persistConfig')) {
-        Object(_config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_0__["d"])(win, configObj);
-    }
-    // first see if the mode was set as an attribute on <html>
-    // which could have been set by the user, or by prerendering
-    // otherwise get the mode via config settings, and fallback to md
-    Ionic.config = _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_0__["b"];
-    Ionic.mode = mode = _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_0__["b"].get('mode', (doc.documentElement.getAttribute('mode')) || (Object(_config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_0__["i"])(win, 'ios') ? 'ios' : 'md'));
-    _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_0__["b"].set('mode', mode);
-    doc.documentElement.setAttribute('mode', mode);
-    doc.documentElement.classList.add(mode);
-    if (_config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_0__["b"].getBoolean('_testing')) {
-        _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_0__["b"].set('animated', false);
-    }
-    setMode((elm) => elm.mode = elm.mode || elm.getAttribute('mode') || mode);
-};
-
-const global1 = () => {
-    setMode((el) => el.tagName === 'ION-ICON' ? el.mode || el.getAttribute('mode') : null);
-};
-
-const globals = () => {
-  global0();
-  global1();
+ActionSheet.style = {
+    /*STENCIL:MODE:ios*/ ios: actionSheetIosCss,
+    /*STENCIL:MODE:md*/ md: actionSheetMdCss
 };
 
 

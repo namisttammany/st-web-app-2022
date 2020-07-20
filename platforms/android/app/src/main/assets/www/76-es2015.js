@@ -1,308 +1,554 @@
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[76],{
 
-/***/ "./node_modules/@ionic/core/dist/esm/ion-reorder_2-ios.entry.js":
-/*!**********************************************************************!*\
-  !*** ./node_modules/@ionic/core/dist/esm/ion-reorder_2-ios.entry.js ***!
-  \**********************************************************************/
-/*! exports provided: ion_reorder, ion_reorder_group */
+/***/ "./node_modules/@ionic/core/dist/esm/ion-virtual-scroll.entry.js":
+/*!***********************************************************************!*\
+  !*** ./node_modules/@ionic/core/dist/esm/ion-virtual-scroll.entry.js ***!
+  \***********************************************************************/
+/*! exports provided: ion_virtual_scroll */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_reorder", function() { return Reorder; });
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_reorder_group", function() { return ReorderGroup; });
-/* harmony import */ var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./core-0a8d4d2e.js */ "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
-/* harmony import */ var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./config-3c7f3790.js */ "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
-/* harmony import */ var _haptic_c8f1473e_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./haptic-c8f1473e.js */ "./node_modules/@ionic/core/dist/esm/haptic-c8f1473e.js");
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ion_virtual_scroll", function() { return VirtualScroll; });
+/* harmony import */ var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./index-29df6f59.js */ "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
 
 
+const CELL_TYPE_ITEM = 'item';
+const CELL_TYPE_HEADER = 'header';
+const CELL_TYPE_FOOTER = 'footer';
+const NODE_CHANGE_NONE = 0;
+const NODE_CHANGE_POSITION = 1;
+const NODE_CHANGE_CELL = 2;
 
-
-const Reorder = class {
-    constructor(hostRef) {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+const MIN_READS = 2;
+const updateVDom = (dom, heightIndex, cells, range) => {
+    // reset dom
+    for (const node of dom) {
+        node.change = NODE_CHANGE_NONE;
+        node.d = true;
     }
-    onClick(ev) {
-        ev.preventDefault();
-        ev.stopImmediatePropagation();
+    // try to match into exisiting dom
+    const toMutate = [];
+    const end = range.offset + range.length;
+    for (let i = range.offset; i < end; i++) {
+        const cell = cells[i];
+        const node = dom.find(n => n.d && n.cell === cell);
+        if (node) {
+            const top = heightIndex[i];
+            if (top !== node.top) {
+                node.top = top;
+                node.change = NODE_CHANGE_POSITION;
+            }
+            node.d = false;
+        }
+        else {
+            toMutate.push(cell);
+        }
     }
-    render() {
-        const mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-        const reorderIcon = mode === 'ios' ? 'reorder-three-outline' : 'reorder-two-sharp';
-        return (Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], { class: mode }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-icon", { name: reorderIcon, lazy: false, class: "reorder-icon" }))));
+    // needs to append
+    const pool = dom.filter(n => n.d);
+    for (const cell of toMutate) {
+        const node = pool.find(n => n.d && n.cell.type === cell.type);
+        const index = cell.i;
+        if (node) {
+            node.d = false;
+            node.change = NODE_CHANGE_CELL;
+            node.cell = cell;
+            node.top = heightIndex[index];
+        }
+        else {
+            dom.push({
+                d: false,
+                cell,
+                visible: true,
+                change: NODE_CHANGE_CELL,
+                top: heightIndex[index],
+            });
+        }
     }
-    static get style() { return ":host([slot]){display:none;line-height:0;z-index:100}.reorder-icon{display:block;font-size:22px;font-size:34px;opacity:.4}"; }
+    dom
+        .filter(n => n.d && n.top !== -9999)
+        .forEach(n => {
+        n.change = NODE_CHANGE_POSITION;
+        n.top = -9999;
+    });
+};
+const doRender = (el, nodeRender, dom, updateCellHeight) => {
+    const children = Array.from(el.children).filter(n => n.tagName !== 'TEMPLATE');
+    const childrenNu = children.length;
+    let child;
+    for (let i = 0; i < dom.length; i++) {
+        const node = dom[i];
+        const cell = node.cell;
+        // the cell change, the content must be updated
+        if (node.change === NODE_CHANGE_CELL) {
+            if (i < childrenNu) {
+                child = children[i];
+                nodeRender(child, cell, i);
+            }
+            else {
+                const newChild = createNode(el, cell.type);
+                child = nodeRender(newChild, cell, i) || newChild;
+                child.classList.add('virtual-item');
+                el.appendChild(child);
+            }
+            child['$ionCell'] = cell;
+        }
+        else {
+            child = children[i];
+        }
+        // only update position when it changes
+        if (node.change !== NODE_CHANGE_NONE) {
+            child.style.transform = `translate3d(0,${node.top}px,0)`;
+        }
+        // update visibility
+        const visible = cell.visible;
+        if (node.visible !== visible) {
+            if (visible) {
+                child.classList.remove('virtual-loading');
+            }
+            else {
+                child.classList.add('virtual-loading');
+            }
+            node.visible = visible;
+        }
+        // dynamic height
+        if (cell.reads > 0) {
+            updateCellHeight(cell, child);
+            cell.reads--;
+        }
+    }
+};
+const createNode = (el, type) => {
+    const template = getTemplate(el, type);
+    if (template && el.ownerDocument) {
+        return el.ownerDocument.importNode(template.content, true).children[0];
+    }
+    return null;
+};
+const getTemplate = (el, type) => {
+    switch (type) {
+        case CELL_TYPE_ITEM: return el.querySelector('template:not([name])');
+        case CELL_TYPE_HEADER: return el.querySelector('template[name=header]');
+        case CELL_TYPE_FOOTER: return el.querySelector('template[name=footer]');
+    }
+};
+const getViewport = (scrollTop, vierportHeight, margin) => {
+    return {
+        top: Math.max(scrollTop - margin, 0),
+        bottom: scrollTop + vierportHeight + margin
+    };
+};
+const getRange = (heightIndex, viewport, buffer) => {
+    const topPos = viewport.top;
+    const bottomPos = viewport.bottom;
+    // find top index
+    let i = 0;
+    for (; i < heightIndex.length; i++) {
+        if (heightIndex[i] > topPos) {
+            break;
+        }
+    }
+    const offset = Math.max(i - buffer - 1, 0);
+    // find bottom index
+    for (; i < heightIndex.length; i++) {
+        if (heightIndex[i] >= bottomPos) {
+            break;
+        }
+    }
+    const end = Math.min(i + buffer, heightIndex.length);
+    const length = end - offset;
+    return { offset, length };
+};
+const getShouldUpdate = (dirtyIndex, currentRange, range) => {
+    const end = range.offset + range.length;
+    return (dirtyIndex <= end ||
+        currentRange.offset !== range.offset ||
+        currentRange.length !== range.length);
+};
+const findCellIndex = (cells, index) => {
+    const max = cells.length > 0 ? cells[cells.length - 1].index : 0;
+    if (index === 0) {
+        return 0;
+    }
+    else if (index === max + 1) {
+        return cells.length;
+    }
+    else {
+        return cells.findIndex(c => c.index === index);
+    }
+};
+const inplaceUpdate = (dst, src, offset) => {
+    if (offset === 0 && src.length >= dst.length) {
+        return src;
+    }
+    for (let i = 0; i < src.length; i++) {
+        dst[i + offset] = src[i];
+    }
+    return dst;
+};
+const calcCells = (items, itemHeight, headerHeight, footerHeight, headerFn, footerFn, approxHeaderHeight, approxFooterHeight, approxItemHeight, j, offset, len) => {
+    const cells = [];
+    const end = len + offset;
+    for (let i = offset; i < end; i++) {
+        const item = items[i];
+        if (headerFn) {
+            const value = headerFn(item, i, items);
+            if (value != null) {
+                cells.push({
+                    i: j++,
+                    type: CELL_TYPE_HEADER,
+                    value,
+                    index: i,
+                    height: headerHeight ? headerHeight(value, i) : approxHeaderHeight,
+                    reads: headerHeight ? 0 : MIN_READS,
+                    visible: !!headerHeight,
+                });
+            }
+        }
+        cells.push({
+            i: j++,
+            type: CELL_TYPE_ITEM,
+            value: item,
+            index: i,
+            height: itemHeight ? itemHeight(item, i) : approxItemHeight,
+            reads: itemHeight ? 0 : MIN_READS,
+            visible: !!itemHeight,
+        });
+        if (footerFn) {
+            const value = footerFn(item, i, items);
+            if (value != null) {
+                cells.push({
+                    i: j++,
+                    type: CELL_TYPE_FOOTER,
+                    value,
+                    index: i,
+                    height: footerHeight ? footerHeight(value, i) : approxFooterHeight,
+                    reads: footerHeight ? 0 : MIN_READS,
+                    visible: !!footerHeight,
+                });
+            }
+        }
+    }
+    return cells;
+};
+const calcHeightIndex = (buf, cells, index) => {
+    let acum = buf[index];
+    for (let i = index; i < buf.length; i++) {
+        buf[i] = acum;
+        acum += cells[i].height;
+    }
+    return acum;
+};
+const resizeBuffer = (buf, len) => {
+    if (!buf) {
+        return new Uint32Array(len);
+    }
+    if (buf.length === len) {
+        return buf;
+    }
+    else if (len > buf.length) {
+        const newBuf = new Uint32Array(len);
+        newBuf.set(buf);
+        return newBuf;
+    }
+    else {
+        return buf.subarray(0, len);
+    }
+};
+const positionForIndex = (index, cells, heightIndex) => {
+    const cell = cells.find(c => c.type === CELL_TYPE_ITEM && c.index === index);
+    if (cell) {
+        return heightIndex[cell.i];
+    }
+    return -1;
 };
 
-const ReorderGroup = class {
+const virtualScrollCss = "ion-virtual-scroll{display:block;position:relative;width:100%;contain:strict;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}ion-virtual-scroll>.virtual-loading{opacity:0}ion-virtual-scroll>.virtual-item{position:absolute !important;top:0 !important;right:0 !important;left:0 !important;-webkit-transition-duration:0ms;transition-duration:0ms;will-change:transform}";
+
+class VirtualScroll {
     constructor(hostRef) {
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.lastToIndex = -1;
-        this.cachedHeights = [];
-        this.scrollElTop = 0;
-        this.scrollElBottom = 0;
-        this.scrollElInitial = 0;
-        this.containerTop = 0;
-        this.containerBottom = 0;
-        this.state = 0 /* Idle */;
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.range = { offset: 0, length: 0 };
+        this.viewportHeight = 0;
+        this.cells = [];
+        this.virtualDom = [];
+        this.isEnabled = false;
+        this.viewportOffset = 0;
+        this.currentScrollTop = 0;
+        this.indexDirty = 0;
+        this.lastItemLen = 0;
+        this.totalHeight = 0;
         /**
-         * If `true`, the reorder will be hidden.
+         * It is important to provide this
+         * if virtual item height will be significantly larger than the default
+         * The approximate height of each virtual item template's cell.
+         * This dimension is used to help determine how many cells should
+         * be created when initialized, and to help calculate the height of
+         * the scrollable area. This height value can only use `px` units.
+         * Note that the actual rendered size of each cell comes from the
+         * app's CSS, whereas this approximation is used to help calculate
+         * initial dimensions before the item has been rendered.
          */
-        this.disabled = true;
-        this.ionItemReorder = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionItemReorder", 7);
+        this.approxItemHeight = 45;
+        /**
+         * The approximate height of each header template's cell.
+         * This dimension is used to help determine how many cells should
+         * be created when initialized, and to help calculate the height of
+         * the scrollable area. This height value can only use `px` units.
+         * Note that the actual rendered size of each cell comes from the
+         * app's CSS, whereas this approximation is used to help calculate
+         * initial dimensions before the item has been rendered.
+         */
+        this.approxHeaderHeight = 30;
+        /**
+         * The approximate width of each footer template's cell.
+         * This dimension is used to help determine how many cells should
+         * be created when initialized, and to help calculate the height of
+         * the scrollable area. This height value can only use `px` units.
+         * Note that the actual rendered size of each cell comes from the
+         * app's CSS, whereas this approximation is used to help calculate
+         * initial dimensions before the item has been rendered.
+         */
+        this.approxFooterHeight = 30;
+        this.onScroll = () => {
+            this.updateVirtualScroll();
+        };
     }
-    disabledChanged() {
-        if (this.gesture) {
-            this.gesture.enable(!this.disabled);
-        }
+    itemsChanged() {
+        this.calcCells();
+        this.updateVirtualScroll();
     }
     async connectedCallback() {
         const contentEl = this.el.closest('ion-content');
-        if (contentEl) {
-            this.scrollEl = await contentEl.getScrollElement();
+        if (!contentEl) {
+            console.error('<ion-virtual-scroll> must be used inside an <ion-content>');
+            return;
         }
-        this.gesture = (await Promise.resolve(/*! import() */).then(__webpack_require__.bind(null, /*! ./index-c38df685.js */ "./node_modules/@ionic/core/dist/esm/index-c38df685.js"))).createGesture({
-            el: this.el,
-            gestureName: 'reorder',
-            gesturePriority: 110,
-            threshold: 0,
-            direction: 'y',
-            passive: false,
-            canStart: detail => this.canStart(detail),
-            onStart: ev => this.onStart(ev),
-            onMove: ev => this.onMove(ev),
-            onEnd: () => this.onEnd(),
-        });
-        this.disabledChanged();
+        this.scrollEl = await contentEl.getScrollElement();
+        this.contentEl = contentEl;
+        this.calcCells();
+        this.updateState();
+    }
+    componentDidUpdate() {
+        this.updateState();
     }
     disconnectedCallback() {
-        this.onEnd();
-        if (this.gesture) {
-            this.gesture.destroy();
-            this.gesture = undefined;
-        }
+        this.scrollEl = undefined;
+    }
+    onResize() {
+        this.calcCells();
+        this.updateVirtualScroll();
     }
     /**
-     * Completes the reorder operation. Must be called by the `ionItemReorder` event.
-     *
-     * If a list of items is passed, the list will be reordered and returned in the
-     * proper order.
-     *
-     * If no parameters are passed or if `true` is passed in, the reorder will complete
-     * and the item will remain in the position it was dragged to. If `false` is passed,
-     * the reorder will complete and the item will bounce back to its original position.
-     *
-     * @param listOrReorder A list of items to be sorted and returned in the new order or a
-     * boolean of whether or not the reorder should reposition the item.
+     * Returns the position of the virtual item at the given index.
      */
-    complete(listOrReorder) {
-        return Promise.resolve(this.completeSync(listOrReorder));
+    positionForItem(index) {
+        return Promise.resolve(positionForIndex(index, this.cells, this.getHeightIndex()));
     }
-    canStart(ev) {
-        if (this.selectedItemEl || this.state !== 0 /* Idle */) {
-            return false;
-        }
-        const target = ev.event.target;
-        const reorderEl = target.closest('ion-reorder');
-        if (!reorderEl) {
-            return false;
-        }
-        const item = findReorderItem(reorderEl, this.el);
-        if (!item) {
-            return false;
-        }
-        ev.data = item;
-        return true;
-    }
-    onStart(ev) {
-        ev.event.preventDefault();
-        const item = this.selectedItemEl = ev.data;
-        const heights = this.cachedHeights;
-        heights.length = 0;
-        const el = this.el;
-        const children = el.children;
-        if (!children || children.length === 0) {
+    /**
+     * This method marks a subset of items as dirty, so they can be re-rendered. Items should be marked as
+     * dirty any time the content or their style changes.
+     *
+     * The subset of items to be updated can are specifing by an offset and a length.
+     */
+    async checkRange(offset, len = -1) {
+        // TODO: kind of hacky how we do in-place updated of the cells
+        // array. this part needs a complete refactor
+        if (!this.items) {
             return;
         }
-        let sum = 0;
-        for (let i = 0; i < children.length; i++) {
-            const child = children[i];
-            sum += child.offsetHeight;
-            heights.push(sum);
-            child.$ionIndex = i;
+        const length = (len === -1)
+            ? this.items.length - offset
+            : len;
+        const cellIndex = findCellIndex(this.cells, offset);
+        const cells = calcCells(this.items, this.itemHeight, this.headerHeight, this.footerHeight, this.headerFn, this.footerFn, this.approxHeaderHeight, this.approxFooterHeight, this.approxItemHeight, cellIndex, offset, length);
+        this.cells = inplaceUpdate(this.cells, cells, cellIndex);
+        this.lastItemLen = this.items.length;
+        this.indexDirty = Math.max(offset - 1, 0);
+        this.scheduleUpdate();
+    }
+    /**
+     * This method marks the tail the items array as dirty, so they can be re-rendered.
+     *
+     * It's equivalent to calling:
+     *
+     * ```js
+     * virtualScroll.checkRange(lastItemLen);
+     * ```
+     */
+    async checkEnd() {
+        if (this.items) {
+            this.checkRange(this.lastItemLen);
         }
-        const box = el.getBoundingClientRect();
-        this.containerTop = box.top;
-        this.containerBottom = box.bottom;
-        if (this.scrollEl) {
-            const scrollBox = this.scrollEl.getBoundingClientRect();
-            this.scrollElInitial = this.scrollEl.scrollTop;
-            this.scrollElTop = scrollBox.top + AUTO_SCROLL_MARGIN;
-            this.scrollElBottom = scrollBox.bottom - AUTO_SCROLL_MARGIN;
+    }
+    updateVirtualScroll() {
+        // do nothing if virtual-scroll is disabled
+        if (!this.isEnabled || !this.scrollEl) {
+            return;
+        }
+        // unschedule future updates
+        if (this.timerUpdate) {
+            clearTimeout(this.timerUpdate);
+            this.timerUpdate = undefined;
+        }
+        // schedule DOM operations into the stencil queue
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this.readVS.bind(this));
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["w"])(this.writeVS.bind(this));
+    }
+    readVS() {
+        const { contentEl, scrollEl, el } = this;
+        let topOffset = 0;
+        let node = el;
+        while (node && node !== contentEl) {
+            topOffset += node.offsetTop;
+            node = node.parentElement;
+        }
+        this.viewportOffset = topOffset;
+        if (scrollEl) {
+            this.viewportHeight = scrollEl.offsetHeight;
+            this.currentScrollTop = scrollEl.scrollTop;
+        }
+    }
+    writeVS() {
+        const dirtyIndex = this.indexDirty;
+        // get visible viewport
+        const scrollTop = this.currentScrollTop - this.viewportOffset;
+        const viewport = getViewport(scrollTop, this.viewportHeight, 100);
+        // compute lazily the height index
+        const heightIndex = this.getHeightIndex();
+        // get array bounds of visible cells base in the viewport
+        const range = getRange(heightIndex, viewport, 2);
+        // fast path, do nothing
+        const shouldUpdate = getShouldUpdate(dirtyIndex, this.range, range);
+        if (!shouldUpdate) {
+            return;
+        }
+        this.range = range;
+        // in place mutation of the virtual DOM
+        updateVDom(this.virtualDom, heightIndex, this.cells, range);
+        // Write DOM
+        // Different code paths taken depending of the render API used
+        if (this.nodeRender) {
+            doRender(this.el, this.nodeRender, this.virtualDom, this.updateCellHeight.bind(this));
+        }
+        else if (this.domRender) {
+            this.domRender(this.virtualDom);
+        }
+        else if (this.renderItem) {
+            Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["f"])(this);
+        }
+    }
+    updateCellHeight(cell, node) {
+        const update = () => {
+            if (node['$ionCell'] === cell) {
+                const style = window.getComputedStyle(node);
+                const height = node.offsetHeight + parseFloat(style.getPropertyValue('margin-bottom'));
+                this.setCellHeight(cell, height);
+            }
+        };
+        if (node && node.componentOnReady) {
+            node.componentOnReady().then(update);
         }
         else {
-            this.scrollElInitial = 0;
-            this.scrollElTop = 0;
-            this.scrollElBottom = 0;
+            update();
         }
-        this.lastToIndex = indexForItem(item);
-        this.selectedItemHeight = item.offsetHeight;
-        this.state = 1 /* Active */;
-        item.classList.add(ITEM_REORDER_SELECTED);
-        Object(_haptic_c8f1473e_js__WEBPACK_IMPORTED_MODULE_2__["a"])();
     }
-    onMove(ev) {
-        const selectedItem = this.selectedItemEl;
-        if (!selectedItem) {
+    setCellHeight(cell, height) {
+        const index = cell.i;
+        // the cell might changed since the height update was scheduled
+        if (cell !== this.cells[index]) {
             return;
         }
-        // Scroll if we reach the scroll margins
-        const scroll = this.autoscroll(ev.currentY);
-        // // Get coordinate
-        const top = this.containerTop - scroll;
-        const bottom = this.containerBottom - scroll;
-        const currentY = Math.max(top, Math.min(ev.currentY, bottom));
-        const deltaY = scroll + currentY - ev.startY;
-        const normalizedY = currentY - top;
-        const toIndex = this.itemIndexForTop(normalizedY);
-        if (toIndex !== this.lastToIndex) {
-            const fromIndex = indexForItem(selectedItem);
-            this.lastToIndex = toIndex;
-            Object(_haptic_c8f1473e_js__WEBPACK_IMPORTED_MODULE_2__["b"])();
-            this.reorderMove(fromIndex, toIndex);
+        if (cell.height !== height || cell.visible !== true) {
+            cell.visible = true;
+            cell.height = height;
+            this.indexDirty = Math.min(this.indexDirty, index);
+            this.scheduleUpdate();
         }
-        // Update selected item position
-        selectedItem.style.transform = `translateY(${deltaY}px)`;
     }
-    onEnd() {
-        const selectedItemEl = this.selectedItemEl;
-        this.state = 2 /* Complete */;
-        if (!selectedItemEl) {
-            this.state = 0 /* Idle */;
+    scheduleUpdate() {
+        clearTimeout(this.timerUpdate);
+        this.timerUpdate = setTimeout(() => this.updateVirtualScroll(), 100);
+    }
+    updateState() {
+        const shouldEnable = !!(this.scrollEl &&
+            this.cells);
+        if (shouldEnable !== this.isEnabled) {
+            this.enableScrollEvents(shouldEnable);
+            if (shouldEnable) {
+                this.updateVirtualScroll();
+            }
+        }
+    }
+    calcCells() {
+        if (!this.items) {
             return;
         }
-        const toIndex = this.lastToIndex;
-        const fromIndex = indexForItem(selectedItemEl);
-        if (toIndex === fromIndex) {
-            this.completeSync();
-        }
-        else {
-            this.ionItemReorder.emit({
-                from: fromIndex,
-                to: toIndex,
-                complete: this.completeSync.bind(this)
-            });
-        }
-        Object(_haptic_c8f1473e_js__WEBPACK_IMPORTED_MODULE_2__["c"])();
+        this.lastItemLen = this.items.length;
+        this.cells = calcCells(this.items, this.itemHeight, this.headerHeight, this.footerHeight, this.headerFn, this.footerFn, this.approxHeaderHeight, this.approxFooterHeight, this.approxItemHeight, 0, 0, this.lastItemLen);
+        this.indexDirty = 0;
     }
-    completeSync(listOrReorder) {
-        const selectedItemEl = this.selectedItemEl;
-        if (selectedItemEl && this.state === 2 /* Complete */) {
-            const children = this.el.children;
-            const len = children.length;
-            const toIndex = this.lastToIndex;
-            const fromIndex = indexForItem(selectedItemEl);
-            if (toIndex !== fromIndex && (!listOrReorder || listOrReorder === true)) {
-                const ref = (fromIndex < toIndex)
-                    ? children[toIndex + 1]
-                    : children[toIndex];
-                this.el.insertBefore(selectedItemEl, ref);
-            }
-            if (Array.isArray(listOrReorder)) {
-                listOrReorder = reorderArray(listOrReorder, fromIndex, toIndex);
-            }
-            for (let i = 0; i < len; i++) {
-                children[i].style['transform'] = '';
-            }
-            selectedItemEl.style.transition = '';
-            selectedItemEl.classList.remove(ITEM_REORDER_SELECTED);
-            this.selectedItemEl = undefined;
-            this.state = 0 /* Idle */;
+    getHeightIndex() {
+        if (this.indexDirty !== Infinity) {
+            this.calcHeightIndex(this.indexDirty);
         }
-        return listOrReorder;
+        return this.heightIndex;
     }
-    itemIndexForTop(deltaY) {
-        const heights = this.cachedHeights;
-        let i = 0;
-        // TODO: since heights is a sorted array of integers, we can do
-        // speed up the search using binary search. Remember that linear-search is still
-        // faster than binary-search for small arrays (<64) due CPU branch misprediction.
-        for (i = 0; i < heights.length; i++) {
-            if (heights[i] > deltaY) {
-                break;
-            }
+    calcHeightIndex(index = 0) {
+        // TODO: optimize, we don't need to calculate all the cells
+        this.heightIndex = resizeBuffer(this.heightIndex, this.cells.length);
+        this.totalHeight = calcHeightIndex(this.heightIndex, this.cells, index);
+        this.indexDirty = Infinity;
+    }
+    enableScrollEvents(shouldListen) {
+        if (this.rmEvent) {
+            this.rmEvent();
+            this.rmEvent = undefined;
         }
-        return i;
-    }
-    /********* DOM WRITE ********* */
-    reorderMove(fromIndex, toIndex) {
-        const itemHeight = this.selectedItemHeight;
-        const children = this.el.children;
-        for (let i = 0; i < children.length; i++) {
-            const style = children[i].style;
-            let value = '';
-            if (i > fromIndex && i <= toIndex) {
-                value = `translateY(${-itemHeight}px)`;
-            }
-            else if (i < fromIndex && i >= toIndex) {
-                value = `translateY(${itemHeight}px)`;
-            }
-            style['transform'] = value;
+        const scrollEl = this.scrollEl;
+        if (scrollEl) {
+            this.isEnabled = shouldListen;
+            scrollEl.addEventListener('scroll', this.onScroll);
+            this.rmEvent = () => {
+                scrollEl.removeEventListener('scroll', this.onScroll);
+            };
         }
     }
-    autoscroll(posY) {
-        if (!this.scrollEl) {
-            return 0;
+    renderVirtualNode(node) {
+        const { type, value, index } = node.cell;
+        switch (type) {
+            case CELL_TYPE_ITEM: return this.renderItem(value, index);
+            case CELL_TYPE_HEADER: return this.renderHeader(value, index);
+            case CELL_TYPE_FOOTER: return this.renderFooter(value, index);
         }
-        let amount = 0;
-        if (posY < this.scrollElTop) {
-            amount = -SCROLL_JUMP;
-        }
-        else if (posY > this.scrollElBottom) {
-            amount = SCROLL_JUMP;
-        }
-        if (amount !== 0) {
-            this.scrollEl.scrollBy(0, amount);
-        }
-        return this.scrollEl.scrollTop - this.scrollElInitial;
     }
     render() {
-        const mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-        return (Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], { class: {
-                [mode]: true,
-                'reorder-enabled': !this.disabled,
-                'reorder-list-active': this.state !== 0 /* Idle */,
-            } }));
+        return (Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], { style: {
+                height: `${this.totalHeight}px`
+            } }, this.renderItem && (Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(VirtualProxy, { dom: this.virtualDom }, this.virtualDom.map(node => this.renderVirtualNode(node))))));
     }
-    get el() { return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
+    get el() { return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this); }
     static get watchers() { return {
-        "disabled": ["disabledChanged"]
+        "itemHeight": ["itemsChanged"],
+        "headerHeight": ["itemsChanged"],
+        "footerHeight": ["itemsChanged"],
+        "items": ["itemsChanged"]
     }; }
-    static get style() { return ".reorder-list-active>*{-webkit-transition:-webkit-transform .3s;transition:-webkit-transform .3s;transition:transform .3s;transition:transform .3s,-webkit-transform .3s;will-change:transform}.reorder-enabled{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.reorder-enabled ion-reorder{display:block;cursor:-webkit-grab;cursor:grab;pointer-events:all;-ms-touch-action:none;touch-action:none}.reorder-selected,.reorder-selected ion-reorder{cursor:-webkit-grabbing;cursor:grabbing}.reorder-selected{position:relative;-webkit-transition:none!important;transition:none!important;-webkit-box-shadow:0 0 10px rgba(0,0,0,.4);box-shadow:0 0 10px rgba(0,0,0,.4);opacity:.8;z-index:100}.reorder-visible ion-reorder .reorder-icon{-webkit-transform:translateZ(0);transform:translateZ(0)}"; }
-};
-const indexForItem = (element) => {
-    return element['$ionIndex'];
-};
-const findReorderItem = (node, container) => {
-    let parent;
-    while (node) {
-        parent = node.parentElement;
-        if (parent === container) {
-            return node;
+}
+const VirtualProxy = ({ dom }, children, utils) => {
+    return utils.map(children, (child, i) => {
+        const node = dom[i];
+        const vattrs = child.vattrs || {};
+        let classes = vattrs.class || '';
+        classes += 'virtual-item ';
+        if (!node.visible) {
+            classes += 'virtual-loading';
         }
-        node = parent;
-    }
-    return undefined;
+        return Object.assign(Object.assign({}, child), { vattrs: Object.assign(Object.assign({}, vattrs), { class: classes, style: Object.assign(Object.assign({}, vattrs.style), { transform: `translate3d(0,${node.top}px,0)` }) }) });
+    });
 };
-const AUTO_SCROLL_MARGIN = 60;
-const SCROLL_JUMP = 10;
-const ITEM_REORDER_SELECTED = 'reorder-selected';
-const reorderArray = (array, from, to) => {
-    const element = array[from];
-    array.splice(from, 1);
-    array.splice(to, 0, element);
-    return array.slice();
-};
+VirtualScroll.style = virtualScrollCss;
 
 
 

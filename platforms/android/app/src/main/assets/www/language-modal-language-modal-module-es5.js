@@ -265,9 +265,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
     "./node_modules/@angular/router/fesm2015/router.js"); // import { Http } from '@angular/http';
 
 
-    var LanguageModalPage =
-    /*#__PURE__*/
-    function () {
+    var LanguageModalPage = /*#__PURE__*/function () {
       function LanguageModalPage(modalController, http, contacts, plt, sanitizer, toastController, firebaseAnalytics, _translate, translateConfigService, router) {
         _classCallCheck(this, LanguageModalPage);
 
@@ -330,10 +328,10 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
       selector: 'app-language-modal',
       template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! raw-loader!./language-modal.page.html */
-      "./node_modules/raw-loader/dist/cjs.js!./src/app/language-modal/language-modal.page.html")).default,
+      "./node_modules/raw-loader/dist/cjs.js!./src/app/language-modal/language-modal.page.html"))["default"],
       styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(
       /*! ./language-modal.page.scss */
-      "./src/app/language-modal/language-modal.page.scss")).default]
+      "./src/app/language-modal/language-modal.page.scss"))["default"]]
     }), tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ModalController"], _angular_common_http__WEBPACK_IMPORTED_MODULE_5__["HttpClient"], _ionic_native_contacts_ngx__WEBPACK_IMPORTED_MODULE_4__["Contacts"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["Platform"], _angular_platform_browser__WEBPACK_IMPORTED_MODULE_3__["DomSanitizer"], _ionic_angular__WEBPACK_IMPORTED_MODULE_2__["ToastController"], _ionic_native_firebase_analytics_ngx__WEBPACK_IMPORTED_MODULE_6__["FirebaseAnalytics"], _ngx_translate_core__WEBPACK_IMPORTED_MODULE_7__["TranslateService"], _services_translate_config_service__WEBPACK_IMPORTED_MODULE_8__["TranslateConfigService"], _angular_router__WEBPACK_IMPORTED_MODULE_9__["Router"]])], LanguageModalPage);
     /***/
   }

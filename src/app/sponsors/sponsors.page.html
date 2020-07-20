@@ -17,50 +17,26 @@
 
   <ion-list *ngFor="let sponsor of sponsorsList | async" class="ion-justify-content-center" >
 
-      <!-- Tier 1 - logo 100% of width, max height -->
-          <ion-row *ngIf="sponsor.tier === 1" style="height: 200px; width: fit-content;">
-            <ion-col size="1">
-              <div></div>
-            </ion-col>
-            <ion-col size="10" class="ion-justify-content-center" >
-              <div style="justify-content: center;">
-                <img id="logo" src="{{sponsor.image}}" (click)="viewSponsor(sponsor)" style="object-fit:contain;">
-              </div>
-            </ion-col>
-            <ion-col size="1">
-              <div></div>
-            </ion-col>
-          </ion-row>
+      <!-- Tier 1 - logo 70% of width, max height -->
+      <ion-row *ngIf="sponsor.tier === 1" >
+        <div class="tier1container">
+          <img id="logo" src="{{sponsor.image}}" (click)="viewSponsor(sponsor)">
+        </div>
+    </ion-row>
 
-          <!-- Tier 2 - logo 80% of width -->
-          <ion-row *ngIf="sponsor.tier === 2" style="height: 200px; width: fit-content;">
-            <ion-col size="2">
-              <div></div>
-            </ion-col>
-            <ion-col size="8" class="ion-justify-content-center" >
-              <div style="justify-content: center;">
-                <img id="logo" src="{{sponsor.image}}" (click)="viewSponsor(sponsor)" style="object-fit:contain;">
-              </div>
-            </ion-col>
-            <ion-col size="2">
-              <div></div>
-            </ion-col>
-          </ion-row>
+    <!-- Tier 2 - logo 60% of width -->
+    <ion-row *ngIf="sponsor.tier === 2">
+        <div class="tier2container">
+          <img id="logo" src="{{sponsor.image}}" (click)="viewSponsor(sponsor)">
+        </div>
+    </ion-row>
 
-          <!-- Tier 3 - logo 50% of width -->
-          <ion-row *ngIf="sponsor.tier === 3" style="height: 200px !important; width: fit-content;">
-            <ion-col size="3">
-              <div></div>
-            </ion-col>
-            <ion-col size="6" class="ion-justify-content-center" >
-              <div style="justify-content: center;">
-                <img id="logo" src="{{sponsor.image}}" (click)="viewSponsor(sponsor)" style="object-fit:contain;">
-              </div>
-            </ion-col>
-            <ion-col size="3">
-              <div></div>
-            </ion-col>
-          </ion-row>
+    <!-- Tier 3 - logo 50% of width -->
+    <ion-row *ngIf="sponsor.tier === 3">
+        <div class="tier3container">
+          <img id="logo" src="{{sponsor.image}}" (click)="viewSponsor(sponsor)">
+        </div>
+    </ion-row>
 
 </ion-list>
 

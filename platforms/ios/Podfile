@@ -3,9 +3,8 @@ source 'https://github.com/CocoaPods/Specs.git'
 source 'https://cdn.cocoapods.org/'
 platform :ios, '10.0'
 use_frameworks!
-target 'NAMI ST' do
-	project 'NAMI ST.xcodeproj'
-	pod 'Firebase/Core', '~> 6.3.0'
+target 'NAMI GA' do
+	project 'NAMI GA.xcodeproj'
 	pod 'Firebase/Analytics', '~> 6.3.0'
 	pod 'Firebase/Messaging', '~> 6.3.0'
 	pod 'GoogleSignIn', '~> 5.0.2'

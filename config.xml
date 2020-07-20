@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.apptitude.nami" version="2020.05.08" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>NAMI ST</name>
+<widget id="com.nami.ga" version="2020.07.20" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>NAMI GA</name>
     <description>Resources App</description>
     <author email="apatel@namisttammany.org" href="http://namisttammany.org/">Akshar Patel</author>
     <content src="index.html" />

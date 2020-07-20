@@ -1,5 +1,9 @@
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
@@ -8,765 +12,506 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[51], {
   /***/
-  "./node_modules/@ionic/core/dist/esm/ion-segment_2-ios.entry.js":
+  "./node_modules/@ionic/core/dist/esm/ion-reorder_2-ios.entry.js":
   /*!**********************************************************************!*\
-    !*** ./node_modules/@ionic/core/dist/esm/ion-segment_2-ios.entry.js ***!
+    !*** ./node_modules/@ionic/core/dist/esm/ion-reorder_2-ios.entry.js ***!
     \**********************************************************************/
 
-  /*! exports provided: ion_segment, ion_segment_button */
+  /*! exports provided: ion_reorder, ion_reorder_group */
 
   /***/
-  function node_modulesIonicCoreDistEsmIonSegment_2IosEntryJs(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesIonicCoreDistEsmIonReorder_2IosEntryJs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ion_segment", function () {
-      return Segment;
+    __webpack_require__.d(__webpack_exports__, "ion_reorder", function () {
+      return Reorder;
     });
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ion_segment_button", function () {
-      return SegmentButton;
+    __webpack_require__.d(__webpack_exports__, "ion_reorder_group", function () {
+      return ReorderGroup;
     });
     /* harmony import */
 
 
-    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! ./core-0a8d4d2e.js */
-    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
+    var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./index-29df6f59.js */
+    "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
     /* harmony import */
 
 
-    var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ./config-3c7f3790.js */
-    "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
+    var _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./ionic-global-08f4fb8a.js */
+    "./node_modules/@ionic/core/dist/esm/ionic-global-08f4fb8a.js");
     /* harmony import */
 
 
-    var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./helpers-46f4a262.js */
-    "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
-    /* harmony import */
+    var _haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./haptic-7b8ba70a.js */
+    "./node_modules/@ionic/core/dist/esm/haptic-7b8ba70a.js");
 
+    var reorderIosCss = ":host([slot]){display:none;line-height:0;z-index:100}.reorder-icon{display:block;font-size:22px}.reorder-icon{font-size:34px;opacity:0.4}";
+    var reorderMdCss = ":host([slot]){display:none;line-height:0;z-index:100}.reorder-icon{display:block;font-size:22px}.reorder-icon{font-size:31px;opacity:0.3}";
+    /**
+     * @part icon - The icon of the reorder handle (uses ion-icon).
+     */
 
-    var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./theme-18cbe2cc.js */
-    "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
+    var Reorder = /*#__PURE__*/function () {
+      function Reorder(hostRef) {
+        _classCallCheck(this, Reorder);
 
-    var Segment =
-    /*#__PURE__*/
-    function () {
-      function Segment(hostRef) {
-        var _this = this;
-
-        _classCallCheck(this, Segment);
-
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.didInit = false;
-        this.activated = false;
-        /**
-         * If `true`, the user cannot interact with the segment.
-         */
-
-        this.disabled = false;
-        /**
-         * If `true`, the segment buttons will overflow and the user can swipe to see them.
-         * In addition, this will disable the gesture to drag the indicator between the buttons
-         * in order to swipe to see hidden buttons.
-         */
-
-        this.scrollable = false;
-
-        this.onClick = function (ev) {
-          var current = ev.target;
-          var previous = _this.checked;
-          _this.value = current.value;
-
-          if (previous && _this.scrollable) {
-            _this.checkButton(previous, current);
-          }
-
-          _this.checked = current;
-        };
-
-        this.ionChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionChange", 7);
-        this.ionSelect = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionSelect", 7);
-        this.ionStyle = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionStyle", 7);
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
       }
 
-      _createClass(Segment, [{
-        key: "valueChanged",
-        value: function valueChanged(value, oldValue) {
-          this.ionSelect.emit({
-            value: value
-          });
-
-          if (oldValue !== '' || this.didInit) {
-            if (!this.activated) {
-              this.ionChange.emit({
-                value: value
-              });
-            } else {
-              this.valueAfterGesture = value;
-            }
-          }
+      _createClass(Reorder, [{
+        key: "onClick",
+        value: function onClick(ev) {
+          ev.preventDefault();
+          ev.stopImmediatePropagation();
         }
       }, {
+        key: "render",
+        value: function render() {
+          var mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
+          var reorderIcon = mode === 'ios' ? 'reorder-three-outline' : 'reorder-two-sharp';
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            "class": mode
+          }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-icon", {
+            name: reorderIcon,
+            lazy: false,
+            "class": "reorder-icon",
+            part: "icon"
+          })));
+        }
+      }]);
+
+      return Reorder;
+    }();
+
+    Reorder.style = {
+      /*STENCIL:MODE:ios*/
+      ios: reorderIosCss,
+
+      /*STENCIL:MODE:md*/
+      md: reorderMdCss
+    };
+    var reorderGroupCss = ".reorder-list-active>*{-webkit-transition:-webkit-transform 300ms;transition:-webkit-transform 300ms;transition:transform 300ms;transition:transform 300ms, -webkit-transform 300ms;will-change:transform}.reorder-enabled{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.reorder-enabled ion-reorder{display:block;cursor:-webkit-grab;cursor:grab;pointer-events:all;-ms-touch-action:none;touch-action:none}.reorder-selected,.reorder-selected ion-reorder{cursor:-webkit-grabbing;cursor:grabbing}.reorder-selected{position:relative;-webkit-transition:none !important;transition:none !important;-webkit-box-shadow:0 0 10px rgba(0, 0, 0, 0.4);box-shadow:0 0 10px rgba(0, 0, 0, 0.4);opacity:0.8;z-index:100}.reorder-visible ion-reorder .reorder-icon{-webkit-transform:translate3d(0,  0,  0);transform:translate3d(0,  0,  0)}";
+
+    var ReorderGroup = /*#__PURE__*/function () {
+      function ReorderGroup(hostRef) {
+        _classCallCheck(this, ReorderGroup);
+
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.lastToIndex = -1;
+        this.cachedHeights = [];
+        this.scrollElTop = 0;
+        this.scrollElBottom = 0;
+        this.scrollElInitial = 0;
+        this.containerTop = 0;
+        this.containerBottom = 0;
+        this.state = 0
+        /* Idle */
+        ;
+        /**
+         * If `true`, the reorder will be hidden.
+         */
+
+        this.disabled = true;
+        this.ionItemReorder = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionItemReorder", 7);
+      }
+
+      _createClass(ReorderGroup, [{
         key: "disabledChanged",
         value: function disabledChanged() {
-          this.gestureChanged();
-          var buttons = this.getButtons();
-          var _iteratorNormalCompletion = true;
-          var _didIteratorError = false;
-          var _iteratorError = undefined;
-
-          try {
-            for (var _iterator = buttons[Symbol.iterator](), _step; !(_iteratorNormalCompletion = (_step = _iterator.next()).done); _iteratorNormalCompletion = true) {
-              var button = _step.value;
-              button.disabled = this.disabled;
-            }
-          } catch (err) {
-            _didIteratorError = true;
-            _iteratorError = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion && _iterator.return != null) {
-                _iterator.return();
-              }
-            } finally {
-              if (_didIteratorError) {
-                throw _iteratorError;
-              }
-            }
-          }
-        }
-      }, {
-        key: "gestureChanged",
-        value: function gestureChanged() {
-          if (this.gesture && !this.scrollable) {
+          if (this.gesture) {
             this.gesture.enable(!this.disabled);
           }
         }
       }, {
         key: "connectedCallback",
-        value: function connectedCallback() {
-          this.emitStyle();
-        }
-      }, {
-        key: "componentWillLoad",
-        value: function componentWillLoad() {
-          this.emitStyle();
-        }
-      }, {
-        key: "componentDidLoad",
-        value: function componentDidLoad() {
-          var _this2 = this;
+        value: function () {
+          var _connectedCallback = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+            var _this = this;
 
-          return regeneratorRuntime.async(function componentDidLoad$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  this.setCheckedClasses();
-                  _context.next = 3;
-                  return regeneratorRuntime.awrap(Promise.resolve().then(__webpack_require__.bind(null,
-                  /*! ./index-c38df685.js */
-                  "./node_modules/@ionic/core/dist/esm/index-c38df685.js")));
+            var contentEl;
+            return regeneratorRuntime.wrap(function _callee$(_context) {
+              while (1) {
+                switch (_context.prev = _context.next) {
+                  case 0:
+                    contentEl = this.el.closest('ion-content');
 
-                case 3:
-                  _context.t0 = {
-                    el: this.el,
-                    gestureName: 'segment',
-                    gesturePriority: 100,
-                    threshold: 0,
-                    passive: false,
-                    onStart: function onStart(ev) {
-                      return _this2.onStart(ev);
-                    },
-                    onMove: function onMove(ev) {
-                      return _this2.onMove(ev);
-                    },
-                    onEnd: function onEnd(ev) {
-                      return _this2.onEnd(ev);
+                    if (!contentEl) {
+                      _context.next = 5;
+                      break;
                     }
-                  };
-                  this.gesture = _context.sent.createGesture(_context.t0);
-                  this.gesture.enable(!this.scrollable);
-                  this.gestureChanged();
 
-                  if (this.disabled) {
+                    _context.next = 4;
+                    return contentEl.getScrollElement();
+
+                  case 4:
+                    this.scrollEl = _context.sent;
+
+                  case 5:
+                    _context.next = 7;
+                    return Promise.resolve().then(__webpack_require__.bind(null,
+                    /*! ./index-eea61379.js */
+                    "./node_modules/@ionic/core/dist/esm/index-eea61379.js"));
+
+                  case 7:
+                    this.gesture = _context.sent.createGesture({
+                      el: this.el,
+                      gestureName: 'reorder',
+                      gesturePriority: 110,
+                      threshold: 0,
+                      direction: 'y',
+                      passive: false,
+                      canStart: function canStart(detail) {
+                        return _this.canStart(detail);
+                      },
+                      onStart: function onStart(ev) {
+                        return _this.onStart(ev);
+                      },
+                      onMove: function onMove(ev) {
+                        return _this.onMove(ev);
+                      },
+                      onEnd: function onEnd() {
+                        return _this.onEnd();
+                      }
+                    });
                     this.disabledChanged();
-                  }
 
-                  this.didInit = true;
-
-                case 9:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, null, this);
-        }
-      }, {
-        key: "onStart",
-        value: function onStart(detail) {
-          this.activate(detail);
-        }
-      }, {
-        key: "onMove",
-        value: function onMove(detail) {
-          this.setNextIndex(detail);
-        }
-      }, {
-        key: "onEnd",
-        value: function onEnd(detail) {
-          this.setActivated(false);
-          var checkedValidButton = this.setNextIndex(detail, true);
-          detail.event.preventDefault();
-          detail.event.stopImmediatePropagation();
-
-          if (checkedValidButton) {
-            this.addRipple(detail);
-          }
-
-          var value = this.valueAfterGesture;
-
-          if (value !== undefined) {
-            this.ionChange.emit({
-              value: value
-            });
-            this.valueAfterGesture = undefined;
-          }
-        }
-      }, {
-        key: "getButtons",
-        value: function getButtons() {
-          return Array.from(this.el.querySelectorAll('ion-segment-button'));
-        }
-        /**
-         * The gesture blocks the segment button ripple. This
-         * function adds the ripple based on the checked segment
-         * and where the cursor ended.
-         */
-
-      }, {
-        key: "addRipple",
-        value: function addRipple(detail) {
-          var _this3 = this;
-
-          var useRippleEffect = _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].getBoolean('animated', true) && _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__["b"].getBoolean('rippleEffect', true);
-
-          if (!useRippleEffect) {
-            return;
-          }
-
-          var buttons = this.getButtons();
-          var checked = buttons.find(function (button) {
-            return button.value === _this3.value;
-          });
-          var root = checked.shadowRoot || checked;
-          var ripple = root.querySelector('ion-ripple-effect');
-
-          if (!ripple) {
-            return;
-          }
-
-          var _Object = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["p"])(detail.event),
-              x = _Object.x,
-              y = _Object.y;
-
-          ripple.addRipple(x, y).then(function (remove) {
-            return remove();
-          });
-        }
-        /*
-         * Activate both the segment and the buttons
-         * due to a bug with ::slotted in Safari
-         */
-
-      }, {
-        key: "setActivated",
-        value: function setActivated(activated) {
-          var buttons = this.getButtons();
-          buttons.forEach(function (button) {
-            if (activated) {
-              button.classList.add('segment-button-activated');
-            } else {
-              button.classList.remove('segment-button-activated');
-            }
-          });
-          this.activated = activated;
-        }
-      }, {
-        key: "activate",
-        value: function activate(detail) {
-          var _this4 = this;
-
-          var clicked = detail.event.target;
-          var buttons = this.getButtons();
-          var checked = buttons.find(function (button) {
-            return button.value === _this4.value;
-          }); // Make sure we are only checking for activation on a segment button
-          // since disabled buttons will get the click on the segment
-
-          if (clicked.tagName !== 'ION-SEGMENT-BUTTON') {
-            return;
-          } // If there are no checked buttons, set the current button to checked
-
-
-          if (!checked) {
-            this.value = clicked.value;
-          } // If the gesture began on the clicked button with the indicator
-          // then we should activate the indicator
-
-
-          if (this.value === clicked.value) {
-            this.setActivated(true);
-          }
-        }
-      }, {
-        key: "getIndicator",
-        value: function getIndicator(button) {
-          var root = button.shadowRoot || button;
-          return root.querySelector('.segment-button-indicator');
-        }
-      }, {
-        key: "checkButton",
-        value: function checkButton(previous, current) {
-          var previousIndicator = this.getIndicator(previous);
-          var currentIndicator = this.getIndicator(current);
-
-          if (previousIndicator === null || currentIndicator === null) {
-            return;
-          }
-
-          var previousClientRect = previousIndicator.getBoundingClientRect();
-          var currentClientRect = currentIndicator.getBoundingClientRect();
-          var widthDelta = previousClientRect.width / currentClientRect.width;
-          var xPosition = previousClientRect.left - currentClientRect.left; // Scale the indicator width to match the previous indicator width
-          // and translate it on top of the previous indicator
-
-          var transform = "translate3d(".concat(xPosition, "px, 0, 0) scaleX(").concat(widthDelta, ")");
-          Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["w"])(function () {
-            // Remove the transition before positioning on top of the previous indicator
-            currentIndicator.classList.remove('segment-button-indicator-animated');
-            currentIndicator.style.setProperty('transform', transform); // Force a repaint to ensure the transform happens
-
-            currentIndicator.getBoundingClientRect(); // Add the transition to move the indicator into place
-
-            currentIndicator.classList.add('segment-button-indicator-animated'); // Remove the transform to slide the indicator back to the button clicked
-
-            currentIndicator.style.setProperty('transform', '');
-          });
-          this.value = current.value;
-          this.setCheckedClasses();
-        }
-      }, {
-        key: "setCheckedClasses",
-        value: function setCheckedClasses() {
-          var _this5 = this;
-
-          var buttons = this.getButtons();
-          var index = buttons.findIndex(function (button) {
-            return button.value === _this5.value;
-          });
-          var next = index + 1; // Keep track of the currently checked button
-
-          this.checked = buttons.find(function (button) {
-            return button.value === _this5.value;
-          });
-          var _iteratorNormalCompletion2 = true;
-          var _didIteratorError2 = false;
-          var _iteratorError2 = undefined;
-
-          try {
-            for (var _iterator2 = buttons[Symbol.iterator](), _step2; !(_iteratorNormalCompletion2 = (_step2 = _iterator2.next()).done); _iteratorNormalCompletion2 = true) {
-              var button = _step2.value;
-              button.classList.remove('segment-button-after-checked');
-            }
-          } catch (err) {
-            _didIteratorError2 = true;
-            _iteratorError2 = err;
-          } finally {
-            try {
-              if (!_iteratorNormalCompletion2 && _iterator2.return != null) {
-                _iterator2.return();
-              }
-            } finally {
-              if (_didIteratorError2) {
-                throw _iteratorError2;
-              }
-            }
-          }
-
-          if (next < buttons.length) {
-            buttons[next].classList.add('segment-button-after-checked');
-          }
-        }
-      }, {
-        key: "setNextIndex",
-        value: function setNextIndex(detail) {
-          var _this6 = this;
-
-          var isEnd = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-          var isRTL = document.dir === 'rtl';
-          var activated = this.activated;
-          var buttons = this.getButtons();
-          var index = buttons.findIndex(function (button) {
-            return button.value === _this6.value;
-          });
-          var previous = buttons[index];
-          var current;
-          var nextIndex;
-
-          if (index === -1) {
-            return;
-          } // Get the element that the touch event started on in case
-          // it was the checked button, then we will move the indicator
-
-
-          var rect = previous.getBoundingClientRect();
-          var left = rect.left;
-          var width = rect.width; // Get the element that the gesture is on top of based on the currentX of the
-          // gesture event and the Y coordinate of the starting element, since the gesture
-          // can move up and down off of the segment
-
-          var currentX = detail.currentX;
-          var previousY = rect.top + rect.height / 2;
-          var nextEl = document.elementFromPoint(currentX, previousY);
-          var decreaseIndex = isRTL ? currentX > left + width : currentX < left;
-          var increaseIndex = isRTL ? currentX < left : currentX > left + width; // If the indicator is currently activated then we have started the gesture
-          // on top of the checked button so we need to slide the indicator
-          // by checking the button next to it as we move
-
-          if (activated && !isEnd) {
-            // Decrease index, move left in LTR & right in RTL
-            if (decreaseIndex) {
-              var newIndex = index - 1;
-
-              if (newIndex >= 0) {
-                nextIndex = newIndex;
-              } // Increase index, moves right in LTR & left in RTL
-
-            } else if (increaseIndex) {
-              if (activated && !isEnd) {
-                var _newIndex = index + 1;
-
-                if (_newIndex < buttons.length) {
-                  nextIndex = _newIndex;
+                  case 9:
+                  case "end":
+                    return _context.stop();
                 }
               }
-            }
+            }, _callee, this);
+          }));
 
-            if (nextIndex !== undefined && !buttons[nextIndex].disabled) {
-              current = buttons[nextIndex];
-            }
-          } // If the indicator is not activated then we will just set the indicator
-          // to the element where the gesture ended
-
-
-          if (!activated && isEnd) {
-            current = nextEl;
-          }
-          /* tslint:disable-next-line */
-
-
-          if (current != null) {
-            /**
-             * If current element is ion-segment then that means
-             * user tried to select a disabled ion-segment-button,
-             * and we should not update the ripple.
-             */
-            if (current.tagName === 'ION-SEGMENT') {
-              return false;
-            }
-
-            if (previous !== current) {
-              this.checkButton(previous, current);
-            }
+          function connectedCallback() {
+            return _connectedCallback.apply(this, arguments);
           }
 
-          return true;
-        }
-      }, {
-        key: "emitStyle",
-        value: function emitStyle() {
-          this.ionStyle.emit({
-            'segment': true
-          });
-        }
-      }, {
-        key: "render",
-        value: function render() {
-          var _Object$assign;
-
-          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
-            onClick: this.onClick,
-            class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["c"])(this.color)), (_Object$assign = {}, _defineProperty(_Object$assign, mode, true), _defineProperty(_Object$assign, 'in-toolbar', Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["h"])('ion-toolbar', this.el)), _defineProperty(_Object$assign, 'in-toolbar-color', Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["h"])('ion-toolbar[color]', this.el)), _defineProperty(_Object$assign, 'segment-activated', this.activated), _defineProperty(_Object$assign, 'segment-disabled', this.disabled), _defineProperty(_Object$assign, 'segment-scrollable', this.scrollable), _Object$assign))
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null));
-        }
-      }, {
-        key: "el",
-        get: function get() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
-        }
-      }], [{
-        key: "watchers",
-        get: function get() {
-          return {
-            "value": ["valueChanged"],
-            "disabled": ["disabledChanged"]
-          };
-        }
-      }, {
-        key: "style",
-        get: function get() {
-          return ":host{--ripple-color:currentColor;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased;display:-ms-flexbox;display:flex;position:relative;-ms-flex-align:stretch;align-items:stretch;-ms-flex-pack:center;justify-content:center;width:100%;background:var(--background);font-family:var(--ion-font-family,inherit);text-align:center;contain:paint}:host(.segment-scrollable){-ms-flex-pack:start;justify-content:start;width:auto;overflow-x:scroll}:host(.segment-scrollable::-webkit-scrollbar){display:none}:host{--background:rgba(var(--ion-text-color-rgb,0,0,0),0.065);border-radius:8px;overflow:hidden;z-index:0}:host(.ion-color){background:rgba(var(--ion-color-base-rgb),.065)}:host(.in-toolbar){margin-left:auto;margin-right:auto;margin-top:0;margin-bottom:0;width:auto}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host(.in-toolbar){margin-left:unset;margin-right:unset;-webkit-margin-start:auto;margin-inline-start:auto;-webkit-margin-end:auto;margin-inline-end:auto}}:host(.in-toolbar:not(.ion-color)){background:var(--ion-toolbar-segment-background,var(--background))}:host(.in-toolbar-color:not(.ion-color)){background:rgba(var(--ion-color-contrast-rgb),.11)}";
-        }
-      }]);
-
-      return Segment;
-    }();
-
-    var ids = 0;
-
-    var SegmentButton =
-    /*#__PURE__*/
-    function () {
-      function SegmentButton(hostRef) {
-        var _this7 = this;
-
-        _classCallCheck(this, SegmentButton);
-
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.segmentEl = null;
-        this.checked = false;
-        /**
-         * If `true`, the user cannot interact with the segment button.
-         */
-
-        this.disabled = false;
-        /**
-         * Set the layout of the text and icon in the segment.
-         */
-
-        this.layout = 'icon-top';
-        /**
-         * The type of the button.
-         */
-
-        this.type = 'button';
-        /**
-         * The value of the segment button.
-         */
-
-        this.value = 'ion-sb-' + ids++;
-
-        this.updateState = function () {
-          if (_this7.segmentEl) {
-            _this7.checked = _this7.segmentEl.value === _this7.value;
-          }
-        };
-      }
-
-      _createClass(SegmentButton, [{
-        key: "connectedCallback",
-        value: function connectedCallback() {
-          var segmentEl = this.segmentEl = this.el.closest('ion-segment');
-
-          if (segmentEl) {
-            this.updateState();
-            segmentEl.addEventListener('ionSelect', this.updateState);
-          }
-        }
+          return connectedCallback;
+        }()
       }, {
         key: "disconnectedCallback",
         value: function disconnectedCallback() {
-          var segmentEl = this.segmentEl;
+          this.onEnd();
 
-          if (segmentEl) {
-            segmentEl.removeEventListener('ionSelect', this.updateState);
-            this.segmentEl = null;
+          if (this.gesture) {
+            this.gesture.destroy();
+            this.gesture = undefined;
           }
+        }
+        /**
+         * Completes the reorder operation. Must be called by the `ionItemReorder` event.
+         *
+         * If a list of items is passed, the list will be reordered and returned in the
+         * proper order.
+         *
+         * If no parameters are passed or if `true` is passed in, the reorder will complete
+         * and the item will remain in the position it was dragged to. If `false` is passed,
+         * the reorder will complete and the item will bounce back to its original position.
+         *
+         * @param listOrReorder A list of items to be sorted and returned in the new order or a
+         * boolean of whether or not the reorder should reposition the item.
+         */
+
+      }, {
+        key: "complete",
+        value: function complete(listOrReorder) {
+          return Promise.resolve(this.completeSync(listOrReorder));
+        }
+      }, {
+        key: "canStart",
+        value: function canStart(ev) {
+          if (this.selectedItemEl || this.state !== 0
+          /* Idle */
+          ) {
+              return false;
+            }
+
+          var target = ev.event.target;
+          var reorderEl = target.closest('ion-reorder');
+
+          if (!reorderEl) {
+            return false;
+          }
+
+          var item = findReorderItem(reorderEl, this.el);
+
+          if (!item) {
+            return false;
+          }
+
+          ev.data = item;
+          return true;
+        }
+      }, {
+        key: "onStart",
+        value: function onStart(ev) {
+          ev.event.preventDefault();
+          var item = this.selectedItemEl = ev.data;
+          var heights = this.cachedHeights;
+          heights.length = 0;
+          var el = this.el;
+          var children = el.children;
+
+          if (!children || children.length === 0) {
+            return;
+          }
+
+          var sum = 0;
+
+          for (var i = 0; i < children.length; i++) {
+            var child = children[i];
+            sum += child.offsetHeight;
+            heights.push(sum);
+            child.$ionIndex = i;
+          }
+
+          var box = el.getBoundingClientRect();
+          this.containerTop = box.top;
+          this.containerBottom = box.bottom;
+
+          if (this.scrollEl) {
+            var scrollBox = this.scrollEl.getBoundingClientRect();
+            this.scrollElInitial = this.scrollEl.scrollTop;
+            this.scrollElTop = scrollBox.top + AUTO_SCROLL_MARGIN;
+            this.scrollElBottom = scrollBox.bottom - AUTO_SCROLL_MARGIN;
+          } else {
+            this.scrollElInitial = 0;
+            this.scrollElTop = 0;
+            this.scrollElBottom = 0;
+          }
+
+          this.lastToIndex = indexForItem(item);
+          this.selectedItemHeight = item.offsetHeight;
+          this.state = 1
+          /* Active */
+          ;
+          item.classList.add(ITEM_REORDER_SELECTED);
+          Object(_haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["a"])();
+        }
+      }, {
+        key: "onMove",
+        value: function onMove(ev) {
+          var selectedItem = this.selectedItemEl;
+
+          if (!selectedItem) {
+            return;
+          } // Scroll if we reach the scroll margins
+
+
+          var scroll = this.autoscroll(ev.currentY); // // Get coordinate
+
+          var top = this.containerTop - scroll;
+          var bottom = this.containerBottom - scroll;
+          var currentY = Math.max(top, Math.min(ev.currentY, bottom));
+          var deltaY = scroll + currentY - ev.startY;
+          var normalizedY = currentY - top;
+          var toIndex = this.itemIndexForTop(normalizedY);
+
+          if (toIndex !== this.lastToIndex) {
+            var fromIndex = indexForItem(selectedItem);
+            this.lastToIndex = toIndex;
+            Object(_haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["b"])();
+            this.reorderMove(fromIndex, toIndex);
+          } // Update selected item position
+
+
+          selectedItem.style.transform = "translateY(".concat(deltaY, "px)");
+        }
+      }, {
+        key: "onEnd",
+        value: function onEnd() {
+          var selectedItemEl = this.selectedItemEl;
+          this.state = 2
+          /* Complete */
+          ;
+
+          if (!selectedItemEl) {
+            this.state = 0
+            /* Idle */
+            ;
+            return;
+          }
+
+          var toIndex = this.lastToIndex;
+          var fromIndex = indexForItem(selectedItemEl);
+
+          if (toIndex === fromIndex) {
+            this.completeSync();
+          } else {
+            this.ionItemReorder.emit({
+              from: fromIndex,
+              to: toIndex,
+              complete: this.completeSync.bind(this)
+            });
+          }
+
+          Object(_haptic_7b8ba70a_js__WEBPACK_IMPORTED_MODULE_2__["h"])();
+        }
+      }, {
+        key: "completeSync",
+        value: function completeSync(listOrReorder) {
+          var selectedItemEl = this.selectedItemEl;
+
+          if (selectedItemEl && this.state === 2
+          /* Complete */
+          ) {
+              var children = this.el.children;
+              var len = children.length;
+              var toIndex = this.lastToIndex;
+              var fromIndex = indexForItem(selectedItemEl);
+
+              if (toIndex !== fromIndex && (listOrReorder === undefined || listOrReorder === true)) {
+                var ref = fromIndex < toIndex ? children[toIndex + 1] : children[toIndex];
+                this.el.insertBefore(selectedItemEl, ref);
+              }
+
+              if (Array.isArray(listOrReorder)) {
+                listOrReorder = reorderArray(listOrReorder, fromIndex, toIndex);
+              }
+
+              for (var i = 0; i < len; i++) {
+                children[i].style['transform'] = '';
+              }
+
+              selectedItemEl.style.transition = '';
+              selectedItemEl.classList.remove(ITEM_REORDER_SELECTED);
+              this.selectedItemEl = undefined;
+              this.state = 0
+              /* Idle */
+              ;
+            }
+
+          return listOrReorder;
+        }
+      }, {
+        key: "itemIndexForTop",
+        value: function itemIndexForTop(deltaY) {
+          var heights = this.cachedHeights;
+          var i = 0; // TODO: since heights is a sorted array of integers, we can do
+          // speed up the search using binary search. Remember that linear-search is still
+          // faster than binary-search for small arrays (<64) due CPU branch misprediction.
+
+          for (i = 0; i < heights.length; i++) {
+            if (heights[i] > deltaY) {
+              break;
+            }
+          }
+
+          return i;
+        }
+        /********* DOM WRITE ********* */
+
+      }, {
+        key: "reorderMove",
+        value: function reorderMove(fromIndex, toIndex) {
+          var itemHeight = this.selectedItemHeight;
+          var children = this.el.children;
+
+          for (var i = 0; i < children.length; i++) {
+            var style = children[i].style;
+            var value = '';
+
+            if (i > fromIndex && i <= toIndex) {
+              value = "translateY(".concat(-itemHeight, "px)");
+            } else if (i < fromIndex && i >= toIndex) {
+              value = "translateY(".concat(itemHeight, "px)");
+            }
+
+            style['transform'] = value;
+          }
+        }
+      }, {
+        key: "autoscroll",
+        value: function autoscroll(posY) {
+          if (!this.scrollEl) {
+            return 0;
+          }
+
+          var amount = 0;
+
+          if (posY < this.scrollElTop) {
+            amount = -SCROLL_JUMP;
+          } else if (posY > this.scrollElBottom) {
+            amount = SCROLL_JUMP;
+          }
+
+          if (amount !== 0) {
+            this.scrollEl.scrollBy(0, amount);
+          }
+
+          return this.scrollEl.scrollTop - this.scrollElInitial;
         }
       }, {
         key: "render",
         value: function render() {
           var _class;
 
-          var checked = this.checked,
-              type = this.type,
-              disabled = this.disabled,
-              hasIcon = this.hasIcon,
-              hasLabel = this.hasLabel,
-              layout = this.layout;
-          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
-            "aria-disabled": disabled ? 'true' : null,
-            class: (_class = {}, _defineProperty(_class, mode, true), _defineProperty(_class, 'in-toolbar', Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["h"])('ion-toolbar', this.el)), _defineProperty(_class, 'in-toolbar-color', Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["h"])('ion-toolbar[color]', this.el)), _defineProperty(_class, 'in-segment', Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["h"])('ion-segment', this.el)), _defineProperty(_class, 'in-segment-color', Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["h"])('ion-segment[color]', this.el)), _defineProperty(_class, 'segment-button-has-label', hasLabel), _defineProperty(_class, 'segment-button-has-icon', hasIcon), _defineProperty(_class, 'segment-button-has-label-only', hasLabel && !hasIcon), _defineProperty(_class, 'segment-button-has-icon-only', hasIcon && !hasLabel), _defineProperty(_class, 'segment-button-disabled', disabled), _defineProperty(_class, 'segment-button-checked', checked), _defineProperty(_class, "segment-button-layout-".concat(layout), true), _defineProperty(_class, 'ion-activatable', true), _defineProperty(_class, 'ion-activatable-instant', true), _defineProperty(_class, 'ion-focusable', true), _class)
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", {
-            type: type,
-            "aria-pressed": checked ? 'true' : null,
-            class: "button-native",
-            disabled: disabled
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("span", {
-            class: "button-inner"
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null)), mode === 'md' && Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("ion-ripple-effect", null)), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
-            part: "indicator",
-            class: {
-              'segment-button-indicator': true,
-              'segment-button-indicator-animated': true
-            }
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
-            part: "indicator-background",
-            class: "segment-button-indicator-background"
-          })));
-        }
-      }, {
-        key: "hasLabel",
-        get: function get() {
-          return !!this.el.querySelector('ion-label');
-        }
-      }, {
-        key: "hasIcon",
-        get: function get() {
-          return !!this.el.querySelector('ion-icon');
+          var mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            "class": (_class = {}, _defineProperty(_class, mode, true), _defineProperty(_class, 'reorder-enabled', !this.disabled), _defineProperty(_class, 'reorder-list-active', this.state !== 0), _class)
+          });
         }
       }, {
         key: "el",
         get: function get() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
         }
       }], [{
-        key: "style",
+        key: "watchers",
         get: function get() {
-          return ":host{--color:initial;--color-hover:var(--color);--color-checked:var(--color);--color-disabled:var(--color);--padding-start:0;--padding-end:0;border-radius:var(--border-radius);-ms-flex:1 1 auto;flex:1 1 auto;-ms-flex-direction:column;flex-direction:column;background:var(--background);color:var(--color);text-decoration:none;text-overflow:ellipsis;white-space:nowrap;-webkit-font-kerning:none;font-kerning:none;cursor:pointer}.button-native,:host{display:-ms-flexbox;display:flex;height:auto}.button-native{border-radius:0;font-family:inherit;font-size:inherit;font-style:inherit;font-weight:inherit;letter-spacing:inherit;text-decoration:inherit;text-indent:inherit;text-overflow:inherit;text-transform:inherit;text-align:inherit;white-space:inherit;color:inherit;margin-left:var(--margin-start);margin-right:var(--margin-end);margin-top:var(--margin-top);margin-bottom:var(--margin-bottom);padding-left:var(--padding-start);padding-right:var(--padding-end);padding-top:var(--padding-top);padding-bottom:var(--padding-bottom);-webkit-transform:translateZ(0);transform:translateZ(0);position:relative;-ms-flex-direction:inherit;flex-direction:inherit;-ms-flex-positive:1;flex-grow:1;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;width:100%;min-width:inherit;max-width:inherit;min-height:inherit;max-height:inherit;-webkit-transition:var(--transition);transition:var(--transition);border:none;outline:none;background:transparent;contain:content;pointer-events:none;overflow:hidden;z-index:2}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.button-native{margin-left:unset;margin-right:unset;-webkit-margin-start:var(--margin-start);margin-inline-start:var(--margin-start);-webkit-margin-end:var(--margin-end);margin-inline-end:var(--margin-end);padding-left:unset;padding-right:unset;-webkit-padding-start:var(--padding-start);padding-inline-start:var(--padding-start);-webkit-padding-end:var(--padding-end);padding-inline-end:var(--padding-end)}}.button-native:after{left:0;right:0;top:0;bottom:0;position:absolute;content:\"\";opacity:0}.button-inner{display:-ms-flexbox;display:flex;position:relative;-ms-flex-flow:inherit;flex-flow:inherit;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center;width:100%;height:100%;z-index:1}:host(.segment-button-checked){background:var(--background-checked);color:var(--color-checked)}:host(.segment-button-disabled){cursor:default;pointer-events:none}:host(.ion-focused) .button-native{color:var(--color-focused)}:host(.ion-focused) .button-native:after{background:var(--background-focused);opacity:var(--background-focused-opacity)}\@media (any-hover:hover){:host(:hover) .button-native{color:var(--color-hover)}:host(:hover) .button-native:after{background:var(--background-hover);opacity:var(--background-hover-opacity)}:host(.segment-button-checked:hover) .button-native{color:var(--color-checked)}}::slotted(ion-icon){-ms-flex-negative:0;flex-shrink:0;-ms-flex-order:-1;order:-1;pointer-events:none}::slotted(ion-label){display:block;-ms-flex-item-align:center;align-self:center;line-height:22px;text-overflow:ellipsis;white-space:nowrap;-webkit-box-sizing:border-box;box-sizing:border-box;pointer-events:none}:host(.segment-button-layout-icon-top) .button-native{-ms-flex-direction:column;flex-direction:column}:host(.segment-button-layout-icon-start) .button-native{-ms-flex-direction:row;flex-direction:row}:host(.segment-button-layout-icon-end) .button-native{-ms-flex-direction:row-reverse;flex-direction:row-reverse}:host(.segment-button-layout-icon-bottom) .button-native{-ms-flex-direction:column-reverse;flex-direction:column-reverse}:host(.segment-button-layout-icon-hide) ::slotted(ion-icon),:host(.segment-button-layout-label-hide) ::slotted(ion-label){display:none}ion-ripple-effect{color:var(--ripple-color,var(--color-checked))}.segment-button-indicator{-webkit-transform-origin:left;transform-origin:left;position:absolute;opacity:0;-webkit-box-sizing:border-box;box-sizing:border-box;will-change:transform,opacity}.segment-button-indicator-background{width:100%;height:var(--indicator-height);-webkit-transform:var(--indicator-transform);transform:var(--indicator-transform);-webkit-box-shadow:var(--indicator-box-shadow);box-shadow:var(--indicator-box-shadow)}.segment-button-indicator-animated{-webkit-transition:var(--indicator-transition);transition:var(--indicator-transition)}:host(.segment-button-checked) .segment-button-indicator{opacity:1}\@media (prefers-reduced-motion:reduce){.segment-button-indicator-background{-webkit-transform:none;transform:none}.segment-button-indicator-animated{-webkit-transition:none;transition:none}}:host{--background:none;--background-checked:none;--background-hover:none;--background-hover-opacity:0;--background-focused:none;--background-focused-opacity:0;--border-radius:7px;--border-width:1px;--border-color:rgba(var(--ion-text-color-rgb,0,0,0),0.12);--border-style:solid;--indicator-box-shadow:0 0 5px rgba(0,0,0,0.16);--indicator-color:var(--ion-color-step-350,var(--ion-background-color,#fff));--indicator-height:100%;--indicator-transition:transform 260ms cubic-bezier(0.4,0,0.2,1);--indicator-transform:none;--transition:100ms all linear;--padding-top:0;--padding-end:13px;--padding-bottom:0;--padding-start:13px;margin-top:2px;margin-bottom:2px;position:relative;-ms-flex-preferred-size:0;flex-basis:0;-ms-flex-direction:row;flex-direction:row;min-width:70px;min-height:28px;-webkit-transform:translateZ(0);transform:translateZ(0);font-size:13px;font-weight:450;line-height:37px}:host:before{margin-left:0;margin-right:0;margin-top:5px;margin-bottom:5px;-webkit-transition:opacity .16s ease-in-out;transition:opacity .16s ease-in-out;-webkit-transition-delay:.1s;transition-delay:.1s;border-left:var(--border-width) var(--border-style) var(--border-color);content:\"\";opacity:1;will-change:opacity}:host(:first-of-type):before{border-left-color:transparent}:host(.segment-button-disabled){opacity:.3}::slotted(ion-icon){font-size:24px}:host(.segment-button-layout-icon-start) ::slotted(ion-label){margin-left:2px;margin-right:0}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host(.segment-button-layout-icon-start) ::slotted(ion-label){margin-left:unset;margin-right:unset;-webkit-margin-start:2px;margin-inline-start:2px;-webkit-margin-end:0;margin-inline-end:0}}:host(.segment-button-layout-icon-end) ::slotted(ion-label){margin-left:0;margin-right:2px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host(.segment-button-layout-icon-end) ::slotted(ion-label){margin-left:unset;margin-right:unset;-webkit-margin-start:0;margin-inline-start:0;-webkit-margin-end:2px;margin-inline-end:2px}}.segment-button-indicator{padding-left:2px;padding-right:2px;left:0;right:0;top:0;bottom:0}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){.segment-button-indicator{padding-left:unset;padding-right:unset;-webkit-padding-start:2px;padding-inline-start:2px;-webkit-padding-end:2px;padding-inline-end:2px}}.segment-button-indicator-background{border-radius:var(--border-radius);background:var(--indicator-color);-webkit-transition:var(--indicator-transition);transition:var(--indicator-transition)}:host(.segment-button-after-checked):before,:host(.segment-button-checked):before{opacity:0}:host(.segment-button-checked){z-index:-1}:host(.segment-button-activated){--indicator-transform:scale(0.95)}:host(.ion-focused) .button-native{opacity:.7}\@media (any-hover:hover){:host(:hover) .button-native{opacity:.5}:host(.segment-button-checked:hover) .button-native{opacity:1}}:host(.in-segment-color){background:none;color:var(--ion-text-color,#000)}:host(.in-segment-color) .segment-button-indicator-background{background:var(--ion-color-step-350,var(--ion-background-color,#fff))}\@media (any-hover:hover){:host(.in-segment-color.segment-button-checked:hover) .button-native,:host(.in-segment-color:hover) .button-native{color:var(--ion-text-color,#000)}}:host(.in-toolbar:not(.in-segment-color)){--background-checked:var(--ion-toolbar-segment-background-checked,none);--color:var(--ion-toolbar-segment-color,var(--ion-toolbar-color),initial);--color-checked:var(--ion-toolbar-segment-color-checked,var(--ion-toolbar-color),initial);--indicator-color:var(--ion-toolbar-segment-indicator-color,var(--ion-color-step-350,var(--ion-background-color,#fff)))}:host(.in-toolbar-color) .segment-button-indicator-background{background:#fff}:host(.in-toolbar-color:not(.in-segment-color)) .button-native{color:var(--ion-color-contrast)}:host(.in-toolbar-color.segment-button-checked:not(.in-segment-color)) .button-native{color:var(--ion-color-base)}\@media (any-hover:hover){:host(.in-toolbar-color:not(.in-segment-color):hover) .button-native{color:var(--ion-color-contrast)}:host(.in-toolbar-color.segment-button-checked:not(.in-segment-color):hover) .button-native{color:var(--ion-color-base)}}";
+          return {
+            "disabled": ["disabledChanged"]
+          };
         }
       }]);
 
-      return SegmentButton;
+      return ReorderGroup;
     }();
-    /***/
 
-  },
-
-  /***/
-  "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js":
-  /*!*************************************************************!*\
-    !*** ./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js ***!
-    \*************************************************************/
-
-  /*! exports provided: c, g, h, o */
-
-  /***/
-  function node_modulesIonicCoreDistEsmTheme18cbe2ccJs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "c", function () {
-      return createColorClasses;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "g", function () {
-      return getClassMap;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "h", function () {
-      return hostContext;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "o", function () {
-      return openURL;
-    });
-
-    var hostContext = function hostContext(selector, el) {
-      return el.closest(selector) !== null;
-    };
-    /**
-     * Create the mode and color classes for the component based on the classes passed in
-     */
-
-
-    var createColorClasses = function createColorClasses(color) {
-      return typeof color === 'string' && color.length > 0 ? _defineProperty({
-        'ion-color': true
-      }, "ion-color-".concat(color), true) : undefined;
+    var indexForItem = function indexForItem(element) {
+      return element['$ionIndex'];
     };
 
-    var getClassList = function getClassList(classes) {
-      if (classes !== undefined) {
-        var array = Array.isArray(classes) ? classes : classes.split(' ');
-        return array.filter(function (c) {
-          return c != null;
-        }).map(function (c) {
-          return c.trim();
-        }).filter(function (c) {
-          return c !== '';
-        });
+    var findReorderItem = function findReorderItem(node, container) {
+      var parent;
+
+      while (node) {
+        parent = node.parentElement;
+
+        if (parent === container) {
+          return node;
+        }
+
+        node = parent;
       }
 
-      return [];
+      return undefined;
     };
 
-    var getClassMap = function getClassMap(classes) {
-      var map = {};
-      getClassList(classes).forEach(function (c) {
-        return map[c] = true;
-      });
-      return map;
+    var AUTO_SCROLL_MARGIN = 60;
+    var SCROLL_JUMP = 10;
+    var ITEM_REORDER_SELECTED = 'reorder-selected';
+
+    var reorderArray = function reorderArray(array, from, to) {
+      var element = array[from];
+      array.splice(from, 1);
+      array.splice(to, 0, element);
+      return array.slice();
     };
 
-    var SCHEME = /^[a-z][a-z0-9+\-.]*:/;
-
-    var openURL = function openURL(url, ev, direction) {
-      var router;
-      return regeneratorRuntime.async(function openURL$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              if (!(url != null && url[0] !== '#' && !SCHEME.test(url))) {
-                _context2.next = 5;
-                break;
-              }
-
-              router = document.querySelector('ion-router');
-
-              if (!router) {
-                _context2.next = 5;
-                break;
-              }
-
-              if (ev != null) {
-                ev.preventDefault();
-              }
-
-              return _context2.abrupt("return", router.push(url, direction));
-
-            case 5:
-              return _context2.abrupt("return", false);
-
-            case 6:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      });
-    };
+    ReorderGroup.style = reorderGroupCss;
     /***/
-
   }
 }]);
 //# sourceMappingURL=51-es5.js.map

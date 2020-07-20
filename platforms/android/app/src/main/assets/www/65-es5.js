@@ -8,113 +8,177 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[65], {
   /***/
-  "./node_modules/@ionic/core/dist/esm/ion-backdrop-ios.entry.js":
-  /*!*********************************************************************!*\
-    !*** ./node_modules/@ionic/core/dist/esm/ion-backdrop-ios.entry.js ***!
-    \*********************************************************************/
+  "./node_modules/@ionic/core/dist/esm/ion-split-pane-md.entry.js":
+  /*!**********************************************************************!*\
+    !*** ./node_modules/@ionic/core/dist/esm/ion-split-pane-md.entry.js ***!
+    \**********************************************************************/
 
-  /*! exports provided: ion_backdrop */
+  /*! exports provided: ion_split_pane */
 
   /***/
-  function node_modulesIonicCoreDistEsmIonBackdropIosEntryJs(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesIonicCoreDistEsmIonSplitPaneMdEntryJs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ion_backdrop", function () {
-      return Backdrop;
+    __webpack_require__.d(__webpack_exports__, "ion_split_pane", function () {
+      return SplitPane;
     });
     /* harmony import */
 
 
-    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! ./core-0a8d4d2e.js */
-    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
+    var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./index-29df6f59.js */
+    "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
     /* harmony import */
 
 
-    var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ./config-3c7f3790.js */
-    "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
-    /* harmony import */
+    var _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./ionic-global-08f4fb8a.js */
+    "./node_modules/@ionic/core/dist/esm/ionic-global-08f4fb8a.js");
 
+    var splitPaneIosCss = ":host{--side-width:100%;left:0;right:0;top:0;bottom:0;display:-ms-flexbox;display:flex;position:absolute;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:nowrap;flex-wrap:nowrap;contain:strict}::slotted(ion-menu.menu-pane-visible){-ms-flex:0 1 auto;flex:0 1 auto;width:var(--side-width);min-width:var(--side-min-width);max-width:var(--side-max-width)}:host(.split-pane-visible) ::slotted(.split-pane-side),:host(.split-pane-visible) ::slotted(.split-pane-main){left:0;right:0;top:0;bottom:0;position:relative;-webkit-box-shadow:none !important;box-shadow:none !important;z-index:0}:host(.split-pane-visible) ::slotted(.split-pane-main){-ms-flex:1;flex:1}:host(.split-pane-visible) ::slotted(.split-pane-side:not(ion-menu)),:host(.split-pane-visible) ::slotted(ion-menu.split-pane-side.menu-enabled){display:-ms-flexbox;display:flex;-ms-flex-negative:0;flex-shrink:0}::slotted(.split-pane-side:not(ion-menu)){display:none}:host(.split-pane-visible) ::slotted(.split-pane-side){-ms-flex-order:-1;order:-1}:host(.split-pane-visible) ::slotted(.split-pane-side[side=end]){-ms-flex-order:1;order:1}:host{--border:0.55px solid var(--ion-item-border-color, var(--ion-border-color, var(--ion-color-step-250, #c8c7cc)));--side-min-width:270px;--side-max-width:28%}:host(.split-pane-visible) ::slotted(.split-pane-side){border-left:0;border-right:var(--border);border-top:0;border-bottom:0;min-width:var(--side-min-width);max-width:var(--side-max-width)}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){:host(.split-pane-visible) ::slotted(.split-pane-side){border-left:unset;border-right:unset;-webkit-border-start:0;border-inline-start:0;-webkit-border-end:var(--border);border-inline-end:var(--border)}}:host(.split-pane-visible) ::slotted(.split-pane-side[side=end]){border-left:var(--border);border-right:0;border-top:0;border-bottom:0;min-width:var(--side-min-width);max-width:var(--side-max-width)}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){:host(.split-pane-visible) ::slotted(.split-pane-side[side=end]){border-left:unset;border-right:unset;-webkit-border-start:var(--border);border-inline-start:var(--border);-webkit-border-end:0;border-inline-end:0}}";
+    var splitPaneMdCss = ":host{--side-width:100%;left:0;right:0;top:0;bottom:0;display:-ms-flexbox;display:flex;position:absolute;-ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:nowrap;flex-wrap:nowrap;contain:strict}::slotted(ion-menu.menu-pane-visible){-ms-flex:0 1 auto;flex:0 1 auto;width:var(--side-width);min-width:var(--side-min-width);max-width:var(--side-max-width)}:host(.split-pane-visible) ::slotted(.split-pane-side),:host(.split-pane-visible) ::slotted(.split-pane-main){left:0;right:0;top:0;bottom:0;position:relative;-webkit-box-shadow:none !important;box-shadow:none !important;z-index:0}:host(.split-pane-visible) ::slotted(.split-pane-main){-ms-flex:1;flex:1}:host(.split-pane-visible) ::slotted(.split-pane-side:not(ion-menu)),:host(.split-pane-visible) ::slotted(ion-menu.split-pane-side.menu-enabled){display:-ms-flexbox;display:flex;-ms-flex-negative:0;flex-shrink:0}::slotted(.split-pane-side:not(ion-menu)){display:none}:host(.split-pane-visible) ::slotted(.split-pane-side){-ms-flex-order:-1;order:-1}:host(.split-pane-visible) ::slotted(.split-pane-side[side=end]){-ms-flex-order:1;order:1}:host{--border:1px solid var(--ion-item-border-color, var(--ion-border-color, var(--ion-color-step-150, rgba(0, 0, 0, 0.13))));--side-min-width:270px;--side-max-width:28%}:host(.split-pane-visible) ::slotted(.split-pane-side){border-left:0;border-right:var(--border);border-top:0;border-bottom:0;min-width:var(--side-min-width);max-width:var(--side-max-width)}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){:host(.split-pane-visible) ::slotted(.split-pane-side){border-left:unset;border-right:unset;-webkit-border-start:0;border-inline-start:0;-webkit-border-end:var(--border);border-inline-end:var(--border)}}:host(.split-pane-visible) ::slotted(.split-pane-side[side=end]){border-left:var(--border);border-right:0;border-top:0;border-bottom:0;min-width:var(--side-min-width);max-width:var(--side-max-width)}@supports ((-webkit-margin-start: 0) or (margin-inline-start: 0)) or (-webkit-margin-start: 0){:host(.split-pane-visible) ::slotted(.split-pane-side[side=end]){border-left:unset;border-right:unset;-webkit-border-start:var(--border);border-inline-start:var(--border);-webkit-border-end:0;border-inline-end:0}}";
+    var SPLIT_PANE_MAIN = 'split-pane-main';
+    var SPLIT_PANE_SIDE = 'split-pane-side';
+    var QUERY = {
+      'xs': '(min-width: 0px)',
+      'sm': '(min-width: 576px)',
+      'md': '(min-width: 768px)',
+      'lg': '(min-width: 992px)',
+      'xl': '(min-width: 1200px)',
+      'never': ''
+    };
 
-    var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./helpers-46f4a262.js */
-    "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
-    /* harmony import */
+    var SplitPane = /*#__PURE__*/function () {
+      function SplitPane(hostRef) {
+        _classCallCheck(this, SplitPane);
 
-
-    var _index_c38df685_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./index-c38df685.js */
-    "./node_modules/@ionic/core/dist/esm/index-c38df685.js");
-
-    var Backdrop =
-    /*#__PURE__*/
-    function () {
-      function Backdrop(hostRef) {
-        _classCallCheck(this, Backdrop);
-
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.lastClick = -10000;
-        this.blocker = _index_c38df685_js__WEBPACK_IMPORTED_MODULE_3__["GESTURE_CONTROLLER"].createBlocker({
-          disableScroll: true
-        });
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
+        this.visible = false;
         /**
-         * If `true`, the backdrop will be visible.
+         * If `true`, the split pane will be hidden.
          */
 
-        this.visible = true;
+        this.disabled = false;
         /**
-         * If `true`, the backdrop will can be clicked and will emit the `ionBackdropTap` event.
+         * When the split-pane should be shown.
+         * Can be a CSS media query expression, or a shortcut expression.
+         * Can also be a boolean expression.
          */
 
-        this.tappable = true;
-        /**
-         * If `true`, the backdrop will stop propagation on tap.
-         */
-
-        this.stopPropagation = true;
-        this.ionBackdropTap = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionBackdropTap", 7);
+        this.when = QUERY['lg'];
+        this.ionSplitPaneVisible = Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this, "ionSplitPaneVisible", 7);
       }
 
-      _createClass(Backdrop, [{
+      _createClass(SplitPane, [{
+        key: "visibleChanged",
+        value: function visibleChanged(visible) {
+          var detail = {
+            visible: visible,
+            isPane: this.isPane.bind(this)
+          };
+          this.ionSplitPaneVisible.emit(detail);
+        }
+      }, {
         key: "connectedCallback",
         value: function connectedCallback() {
-          if (this.stopPropagation) {
-            this.blocker.block();
-          }
+          this.styleChildren();
+          this.updateState();
         }
       }, {
         key: "disconnectedCallback",
         value: function disconnectedCallback() {
-          this.blocker.unblock();
-        }
-      }, {
-        key: "onTouchStart",
-        value: function onTouchStart(ev) {
-          this.lastClick = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["n"])(ev);
-          this.emitTap(ev);
-        }
-      }, {
-        key: "onMouseDown",
-        value: function onMouseDown(ev) {
-          if (this.lastClick < Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["n"])(ev) - 2500) {
-            this.emitTap(ev);
+          if (this.rmL) {
+            this.rmL();
+            this.rmL = undefined;
           }
         }
       }, {
-        key: "emitTap",
-        value: function emitTap(ev) {
-          if (this.stopPropagation) {
-            ev.preventDefault();
-            ev.stopPropagation();
+        key: "updateState",
+        value: function updateState() {
+          var _this = this;
+
+          if (this.rmL) {
+            this.rmL();
+            this.rmL = undefined;
+          } // Check if the split-pane is disabled
+
+
+          if (this.disabled) {
+            this.visible = false;
+            return;
+          } // When query is a boolean
+
+
+          var query = this.when;
+
+          if (typeof query === 'boolean') {
+            this.visible = query;
+            return;
+          } // When query is a string, let's find first if it is a shortcut
+
+
+          var mediaQuery = QUERY[query] || query; // Media query is empty or null, we hide it
+
+          if (mediaQuery.length === 0) {
+            this.visible = false;
+            return;
           }
 
-          if (this.tappable) {
-            this.ionBackdropTap.emit();
+          if (window.matchMedia) {
+            // Listen on media query
+            var callback = function callback(q) {
+              _this.visible = q.matches;
+            };
+
+            var mediaList = window.matchMedia(mediaQuery);
+            mediaList.addListener(callback);
+
+            this.rmL = function () {
+              return mediaList.removeListener(callback);
+            };
+
+            this.visible = mediaList.matches;
+          }
+        }
+      }, {
+        key: "isPane",
+        value: function isPane(element) {
+          if (!this.visible) {
+            return false;
+          }
+
+          return element.parentElement === this.el && element.classList.contains(SPLIT_PANE_SIDE);
+        }
+      }, {
+        key: "styleChildren",
+        value: function styleChildren() {
+          var contentId = this.contentId;
+          var children = this.el.children;
+          var nu = this.el.childElementCount;
+          var foundMain = false;
+
+          for (var i = 0; i < nu; i++) {
+            var child = children[i];
+            var isMain = contentId !== undefined && child.id === contentId;
+
+            if (isMain) {
+              if (foundMain) {
+                console.warn('split pane cannot have more than one main node');
+                return;
+              }
+
+              foundMain = true;
+            }
+
+            setPaneClass(child, isMain);
+          }
+
+          if (!foundMain) {
+            console.warn('split pane does not have a specified main node');
           }
         }
       }, {
@@ -122,23 +186,55 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
         value: function render() {
           var _class;
 
-          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
-            tabindex: "-1",
-            class: (_class = {}, _defineProperty(_class, mode, true), _defineProperty(_class, 'backdrop-hide', !this.visible), _defineProperty(_class, 'backdrop-no-tappable', !this.tappable), _class)
-          });
+          var mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            "class": (_class = {}, _defineProperty(_class, mode, true), _defineProperty(_class, "split-pane-".concat(mode), true), _defineProperty(_class, 'split-pane-visible', this.visible), _class)
+          }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("slot", null));
+        }
+      }, {
+        key: "el",
+        get: function get() {
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
         }
       }], [{
-        key: "style",
+        key: "watchers",
         get: function get() {
-          return ":host{left:0;right:0;top:0;bottom:0;display:block;position:absolute;-webkit-transform:translateZ(0);transform:translateZ(0);contain:strict;cursor:pointer;opacity:.01;-ms-touch-action:none;touch-action:none;z-index:2}:host(.backdrop-hide){background:transparent}:host(.backdrop-no-tappable){cursor:auto}:host{background-color:var(--ion-backdrop-color,#000)}";
+          return {
+            "visible": ["visibleChanged"],
+            "disabled": ["updateState"],
+            "when": ["updateState"]
+          };
         }
       }]);
 
-      return Backdrop;
+      return SplitPane;
     }();
-    /***/
 
+    var setPaneClass = function setPaneClass(el, isMain) {
+      var toAdd;
+      var toRemove;
+
+      if (isMain) {
+        toAdd = SPLIT_PANE_MAIN;
+        toRemove = SPLIT_PANE_SIDE;
+      } else {
+        toAdd = SPLIT_PANE_SIDE;
+        toRemove = SPLIT_PANE_MAIN;
+      }
+
+      var classList = el.classList;
+      classList.add(toAdd);
+      classList.remove(toRemove);
+    };
+
+    SplitPane.style = {
+      /*STENCIL:MODE:ios*/
+      ios: splitPaneIosCss,
+
+      /*STENCIL:MODE:md*/
+      md: splitPaneMdCss
+    };
+    /***/
   }
 }]);
 //# sourceMappingURL=65-es5.js.map

@@ -8,418 +8,143 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
 (window["webpackJsonp"] = window["webpackJsonp"] || []).push([[63], {
   /***/
-  "./node_modules/@ionic/core/dist/esm/ion-toggle-ios.entry.js":
-  /*!*******************************************************************!*\
-    !*** ./node_modules/@ionic/core/dist/esm/ion-toggle-ios.entry.js ***!
-    \*******************************************************************/
+  "./node_modules/@ionic/core/dist/esm/ion-spinner.entry.js":
+  /*!****************************************************************!*\
+    !*** ./node_modules/@ionic/core/dist/esm/ion-spinner.entry.js ***!
+    \****************************************************************/
 
-  /*! exports provided: ion_toggle */
+  /*! exports provided: ion_spinner */
 
   /***/
-  function node_modulesIonicCoreDistEsmIonToggleIosEntryJs(module, __webpack_exports__, __webpack_require__) {
+  function node_modulesIonicCoreDistEsmIonSpinnerEntryJs(module, __webpack_exports__, __webpack_require__) {
     "use strict";
 
     __webpack_require__.r(__webpack_exports__);
     /* harmony export (binding) */
 
 
-    __webpack_require__.d(__webpack_exports__, "ion_toggle", function () {
-      return Toggle;
+    __webpack_require__.d(__webpack_exports__, "ion_spinner", function () {
+      return Spinner;
     });
     /* harmony import */
 
 
-    var _core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
-    /*! ./core-0a8d4d2e.js */
-    "./node_modules/@ionic/core/dist/esm/core-0a8d4d2e.js");
+    var _index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(
+    /*! ./index-29df6f59.js */
+    "./node_modules/@ionic/core/dist/esm/index-29df6f59.js");
     /* harmony import */
 
 
-    var _config_3c7f3790_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
-    /*! ./config-3c7f3790.js */
-    "./node_modules/@ionic/core/dist/esm/config-3c7f3790.js");
+    var _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(
+    /*! ./ionic-global-08f4fb8a.js */
+    "./node_modules/@ionic/core/dist/esm/ionic-global-08f4fb8a.js");
     /* harmony import */
 
 
-    var _helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
-    /*! ./helpers-46f4a262.js */
-    "./node_modules/@ionic/core/dist/esm/helpers-46f4a262.js");
+    var _theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(
+    /*! ./theme-3f0b0c04.js */
+    "./node_modules/@ionic/core/dist/esm/theme-3f0b0c04.js");
     /* harmony import */
 
 
-    var _theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
-    /*! ./theme-18cbe2cc.js */
-    "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js");
-    /* harmony import */
+    var _spinner_configs_c78e170e_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(
+    /*! ./spinner-configs-c78e170e.js */
+    "./node_modules/@ionic/core/dist/esm/spinner-configs-c78e170e.js");
 
+    var spinnerCss = ":host{display:inline-block;position:relative;width:28px;height:28px;color:var(--color);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}:host(.ion-color){color:var(--ion-color-base)}svg{left:0;top:0;-webkit-transform-origin:center;transform-origin:center;position:absolute;width:100%;height:100%;-webkit-transform:translateZ(0);transform:translateZ(0)}[dir=rtl] svg,:host-context([dir=rtl]) svg{left:unset;right:unset;right:0}[dir=rtl] svg,:host-context([dir=rtl]) svg{-webkit-transform-origin:calc(100% - center);transform-origin:calc(100% - center)}:host(.spinner-lines) line,:host(.spinner-lines-small) line{stroke-width:4px;stroke-linecap:round;stroke:currentColor}:host(.spinner-lines) svg,:host(.spinner-lines-small) svg{-webkit-animation:spinner-fade-out 1s linear infinite;animation:spinner-fade-out 1s linear infinite}:host(.spinner-bubbles) svg{-webkit-animation:spinner-scale-out 1s linear infinite;animation:spinner-scale-out 1s linear infinite;fill:currentColor}:host(.spinner-circles) svg{-webkit-animation:spinner-fade-out 1s linear infinite;animation:spinner-fade-out 1s linear infinite;fill:currentColor}:host(.spinner-crescent) circle{fill:transparent;stroke-width:4px;stroke-dasharray:128px;stroke-dashoffset:82px;stroke:currentColor}:host(.spinner-crescent) svg{-webkit-animation:spinner-rotate 1s linear infinite;animation:spinner-rotate 1s linear infinite}:host(.spinner-dots) circle{stroke-width:0;fill:currentColor}:host(.spinner-dots) svg{-webkit-animation:spinner-dots 1s linear infinite;animation:spinner-dots 1s linear infinite}:host(.spinner-circular){-webkit-animation:spinner-circular linear infinite;animation:spinner-circular linear infinite}:host(.spinner-circular) circle{-webkit-animation:spinner-circular-inner ease-in-out infinite;animation:spinner-circular-inner ease-in-out infinite;stroke:currentColor;stroke-dasharray:80px, 200px;stroke-dashoffset:0px;stroke-width:5.6;fill:none}:host(.spinner-paused),:host(.spinner-paused) svg,:host(.spinner-paused) circle{-webkit-animation-play-state:paused;animation-play-state:paused}@-webkit-keyframes spinner-fade-out{0%{opacity:1}100%{opacity:0}}@keyframes spinner-fade-out{0%{opacity:1}100%{opacity:0}}@-webkit-keyframes spinner-scale-out{0%{-webkit-transform:scale(1, 1);transform:scale(1, 1)}100%{-webkit-transform:scale(0, 0);transform:scale(0, 0)}}@keyframes spinner-scale-out{0%{-webkit-transform:scale(1, 1);transform:scale(1, 1)}100%{-webkit-transform:scale(0, 0);transform:scale(0, 0)}}@-webkit-keyframes spinner-rotate{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes spinner-rotate{0%{-webkit-transform:rotate(0deg);transform:rotate(0deg)}100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@-webkit-keyframes spinner-dots{0%{-webkit-transform:scale(1, 1);transform:scale(1, 1);opacity:0.9}50%{-webkit-transform:scale(0.4, 0.4);transform:scale(0.4, 0.4);opacity:0.3}100%{-webkit-transform:scale(1, 1);transform:scale(1, 1);opacity:0.9}}@keyframes spinner-dots{0%{-webkit-transform:scale(1, 1);transform:scale(1, 1);opacity:0.9}50%{-webkit-transform:scale(0.4, 0.4);transform:scale(0.4, 0.4);opacity:0.3}100%{-webkit-transform:scale(1, 1);transform:scale(1, 1);opacity:0.9}}@-webkit-keyframes spinner-circular{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@keyframes spinner-circular{100%{-webkit-transform:rotate(360deg);transform:rotate(360deg)}}@-webkit-keyframes spinner-circular-inner{0%{stroke-dasharray:1px, 200px;stroke-dashoffset:0px}50%{stroke-dasharray:100px, 200px;stroke-dashoffset:-15px}100%{stroke-dasharray:100px, 200px;stroke-dashoffset:-125px}}@keyframes spinner-circular-inner{0%{stroke-dasharray:1px, 200px;stroke-dashoffset:0px}50%{stroke-dasharray:100px, 200px;stroke-dashoffset:-15px}100%{stroke-dasharray:100px, 200px;stroke-dashoffset:-125px}}";
 
-    var _haptic_c8f1473e_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(
-    /*! ./haptic-c8f1473e.js */
-    "./node_modules/@ionic/core/dist/esm/haptic-c8f1473e.js");
+    var Spinner = /*#__PURE__*/function () {
+      function Spinner(hostRef) {
+        _classCallCheck(this, Spinner);
 
-    var Toggle =
-    /*#__PURE__*/
-    function () {
-      function Toggle(hostRef) {
-        var _this = this;
-
-        _classCallCheck(this, Toggle);
-
-        Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
-        this.inputId = "ion-tg-".concat(toggleIds++);
-        this.lastDrag = 0;
-        this.activated = false;
+        Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["r"])(this, hostRef);
         /**
-         * The name of the control, which is submitted with the form data.
+         * If `true`, the spinner's animation will be paused.
          */
 
-        this.name = this.inputId;
-        /**
-         * If `true`, the toggle is selected.
-         */
-
-        this.checked = false;
-        /**
-         * If `true`, the user cannot interact with the toggle.
-         */
-
-        this.disabled = false;
-        /**
-         * The value of the toggle does not mean if it's checked or not, use the `checked`
-         * property for that.
-         *
-         * The value of a toggle is analogous to the value of a `<input type="checkbox">`,
-         * it's only used when the toggle participates in a native `<form>`.
-         */
-
-        this.value = 'on';
-
-        this.onClick = function () {
-          if (_this.lastDrag + 300 < Date.now()) {
-            _this.checked = !_this.checked;
-          }
-        };
-
-        this.onFocus = function () {
-          _this.ionFocus.emit();
-        };
-
-        this.onBlur = function () {
-          _this.ionBlur.emit();
-        };
-
-        this.ionChange = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionChange", 7);
-        this.ionFocus = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionFocus", 7);
-        this.ionBlur = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionBlur", 7);
-        this.ionStyle = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["d"])(this, "ionStyle", 7);
+        this.paused = false;
       }
 
-      _createClass(Toggle, [{
-        key: "checkedChanged",
-        value: function checkedChanged(isChecked) {
-          this.ionChange.emit({
-            checked: isChecked,
-            value: this.value
-          });
-        }
-      }, {
-        key: "disabledChanged",
-        value: function disabledChanged() {
-          this.emitStyle();
+      _createClass(Spinner, [{
+        key: "getName",
+        value: function getName() {
+          var spinnerName = this.name || _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["c"].get('spinner');
 
-          if (this.gesture) {
-            this.gesture.enable(!this.disabled);
+          var mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(this);
+
+          if (spinnerName) {
+            return spinnerName;
           }
-        }
-      }, {
-        key: "connectedCallback",
-        value: function connectedCallback() {
-          var _this2 = this;
 
-          return regeneratorRuntime.async(function connectedCallback$(_context) {
-            while (1) {
-              switch (_context.prev = _context.next) {
-                case 0:
-                  _context.next = 2;
-                  return regeneratorRuntime.awrap(Promise.resolve().then(__webpack_require__.bind(null,
-                  /*! ./index-c38df685.js */
-                  "./node_modules/@ionic/core/dist/esm/index-c38df685.js")));
-
-                case 2:
-                  _context.t0 = {
-                    el: this.el,
-                    gestureName: 'toggle',
-                    gesturePriority: 100,
-                    threshold: 5,
-                    passive: false,
-                    onStart: function onStart() {
-                      return _this2.onStart();
-                    },
-                    onMove: function onMove(ev) {
-                      return _this2.onMove(ev);
-                    },
-                    onEnd: function onEnd(ev) {
-                      return _this2.onEnd(ev);
-                    }
-                  };
-                  this.gesture = _context.sent.createGesture(_context.t0);
-                  this.disabledChanged();
-
-                case 5:
-                case "end":
-                  return _context.stop();
-              }
-            }
-          }, null, this);
-        }
-      }, {
-        key: "disconnectedCallback",
-        value: function disconnectedCallback() {
-          if (this.gesture) {
-            this.gesture.destroy();
-            this.gesture = undefined;
-          }
-        }
-      }, {
-        key: "componentWillLoad",
-        value: function componentWillLoad() {
-          this.emitStyle();
-        }
-      }, {
-        key: "emitStyle",
-        value: function emitStyle() {
-          this.ionStyle.emit({
-            'interactive-disabled': this.disabled
-          });
-        }
-      }, {
-        key: "onStart",
-        value: function onStart() {
-          this.activated = true; // touch-action does not work in iOS
-
-          this.setFocus();
-        }
-      }, {
-        key: "onMove",
-        value: function onMove(detail) {
-          if (shouldToggle(document, this.checked, detail.deltaX, -10)) {
-            this.checked = !this.checked;
-            Object(_haptic_c8f1473e_js__WEBPACK_IMPORTED_MODULE_4__["h"])();
-          }
-        }
-      }, {
-        key: "onEnd",
-        value: function onEnd(ev) {
-          this.activated = false;
-          this.lastDrag = Date.now();
-          ev.event.preventDefault();
-          ev.event.stopImmediatePropagation();
-        }
-      }, {
-        key: "getValue",
-        value: function getValue() {
-          return this.value || '';
-        }
-      }, {
-        key: "setFocus",
-        value: function setFocus() {
-          if (this.buttonEl) {
-            this.buttonEl.focus();
-          }
+          return mode === 'ios' ? 'lines' : 'circular';
         }
       }, {
         key: "render",
         value: function render() {
-          var _Object$assign,
-              _this3 = this;
+          var _Object$assign;
 
-          var inputId = this.inputId,
-              disabled = this.disabled,
-              checked = this.checked,
-              activated = this.activated,
-              color = this.color,
-              el = this.el;
-          var mode = Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["c"])(this);
-          var labelId = inputId + '-lbl';
-          var label = Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["f"])(el);
-          var value = this.getValue();
+          var self = this;
+          var mode = Object(_ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["b"])(self);
+          var spinnerName = self.getName();
+          var spinner = _spinner_configs_c78e170e_js__WEBPACK_IMPORTED_MODULE_3__["S"][spinnerName] || _spinner_configs_c78e170e_js__WEBPACK_IMPORTED_MODULE_3__["S"]['lines'];
+          var duration = typeof self.duration === 'number' && self.duration > 10 ? self.duration : spinner.dur;
+          var svgs = [];
 
-          if (label) {
-            label.id = labelId;
+          if (spinner.circles !== undefined) {
+            for (var i = 0; i < spinner.circles; i++) {
+              svgs.push(buildCircle(spinner, duration, i, spinner.circles));
+            }
+          } else if (spinner.lines !== undefined) {
+            for (var _i = 0; _i < spinner.lines; _i++) {
+              svgs.push(buildLine(spinner, duration, _i, spinner.lines));
+            }
           }
 
-          Object(_helpers_46f4a262_js__WEBPACK_IMPORTED_MODULE_2__["a"])(true, el, this.name, checked ? value : '', disabled);
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
-            onClick: this.onClick,
-            role: "checkbox",
-            "aria-disabled": disabled ? 'true' : null,
-            "aria-checked": "".concat(checked),
-            "aria-labelledby": labelId,
-            class: Object.assign(Object.assign({}, Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["c"])(color)), (_Object$assign = {}, _defineProperty(_Object$assign, mode, true), _defineProperty(_Object$assign, 'in-item', Object(_theme_18cbe2cc_js__WEBPACK_IMPORTED_MODULE_3__["h"])('ion-item', el)), _defineProperty(_Object$assign, 'toggle-activated', activated), _defineProperty(_Object$assign, 'toggle-checked', checked), _defineProperty(_Object$assign, 'toggle-disabled', disabled), _defineProperty(_Object$assign, 'interactive', true), _Object$assign))
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
-            class: "toggle-icon"
-          }, Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("div", {
-            class: "toggle-inner"
-          })), Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["h"])("button", {
-            type: "button",
-            onFocus: this.onFocus,
-            onBlur: this.onBlur,
-            disabled: disabled,
-            ref: function ref(btnEl) {
-              return _this3.buttonEl = btnEl;
-            }
-          }));
-        }
-      }, {
-        key: "el",
-        get: function get() {
-          return Object(_core_0a8d4d2e_js__WEBPACK_IMPORTED_MODULE_0__["e"])(this);
-        }
-      }], [{
-        key: "watchers",
-        get: function get() {
-          return {
-            "checked": ["checkedChanged"],
-            "disabled": ["disabledChanged"]
-          };
-        }
-      }, {
-        key: "style",
-        get: function get() {
-          return ":host{-webkit-box-sizing:content-box!important;box-sizing:content-box!important;display:inline-block;outline:none;contain:content;cursor:pointer;-ms-touch-action:none;touch-action:none;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;z-index:2}:host(.ion-focused) input{border:2px solid #5e9ed6}:host(.toggle-disabled){pointer-events:none}button{left:0;top:0;margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;position:absolute;width:100%;height:100%;border:0;background:transparent;cursor:pointer;-webkit-appearance:none;-moz-appearance:none;appearance:none;outline:none}:host-context([dir=rtl]) button,[dir=rtl] button{left:unset;right:unset;right:0}button::-moz-focus-inner{border:0}:host{--background:rgba(var(--ion-text-color-rgb,0,0,0),0.088);--background-checked:var(--ion-color-primary,#3880ff);--handle-background:#fff;--handle-background-checked:#fff;--border-radius:16px;--handle-border-radius:14px;-webkit-box-sizing:content-box;box-sizing:content-box;position:relative;width:51px;height:32px;contain:strict}:host(.ion-color.toggle-checked) .toggle-icon{background:var(--ion-color-base)}.toggle-icon{border-radius:var(--border-radius);display:block;position:relative;width:100%;height:100%;-webkit-transform:translateZ(0);transform:translateZ(0);-webkit-transition:background-color .3s;transition:background-color .3s;background:var(--background);overflow:hidden;pointer-events:none}.toggle-inner{left:2px;top:2px;border-radius:var(--handle-border-radius);position:absolute;width:28px;height:28px;-webkit-transition:width .12s ease-in-out 80ms,left .11s ease-in-out 80ms,right .11s ease-in-out 80ms,-webkit-transform .3s;transition:width .12s ease-in-out 80ms,left .11s ease-in-out 80ms,right .11s ease-in-out 80ms,-webkit-transform .3s;transition:transform .3s,width .12s ease-in-out 80ms,left .11s ease-in-out 80ms,right .11s ease-in-out 80ms;transition:transform .3s,width .12s ease-in-out 80ms,left .11s ease-in-out 80ms,right .11s ease-in-out 80ms,-webkit-transform .3s;background:var(--handle-background);-webkit-box-shadow:0 3px 12px rgba(0,0,0,.16),0 3px 1px rgba(0,0,0,.1);box-shadow:0 3px 12px rgba(0,0,0,.16),0 3px 1px rgba(0,0,0,.1);will-change:transform;contain:strict}:host-context([dir=rtl]) .toggle-inner,[dir=rtl] .toggle-inner{left:unset;right:unset;right:2px}:host(.toggle-checked) .toggle-icon{background:var(--background-checked)}:host(.toggle-activated) .toggle-icon:before,:host(.toggle-checked) .toggle-icon:before{-webkit-transform:scale3d(0,0,0);transform:scale3d(0,0,0)}:host(.toggle-checked) .toggle-inner{-webkit-transform:translate3d(19px,0,0);transform:translate3d(19px,0,0);background:var(--handle-background-checked)}:host-context([dir=rtl]).toggle-checked .toggle-inner,:host-context([dir=rtl]):host(.toggle-checked) .toggle-inner{-webkit-transform:translate3d(calc(-1 * 19px),0,0);transform:translate3d(calc(-1 * 19px),0,0)}:host(.toggle-activated.toggle-checked) .toggle-inner:before{-webkit-transform:scale3d(0,0,0);transform:scale3d(0,0,0)}:host(.toggle-activated) .toggle-inner{width:34px}:host(.toggle-activated.toggle-checked) .toggle-inner{left:-4px}:host-context([dir=rtl]).toggle-activated.toggle-checked .toggle-inner,:host-context([dir=rtl]):host(.toggle-activated.toggle-checked) .toggle-inner{left:unset;right:unset;right:-4px}:host(.toggle-disabled){opacity:.3}:host(.in-item[slot]){margin-left:0;margin-right:0;margin-top:0;margin-bottom:0;padding-left:20px;padding-right:10px;padding-top:6px;padding-bottom:5px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host(.in-item[slot]){padding-left:unset;padding-right:unset;-webkit-padding-start:20px;padding-inline-start:20px;-webkit-padding-end:10px;padding-inline-end:10px}}:host(.in-item[slot=start]){padding-left:0;padding-right:16px;padding-top:6px;padding-bottom:5px}\@supports ((-webkit-margin-start:0) or (margin-inline-start:0)) or (-webkit-margin-start:0){:host(.in-item[slot=start]){padding-left:unset;padding-right:unset;-webkit-padding-start:0;padding-inline-start:0;-webkit-padding-end:16px;padding-inline-end:16px}}";
+          return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["H"], {
+            "class": Object.assign(Object.assign({}, Object(_theme_3f0b0c04_js__WEBPACK_IMPORTED_MODULE_2__["c"])(self.color)), (_Object$assign = {}, _defineProperty(_Object$assign, mode, true), _defineProperty(_Object$assign, "spinner-".concat(spinnerName), true), _defineProperty(_Object$assign, 'spinner-paused', !!self.paused || _ionic_global_08f4fb8a_js__WEBPACK_IMPORTED_MODULE_1__["c"].getBoolean('_testing')), _Object$assign)),
+            role: "progressbar",
+            style: spinner.elmDuration ? {
+              animationDuration: duration + 'ms'
+            } : {}
+          }, svgs);
         }
       }]);
 
-      return Toggle;
+      return Spinner;
     }();
 
-    var shouldToggle = function shouldToggle(doc, checked, deltaX, margin) {
-      var isRTL = doc.dir === 'rtl';
-
-      if (checked) {
-        return !isRTL && margin > deltaX || isRTL && -margin < deltaX;
-      } else {
-        return !isRTL && -margin < deltaX || isRTL && margin > deltaX;
-      }
+    var buildCircle = function buildCircle(spinner, duration, index, total) {
+      var data = spinner.fn(duration, index, total);
+      data.style['animation-duration'] = duration + 'ms';
+      return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("svg", {
+        viewBox: data.viewBox || '0 0 64 64',
+        style: data.style
+      }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("circle", {
+        transform: data.transform || 'translate(32,32)',
+        cx: data.cx,
+        cy: data.cy,
+        r: data.r,
+        style: spinner.elmDuration ? {
+          animationDuration: duration + 'ms'
+        } : {}
+      }));
     };
 
-    var toggleIds = 0;
+    var buildLine = function buildLine(spinner, duration, index, total) {
+      var data = spinner.fn(duration, index, total);
+      data.style['animation-duration'] = duration + 'ms';
+      return Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("svg", {
+        viewBox: data.viewBox || '0 0 64 64',
+        style: data.style
+      }, Object(_index_29df6f59_js__WEBPACK_IMPORTED_MODULE_0__["h"])("line", {
+        transform: "translate(32,32)",
+        y1: data.y1,
+        y2: data.y2
+      }));
+    };
+
+    Spinner.style = spinnerCss;
     /***/
-  },
-
-  /***/
-  "./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js":
-  /*!*************************************************************!*\
-    !*** ./node_modules/@ionic/core/dist/esm/theme-18cbe2cc.js ***!
-    \*************************************************************/
-
-  /*! exports provided: c, g, h, o */
-
-  /***/
-  function node_modulesIonicCoreDistEsmTheme18cbe2ccJs(module, __webpack_exports__, __webpack_require__) {
-    "use strict";
-
-    __webpack_require__.r(__webpack_exports__);
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "c", function () {
-      return createColorClasses;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "g", function () {
-      return getClassMap;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "h", function () {
-      return hostContext;
-    });
-    /* harmony export (binding) */
-
-
-    __webpack_require__.d(__webpack_exports__, "o", function () {
-      return openURL;
-    });
-
-    var hostContext = function hostContext(selector, el) {
-      return el.closest(selector) !== null;
-    };
-    /**
-     * Create the mode and color classes for the component based on the classes passed in
-     */
-
-
-    var createColorClasses = function createColorClasses(color) {
-      return typeof color === 'string' && color.length > 0 ? _defineProperty({
-        'ion-color': true
-      }, "ion-color-".concat(color), true) : undefined;
-    };
-
-    var getClassList = function getClassList(classes) {
-      if (classes !== undefined) {
-        var array = Array.isArray(classes) ? classes : classes.split(' ');
-        return array.filter(function (c) {
-          return c != null;
-        }).map(function (c) {
-          return c.trim();
-        }).filter(function (c) {
-          return c !== '';
-        });
-      }
-
-      return [];
-    };
-
-    var getClassMap = function getClassMap(classes) {
-      var map = {};
-      getClassList(classes).forEach(function (c) {
-        return map[c] = true;
-      });
-      return map;
-    };
-
-    var SCHEME = /^[a-z][a-z0-9+\-.]*:/;
-
-    var openURL = function openURL(url, ev, direction) {
-      var router;
-      return regeneratorRuntime.async(function openURL$(_context2) {
-        while (1) {
-          switch (_context2.prev = _context2.next) {
-            case 0:
-              if (!(url != null && url[0] !== '#' && !SCHEME.test(url))) {
-                _context2.next = 5;
-                break;
-              }
-
-              router = document.querySelector('ion-router');
-
-              if (!router) {
-                _context2.next = 5;
-                break;
-              }
-
-              if (ev != null) {
-                ev.preventDefault();
-              }
-
-              return _context2.abrupt("return", router.push(url, direction));
-
-            case 5:
-              return _context2.abrupt("return", false);
-
-            case 6:
-            case "end":
-              return _context2.stop();
-          }
-        }
-      });
-    };
-    /***/
-
   }
 }]);
 //# sourceMappingURL=63-es5.js.map

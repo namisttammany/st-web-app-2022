@@ -85,11 +85,11 @@ PODS:
   - GTMAppAuth (1.0.0):
     - AppAuth/Core (~> 1.0)
     - GTMSessionFetcher (~> 1.1)
-  - GTMSessionFetcher (1.3.1):
-    - GTMSessionFetcher/Full (= 1.3.1)
-  - GTMSessionFetcher/Core (1.3.1)
-  - GTMSessionFetcher/Full (1.3.1):
-    - GTMSessionFetcher/Core (= 1.3.1)
+  - GTMSessionFetcher (1.4.0):
+    - GTMSessionFetcher/Full (= 1.4.0)
+  - GTMSessionFetcher/Core (1.4.0)
+  - GTMSessionFetcher/Full (1.4.0):
+    - GTMSessionFetcher/Core (= 1.4.0)
   - nanopb (0.3.9011):
     - nanopb/decode (= 0.3.9011)
     - nanopb/encode (= 0.3.9011)
@@ -99,13 +99,13 @@ PODS:
 
 DEPENDENCIES:
   - Firebase/Analytics (~> 6.3.0)
-  - Firebase/Core (~> 6.3.0)
   - Firebase/Messaging (~> 6.3.0)
   - GoogleSignIn (~> 5.0.2)
   - GoogleUtilities (~> 6.5.1)
 
 SPEC REPOS:
   https://github.com/CocoaPods/Specs.git:
+    - AppAuth
     - Firebase
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
@@ -114,6 +114,7 @@ SPEC REPOS:
     - FirebaseMessaging
     - GoogleAppMeasurement
     - GoogleSignIn
+    - GoogleUtilities
     - GTMAppAuth
     - nanopb
     - Protobuf
@@ -134,10 +135,10 @@ SPEC CHECKSUMS:
   GoogleSignIn: 7137d297ddc022a7e0aa4619c86d72c909fa7213
   GoogleUtilities: 06eb53bb579efe7099152735900dd04bf09e7275
   GTMAppAuth: 4deac854479704f348309e7b66189e604cf5e01e
-  GTMSessionFetcher: cea130bbfe5a7edc8d06d3f0d17288c32ffe9925
+  GTMSessionFetcher: 6f5c8abbab8a9bce4bb3f057e317728ec6182b10
   nanopb: 18003b5e52dab79db540fe93fe9579f399bd1ccd
   Protobuf: 0e94afe3b47cb11876eb6aee296638711a24bf75
 
-PODFILE CHECKSUM: 31bdc78e0536cb7f7884e1c594fd736e59ec6f26
+PODFILE CHECKSUM: bd750786a13f07ce6be0b4dfa4d95fa7a2f08579
 
 COCOAPODS: 1.8.4

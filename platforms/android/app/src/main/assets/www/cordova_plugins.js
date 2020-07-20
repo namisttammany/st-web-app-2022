@@ -364,11 +364,57 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       ]
     },
     {
+      "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
+      "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
+      "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
+      "clobbers": [
+        "FCMPlugin"
+      ]
+    },
+    {
       "id": "cordova-plugin-firebase-analytics.FirebaseAnalytics",
       "file": "plugins/cordova-plugin-firebase-analytics/www/FirebaseAnalytics.js",
       "pluginId": "cordova-plugin-firebase-analytics",
       "merges": [
         "cordova.plugins.firebase.analytics"
+      ]
+    },
+    {
+      "id": "cordova-plugin-firebase-messaging.FirebaseMessaging",
+      "file": "plugins/cordova-plugin-firebase-messaging/www/FirebaseMessaging.js",
+      "pluginId": "cordova-plugin-firebase-messaging",
+      "merges": [
+        "cordova.plugins.firebase.messaging"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.geolocation",
+      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "clobbers": [
+        "navigator.geolocation"
+      ]
+    },
+    {
+      "id": "cordova-plugin-geolocation.PositionError",
+      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
+      "pluginId": "cordova-plugin-geolocation",
+      "runs": true
+    },
+    {
+      "id": "cordova-plugin-globalization.GlobalizationError",
+      "file": "plugins/cordova-plugin-globalization/www/GlobalizationError.js",
+      "pluginId": "cordova-plugin-globalization",
+      "clobbers": [
+        "window.GlobalizationError"
+      ]
+    },
+    {
+      "id": "cordova-plugin-globalization.globalization",
+      "file": "plugins/cordova-plugin-globalization/www/globalization.js",
+      "pluginId": "cordova-plugin-globalization",
+      "clobbers": [
+        "navigator.globalization"
       ]
     },
     {
@@ -402,6 +448,31 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "pluginId": "cordova-plugin-ionic-webview",
       "clobbers": [
         "Ionic.WebView"
+      ]
+    },
+    {
+      "id": "cordova-plugin-network-information.network",
+      "file": "plugins/cordova-plugin-network-information/www/network.js",
+      "pluginId": "cordova-plugin-network-information",
+      "clobbers": [
+        "navigator.connection",
+        "navigator.network.connection"
+      ]
+    },
+    {
+      "id": "cordova-plugin-network-information.Connection",
+      "file": "plugins/cordova-plugin-network-information/www/Connection.js",
+      "pluginId": "cordova-plugin-network-information",
+      "clobbers": [
+        "Connection"
+      ]
+    },
+    {
+      "id": "cordova-plugin-sign-in-with-apple.SignInWithApple",
+      "file": "plugins/cordova-plugin-sign-in-with-apple/www/sign-in-with-apple.js",
+      "pluginId": "cordova-plugin-sign-in-with-apple",
+      "clobbers": [
+        "cordova.plugins.SignInWithApple"
       ]
     },
     {
@@ -443,77 +514,6 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
       "merges": [
         "launchnavigator"
       ]
-    },
-    {
-      "id": "cordova-plugin-network-information.network",
-      "file": "plugins/cordova-plugin-network-information/www/network.js",
-      "pluginId": "cordova-plugin-network-information",
-      "clobbers": [
-        "navigator.connection",
-        "navigator.network.connection"
-      ]
-    },
-    {
-      "id": "cordova-plugin-network-information.Connection",
-      "file": "plugins/cordova-plugin-network-information/www/Connection.js",
-      "pluginId": "cordova-plugin-network-information",
-      "clobbers": [
-        "Connection"
-      ]
-    },
-    {
-      "id": "cordova-plugin-fcm-with-dependecy-updated.FCMPlugin",
-      "file": "plugins/cordova-plugin-fcm-with-dependecy-updated/www/FCMPlugin.js",
-      "pluginId": "cordova-plugin-fcm-with-dependecy-updated",
-      "clobbers": [
-        "FCMPlugin"
-      ]
-    },
-    {
-      "id": "cordova-plugin-firebase-messaging.FirebaseMessaging",
-      "file": "plugins/cordova-plugin-firebase-messaging/www/FirebaseMessaging.js",
-      "pluginId": "cordova-plugin-firebase-messaging",
-      "merges": [
-        "cordova.plugins.firebase.messaging"
-      ]
-    },
-    {
-      "id": "cordova-plugin-sign-in-with-apple.SignInWithApple",
-      "file": "plugins/cordova-plugin-sign-in-with-apple/www/sign-in-with-apple.js",
-      "pluginId": "cordova-plugin-sign-in-with-apple",
-      "clobbers": [
-        "cordova.plugins.SignInWithApple"
-      ]
-    },
-    {
-      "id": "cordova-plugin-geolocation.geolocation",
-      "file": "plugins/cordova-plugin-geolocation/www/android/geolocation.js",
-      "pluginId": "cordova-plugin-geolocation",
-      "clobbers": [
-        "navigator.geolocation"
-      ]
-    },
-    {
-      "id": "cordova-plugin-geolocation.PositionError",
-      "file": "plugins/cordova-plugin-geolocation/www/PositionError.js",
-      "pluginId": "cordova-plugin-geolocation",
-      "runs": true
-    },
-    {
-      "id": "cordova-plugin-globalization.GlobalizationError",
-      "file": "plugins/cordova-plugin-globalization/www/GlobalizationError.js",
-      "pluginId": "cordova-plugin-globalization",
-      "clobbers": [
-        "window.GlobalizationError"
-      ]
-    },
-    {
-      "id": "cordova-plugin-globalization.globalization",
-      "file": "plugins/cordova-plugin-globalization/www/globalization.js",
-      "pluginId": "cordova-plugin-globalization",
-      "clobbers": [
-        "navigator.globalization"
-      ]
     }
   ];
   module.exports.metadata = {
@@ -521,26 +521,26 @@ cordova.define('cordova/plugin_list', function(require, exports, module) {
     "cordova-plugin-actionsheet": "2.3.3",
     "cordova-plugin-file": "6.0.2",
     "cordova-plugin-advanced-http": "2.4.0",
+    "cordova-plugin-androidx-adapter": "1.1.0",
     "cordova-plugin-contacts": "3.0.1",
     "cordova-plugin-device": "2.0.2",
     "cordova-plugin-dialogs": "2.0.2",
+    "cordova-plugin-fcm-with-dependecy-updated": "4.2.0",
     "cordova-support-android-plugin": "1.0.1",
     "cordova-support-google-services": "1.3.2",
     "cordova-plugin-firebase-analytics": "4.0.1",
+    "cordova-plugin-firebase-messaging": "4.0.2",
+    "cordova-plugin-geolocation": "4.0.2",
+    "cordova-plugin-globalization": "1.11.0",
     "cordova-plugin-googleplus": "8.4.0",
     "cordova-plugin-inappbrowser": "3.2.0",
     "cordova-plugin-ionic-keyboard": "2.2.0",
     "cordova-plugin-ionic-webview": "4.1.3",
+    "cordova-plugin-network-information": "2.0.2",
+    "cordova-plugin-sign-in-with-apple": "0.0.1",
     "cordova-plugin-splashscreen": "5.0.2",
     "cordova-plugin-statusbar": "2.4.2",
     "cordova-plugin-whitelist": "1.3.3",
-    "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.4",
-    "cordova-plugin-androidx-adapter": "1.1.0",
-    "cordova-plugin-network-information": "2.0.2",
-    "cordova-plugin-fcm-with-dependecy-updated": "4.2.0",
-    "cordova-plugin-firebase-messaging": "4.0.2",
-    "cordova-plugin-sign-in-with-apple": "0.0.1",
-    "cordova-plugin-geolocation": "4.0.2",
-    "cordova-plugin-globalization": "1.11.0"
+    "uk.co.workingedge.phonegap.plugin.launchnavigator": "5.0.4"
   };
 });
