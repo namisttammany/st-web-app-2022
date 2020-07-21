@@ -59,6 +59,15 @@ h2 {
   color:#fff !important;
 }
 
+
+.alert-radio-label.sc-ion-alert-md {
+  color: white;
+}
+
+[aria-checked=true].sc-ion-alert-md .alert-radio-label.sc-ion-alert-md {
+  color: whitesmoke;
+}
+
 .alert-checkbox-icon.sc-ion-alert-md {
   background: transparent !important;
   border-color: rgba(255,255,255,0.5) !important;

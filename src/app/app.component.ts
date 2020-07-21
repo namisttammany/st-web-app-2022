@@ -130,6 +130,12 @@ sideMenu()
  
       },
       {
+        title : 'Language',
+        url   : "/language-modal",
+        icon  : "text-outline",
+ 
+      },
+      {
         title : 'Sponsors',
         url   : "/sponsors",
         icon  : "ribbon-outline",

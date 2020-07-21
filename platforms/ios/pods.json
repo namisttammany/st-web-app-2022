@@ -33,7 +33,7 @@
         },
         "GoogleUtilities": {
             "name": "GoogleUtilities",
-            "spec": "~> 6.5.1",
+            "spec": "~> 6.6",
             "count": 1
         }
     }

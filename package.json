@@ -45,7 +45,6 @@
     "@ngx-translate/core": "^12.1.2",
     "@ngx-translate/http-loader": "^4.0.0",
     "call-number": "^1.0.1",
-    "cordova-android": "^8.1.0",
     "cordova-ios": "^5.1.1",
     "cordova-plugin-actionsheet": "^2.3.3",
     "cordova-plugin-advanced-http": "^2.5.1",
@@ -125,9 +124,6 @@
       "call-number": {},
       "cordova-plugin-file": {},
       "cordova-plugin-contacts": {},
-      "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.958975244118-005f86ihavon68hbo320qqmqd32vjemi"
-      },
       "cordova-plugin-firebase-analytics": {},
       "cordova-plugin-androidx-adapter": {},
       "cordova-plugin-network-information": {},
@@ -143,11 +139,13 @@
       },
       "cordova-plugin-sign-in-with-apple": {},
       "cordova-plugin-geolocation": {},
-      "cordova-plugin-globalization": {}
+      "cordova-plugin-globalization": {},
+      "cordova-plugin-googleplus": {
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.286425454623-cte96a0subnq7c64hm3dhlihfvgjfldv"
+      }
     },
     "platforms": [
-      "ios",
-      "android"
+      "ios"
     ]
   }
 }

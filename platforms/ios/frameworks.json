@@ -8,11 +8,11 @@
     "libz.tbd": 3,
     "libsqlite3.0.tbd": 1,
     "CoreLocation.framework": 2,
-    "CoreText.framework": 1,
-    "SafariServices.framework": 1,
-    "libz.dylib": 1,
     "WebKit.framework": 1,
     "CoreTelephony.framework": 1,
     "AuthenticationServices.framework": 1,
-    "MapKit.framework": 1
+    "MapKit.framework": 1,
+    "CoreText.framework": 1,
+    "SafariServices.framework": 1,
+    "libz.dylib": 1
 }

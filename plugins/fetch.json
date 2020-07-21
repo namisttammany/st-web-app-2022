@@ -119,17 +119,6 @@
     "is_top_level": true,
     "variables": {}
   },
-  "cordova-plugin-googleplus": {
-    "source": {
-      "type": "registry",
-      "id": "cordova-plugin-googleplus"
-    },
-    "is_top_level": true,
-    "variables": {
-      "REVERSED_CLIENT_ID": "com.googleusercontent.apps.958975244118-005f86ihavon68hbo320qqmqd32vjemi",
-      "PLAY_SERVICES_VERSION": "15.0.1"
-    }
-  },
   "cordova-plugin-firebase-analytics": {
     "source": {
       "type": "registry",
@@ -221,5 +210,15 @@
     },
     "is_top_level": true,
     "variables": {}
+  },
+  "cordova-plugin-googleplus": {
+    "source": {
+      "type": "registry",
+      "id": "cordova-plugin-googleplus"
+    },
+    "is_top_level": true,
+    "variables": {
+      "REVERSED_CLIENT_ID": "com.googleusercontent.apps.286425454623-cte96a0subnq7c64hm3dhlihfvgjfldv"
+    }
   }
 }

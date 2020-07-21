@@ -1,3 +1,10 @@
+/* Styles top toolbar */
+ion-toolbar {
+  color: white;
+  --background: #3064ab;
+  box-shadow: none;
+  }
+
 
 /* Removes header drop shadow */
   ion-header {
@@ -10,7 +17,11 @@ ion-content{
 
 /* Styles 2 dropdowns*/
 ion-item {
-    --background: transparent !important;
-    --color: #fff !important;
-    --border-color: var(--ion-item-border-color,var(--ion-border-color,var(--ion-color-step-150,rgba(255,255,255,0.13))));
-    }
+  --background: transparent !important;
+  --color: #fff !important;
+  --border-color: var(--ion-item-border-color,var(--ion-border-color,var(--ion-color-step-150,rgba(255,255,255,0.13))));
+  }
+  /* Styles 2 dropdowns bacground color*/
+  .list-md {
+  background: transparent !important;
+  }

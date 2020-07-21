@@ -21,6 +21,11 @@ color: white;
 box-shadow: none;
 }
 
+/* Removes header drop shadow */
+ion-header {
+  z-index: 0;
+}
+
 /* Styles background color of every item on page content*/
 ion-content{
 --ion-background-color: linear-gradient(180deg, #3064ab 0%, #0c499c 50%, #03216e 100%) !important;
