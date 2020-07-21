@@ -1,0 +1,79 @@
+{
+  "project_info": {
+    "project_number": "286425454623",
+    "firebase_url": "https://nami-sttammany-30439.firebaseio.com",
+    "project_id": "nami-sttammany-30439",
+    "storage_bucket": "nami-sttammany-30439.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:286425454623:android:ddb9580c02015b9f",
+        "android_client_info": {
+          "package_name": "io.apptitude.nami"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "286425454623-3leqmjh55paiq73ap5rjfcu41c7ap13g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.apptitude.nami",
+            "certificate_hash": "9d56ca59ec1bdcb7ae8e22d68c4e585acdc3743f"
+          }
+        },
+        {
+          "client_id": "286425454623-e3i8f4s5djps6rttenod7448ei83en5b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.apptitude.nami",
+            "certificate_hash": "2f93c1d05e0ac967e263e2221ec6b4fd26fb36d0"
+          }
+        },
+        {
+          "client_id": "286425454623-repf2g83alibirucl0v741qd5ivgq55q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.apptitude.nami",
+            "certificate_hash": "e1cf43613aed7b05f31b1054aa3052a89ce2a646"
+          }
+        },
+        {
+          "client_id": "286425454623-e9fhq8q5pah6j7ih66f7tl5ma5vq88t1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "io.apptitude.nami",
+            "certificate_hash": "cf7ce6a40a64487b65cf9a9ce98dc8e50d173a22"
+          }
+        },
+        {
+          "client_id": "286425454623-9iaqqlb6mpeinfl347p9gsd9p7vfu5qr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNUi7yv0aQBITDKZazDy2Cez2Y455HDXM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "286425454623-ofgvh2sgneu6kd6mkq7s70a7ds4eqpmo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "286425454623-ti2b537ce2161qv4avg86op0105hih82.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.nami.georgia"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

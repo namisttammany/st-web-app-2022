@@ -218,7 +218,8 @@
     },
     "is_top_level": true,
     "variables": {
-      "REVERSED_CLIENT_ID": "com.googleusercontent.apps.286425454623-cte96a0subnq7c64hm3dhlihfvgjfldv"
+      "REVERSED_CLIENT_ID": "com.googleusercontent.apps.286425454623-cte96a0subnq7c64hm3dhlihfvgjfldv",
+      "PLAY_SERVICES_VERSION": "15.0.1"
     }
   }
 }
