@@ -7,8 +7,7 @@ import { AuthService } from './services/auth.service';
 import { FCM } from '@ionic-native/fcm/ngx';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { TranslateService } from '@ngx-translate/core';
-import { TranslateConfigService } from './services/translate-config.service';
-
+import { TranslateConfigService } from './services/translate-config.service'
 
 @Component({
   selector: 'app-root',
@@ -18,8 +17,6 @@ import { TranslateConfigService } from './services/translate-config.service';
 export class AppComponent {
   rootPage:string = 'LoginPage';
   navigate: any;
-  selectedLanguage:string;
-
 
   constructor(
     private platform: Platform,
@@ -30,19 +27,34 @@ export class AppComponent {
     private fcm: FCM,
     private fireauth: AngularFireAuth,
     private _translate: TranslateService,
-    private translateConfigService: TranslateConfigService
+    private translateService: TranslateConfigService,
   ) {
 
-    this.selectedLanguage = this.translateConfigService.getDefaultLanguage();
-
-    // if (this._translate.getBrowserLang() !== undefined) {
+  // console.log(this._translate.getDefaultLang())
+    if (this._translate.getBrowserLang() !== undefined && this._translate.getDefaultLang() === undefined) {
     
-    //   this._translate.setDefaultLang(this._translate.getBrowserLang());
-    //   console.log('browser language is', this._translate.getBrowserLang());
+      this._translate.setDefaultLang(this._translate.getBrowserLang());
+      // this.translateService.setLanguage('en')
+      // console.log('browser language is', this._translate.getBrowserLang());
+    } 
+    // else if (this._translate.getDefaultLang() !== undefined){
+    //   // Set your language here
+    //    this._translate.setDefaultLang('es');
     // }
-    // else {
-    //   this._translate.setDefaultLang('en');
-    // }
+
+    // auth.afAuth.authState
+    // .subscribe(
+    //   user => {
+    //     if (user) {
+    //       this.router.navigate(['/home'])
+    //     } else {
+    //       this.router.navigate(['/login'])
+    //     }
+    //   },
+    //   () => {
+    //     this.router.navigate(['/login'])
+    //   }
+    // );
 
     auth.afAuth.authState
     .subscribe(
@@ -57,15 +69,11 @@ export class AppComponent {
         this.router.navigate(['/login'])
       }
     );
-
    
 
       this.platform.ready().then(() => {
-
         this.statusBar.styleDefault();
-
         this.splashScreen.hide();
-
         this.sideMenu();
 
         this.fcm.getToken().then(token => {
@@ -89,10 +97,6 @@ export class AppComponent {
         
       })
     
-}
-
-languageChanged(){
-  this.translateConfigService.setLanguage(this.selectedLanguage);
 }
 
 logout() {
@@ -130,21 +134,22 @@ sideMenu()
  
       },
       {
-        title : 'Language',
+        title : 'menu.language',
         url   : "/language-modal",
         icon  : "text-outline",
  
       },
       {
-        title : 'Sponsors',
-        url   : "/sponsors",
-        icon  : "ribbon-outline",
-
+        title : 'menu.request',
+        url   : "/request",
+        icon  : "text-outline",
+ 
       },
       {
         title : 'menu.logout',
-        url   : "/login",
+        url   : "/signout",
         icon  : "log-out",
+
       },
     ]
   }

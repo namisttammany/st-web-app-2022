@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { RequestPageModule } from './request/request.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -61,8 +62,24 @@ const routes: Routes = [
     loadChildren: () => import('./sponsors/sponsors.module').then( m => m.SponsorsPageModule)
   },
   {
+    path: 'request',
+    // loadChildren: () => import('./about/about.module').then( m => m.AboutPageModule)
+    // **** Use Below for apps that use external URL for the ABOUT page ****
+    component: RequestPageModule,
+    resolve: {
+        url: 'externalUrlRedirectResolver'
+    },
+    data: {
+        externalUrl: 'https://imcalresourceupdate.resourceapp.org/'
+    },
+  },
+  {
     path: 'signout',
     loadChildren: () => import('./signout/signout.module').then( m => m.SignoutPageModule)
+  },
+  {
+    path: 'request',
+    loadChildren: () => import('./request/request.module').then( m => m.RequestPageModule)
   },
 ];
 

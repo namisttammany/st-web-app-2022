@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouteReuseStrategy } from '@angular/router';
+import { ActivatedRouteSnapshot, RouteReuseStrategy, RouterStateSnapshot } from '@angular/router';
 import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
@@ -38,11 +38,11 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { Globalization } from '@ionic-native/globalization/ngx';
 import { TranslateConfigService } from './services/translate-config.service';
-import { SignoutPipe } from './signout.pipe';
+
 
 
 @NgModule({
-  declarations: [AppComponent, SignoutPipe],
+  declarations: [AppComponent],
   entryComponents: [],
   imports: [
     BrowserModule, 
@@ -81,13 +81,13 @@ import { SignoutPipe } from './signout.pipe';
     Globalization,
     TranslateConfigService,
     // **** Include below provider for apps that use external URL for the ABOUT page ****
-    //  {
-    //   provide: 'externalUrlRedirectResolver',
-    //   useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) =>
-    //   {
-    //       window.location.href = (route.data as any).externalUrl;
-    //   }
-    // },
+    {
+      provide: 'externalUrlRedirectResolver',
+      useValue: (route: ActivatedRouteSnapshot, state: RouterStateSnapshot) =>
+      {
+          window.open("https://applogin.namisttammany.org");
+      }
+    },
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent]
