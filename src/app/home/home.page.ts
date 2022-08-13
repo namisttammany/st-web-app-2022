@@ -1,5 +1,5 @@
 
-import { Component, ViewChild, NgZone } from '@angular/core';
+import { Component, ViewChild, NgZone, OnInit } from '@angular/core';
 import { ToastController } from '@ionic/angular';
 import { ResourceListService } from '../services/resource-list.service';
 import { map } from 'rxjs/operators';
@@ -12,6 +12,7 @@ import { ActionSheetController } from '@ionic/angular';
 import { FirebaseAnalytics } from '@ionic-native/firebase-analytics/ngx';
 import { IonContent } from '@ionic/angular'
 import { TranslateService } from '@ngx-translate/core';
+import { TranslateConfigService } from '../services/translate-config.service'
 
 
 @Component({
@@ -19,12 +20,20 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
 })
-export class HomePage {
+export class HomePage implements OnInit {
 
   @ViewChild(IonContent, {static: false}) content: IonContent
 
   cityList;
+
   categoryList;
+  categoryENList;
+
+  categoryESList;
+  categoryFRList;
+  categoryVIList;
+  categoryZHList;
+
   isChecked: boolean = false;
   resourceList: any;
   selectResource;
@@ -62,6 +71,27 @@ export class HomePage {
   acClose
   acShareAll
   acShare
+  language: string;
+
+  selectcities;
+  selectcategories;
+  ok: string;
+  cancel: string;
+
+  catEducation
+	catFood
+	catFamily
+	catLegal
+	catDevelopmental
+	catGovernment
+	catChildren
+	catElderly
+	catMental
+	catAddiction
+	catCrisis
+	catHousing
+	catTransportation
+	catVeterans
 
 
   constructor(
@@ -73,9 +103,14 @@ export class HomePage {
     public modalController: ModalController,
     public actionSheetController: ActionSheetController,
     private firebaseAnalytics: FirebaseAnalytics,
-    private _translate: TranslateService
+    private _translate: TranslateService,
+    private translateService: TranslateConfigService
   ) {
 
+    this.language = this._translate.getDefaultLang();
+    console.log(this.language)
+
+    console.log(this.translateService.getDefaultLanguage())
     // if (this._translate.getBrowserLang() !== undefined) {
     
     //   this._translate.setDefaultLang(this._translate.getBrowserLang());
@@ -86,24 +121,44 @@ export class HomePage {
     //   this._translate.setDefaultLang('en');
     // }
 
+    // this.language = this._translate.getDefaultLang();
+
     this.router.routeReuseStrategy.shouldReuseRoute = function () {
       return false;
     };
     
-    this.mySubscription = this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) {
-        // Trick the Router into believing it's last link wasn't previously loaded
-        this.router.navigated = false;
-      }
-    });
+    // this.mySubscription = this.router.events.subscribe((event) => {
+    //   if (event instanceof NavigationEnd) {
+    //     // Trick the Router into believing it's last link wasn't previously loaded
+    //     this.router.navigated = false;
+    //   }
+    // });
 
     this.cityList = this.resourceListService.getCityList()
-    this.categoryList = this.resourceListService.getCategoryList()
+    this.categoryENList = this.resourceListService.getCategoryList()
+
+    this.categoryESList = this.resourceListService.getCategoryESList();
+    // console.log(this.categoryESList)
+
+    this.categoryFRList = this.resourceListService.getCategoryFRList();
+    this.categoryVIList = this.resourceListService.getCategoryVIList();
+    this.categoryZHList = this.resourceListService.getCategoryZHList();
+
     this.searchThisList = this.resourceListService.getResourceList()
     
-    console.log(this.cityList);
-    console.log(this.categoryList);
-    console.log(this.searchThisList)
+
+    // if (this.language = 'en'){
+    //   this.categoryList = this.categoryENList
+    // } else if (this.language = 'es') {
+    //   this.categoryList = this.categoryESList
+    // } else if (this.language = 'fr'){
+    //   this.categoryList = this.categoryFRList
+    // } else if (this.language = 'vi') {
+    //   this.categoryList = this.categoryVIList
+    // } else if (this.language = 'zh') {
+    //   this.categoryList = this.categoryZHList
+    // }
+  
 
     this.selectItems = 0;
     this.selectedResources = [];
@@ -112,40 +167,54 @@ export class HomePage {
     this.searchResults = this.searchThisList;
     this.searchResults.forEach((result) => {
       this.numberOfSearchResults=result.length;
-      console.log(result.checked)
+      // console.log(result.checked)
       result.checked = false;
     });    
 
-    this.pagetitle ='page.resources'
- 
 
   }
 
-ngOnInit() {
-  
-  
-  this._translate.get('sharemenu.clear').subscribe((res: string) => {
-    console.log(res);
-    this.acClear = res;
-  });
+async ngOnInit() {
 
-  this._translate.get('sharemenu.cancel').subscribe((res: string) => {
-    console.log(res);
-    this.acCancel = res;
-  });
+  this.language = this._translate.getDefaultLang();
+  console.log(this.language)
 
-  this._translate.get('sharemenu.close').subscribe((res: string) => {
-    console.log(res);
-    this.acClose = res;
-  });
-  this._translate.get('sharemenu.shareallresults').subscribe((res: string) => {
-    console.log(res);
-    this.acShareAll = res;
-  });
-  this._translate.get('sharemenu.share').subscribe((res: string) => {
-    console.log(res);
-    this.acShare = res;
-  });
+  this.pagetitle ='page.resources'
+  this.selectcategories = 'details.categories'
+  this.selectcities = 'home.cities'
+  this.ok = 'okText'
+  this.cancel = 'cancelText'
+  this.selectcategories = 'details.categories'
+  this.selectcities = 'home.cities'
+
+  this.catEducation = 'categories.Education'
+	this.catFood = 'categories.Food'
+	this.catFamily = 'categories.Family'
+	this.catLegal = 'categories.Legal'
+	this.catDevelopmental = 'categories.Developmental'
+	this.catGovernment = 'categories.Government'
+	this.catChildren = 'categories.Children'
+	this.catElderly = 'categories.Elderly'
+	this.catMental = 'categories.Mental'
+	this.catAddiction = 'categories.Addiction'
+	this.catCrisis = 'categories.Crisis'
+	this.catHousing = 'categories.Housing'
+	this.catTransportation = 'categories.Transportation'
+	this.catVeterans = 'categories.Veterans'
+
+  // if (this.language = 'en'){
+  //   this.categoryList = this.categoryList
+  // } else if (this.language = 'es') {
+  //   this.categoryList = this.categoryESList
+  // } else if (this.language = 'fr'){
+  //   this.categoryList = this.categoryFRList
+  // } else if (this.language = 'vi') {
+  //   this.categoryList = this.categoryVIList
+  // } else if (this.language = 'zh') {
+  //   this.categoryList = this.categoryZHList
+  // }
+ 
+
 }
 
 ngOnDestroy() {
@@ -200,6 +269,30 @@ async openModal(data) {
 
   //Action Sheet Controller - when fab button is pressed 
 async presentActionSheet() {
+  
+  this._translate.get('sharemenu.clear').subscribe((res: string) => {
+    console.log(res);
+    this.acClear = res;
+  });
+
+  this._translate.get('sharemenu.cancel').subscribe((res: string) => {
+    console.log(res);
+    this.acCancel = res;
+  });
+
+  this._translate.get('sharemenu.close').subscribe((res: string) => {
+    console.log(res);
+    this.acClose = res;
+  });
+  this._translate.get('sharemenu.shareallresults').subscribe((res: string) => {
+    console.log(res);
+    this.acShareAll = res;
+  });
+  this._translate.get('sharemenu.share').subscribe((res: string) => {
+    console.log(res);
+    this.acShare = res;
+  });
+
   const actionSheet = await this.actionSheetController.create({
       header: this.acShare,
       buttons: [{
@@ -219,7 +312,7 @@ async presentActionSheet() {
           console.log('Share clicked');
         }
       }, {
-        text: this.acShareAll + ' '+this.numberOfSearchResults ,
+        text: this.acShareAll + ' '+ this.numberOfSearchResults ,
         icon: 'share',
         handler: () => {
           this.shareAllResults();

@@ -19,6 +19,9 @@ import { Router } from '@angular/router';
 export class LanguageModalPage implements OnInit {
   selectedLanguage: string;
 
+  title;
+  language: string;
+
   constructor(
     private modalController: ModalController,
     private http: HttpClient,
@@ -32,14 +35,20 @@ export class LanguageModalPage implements OnInit {
     private router: Router,
 
   ) {
-    this.selectedLanguage = this.translateConfigService.getDefaultLanguage();
+    this.selectedLanguage = this._translate.getDefaultLang();
+    this.language = this._translate.getDefaultLang();
    }
 
   ngOnInit() {
+    this.title = 'languagemenu.title'
   }
 
-  languageChanged(){
-    this.translateConfigService.setLanguage(this.selectedLanguage);
+  languageChanged($event){
+    this._translate.use($event.target.value)
+    console.log($event.target.value);
+    this._translate.setDefaultLang($event.target.value)
+    // this.translateConfigService.setLanguage(this.selectedLanguage);
+    this.router.navigate(['/home'], $event);
   }
 
   closeModal(){

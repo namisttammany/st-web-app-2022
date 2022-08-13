@@ -12,21 +12,53 @@
 
 <ion-content class="ion-padding" id="home" (ionScrollEnd)="scrollStop($event)" (ionScroll)="scrollHandler($event)">
 
-  <ion-searchbar style="box-shadow: none !important;" [(ngModel)]="searchTerm" (search)="search($event)"></ion-searchbar>
+  <ion-searchbar style="box-shadow: none !important;" [(ngModel)]="searchTerm" (search)="search($event)" value="" placeholder=""></ion-searchbar>
   
   <div class="dropdowns">
-  <ion-list class="bshadow">
+    <!-- <ion-item>
+      <ion-label>{{'filter.by' | translate}}</ion-label>
+      <ion-select [(ngModel)]="filterBy" (ionChange)="filter($event)">
+        <ion-select-option value="name">{{'filter.name' | translate}}</ion-select-option>
+        <ion-select-option value="type">{{'filter.type' | translate}}</ion-select-option>
+        <ion-select-option value="location">{{'filter.location' | translate}}</ion-select-option> -->
+
+  <ion-list  class="bshadow">
   <ion-item >
-    <ion-label class="box-categories">Categories</ion-label>
-    <ion-select  [(ngModel)]="categories" multiple="true" cancelText="Cancel" okText="Select" (ionChange)="search();">
-      <ion-select-option *ngFor="let category of categoryList | async" value={{category.category}}>{{category.category}}</ion-select-option>
+    <ion-label class="box-categories">{{selectcategories | translate}}</ion-label>
+    <ion-select [okText]="'okText' | translate" [cancelText]="'cancelText' | translate" [(ngModel)]="categories" multiple="true" (ionChange)="search();">
+      <!-- <ion-item [hidden]="language!=='en'"> -->
+      <!-- <ion-select-option *ngFor="let category of categoryENList | async" value={{category.category}}>{{category.category}}</ion-select-option> -->
+      <ion-select-option>{{catEducation | translate}}</ion-select-option>
+      <ion-select-option>{{catFood | translate}}</ion-select-option>
+      <ion-select-option>{{catFamily | translate}}</ion-select-option>
+      <ion-select-option>{{catLegal | translate}}</ion-select-option>
+      <ion-select-option>{{catDevelopmental | translate}}</ion-select-option>
+      <ion-select-option>{{catGovernment | translate}}</ion-select-option>
+      <ion-select-option>{{catChildren | translate}}</ion-select-option>
+      <ion-select-option>{{catElderly | translate}}</ion-select-option>
+      <ion-select-option>{{catMental | translate}}</ion-select-option>
+      <ion-select-option>{{catAddiction | translate}}</ion-select-option>
+      <ion-select-option>{{catCrisis | translate}}</ion-select-option>
+      <ion-select-option>{{catHousing | translate}}</ion-select-option>
+      <ion-select-option>{{catTransportation | translate}}</ion-select-option>
+      <ion-select-option>{{catVeterans | translate}}</ion-select-option>
+
+
+
+      
+
+    <!-- </ion-item> -->
+      <!-- <ion-select-option *ngFor="let category of categoryESList | async" value={{category.category}}>{{category.category}}</ion-select-option> -->
+      
     </ion-select>
   </ion-item>
-  </ion-list>
+</ion-list>
+
+
   <ion-list class="bshadow">
   <ion-item>
-    <ion-label class="box-cities">Cities</ion-label>
-    <ion-select  [(ngModel)]="cities" multiple="true" cancelText="Cancel" okText="Select" (ionChange)="search();">
+    <ion-label class="box-cities">{{selectcities | translate}}</ion-label>
+    <ion-select  [okText]="'okText' | translate" [cancelText]="'cancelText' | translate" [(ngModel)]="cities" multiple="true" cancelText="Cancel" okText="Select" (ionChange)="search();">
       <ion-select-option *ngFor="let city of cityList | async" value={{city.city}}>{{city.city}}</ion-select-option>
     </ion-select>
   </ion-item>

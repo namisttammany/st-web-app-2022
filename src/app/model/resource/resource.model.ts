@@ -6,6 +6,10 @@ export interface Resource {
     Category: string;
     CoverageArea: string;
     Description: string;
+    Description_es: string;
+    Description_fr: string;
+    Description_vi: string;
+    Description_zh: string;
     Eligibility: string;
     EmailAddress: string;
     Fax: string;

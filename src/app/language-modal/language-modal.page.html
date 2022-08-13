@@ -1,27 +1,44 @@
-<ion-header>
+<ion-header no-border>
   <ion-toolbar>
-    <ion-title>Select Language</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <img alt="logo" slot="end" height="40px" src="assets/img/Logo_WhiteStacked_1024x1024.png">
+      <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+      </ion-buttons>
+    <ion-title>
+      {{title | translate}}
+    </ion-title>
   </ion-toolbar>
 </ion-header>
+
 
 <ion-content>
   <div class="dropdowns">
   <ion-list class="bshadow">
     <ion-item>
       <ion-label>Select Language</ion-label>
-      <ion-select placeholder="Select One" [(ngModel)]="selectedLanguage" (ionChange)="languageChanged()">
+      <ion-select style="color: white !important" placeholder="Select One" [(ngModel)]="selectedLanguage" (ionChange)="languageChanged($event)">
         <ion-select-option value="en" style="color: white !important">English</ion-select-option>
         <ion-select-option value="es" style="color: white;">Spanish</ion-select-option>
-        <ion-select-option value="fr" style="color: white;">French</ion-select-option>
+        <ion-select-option value="fr" style="color: white;">French</ion-select-option> 
         <ion-select-option value="vi" style="color: white;">Vietnamese</ion-select-option>
         <ion-select-option value="zh" style="color: white;">Chinese</ion-select-option>
-        <ion-select-option value="de" style="color: white;">German</ion-select-option>
+         <!-- <ion-select-option value="de" style="color: white;">German</ion-select-option> -->
       </ion-select>
     </ion-item>
   </ion-list>
   </div>
 
 
-  <ion-button class="close" (click)="closeModal()"><ion-icon large name="close"></ion-icon></ion-button>
+  <ion-row>
+    <!-- <ion-col col-4><ion-button class="close" (click)="closeModal()"><ion-icon large name="close"></ion-icon></ion-button> -->
+    <!-- </ion-col> -->
+      <ion-col col-4>
+      </ion-col>
+      <ion-col col-4>
+      </ion-col>
+  </ion-row>
 
 </ion-content>

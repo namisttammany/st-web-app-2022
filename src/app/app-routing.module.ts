@@ -60,6 +60,10 @@ const routes: Routes = [
     path: 'sponsors',
     loadChildren: () => import('./sponsors/sponsors.module').then( m => m.SponsorsPageModule)
   },
+  {
+    path: 'signout',
+    loadChildren: () => import('./signout/signout.module').then( m => m.SignoutPageModule)
+  },
 ];
 
 @NgModule({

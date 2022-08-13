@@ -25,6 +25,8 @@ import { TranslateService } from '@ngx-translate/core';
 })
 export class DetailsPage implements OnInit {
 
+  language;
+
   destination:string;
   start:string;
 
@@ -36,6 +38,10 @@ export class DetailsPage implements OnInit {
     Category: '',
     CoverageArea: '',
     Description: '',
+    Description_es: '',
+    Description_fr: '',
+    Description_vi: '',
+    Description_zh: '',
     Eligibility: '',
     EmailAddress: '',
     Fax: '',
@@ -71,6 +77,16 @@ goToWebsite
 cancel
 title
 acShare
+
+address;
+telephone;
+website;
+hours;
+categories;
+eligibility;
+ageserved;
+fee;
+
 
   constructor(
     public callNumber: CallNumber,
@@ -113,10 +129,22 @@ acShare
   }
 
   ngOnInit() {
+
+    this.language = this._translate.getDefaultLang();
+    console.log(this.language)
+    
     this.firebaseAnalytics.logEvent('resource_viewed', {resource_viewed: this.resource.ProgramName })
    
 
     this.title = 'page.details'
+    this.address = 'details.address'
+    this.telephone = 'details.phone'
+    this.hours = 'details.hours'
+    this.categories = 'details.categories'
+    this.eligibility = 'details.eligibility'
+    this.ageserved = 'details.ageserved'
+    this.website = 'details.website'
+    this.fee = 'details.fee'
 
     this._translate.get('details.flag').subscribe((res: string) => {
       console.log(res);
@@ -213,30 +241,6 @@ acShare
               this.regularShare();
               console.log('Opening Share Modal');
             }
-          }, {
-            text: this.call,
-            icon: 'call',
-            handler: () => {
-              this.phone();
-              console.log('Call clicked');
-            }
-          }, {
-            text: this.navigateTo,
-            icon: 'navigate',
-            handler: () => {
-              this.navigate();
-              console.log('Navigate clicked');
-            }
-          }, {
-            text: this.goToWebsite,
-            icon: 'browsers',
-            handler: () => {
-              if (this.resource.Website === '' || this.resource.Website === null) {
-                alert("Resource does not have an associated website.");
-              } else {
-                this.openWebpage();
-              }
-            }
           },{
             text: this.cancel,
             icon: 'close',
@@ -309,9 +313,31 @@ acShare
   }
 
   regularShare() {
-    var msg  = this.resource.ProgramName + '\n' + this.resource.TelephoneNumber1 + '\n' + this.resource.EmailAddress + '\n' + this.resource.Website + '\n';
-    msg = msg + "This information is provided by NAMI St. Tammany.  For more behavioral health information call us at 985-626-6528, or www.namisttammany.org or www.facebook.com/namisttammany" + '\n'
-          
+if (this.language == 'en') {
+
+    var msg  = this.resource.ProgramName + '\n' + this.resource.Description + '\n' + this.resource.TelephoneNumber1 + '\n' + this.resource.EmailAddress + '\n' + this.resource.Website + '\n';
+    msg = msg + "This information is provided by NAMI St. Tammany.  For more behavioral health information www.namist.org" + '\n'
+} 
+if (this.language == 'es') {
+
+  var msg  = this.resource.ProgramName + '\n' + this.resource.Description_es + '\n' + this.resource.TelephoneNumber1 + '\n' + this.resource.EmailAddress + '\n' + this.resource.Website + '\n';
+  msg = msg + "Esta información es proporcionada por NAMI St. Tammany. Para obtener más información sobre salud del comportamiento www.namist.org" + '\n'
+} 
+if (this.language == 'fr') {
+
+  var msg  = this.resource.ProgramName + '\n' + this.resource.Description_fr + '\n' + this.resource.TelephoneNumber1 + '\n' + this.resource.EmailAddress + '\n' + this.resource.Website + '\n';
+  msg = msg + "Ces informations sont fournies par NAMI St. Tammany. Pour plus d'informations sur la santé comportementale www.namist.org" + '\n'
+} 
+if (this.language == 'vi') {
+
+  var msg  = this.resource.ProgramName + '\n' + this.resource.Description_vi + '\n' + this.resource.TelephoneNumber1 + '\n' + this.resource.EmailAddress + '\n' + this.resource.Website + '\n';
+  msg = msg + "Thông tin này được cung cấp bởi NAMI St. Tammany. Để biết thêm thông tin về sức khỏe hành vi, www.namist.org" + '\n'
+} 
+if (this.language == 'zh') {
+
+  var msg  = this.resource.ProgramName + '\n' + + this.resource.Description_zh + '\n' + this.resource.TelephoneNumber1 + '\n' + this.resource.EmailAddress + '\n' + this.resource.Website + '\n';
+  msg = msg + "此信息由 NAMI St. Tammany 提供。如需更多行为健康信息，请访问 www.namist.org" + '\n'
+} 
    
     var data = { message: msg };
     this.openModal(data).then(() => {

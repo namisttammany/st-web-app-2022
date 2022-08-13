@@ -21,17 +21,22 @@
       <ion-card-title class="ion-text-wrap">{{resource.ProgramName}}</ion-card-title>
     </ion-card-header>
     <ion-row>
-    <ion-label class="ion-text-wrap">{{resource.Description}}</ion-label>
+      <ion-label *ngIf="language === 'en'" class="ion-text-wrap">{{resource.Description}}</ion-label>
+      <ion-label *ngIf="language === 'es'" class="ion-text-wrap">{{resource.Description_es}}</ion-label>
+      <ion-label *ngIf="language === 'fr'" class="ion-text-wrap">{{resource.Description_fr}}</ion-label>
+      <ion-label *ngIf="language === 'vi'" class="ion-text-wrap">{{resource.Description_vi}}</ion-label>
+      <ion-label *ngIf="language === 'zh'" class="ion-text-wrap">{{resource.Description_zh}}</ion-label>
+      <!-- <ion-label *ngIf="language === 'vi'" class="ion-text-wrap">{{resource.Description_vi}}</ion-label> -->
   </ion-row>
   </ion-card-content>
   </ion-card>
 
   <ion-card style="align-content: flex-start">
-      <ion-card-content (click)="navigate()">
-        <ion-card-header><h2><b>Address</b></h2></ion-card-header>
+      <ion-card-content>
+        <ion-card-header><h2><b>{{address | translate}}</b></h2></ion-card-header>
         <ion-row>
                 <!-- <ion-col col-10> -->
-                    <ion-label class="text-wrap">{{resource.Address}} {{resource.LocationCity}}, {{resource.LocationState}} {{resource.Zip}}</ion-label>
+                    <ion-label class="text-wrap"><a href="https://maps.google.com/maps?q={{resource.Address}} {{resource.LocationCity}}, {{resource.LocationState}} {{resource.Zip}}" target="_blank">{{resource.Address}} {{resource.LocationCity}}, {{resource.LocationState}} {{resource.Zip}}</a></ion-label>
                 <!-- </ion-col> -->
                 <!-- <ion-col col-2> -->
                      <!-- <ion-button shape="round" (click)="navigate()"><ion-icon name="locate"></ion-icon></ion-button> -->
@@ -41,34 +46,39 @@
     </ion-card>
 
     <ion-card style="align-content: flex-start">
-      <ion-card-content (click)="phone()">
-          <ion-card-header><h2><b>Phone #</b></h2></ion-card-header>
+      <ion-card-content>
+          <ion-card-header><h2><b>{{telephone | translate}}</b></h2></ion-card-header>
         <ion-row>
                 <!-- <ion-col col-10> -->
-                    <ion-label class="ion-text-wrap">{{resource.TelephoneNumber1}}</ion-label>
-                <!-- </ion-col> -->
+                    <ion-label class="ion-text-wrap"><a href="tel:{{resource.TelephoneNumber1}}">{{resource.TelephoneNumber1}}</a></ion-label>
+                 <!-- </ion-col> -->
                 <!-- <ion-col col-2> -->
                     <!-- <ion-button shape="round" (click)="phone()"><ion-icon name="call"></ion-icon></ion-button>  -->
                     <!-- <a href="tel:+" + {{resource.TelephoneNumber1}}><ion-icon name="call"></ion-icon></a> -->
-                <!-- </ion-col> -->
+                <!-- </ion-col>  -->
       </ion-row>
     </ion-card-content>
     </ion-card>
 
     <ion-card style="align-content: flex-start">
       <ion-card-content>
-          <ion-card-header><h2><b>Hours</b></h2></ion-card-header>
+          <ion-card-header><h2><b>{{hours | translate}}</b></h2></ion-card-header>
           <ion-row>
-        <ion-label class="ion-text-wrap">{{resource.Hours}}</ion-label>
+            <ion-label class="ion-text-wrap">{{resource.Hours}}</ion-label>
+        <!-- <ion-label *ngIf="language === 'en'" class="ion-text-wrap">{{resource.Hours}}</ion-label>
+        <ion-label *ngIf="language === 'es'" class="ion-text-wrap">{{resource.Hours_es}}</ion-label>
+        <ion-label *ngIf="language === 'fr'" class="ion-text-wrap">{{resource.Hours_fr}}</ion-label>
+        <ion-label *ngIf="language === 'vi'" class="ion-text-wrap">{{resource.Hours_vi}}</ion-label>
+        <ion-label *ngIf="language === 'zh'" class="ion-text-wrap">{{resource.Hours_zh}}</ion-label> -->
       </ion-row>
       </ion-card-content>
     </ion-card>
 
-    <ion-card style="background-color: blue;" *ngIf="resource.Website !== '';" style="align-content: flex-start" (click)="openWebpage()">
+    <ion-card style="background-color: blue;" *ngIf="resource.Website !== '';" style="align-content: flex-start">
       <ion-card-content>
-          <ion-card-header><h2><b>Website</b></h2></ion-card-header>
+          <ion-card-header><h2><b>{{website | translate}}</b></h2></ion-card-header>
           <ion-row>
-          <ion-label class="ion-text-wrap">{{resource.Website}}</ion-label>
+          <ion-label class="ion-text-wrap"><a href="{{resource.Website}}" target="_blank">{{resource.Website}}</a></ion-label>
         </ion-row>
         <!-- <ion-button (click)="openWebpage()">{{resource.Website}}</ion-button> -->
       </ion-card-content>
@@ -76,36 +86,57 @@
 
       <ion-card style="align-content: flex-start">
         <ion-card-content>
-            <ion-card-header><h2><b>Categories</b></h2></ion-card-header>
+            <ion-card-header><h2><b>{{categories | translate}}</b></h2></ion-card-header>
             <ion-row>
-          <ion-label class="ion-text-wrap">{{resource.Category}}</ion-label>
+          <ion-label *ngIf="language === 'en'" class="ion-text-wrap">{{resource.Category}}</ion-label>
+          <ion-label *ngIf="language === 'es'" class="ion-text-wrap">{{resource.Category_es}}</ion-label>
+          <ion-label *ngIf="language === 'fr'" class="ion-text-wrap">{{resource.Category_fr}}</ion-label>
+          <ion-label *ngIf="language === 'vi'" class="ion-text-wrap">{{resource.Category_vi}}</ion-label>
+          <ion-label *ngIf="language === 'zh'" class="ion-text-wrap">{{resource.Category_zh}}</ion-label>
         </ion-row>
         </ion-card-content>
       </ion-card>
 
       <ion-card style="align-content: flex-start">
         <ion-card-content>
-            <ion-card-header><h2><b>Eligibility</b></h2></ion-card-header>
+            <ion-card-header><h2><b>{{eligibility | translate}}</b></h2></ion-card-header>
             <ion-row>
-          <ion-label class="ion-text-wrap">{{resource.Eligibility}}</ion-label>
+          <ion-label *ngIf="language === 'en'" class="ion-text-wrap">{{resource.Eligibility}}</ion-label>
+          <ion-label *ngIf="language === 'es'" class="ion-text-wrap">{{resource.Eligibility_es}}</ion-label>
+          <ion-label *ngIf="language === 'fr'" class="ion-text-wrap">{{resource.Eligibility_fr}}</ion-label>
+          <ion-label *ngIf="language === 'vi'" class="ion-text-wrap">{{resource.Eligibility_vi}}</ion-label>
+          <ion-label *ngIf="language === 'zh'" class="ion-text-wrap">{{resource.Eligibility_zh}}</ion-label>
         </ion-row>
         </ion-card-content>
       </ion-card>
 
       <ion-card style="align-content: flex-start">
         <ion-card-content>
-            <ion-card-header><h2><b>Ages Served</b></h2></ion-card-header>
+            <ion-card-header><h2><b>{{ageserved | translate}}</b></h2></ion-card-header>
             <ion-row>
-          <ion-label class="ion-text-wrap">{{resource.AgeServed}}</ion-label>
+          <ion-label *ngIf="language === 'en'" class="ion-text-wrap">{{resource.AgeServed}}</ion-label>
+          <ion-label *ngIf="language === 'es'" class="ion-text-wrap">{{resource.AgeServed_es}}</ion-label>
+          <ion-label *ngIf="language === 'fr'" class="ion-text-wrap">{{resource.AgeServed_fr}}</ion-label>
+          <ion-label *ngIf="language === 'vi'" class="ion-text-wrap">{{resource.AgeServed_vi}}</ion-label>
+          <ion-label *ngIf="language === 'zh'" class="ion-text-wrap">{{resource.AgeServed_zh}}</ion-label>
         </ion-row>
         </ion-card-content>
       </ion-card>
 
       <ion-card style="align-content: flex-start">
         <ion-card-content>
-            <ion-card-header><h2><b>Fees</b></h2></ion-card-header>
+            <ion-card-header><h2><b>{{fee | translate}}</b></h2></ion-card-header>
             <ion-row>
-          <ion-label class="ion-text-wrap">{{resource.Fees}}</ion-label>
+              <ion-label *ngIf="language === 'en'" class="ion-text-wrap">{{resource.Fees}}</ion-label>
+              <ion-label *ngIf="language === 'es'" class="ion-text-wrap">{{resource.Fees_es}}</ion-label>
+              <ion-label *ngIf="language === 'fr'" class="ion-text-wrap">{{resource.Fees_fr}}</ion-label>
+              <ion-label *ngIf="language === 'vi'" class="ion-text-wrap">{{resource.Fees_vi}}</ion-label>
+              <ion-label *ngIf="language === 'zh'" class="ion-text-wrap">{{resource.Fees_zh}}</ion-label>
+          <!-- <ion-label *ngIf="language === 'en'" class="ion-text-wrap">{{resource.Fees}}</ion-label>
+          <ion-label *ngIf="language === 'es'" class="ion-text-wrap">{{resource.Fees_es}}</ion-label>
+          <ion-label *ngIf="language === 'fr'" class="ion-text-wrap">{{resource.Fees_fr}}</ion-label>
+          <ion-label *ngIf="language === 'vi'" class="ion-text-wrap">{{resource.Fees_vi}}</ion-label>
+          <ion-label *ngIf="language === 'zh'" class="ion-text-wrap">{{resource.Fees_zh}}</ion-label> -->
         </ion-row>
         </ion-card-content>
       </ion-card>

@@ -1,4 +1,3 @@
-
 import { AuthService } from '../services/auth.service';
 import { Component } from '@angular/core';
 import { AlertController } from '@ionic/angular';
@@ -53,7 +52,8 @@ export class LoginPage {
     public loadingController: LoadingController,
     public alertController: AlertController,
     private globalization: Globalization,
-    private _translate: TranslateService
+    private _translate: TranslateService,
+    // private signInWithApple: SignInWithApple
   ) { 
     this.fireauth.auth.signOut().then(() => {
       console.log('logged out')
@@ -155,18 +155,39 @@ export class LoginPage {
   // Sign in with Apple
   async nativeAppleAuth(): Promise<void> {
     try {
-      const appleCredential: AppleSignInResponse = await SignInWithApple.signin({
+
+
+      SignInWithApple.signin({
         requestedScopes: [
           ASAuthorizationAppleIDRequest.ASAuthorizationScopeFullName,
           ASAuthorizationAppleIDRequest.ASAuthorizationScopeEmail
         ]
+      })
+      .then((res: AppleSignInResponse) => {
+        // https://developer.apple.com/documentation/signinwithapplerestapi/verifying_a_user
+        // alert('Send token to apple for verification: ' + res.identityToken);
+        console.log(res);
+        this.router.navigate(['/home']);
+      })
+      .catch((error: AppleSignInErrorResponse) => {
+        alert(error.code + ' ' + error.localizedDescription);
+        console.error(error);
       });
-      const credential = new firebase.auth.OAuthProvider('apple.com').credential(
-        appleCredential.identityToken
-      );
-      const response = await this.fireauth.auth.signInWithCredential(credential);
-      console.log('Login successful', response);
-    } catch (error) {
+
+      // const appleCredential: AppleSignInResponse = await SignInWithApple.signin({
+      //   requestedScopes: [
+      //     ASAuthorizationAppleIDRequest.ASAuthorizationScopeFullName,
+      //     ASAuthorizationAppleIDRequest.ASAuthorizationScopeEmail
+      //   ]
+      // });
+      // const credential = new firebase.auth.OAuthProvider('apple.com').credential(
+      //   appleCredential.identityToken
+      // );
+      // const response = await this.fireauth.auth.signInWithCredential(credential);
+      // console.log('Login successful', response);
+      // this.router.navigate(['/home']);
+    } 
+      catch (error) {
       console.log(error);
     }
   }

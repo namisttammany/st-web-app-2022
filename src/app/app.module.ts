@@ -38,10 +38,11 @@ import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import { Globalization } from '@ionic-native/globalization/ngx';
 import { TranslateConfigService } from './services/translate-config.service';
+import { SignoutPipe } from './signout.pipe';
 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, SignoutPipe],
   entryComponents: [],
   imports: [
     BrowserModule, 
