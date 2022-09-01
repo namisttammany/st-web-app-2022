@@ -78,20 +78,25 @@ export class HomePage implements OnInit {
   ok: string;
   cancel: string;
 
+  catAddiction
+  catDevelopment
   catEducation
-	catFood
-	catFamily
-	catLegal
-	catDevelopmental
-	catGovernment
-	catChildren
-	catElderly
-	catMental
-	catAddiction
-	catCrisis
-	catHousing
-	catTransportation
-	catVeterans
+  catEmergency
+  catEmployment
+  catFamily
+  catGov
+  catHome
+  catHospitalsMed
+  catHospitalsPsy
+  catHousing
+  catLegal
+  catMedical
+  catMental
+  catResidential
+  catSeniors
+  catSuicide
+  catWomen
+  catYouth
 
 
   constructor(
@@ -187,20 +192,25 @@ async ngOnInit() {
   this.selectcategories = 'details.categories'
   this.selectcities = 'home.cities'
 
-  this.catEducation = 'categories.Education'
-	this.catFood = 'categories.Food'
-	this.catFamily = 'categories.Family'
-	this.catLegal = 'categories.Legal'
-	this.catDevelopmental = 'categories.Developmental'
-	this.catGovernment = 'categories.Government'
-	this.catChildren = 'categories.Children'
-	this.catElderly = 'categories.Elderly'
-	this.catMental = 'categories.Mental'
-	this.catAddiction = 'categories.Addiction'
-	this.catCrisis = 'categories.Crisis'
-	this.catHousing = 'categories.Housing'
-	this.catTransportation = 'categories.Transportation'
-	this.catVeterans = 'categories.Veterans'
+  this.catAddiction = "categories.Addiction"
+  this.catDevelopment = "categories.Development"
+  this.catEducation = "categories.Education"
+  this.catEmergency = "categories.Emergency"
+  this.catEmployment = "categories.Employment"
+  this.catFamily = "categories.Family"
+  this.catGov = "categories.Government"
+  this.catHome = "categories.Home"
+  this.catHospitalsMed = "categories.HospitalsMed"
+  this.catHospitalsPsy = "categories.HospitalsPsy"
+  this.catHousing = "categories.Housing"
+  this.catLegal = "categories.Legal"
+  this.catMedical = "categories.Medical"
+  this.catMental = "categories.Mental"
+  this.catResidential = "categories.Residential"
+  this.catSeniors = "categories.Seniors"
+  this.catSuicide = "categories.Suicide"
+  this.catWomen = "categories.Women"
+  this.catYouth = "categories.Youth"
 
   // if (this.language = 'en'){
   //   this.categoryList = this.categoryList

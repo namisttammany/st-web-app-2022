@@ -28,21 +28,26 @@
     <ion-select [okText]="'okText' | translate" [cancelText]="'cancelText' | translate" [(ngModel)]="categories" multiple="true" (ionChange)="search();">
       <!-- <ion-item [hidden]="language!=='en'"> -->
       <!-- <ion-select-option *ngFor="let category of categoryENList | async" value={{category.category}}>{{category.category}}</ion-select-option> -->
-      <ion-select-option>{{catEducation | translate}}</ion-select-option>
-      <ion-select-option>{{catFood | translate}}</ion-select-option>
-      <ion-select-option>{{catFamily | translate}}</ion-select-option>
-      <ion-select-option>{{catLegal | translate}}</ion-select-option>
-      <ion-select-option>{{catDevelopmental | translate}}</ion-select-option>
-      <ion-select-option>{{catGovernment | translate}}</ion-select-option>
-      <ion-select-option>{{catChildren | translate}}</ion-select-option>
-      <ion-select-option>{{catElderly | translate}}</ion-select-option>
-      <ion-select-option>{{catMental | translate}}</ion-select-option>
       <ion-select-option>{{catAddiction | translate}}</ion-select-option>
-      <ion-select-option>{{catCrisis | translate}}</ion-select-option>
+      <ion-select-option>{{catDevelopment | translate}}</ion-select-option>
+      <ion-select-option>{{catEducation | translate}}</ion-select-option>
+      <ion-select-option>{{catEmergency | translate}}</ion-select-option>
+      <ion-select-option>{{catEmployment | translate}}</ion-select-option>
+      <ion-select-option>{{catFamily | translate}}</ion-select-option>
+      <ion-select-option>{{catGov | translate}}</ion-select-option>
+      <ion-select-option>{{catHome | translate}}</ion-select-option>
+      <ion-select-option>{{catHospitalsMed | translate}}</ion-select-option>
+      <ion-select-option>{{catHospitalsPsy | translate}}</ion-select-option>
       <ion-select-option>{{catHousing | translate}}</ion-select-option>
-      <ion-select-option>{{catTransportation | translate}}</ion-select-option>
-      <ion-select-option>{{catVeterans | translate}}</ion-select-option>
-
+      <ion-select-option>{{catLegal | translate}}</ion-select-option>
+      <ion-select-option>{{catMedical | translate}}</ion-select-option>
+      <ion-select-option>{{catMental | translate}}</ion-select-option>
+      <ion-select-option>{{catResidential | translate}}</ion-select-option>
+      <ion-select-option>{{catSeniors | translate}}</ion-select-option>
+      <ion-select-option>{{catSuicide | translate}}</ion-select-option>
+      <ion-select-option>{{catWomen | translate}}</ion-select-option>
+      <ion-select-option>{{catYouth | translate}}</ion-select-option>
+      
 
 
       
