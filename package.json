@@ -46,6 +46,7 @@
     "@ngx-translate/http-loader": "^4.0.0",
     "call-number": "^1.0.1",
     "cordova-android": "^8.1.0",
+    "cordova-browser": "6.0.0",
     "cordova-ios": "^5.1.1",
     "cordova-plugin-actionsheet": "^2.3.3",
     "cordova-plugin-advanced-http": "^2.5.1",
@@ -142,7 +143,8 @@
       "cordova-plugin-geolocation": {},
       "cordova-plugin-globalization": {},
       "cordova-plugin-googleplus": {
-        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.286425454623-cte96a0subnq7c64hm3dhlihfvgjfldv"
+        "REVERSED_CLIENT_ID": "com.googleusercontent.apps.286425454623-cte96a0subnq7c64hm3dhlihfvgjfldv",
+        "WEB_APPLICATION_CLIENT_ID": "286425454623-cte96a0subnq7c64hm3dhlihfvgjfldv.apps.googleusercontent.com"
       }
     },
     "platforms": [

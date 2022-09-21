@@ -1,0 +1,52 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "call-number": {
+      "PACKAGE_NAME": "io.apptitude.nami"
+    },
+    "cordova-plugin-advanced-http": {
+      "PACKAGE_NAME": "io.apptitude.nami"
+    },
+    "cordova-plugin-androidx-adapter": {
+      "PACKAGE_NAME": "io.apptitude.nami"
+    },
+    "cordova-plugin-contacts": {
+      "PACKAGE_NAME": "io.apptitude.nami"
+    },
+    "cordova-plugin-device": {
+      "PACKAGE_NAME": "io.apptitude.nami"
+    },
+    "cordova-plugin-fcm-with-dependecy-updated": {
+      "PACKAGE_NAME": "io.apptitude.nami"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "io.apptitude.nami"
+    },
+    "cordova-plugin-firebase-analytics": {
+      "PACKAGE_NAME": "io.apptitude.nami"
+    },
+    "cordova-plugin-firebase-messaging": {
+      "PACKAGE_NAME": "io.apptitude.nami"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "io.apptitude.nami"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "io.apptitude.nami"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-actionsheet": {
+      "PACKAGE_NAME": "io.apptitude.nami"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "io.apptitude.nami"
+    }
+  }
+}

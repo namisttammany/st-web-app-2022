@@ -56,20 +56,21 @@ export class AppComponent {
     //   }
     // );
 
-    auth.afAuth.authState
-    .subscribe(
-      user => {
-        if (user) {
-          this.router.navigate(['/home'])
-        } else {
-          this.router.navigate(['/login'])
-        }
-      },
-      () => {
-        this.router.navigate(['/login'])
-      }
-    );
+    // auth.afAuth.authState
+    // .subscribe(
+    //   user => {
+    //     if (user) {
+    //       this.router.navigate(['/home'])
+    //     } else {
+    //       this.router.navigate(['/login'])
+    //     }
+    //   },
+    //   () => {
+    //     this.router.navigate(['/login'])
+    //   }
+    // );
    
+      this.router.navigate(['/home']);
 
       this.platform.ready().then(() => {
         this.statusBar.styleDefault();
@@ -115,18 +116,18 @@ sideMenu()
         icon  : "home",
  
       },
-      {
-        title : 'menu.about',
-        url   : "/about",
-        icon  : "information-circle-outline",
+      // {
+      //   title : 'menu.about',
+      //   url   : "/about",
+      //   icon  : "information-circle-outline",
 
-      },
-      {
-        title : 'menu.favorites',
-        url   : "/favorites",
-        icon  : "heart",
+      // },
+      // {
+      //   title : 'menu.favorites',
+      //   url   : "/favorites",
+      //   icon  : "heart",
  
-      },
+      // },
       {
         title : 'menu.documents',
         url   : "/documents",
@@ -145,12 +146,12 @@ sideMenu()
         icon  : "text-outline",
  
       },
-      {
-        title : 'menu.logout',
-        url   : "/signout",
-        icon  : "log-out",
+      // {
+      //   title : 'menu.logout',
+      //   url   : "/signout",
+      //   icon  : "log-out",
 
-      },
+      // },
     ]
   }
 
